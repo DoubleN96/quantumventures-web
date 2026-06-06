@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Quantum Ventures — From audience to empire</title>
-<meta name="description" content="The venture builder for elite fitness creators. You create; we design, build and operate the companies, products and brands around your name — turning attention into diversified income and lasting wealth.">
+<meta name="description" content="The venture builder for elite fitness creators. You create; we design, build and operate the companies, products and brands around your name — turning attention into diversified income and durable wealth.">
 <meta name="theme-color" content="#06070d">
 <meta property="og:title" content="Quantum Ventures — You built the audience. We build the empire.">
 <meta property="og:description" content="We build and run the entire business around your personal brand — so your income stops depending on the algorithm and starts compounding into real wealth.">
@@ -139,6 +139,24 @@
     .btn-primary:active, .btn-ghost:active { transform:none; }
     .reveal { transform:none; transition:none; }
   }
+
+  /* ===== cinematic pass — ambient motion + depth ===== */
+  /* The aurora blobs slowly drift, giving the whole canvas quiet, living atmosphere */
+  @keyframes auroraDrift1 { 0%,100%{ transform:translate3d(0,0,0) scale(1) } 50%{ transform:translate3d(6vw,4vw,0) scale(1.14) } }
+  @keyframes auroraDrift2 { 0%,100%{ transform:translate3d(0,0,0) scale(1) } 50%{ transform:translate3d(-5vw,3vw,0) scale(1.1) } }
+  @keyframes auroraDrift3 { 0%,100%{ transform:translate3d(0,0,0) scale(1) } 50%{ transform:translate3d(4vw,-5vw,0) scale(1.16) } }
+  .aurora .a1 { animation:auroraDrift1 28s ease-in-out infinite; will-change:transform; }
+  .aurora .a2 { animation:auroraDrift2 34s ease-in-out infinite; will-change:transform; }
+  .aurora .a3 { animation:auroraDrift3 40s ease-in-out infinite; will-change:transform; }
+
+  /* Hero photo: base scale so parallax translate never reveals edges; cinematic grade */
+  .hero-photo { transform:scale(1.08); will-change:transform; filter:saturate(1.05) contrast(1.03); }
+  .hero-frame { box-shadow:0 30px 80px -30px rgba(8,12,30,.9), 0 0 0 1px rgba(255,255,255,.06) inset; }
+
+  @media (prefers-reduced-motion: reduce){
+    .aurora .a1,.aurora .a2,.aurora .a3 { animation:none; }
+    .hero-photo { transform:scale(1.04); }
+  }
 </style>
 </head>
 <body>
@@ -204,7 +222,7 @@
           <span class="grad-anim" data-i18n="hero.h1b">We build the empire.</span>
         </h1>
         <p class="reveal text-lg sm:text-xl text-mute leading-relaxed mt-7 max-w-2xl">
-          <span data-i18n="hero.sub">Your influence is the most valuable asset most creators never cash in. We design, build and operate the companies, products and brands around your name — turning attention into diversified income and lasting wealth.</span>
+          <span data-i18n="hero.sub">Your influence is the most valuable asset most creators never convert. We design, build and operate the companies, products and brands around your name — turning attention into diversified income and durable wealth.</span>
           <span class="text-white font-medium" data-i18n="hero.subStrong">You create. We build the business.</span>
         </p>
         <div class="reveal flex flex-col sm:flex-row gap-3 mt-9">
@@ -222,8 +240,8 @@
         </dl>
       </div>
       <div class="hidden lg:block reveal">
-        <div class="relative rounded-3xl overflow-hidden" style="height:560px">
-          <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=900&q=85&auto=format&fit=crop" alt="Fitness creator" class="w-full h-full object-cover" loading="eager" fetchpriority="high">
+        <div class="relative rounded-3xl overflow-hidden hero-frame" style="height:560px">
+          <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1000&q=85&auto=format&fit=crop" alt="Elite training environment" class="hero-photo w-full h-full object-cover" loading="eager" fetchpriority="high">
           <div class="absolute inset-0" style="background:linear-gradient(160deg,rgba(99,102,241,.18) 0%,transparent 45%,rgba(6,7,13,.75) 100%)"></div>
           <div class="absolute bottom-0 left-0 right-0 p-7">
             <p class="font-display text-xl font-bold leading-snug"><span data-i18n="hero.badge1">You create.</span><br><span class="grad-text" data-i18n="hero.badge2">We build the empire.</span></p>
@@ -256,7 +274,7 @@
         <span data-i18n="problem.h2a">Attention is rented.</span> <span class="grad-text" data-i18n="problem.h2b">It can end fast.</span>
       </h2>
       <p class="text-lg text-mute leading-relaxed mt-6" data-i18n="problem.p">
-        Right now your relevance — and your income — live and die by the algorithm, the trends and your energy to keep posting. You earn well today. But what is any of it worth the day you stop?
+        Today your relevance — and your income — live and die by the algorithm, the trends and your energy to keep posting. You earn well now. But what is any of it worth the day you stop?
       </p>
     </div>
     <div class="grid sm:grid-cols-3 gap-5 mt-14">
@@ -296,7 +314,7 @@
         </h2>
         <p class="text-lg text-mute leading-relaxed mt-6" data-i18n="fusion.p">A star doesn't shine by burning — it shines by fusion, forcing separate nuclei together until they release an energy none of them held alone. Your brand works the same way. Every vertical — content, products, community, your own brands, wealth — is a nucleus. Apart, each is limited. Fused around your name, they release exponential energy: diversified income, freedom and a legacy that lasts.</p>
         <div class="hairline w-40 mt-8 mb-6"></div>
-        <p class="font-display text-xl sm:text-2xl font-semibold leading-snug grad-text" data-i18n="fusion.q">We are the reactor that makes the reaction controlled, continuous — and entirely yours.</p>
+        <p class="font-display text-xl sm:text-2xl font-semibold leading-snug grad-text" data-i18n="fusion.q">We are the reactor: we keep the reaction controlled, continuous — and entirely yours.</p>
       </div>
       <div class="reveal order-1 lg:order-2 flex justify-center">
         <div class="fusion-stage" role="img" aria-label="Fusion core">
@@ -321,7 +339,7 @@
           <span data-i18n="solution.h2a">Not an agency.</span> <span class="grad-text" data-i18n="solution.h2b">A venture builder behind your name.</span>
         </h2>
         <p class="text-lg text-mute leading-relaxed mt-6" data-i18n="solution.p">
-          Quantum Ventures doesn't run a campaign and walk away. We design, build and operate a portfolio of companies around you — so you stop renting your attention and start owning real assets that pay you for years.
+          Quantum Ventures doesn't run a campaign and disappear. We design, build and operate a portfolio of companies around you — so you stop renting your attention and start owning assets that pay you for years.
         </p>
         <ul class="mt-8 space-y-4">
           <li class="flex gap-3"><span class="text-q-cyan mt-1">◆</span><span data-i18n="solution.li1"><b class="text-white">We diversify</b> your income with your own products and services.</span></li>
@@ -362,9 +380,9 @@
       <p class="text-lg text-mute leading-relaxed mt-6" data-i18n="partners.p">Quantum Ventures is powered by a strategic partnership with a creator agency that produces, grows and monetizes some of the largest channels online — the same operational muscle now working for your brand.</p>
     </div>
     <div class="grid grid-cols-3 gap-4 sm:gap-6 mt-14 reveal">
-      <div class="border-l-2 border-q-cyan/40 pl-4 sm:pl-6"><div class="font-display text-4xl sm:text-6xl font-bold grad-anim">70M+</div><div class="text-xs sm:text-sm text-mute mt-2" data-i18n="partners.stat1l">Combined audience</div></div>
-      <div class="border-l-2 border-q-indigo/40 pl-4 sm:pl-6"><div class="font-display text-4xl sm:text-6xl font-bold grad-anim">55M</div><div class="text-xs sm:text-sm text-mute mt-2" data-i18n="partners.stat2l">Largest channel</div></div>
-      <div class="border-l-2 border-q-violet/40 pl-4 sm:pl-6"><div class="font-display text-4xl sm:text-6xl font-bold grad-anim">11</div><div class="text-xs sm:text-sm text-mute mt-2" data-i18n="partners.stat3l">Creator channels</div></div>
+      <div class="border-l-2 border-q-cyan/40 pl-4 sm:pl-6"><div class="font-display text-4xl sm:text-6xl font-bold grad-anim countup">70M+</div><div class="text-xs sm:text-sm text-mute mt-2" data-i18n="partners.stat1l">Combined audience</div></div>
+      <div class="border-l-2 border-q-indigo/40 pl-4 sm:pl-6"><div class="font-display text-4xl sm:text-6xl font-bold grad-anim countup">55M</div><div class="text-xs sm:text-sm text-mute mt-2" data-i18n="partners.stat2l">Largest channel</div></div>
+      <div class="border-l-2 border-q-violet/40 pl-4 sm:pl-6"><div class="font-display text-4xl sm:text-6xl font-bold grad-anim countup">11</div><div class="text-xs sm:text-sm text-mute mt-2" data-i18n="partners.stat3l">Creator channels</div></div>
     </div>
     <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 mt-10">
       <div class="glass rounded-2xl p-5 reveal card-hover"><div class="font-display font-bold truncate">JuegaGerman</div><div class="text-xs text-mute mt-0.5">@JuegaGerman</div><div class="font-display text-q-cyan text-lg font-bold mt-3">55M <span class="text-mute text-[.7rem] font-normal" data-i18n="partners.subs">subscribers</span></div></div>
@@ -386,7 +404,7 @@
     <div class="max-w-3xl reveal">
       <span class="eyebrow text-sm font-semibold tracking-widest uppercase text-q-cyan" data-i18n="systems.eyebrow">The engine</span>
       <h2 class="font-display text-3xl sm:text-5xl font-bold leading-tight mt-4" data-i18n="systems.h2">The machine that turns a following into a company.</h2>
-      <p class="text-lg text-mute leading-relaxed mt-6" data-i18n="systems.p">Not motivation — machinery. The same operating systems real companies run, installed and run for you, around your brand.</p>
+      <p class="text-lg text-mute leading-relaxed mt-6" data-i18n="systems.p">Not motivation — machinery. The same operating systems real companies run, installed and operated for you, around your brand.</p>
     </div>
     <div class="grid md:grid-cols-2 gap-5 mt-14">
       <div class="glass gborder rounded-2xl p-8 reveal card-hover">
@@ -407,7 +425,7 @@
       <div class="glass gborder rounded-2xl p-8 reveal card-hover">
         <div class="font-display text-q-cyan text-sm font-bold tracking-widest">04</div>
         <h3 class="font-display text-2xl font-bold mt-3" data-i18n="systems.s4t">Wealth engine</h3>
-        <p class="text-mute text-sm leading-relaxed mt-3" data-i18n="systems.s4d">Profit doesn't sit idle. We reinvest it into managed assets, structure and tax planning — compounding your empire.</p>
+        <p class="text-mute text-sm leading-relaxed mt-3" data-i18n="systems.s4d">Profit doesn't sit idle. We reinvest it into managed assets, structure and tax planning — so your empire compounds.</p>
       </div>
       <div class="glass gborder rounded-2xl p-8 reveal card-hover md:col-span-2" style="background:linear-gradient(120deg,rgba(99,102,241,.1),rgba(34,211,238,.05))">
         <div class="font-display text-q-cyan text-sm font-bold tracking-widest">05</div>
@@ -424,7 +442,7 @@
     <div class="max-w-3xl reveal">
       <span class="eyebrow text-sm font-semibold tracking-widest uppercase text-q-cyan" data-i18n="services.eyebrow">Full service</span>
       <h2 class="font-display text-3xl sm:text-5xl font-bold leading-tight mt-4" data-i18n="services.h2">Everything we run for you.</h2>
-      <p class="text-lg text-mute leading-relaxed mt-6" data-i18n="services.p">One partner for the entire business behind your brand — from the first thumbnail to long-term wealth.</p>
+      <p class="text-lg text-mute leading-relaxed mt-6" data-i18n="services.p">One partner for the entire business behind your brand — from the first thumbnail to lasting wealth.</p>
     </div>
     <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-14">
       <div class="glass gborder rounded-2xl p-7 reveal card-hover">
@@ -538,7 +556,7 @@
         <div class="absolute inset-0" style="background:rgba(6,7,13,.55)"></div>
         <div class="relative z-10 p-7">
           <h3 class="font-display text-xl font-bold" data-i18n="build.b3t">Supplement brand</h3>
-          <p class="text-mute text-sm leading-relaxed mt-3" data-i18n="build.b3d">Your own brand, where you're the founder. You don't rent your face — you build an asset.</p>
+          <p class="text-mute text-sm leading-relaxed mt-3" data-i18n="build.b3d">Your own brand, where you're the founder. You don't rent out your face — you own an asset.</p>
         </div>
       </div>
       <div class="rounded-2xl reveal card-hover relative overflow-hidden" style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)">
@@ -617,7 +635,7 @@
   <div class="max-w-5xl mx-auto px-5 sm:px-8 text-center reveal">
     <p class="font-display text-2xl sm:text-4xl font-bold leading-snug">
       <span data-i18n="empire.a">Most creators sell their attention.</span>
-      <span class="grad-text" data-i18n="empire.b">The smart ones build an empire with it.</span>
+      <span class="grad-text" data-i18n="empire.b">The few build an empire with it.</span>
     </p>
   </div>
 </section>
@@ -630,7 +648,7 @@
         <span data-i18n="contact.h2a">Build something that</span> <span class="grad-text" data-i18n="contact.h2b">outlasts the algorithm.</span>
       </h2>
       <p class="text-lg text-mute leading-relaxed mt-5 max-w-2xl mx-auto" data-i18n="contact.p">
-        We partner with a select few creators each year. It starts with a private audit of your brand and your true monetization potential — and a tailored plan to build the business around you.
+        We partner with a select few creators each year. It begins with a private audit of your brand and your true monetization potential — and a tailored plan to build the business around you.
       </p>
       <div class="flex flex-col sm:flex-row gap-3 justify-center mt-9">
         <a href="mailto:hello@quantumventures.io?subject=Partnership%20application%20-%20Quantum%20Ventures" class="btn-primary inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full" data-i18n="cta.apply">
@@ -666,7 +684,7 @@
       "cta.apply": "Apply to work with us",
       "hero.chip": "The venture builder for elite fitness creators",
       "hero.h1a": "You built the audience.", "hero.h1b": "We build the empire.",
-      "hero.sub": "Your influence is the most valuable asset most creators never cash in. We design, build and operate the companies, products and brands around your name — turning attention into diversified income and lasting wealth.",
+      "hero.sub": "Your influence is the most valuable asset most creators never convert. We design, build and operate the companies, products and brands around your name — turning attention into diversified income and durable wealth.",
       "hero.subStrong": "You create. We build the business.",
       "hero.ctaSecondary": "See how it works",
       "hero.stat1t": "Acquisition systems", "hero.stat1d": "Clients in, on autopilot",
@@ -675,12 +693,12 @@
       "hero.stat4t": "Lasting wealth", "hero.stat4d": "Income turned into real assets",
       "hero.badge1": "You create.", "hero.badge2": "We build the empire.",
       "problem.eyebrow": "The problem", "problem.h2a": "Attention is rented.", "problem.h2b": "It can end fast.",
-      "problem.p": "Right now your relevance — and your income — live and die by the algorithm, the trends and your energy to keep posting. You earn well today. But what is any of it worth the day you stop?",
+      "problem.p": "Today your relevance — and your income — live and die by the algorithm, the trends and your energy to keep posting. You earn well now. But what is any of it worth the day you stop?",
       "problem.card1t": "Fragile income", "problem.card1d": "You rely on one-off promos and on posting non-stop. If you stop, the money stops.",
       "problem.card2t": "No structure", "problem.card2d": "A thousand business ideas, zero time and no team to actually build and run them.",
       "problem.card3t": "Nothing that lasts", "problem.card3d": "Years generating attention that never turns into real assets or wealth.",
       "solution.eyebrow": "The approach", "solution.h2a": "Not an agency.", "solution.h2b": "A venture builder behind your name.",
-      "solution.p": "Quantum Ventures doesn't run a campaign and walk away. We design, build and operate a portfolio of companies around you — so you stop renting your attention and start owning real assets that pay you for years.",
+      "solution.p": "Quantum Ventures doesn't run a campaign and disappear. We design, build and operate a portfolio of companies around you — so you stop renting your attention and start owning assets that pay you for years.",
       "solution.li1": "<b class=\"text-white\">We diversify</b> your income with your own products and services.",
       "solution.li2": "<b class=\"text-white\">We operate</b> the whole machine: technology, team, campaigns and brands.",
       "solution.li3": "<b class=\"text-white\">We build wealth</b>: management, investment and tax planning on what you generate.",
@@ -689,11 +707,11 @@
       "solution.weLabel": "We", "solution.weTitle": "Build the business",
       "solution.weL1": "· Products, technology &amp; team", "solution.weL2": "· Brands, campaigns &amp; sales", "solution.weL3": "· Wealth &amp; tax structure",
       "systems.eyebrow": "The engine", "systems.h2": "The machine that turns a following into a company.",
-      "systems.p": "Not motivation — machinery. The same operating systems real companies run, installed and run for you, around your brand.",
+      "systems.p": "Not motivation — machinery. The same operating systems real companies run, installed and operated for you, around your brand.",
       "systems.s1t": "Client acquisition", "systems.s1d": "Funnels, offers and automated sales that turn followers into paying clients — predictably, on autopilot, not by luck.",
       "systems.s2t": "AI-powered service scale", "systems.s2d": "We install an AI layer that handles calls, emails, delivery and follow-up — so your services scale from 10 to 10,000 clients without adding your hours.",
       "systems.s3t": "Brand &amp; product development", "systems.s3d": "Your own brands and assets — supplements, apparel, digital products — designed, produced and launched for you.",
-      "systems.s4t": "Wealth engine", "systems.s4d": "Profit doesn't sit idle. We reinvest it into managed assets, structure and tax planning — compounding your empire.",
+      "systems.s4t": "Wealth engine", "systems.s4d": "Profit doesn't sit idle. We reinvest it into managed assets, structure and tax planning — so your empire compounds.",
       "systems.s5t": "Deals &amp; representation", "systems.s5d": "We act as your professional agents: we negotiate brand deals and sponsorships, manage your rate card and media kit, filter opportunities that protect your brand, and turn one-off collabs into long-term partnerships. You stop selling your audience by DM — a specialist team handles it all.",
       "team.eyebrow": "The team", "team.h2": "A specialist crew built for fitness creators.",
       "team.p": "Every role is fitness-native — people who know the audience, the content and the conversion mechanics of the space.",
@@ -704,7 +722,7 @@
       "build.eyebrow": "What we build with you", "build.h2": "A portfolio of income, not a one-off launch.",
       "build.b1t": "Paid community", "build.b1d": "The ultimate one-to-many offer, on our own software. A membership with recurring, predictable revenue from day one.",
       "build.b2t": "1-on-1, powered by AI", "build.b2d": "Your coaching, productized and enhanced with AI to scale without losing quality.",
-      "build.b3t": "Supplement brand", "build.b3d": "Your own brand, where you're the founder. You don't rent your face — you build an asset.",
+      "build.b3t": "Supplement brand", "build.b3d": "Your own brand, where you're the founder. You don't rent out your face — you own an asset.",
       "build.b4t": "Apparel &amp; lifestyle", "build.b4d": "Fitness and lifestyle apparel lines with your signature — design, production and logistics included.",
       "build.b5t": "Ecommerce &amp; products", "build.b5d": "Store, courses and digital products with funnels and launches that actually convert.",
       "build.b6t": "Wealth &amp; tax", "build.b6span": "— the core promise", "build.b6d": "Everything above is the engine that generates capital. The destination is your wealth: tax structure, saving and investing the surplus, and long-term planning. So today's money buys you peace of mind tomorrow.",
@@ -716,9 +734,9 @@
       "process.st1t": "Audit", "process.st1d": "We map your brand and your current vs. potential monetization, and design the roadmap.",
       "process.st2t": "Build", "process.st2d": "We set up and run your business lines: community, products, brands and campaigns.",
       "process.st3t": "Wealth", "process.st3d": "We turn profits into managed assets: investment, tax planning and a future that lasts.",
-      "empire.a": "Most creators sell their attention.", "empire.b": "The smart ones build an empire with it.",
+      "empire.a": "Most creators sell their attention.", "empire.b": "The few build an empire with it.",
       "contact.h2a": "Build something that", "contact.h2b": "outlasts the algorithm.",
-      "contact.p": "We partner with a select few creators each year. It starts with a private audit of your brand and your true monetization potential — and a tailored plan to build the business around you.",
+      "contact.p": "We partner with a select few creators each year. It begins with a private audit of your brand and your true monetization potential — and a tailored plan to build the business around you.",
       "contact.back": "Back to top",
       "footer.tagline": "We turn audience into wealth", "footer.builtby": "Built by",
       "nav.services": "Services", "nav.partners": "Network",
@@ -727,7 +745,7 @@
       "partners.p": "Quantum Ventures is powered by a strategic partnership with a creator agency that produces, grows and monetizes some of the largest channels online — the same operational muscle now working for your brand.",
       "partners.subs": "subscribers", "partners.stat1l": "Combined audience", "partners.stat2l": "Largest channel", "partners.stat3l": "Creator channels", "partners.note": "And a growing roster of partner creators.",
       "services.eyebrow": "Full service", "services.h2": "Everything we run for you.",
-      "services.p": "One partner for the entire business behind your brand — from the first thumbnail to long-term wealth.",
+      "services.p": "One partner for the entire business behind your brand — from the first thumbnail to lasting wealth.",
       "services.g1": "Content &amp; Growth", "services.g1a": "Content strategy", "services.g1b": "Video editing &amp; production", "services.g1c": "Thumbnails, titles &amp; metadata", "services.g1d": "Multi-channel repurposing", "services.g1e": "Media buying / paid ads", "services.g1f": "Audience growth",
       "services.g2": "Monetization &amp; Products", "services.g2a": "Infoproduct creation", "services.g2b": "Paid community", "services.g2c": "Ecommerce &amp; storefront", "services.g2d": "Supplement brand", "services.g2e": "Apparel &amp; lifestyle line", "services.g2f": "Brand deals &amp; representation",
       "services.g3": "AI &amp; Operations", "services.g3a": "AI-powered service delivery", "services.g3b": "Sales systems &amp; CRM (GHL)", "services.g3c": "Automation &amp; follow-up", "services.g3d": "1:1 productized with AI", "services.g3e": "Launch operations",
@@ -735,7 +753,7 @@
       "hero.overline": "Private venture firm",
       "fusion.eyebrow": "The philosophy", "fusion.h2a": "Nuclear fusion.", "fusion.h2b": "The energy of everything, fused.",
       "fusion.p": "A star doesn't shine by burning — it shines by fusion, forcing separate nuclei together until they release an energy none of them held alone. Your brand works the same way. Every vertical — content, products, community, your own brands, wealth — is a nucleus. Apart, each is limited. Fused around your name, they release exponential energy: diversified income, freedom and a legacy that lasts.",
-      "fusion.q": "We are the reactor that makes the reaction controlled, continuous — and entirely yours."
+      "fusion.q": "We are the reactor: we keep the reaction controlled, continuous — and entirely yours."
     },
     es: {
       "meta.title": "Quantum Ventures — De tu audiencia a tu imperio",
@@ -743,7 +761,7 @@
       "cta.apply": "Solicita trabajar con nosotros",
       "hero.chip": "El venture builder para creadores fitness de élite",
       "hero.h1a": "Tú creaste la audiencia.", "hero.h1b": "Nosotros construimos el imperio.",
-      "hero.sub": "Tu influencia es el activo más valioso que la mayoría de creadores nunca llega a capitalizar. Diseñamos, construimos y operamos las empresas, productos y marcas en torno a tu nombre — convirtiendo la atención en ingresos diversificados y patrimonio duradero.",
+      "hero.sub": "Tu influencia es el activo más valioso que casi ningún creador llega a convertir. Diseñamos, construimos y operamos las empresas, productos y marcas en torno a tu nombre — convirtiendo la atención en ingresos diversificados y patrimonio duradero.",
       "hero.subStrong": "Tú creas. Nosotros construimos el negocio.",
       "hero.ctaSecondary": "Ver cómo funciona",
       "hero.stat1t": "Sistemas de captación", "hero.stat1d": "Clientes que entran, en piloto automático",
@@ -752,12 +770,12 @@
       "hero.stat4t": "Patrimonio duradero", "hero.stat4d": "Ingresos convertidos en activos reales",
       "hero.badge1": "Tú creas.", "hero.badge2": "Nosotros construimos el imperio.",
       "problem.eyebrow": "El problema", "problem.h2a": "La atención es alquilada.", "problem.h2b": "Puede acabarse rápido.",
-      "problem.p": "Ahora mismo tu relevancia — y tus ingresos — dependen del algoritmo, de las tendencias y de tu energía para seguir publicando. Hoy ganas bien. ¿Pero qué valor tiene todo eso el día que pares?",
+      "problem.p": "Hoy tu relevancia — y tus ingresos — dependen del algoritmo, de las tendencias y de tu energía para seguir publicando. Hoy ganas bien. ¿Pero qué vale todo eso el día que pares?",
       "problem.card1t": "Ingresos frágiles", "problem.card1d": "Dependes de promos puntuales y de publicar sin parar. Si paras, el dinero se para.",
       "problem.card2t": "Sin estructura", "problem.card2d": "Mil ideas de negocio, cero tiempo y ningún equipo que de verdad las construya y las gestione.",
       "problem.card3t": "Nada que perdure", "problem.card3d": "Años generando atención que nunca se convierte en activos reales ni en patrimonio.",
       "solution.eyebrow": "El enfoque", "solution.h2a": "No somos una agencia.", "solution.h2b": "Un venture builder detrás de tu nombre.",
-      "solution.p": "Quantum Ventures no lanza una campaña y se va. Diseñamos, construimos y operamos un portfolio de empresas en torno a ti — para que dejes de alquilar tu atención y empieces a ser dueño de activos reales que te pagan durante años.",
+      "solution.p": "Quantum Ventures no lanza una campaña y desaparece. Diseñamos, construimos y operamos un portfolio de empresas en torno a ti — para que dejes de alquilar tu atención y pases a ser dueño de activos que te pagan durante años.",
       "solution.li1": "<b class=\"text-white\">Diversificamos</b> tus ingresos con tus propios productos y servicios.",
       "solution.li2": "<b class=\"text-white\">Operamos</b> toda la maquinaria: tecnología, equipo, campañas y marcas.",
       "solution.li3": "<b class=\"text-white\">Construimos patrimonio</b>: gestión, inversión y planificación fiscal sobre lo que generas.",
@@ -766,11 +784,11 @@
       "solution.weLabel": "Nosotros", "solution.weTitle": "Construimos el negocio",
       "solution.weL1": "· Productos, tecnología y equipo", "solution.weL2": "· Marcas, campañas y ventas", "solution.weL3": "· Estructura de patrimonio y fiscal",
       "systems.eyebrow": "El motor", "systems.h2": "La maquinaria que convierte una audiencia en una empresa.",
-      "systems.p": "No motivación — maquinaria. Los mismos sistemas operativos que usan las empresas reales, instalados y gestionados por ti, en torno a tu marca.",
+      "systems.p": "No motivación — maquinaria. Los mismos sistemas operativos que usan las empresas reales, instalados y operados por ti, en torno a tu marca.",
       "systems.s1t": "Captación de clientes", "systems.s1d": "Embudos, ofertas y ventas automatizadas que convierten seguidores en clientes de pago — de forma previsible, en piloto automático, no por suerte.",
       "systems.s2t": "Escala de servicios con IA", "systems.s2d": "Instalamos una capa de IA que gestiona llamadas, emails, entrega y seguimiento — para que tus servicios escalen de 10 a 10.000 clientes sin sumar tus horas.",
       "systems.s3t": "Desarrollo de marca y producto", "systems.s3d": "Tus propias marcas y activos — suplementos, ropa, productos digitales — diseñados, producidos y lanzados por ti.",
-      "systems.s4t": "Motor de patrimonio", "systems.s4d": "El beneficio no se queda parado. Lo reinvertimos en activos gestionados, estructura y planificación fiscal — multiplicando tu imperio.",
+      "systems.s4t": "Motor de patrimonio", "systems.s4d": "El beneficio no se queda parado. Lo reinvertimos en activos gestionados, estructura y planificación fiscal — para que tu imperio componga.",
       "systems.s5t": "Deals y representación", "systems.s5d": "Actuamos como tus agentes profesionales: negociamos acuerdos de marca y patrocinios, gestionamos tu tarifa y tu media kit, filtramos oportunidades que protegen tu marca, y convertimos colaboraciones puntuales en alianzas a largo plazo. Dejas de vender tu audiencia por DM — un equipo especialista se encarga de todo.",
       "team.eyebrow": "El equipo", "team.h2": "Un equipo especialista creado para creadores fitness.",
       "team.p": "Cada rol es nativo del fitness — personas que conocen la audiencia, el contenido y la mecánica de conversión del sector.",
@@ -781,7 +799,7 @@
       "build.eyebrow": "Lo que construimos contigo", "build.h2": "Un portfolio de ingresos, no un lanzamiento puntual.",
       "build.b1t": "Comunidad de pago", "build.b1d": "La oferta one-to-many definitiva, sobre nuestro propio software. Una membresía con ingresos recurrentes y previsibles desde el primer día.",
       "build.b2t": "1-a-1, potenciado con IA", "build.b2d": "Tu mentoría, productizada y mejorada con IA para escalar sin perder calidad.",
-      "build.b3t": "Marca de suplementos", "build.b3d": "Tu propia marca, donde tú eres el fundador. No alquilas tu cara — construyes un activo.",
+      "build.b3t": "Marca de suplementos", "build.b3d": "Tu propia marca, donde tú eres el fundador. No alquilas tu cara — eres dueño de un activo.",
       "build.b4t": "Ropa y lifestyle", "build.b4d": "Líneas de ropa fitness y lifestyle con tu firma — diseño, producción y logística incluidos.",
       "build.b5t": "Ecommerce y productos", "build.b5d": "Tienda, cursos y productos digitales con embudos y lanzamientos que de verdad convierten.",
       "build.b6t": "Patrimonio y fiscalidad", "build.b6span": "— la promesa central", "build.b6d": "Todo lo anterior es el motor que genera capital. El destino es tu patrimonio: estructura fiscal, ahorrar e invertir el excedente, y planificación a largo plazo. Para que el dinero de hoy te compre tranquilidad mañana.",
@@ -793,7 +811,7 @@
       "process.st1t": "Auditoría", "process.st1d": "Mapeamos tu marca y tu monetización actual frente a la potencial, y diseñamos la hoja de ruta.",
       "process.st2t": "Construcción", "process.st2d": "Montamos y gestionamos tus líneas de negocio: comunidad, productos, marcas y campañas.",
       "process.st3t": "Patrimonio", "process.st3d": "Convertimos los beneficios en activos gestionados: inversión, planificación fiscal y un futuro que perdura.",
-      "empire.a": "La mayoría de creadores vende su atención.", "empire.b": "Los inteligentes construyen un imperio con ella.",
+      "empire.a": "La mayoría de creadores vende su atención.", "empire.b": "Unos pocos construyen un imperio con ella.",
       "contact.h2a": "Construye algo que", "contact.h2b": "sobreviva al algoritmo.",
       "contact.p": "Trabajamos con unos pocos creadores cada año. Empieza con una auditoría privada de tu marca y tu verdadero potencial de monetización — y un plan a medida para construir el negocio en torno a ti.",
       "contact.back": "Volver arriba",
@@ -812,7 +830,7 @@
       "hero.overline": "Firma privada de venture building",
       "fusion.eyebrow": "La filosofía", "fusion.h2a": "Fusión nuclear.", "fusion.h2b": "La energía de fusionarlo todo.",
       "fusion.p": "Una estrella no brilla por arder — brilla por fusión: obliga a núcleos separados a unirse hasta liberar una energía que ninguno tenía por sí solo. Tu marca funciona igual. Cada vertical — contenido, productos, comunidad, tus propias marcas, patrimonio — es un núcleo. Por separado, cada uno es limitado. Fusionados en torno a tu nombre, liberan una energía exponencial: ingresos diversificados, libertad y un legado que perdura.",
-      "fusion.q": "Somos el reactor que hace que la reacción sea controlada, continua — y enteramente tuya."
+      "fusion.q": "Somos el reactor: mantenemos la reacción controlada, continua — y enteramente tuya."
     },
     fr: {
       "meta.title": "Quantum Ventures — De votre audience à votre empire",
@@ -820,7 +838,7 @@
       "cta.apply": "Candidatez pour travailler avec nous",
       "hero.chip": "Le venture builder pour les créateurs fitness d'élite",
       "hero.h1a": "Vous avez bâti l'audience.", "hero.h1b": "Nous bâtissons l'empire.",
-      "hero.sub": "Votre influence est l'actif le plus précieux que la plupart des créateurs ne monétisent jamais vraiment. Nous concevons, bâtissons et opérons les entreprises, produits et marques autour de votre nom — transformant l'attention en revenus diversifiés et en patrimoine durable.",
+      "hero.sub": "Votre influence est l'actif le plus précieux que presque aucun créateur ne convertit. Nous concevons, bâtissons et opérons les entreprises, produits et marques autour de votre nom — transformant l'attention en revenus diversifiés et en patrimoine durable.",
       "hero.subStrong": "Vous créez. Nous bâtissons l'entreprise.",
       "hero.ctaSecondary": "Voir comment ça marche",
       "hero.stat1t": "Systèmes d'acquisition", "hero.stat1d": "Des clients qui arrivent, en automatique",
@@ -829,12 +847,12 @@
       "hero.stat4t": "Patrimoine durable", "hero.stat4d": "Des revenus transformés en actifs réels",
       "hero.badge1": "Vous créez.", "hero.badge2": "Nous bâtissons l'empire.",
       "problem.eyebrow": "Le problème", "problem.h2a": "L'attention est louée.", "problem.h2b": "Elle peut s'arrêter vite.",
-      "problem.p": "Aujourd'hui, votre pertinence — et vos revenus — dépendent de l'algorithme, des tendances et de votre énergie à publier sans cesse. Vous gagnez bien aujourd'hui. Mais que vaut tout cela le jour où vous vous arrêtez ?",
+      "problem.p": "Aujourd'hui, votre pertinence — et vos revenus — dépendent de l'algorithme, des tendances et de votre énergie à publier. Vous gagnez bien aujourd'hui. Mais que vaut tout cela le jour où vous vous arrêtez ?",
       "problem.card1t": "Revenus fragiles", "problem.card1d": "Vous dépendez de promos ponctuelles et d'une publication non-stop. Si vous arrêtez, l'argent s'arrête.",
       "problem.card2t": "Aucune structure", "problem.card2d": "Mille idées de business, zéro temps et aucune équipe pour vraiment les bâtir et les piloter.",
       "problem.card3t": "Rien qui dure", "problem.card3d": "Des années à générer de l'attention qui ne se transforme jamais en actifs réels ni en patrimoine.",
       "solution.eyebrow": "L'approche", "solution.h2a": "Pas une agence.", "solution.h2b": "Un venture builder derrière votre nom.",
-      "solution.p": "Quantum Ventures ne lance pas une campagne pour ensuite disparaître. Nous concevons, bâtissons et opérons un portefeuille d'entreprises autour de vous — pour que vous cessiez de louer votre attention et deveniez propriétaire d'actifs réels qui vous rapportent pendant des années.",
+      "solution.p": "Quantum Ventures ne lance pas une campagne pour disparaître ensuite. Nous concevons, bâtissons et opérons un portefeuille d'entreprises autour de vous — pour que vous cessiez de louer votre attention et deveniez propriétaire d'actifs qui vous rapportent pendant des années.",
       "solution.li1": "<b class=\"text-white\">Nous diversifions</b> vos revenus avec vos propres produits et services.",
       "solution.li2": "<b class=\"text-white\">Nous opérons</b> toute la machine : technologie, équipe, campagnes et marques.",
       "solution.li3": "<b class=\"text-white\">Nous bâtissons le patrimoine</b> : gestion, investissement et planification fiscale sur ce que vous générez.",
@@ -843,11 +861,11 @@
       "solution.weLabel": "Nous", "solution.weTitle": "Bâtissons l'entreprise",
       "solution.weL1": "· Produits, technologie et équipe", "solution.weL2": "· Marques, campagnes et ventes", "solution.weL3": "· Structure patrimoniale et fiscale",
       "systems.eyebrow": "Le moteur", "systems.h2": "La machine qui transforme une communauté en entreprise.",
-      "systems.p": "Pas de la motivation — de la machinerie. Les mêmes systèmes opérationnels que les vraies entreprises, installés et pilotés pour vous, autour de votre marque.",
+      "systems.p": "Pas de la motivation — de la machinerie. Les mêmes systèmes opérationnels que les vraies entreprises, installés et opérés pour vous, autour de votre marque.",
       "systems.s1t": "Acquisition de clients", "systems.s1d": "Tunnels, offres et ventes automatisées qui transforment vos abonnés en clients payants — de façon prévisible, en automatique, pas par chance.",
       "systems.s2t": "Mise à l'échelle des services par l'IA", "systems.s2d": "Nous installons une couche d'IA qui gère les appels, les emails, la livraison et le suivi — pour que vos services passent de 10 à 10 000 clients sans ajouter vos heures.",
       "systems.s3t": "Développement de marque et de produit", "systems.s3d": "Vos propres marques et actifs — compléments, vêtements, produits digitaux — conçus, produits et lancés pour vous.",
-      "systems.s4t": "Moteur de patrimoine", "systems.s4d": "Le profit ne dort pas. Nous le réinvestissons dans des actifs gérés, de la structure et de la planification fiscale — pour faire croître votre empire.",
+      "systems.s4t": "Moteur de patrimoine", "systems.s4d": "Le profit ne dort pas. Nous le réinvestissons dans des actifs gérés, de la structure et de la planification fiscale — pour que votre empire compose.",
       "systems.s5t": "Deals et représentation", "systems.s5d": "Nous agissons comme vos agents professionnels : nous négocions les accords de marque et les sponsorings, gérons votre grille tarifaire et votre media kit, filtrons les opportunités qui protègent votre marque, et transformons les collaborations ponctuelles en partenariats durables. Vous arrêtez de vendre votre audience par DM — une équipe spécialisée s'occupe de tout.",
       "team.eyebrow": "L'équipe", "team.h2": "Une équipe de spécialistes conçue pour les créateurs fitness.",
       "team.p": "Chaque rôle est natif du fitness — des personnes qui connaissent l'audience, le contenu et les mécaniques de conversion du secteur.",
@@ -858,7 +876,7 @@
       "build.eyebrow": "Ce que nous bâtissons avec vous", "build.h2": "Un portefeuille de revenus, pas un lancement ponctuel.",
       "build.b1t": "Communauté payante", "build.b1d": "L'offre one-to-many ultime, sur notre propre logiciel. Un abonnement avec des revenus récurrents et prévisibles dès le premier jour.",
       "build.b2t": "1-à-1, propulsé par l'IA", "build.b2d": "Votre coaching, productisé et enrichi par l'IA pour passer à l'échelle sans perdre en qualité.",
-      "build.b3t": "Marque de compléments", "build.b3d": "Votre propre marque, dont vous êtes le fondateur. Vous ne louez pas votre image — vous bâtissez un actif.",
+      "build.b3t": "Marque de compléments", "build.b3d": "Votre propre marque, dont vous êtes le fondateur. Vous ne louez pas votre image — vous possédez un actif.",
       "build.b4t": "Vêtements et lifestyle", "build.b4d": "Des lignes de vêtements fitness et lifestyle à votre signature — design, production et logistique inclus.",
       "build.b5t": "E-commerce et produits", "build.b5d": "Boutique, formations et produits digitaux avec des tunnels et des lancements qui convertissent vraiment.",
       "build.b6t": "Patrimoine et fiscalité", "build.b6span": "— la promesse centrale", "build.b6d": "Tout ce qui précède est le moteur qui génère du capital. La destination, c'est votre patrimoine : structure fiscale, épargne et investissement du surplus, et planification à long terme. Pour que l'argent d'aujourd'hui vous achète la tranquillité de demain.",
@@ -870,7 +888,7 @@
       "process.st1t": "Audit", "process.st1d": "Nous cartographions votre marque et votre monétisation actuelle face à son potentiel, et concevons la feuille de route.",
       "process.st2t": "Construction", "process.st2d": "Nous mettons en place et pilotons vos lignes de business : communauté, produits, marques et campagnes.",
       "process.st3t": "Patrimoine", "process.st3d": "Nous transformons les profits en actifs gérés : investissement, planification fiscale et un avenir qui dure.",
-      "empire.a": "La plupart des créateurs vendent leur attention.", "empire.b": "Les plus malins en bâtissent un empire.",
+      "empire.a": "La plupart des créateurs vendent leur attention.", "empire.b": "Quelques-uns en bâtissent un empire.",
       "contact.h2a": "Bâtissez quelque chose qui", "contact.h2b": "survit à l'algorithme.",
       "contact.p": "Nous nous associons à quelques créateurs sélectionnés chaque année. Cela commence par un audit privé de votre marque et de votre véritable potentiel de monétisation — et un plan sur mesure pour bâtir l'entreprise autour de vous.",
       "contact.back": "Revenir en haut",
@@ -881,7 +899,7 @@
       "partners.p": "Quantum Ventures s'appuie sur un partenariat stratégique avec une agence de créateurs qui produit, développe et monétise certaines des plus grandes chaînes en ligne — la même puissance opérationnelle désormais au service de votre marque.",
       "partners.subs": "abonnés", "partners.stat1l": "Audience combinée", "partners.stat2l": "Plus grande chaîne", "partners.stat3l": "Chaînes de créateurs", "partners.note": "Et une liste croissante de créateurs partenaires.",
       "services.eyebrow": "Service complet", "services.h2": "Tout ce que nous gérons pour vous.",
-      "services.p": "Un seul partenaire pour toute l'entreprise derrière votre marque — de la première miniature jusqu'à votre patrimoine à long terme.",
+      "services.p": "Un seul partenaire pour toute l'entreprise derrière votre marque — de la première miniature jusqu'à un patrimoine durable.",
       "services.g1": "Contenu et Croissance", "services.g1a": "Stratégie de contenu", "services.g1b": "Montage et production vidéo", "services.g1c": "Miniatures, titres et métadonnées", "services.g1d": "Recyclage multicanal", "services.g1e": "Media buying / publicité payante", "services.g1f": "Croissance de l'audience",
       "services.g2": "Monétisation et Produits", "services.g2a": "Création d'infoproduits", "services.g2b": "Communauté payante", "services.g2c": "E-commerce et boutique", "services.g2d": "Marque de compléments", "services.g2e": "Ligne de vêtements et lifestyle", "services.g2f": "Deals de marque et représentation",
       "services.g3": "IA et Opérations", "services.g3a": "Services propulsés par l'IA", "services.g3b": "Systèmes de vente et CRM (GHL)", "services.g3c": "Automatisation et relances", "services.g3d": "Productisation 1-à-1 avec l'IA", "services.g3e": "Opérations de lancement",
@@ -889,7 +907,7 @@
       "hero.overline": "Cabinet privé de venture building",
       "fusion.eyebrow": "La philosophie", "fusion.h2a": "Fusion nucléaire.", "fusion.h2b": "L'énergie de tout fusionner.",
       "fusion.p": "Une étoile ne brille pas en brûlant — elle brille par fusion : elle force des noyaux séparés à s'unir jusqu'à libérer une énergie qu'aucun ne possédait seul. Votre marque fonctionne pareil. Chaque vertical — contenu, produits, communauté, vos propres marques, patrimoine — est un noyau. Séparés, ils sont limités. Fusionnés autour de votre nom, ils libèrent une énergie exponentielle : des revenus diversifiés, la liberté et un héritage qui dure.",
-      "fusion.q": "Nous sommes le réacteur qui rend la réaction contrôlée, continue — et entièrement vôtre."
+      "fusion.q": "Nous sommes le réacteur : nous gardons la réaction contrôlée, continue — et entièrement vôtre."
     }
   };
   const LANGS = ["en","es","fr"];
@@ -936,6 +954,48 @@
     setTimeout(() => reveals.forEach(el => el.classList.add('in')), 4000);
   } else {
     reveals.forEach(el => el.classList.add('in'));
+  }
+
+  // ===== cinematic effects =====
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Count-up: numbers animate from 0 to their value when they scroll into view
+  document.querySelectorAll('.countup').forEach(el => {
+    const raw = el.textContent.trim();
+    const m = raw.match(/^(\d+(?:\.\d+)?)(.*)$/);
+    if (!m) return;
+    const target = parseFloat(m[1]), suffix = m[2], dur = 1500;
+    if (reduceMotion || !('IntersectionObserver' in window)) return; // leave final value as-is
+    el.textContent = '0' + suffix;
+    let done = false;
+    const run = () => {
+      const t0 = performance.now();
+      const tick = (t) => {
+        const p = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - p, 3);
+        el.textContent = Math.round(target * e) + suffix;
+        if (p < 1) requestAnimationFrame(tick); else el.textContent = raw;
+      };
+      requestAnimationFrame(tick);
+    };
+    const co = new IntersectionObserver((es) => {
+      es.forEach(x => { if (x.isIntersecting && !done) { done = true; run(); co.disconnect(); } });
+    }, { threshold: .5 });
+    co.observe(el);
+  });
+
+  // Hero photo parallax + slow drift on scroll (desktop, motion-on only)
+  const heroPhoto = document.querySelector('.hero-photo');
+  if (heroPhoto && !reduceMotion && window.matchMedia('(min-width:1024px)').matches) {
+    let ticking = false;
+    const update = () => {
+      const y = Math.min(window.scrollY, 900);
+      heroPhoto.style.transform = 'translate3d(0,' + (y * 0.06) + 'px,0) scale(1.08)';
+      ticking = false;
+    };
+    document.addEventListener('scroll', () => {
+      if (!ticking) { requestAnimationFrame(update); ticking = true; }
+    }, { passive: true });
+    update();
   }
 </script>
 </body>
