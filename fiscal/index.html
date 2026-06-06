@@ -1,0 +1,101 @@
+<!doctype html><html lang="es"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Información fiscal — Quantum Ventures</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="/assets/brand/qv-favicon.png">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#06070d;--surface:#0c0e17;--line:rgba(255,255,255,.10);--cyan:#22d3ee;--indigo:#6366f1;--violet:#a855f7;--text:#e7ecf3;--mute:#8b97a8}
+  *{margin:0;box-sizing:border-box}
+  body{background:var(--ink);color:var(--text);font-family:'Inter',sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
+  .aurora{position:fixed;inset:0;z-index:-1;overflow:hidden}.aurora span{position:absolute;border-radius:50%;filter:blur(90px)}
+  .a1{width:46vw;height:46vw;left:-10vw;top:-12vw;background:radial-gradient(circle,#6366f1,transparent 70%);opacity:.32}
+  .a2{width:40vw;height:40vw;right:-12vw;top:6vw;background:radial-gradient(circle,#22d3ee,transparent 70%);opacity:.2}
+  .wrap{max-width:720px;margin:0 auto;padding:clamp(28px,6vw,72px)}
+  .display{font-family:'Space Grotesk',sans-serif;letter-spacing:-.02em}
+  .grad{background:linear-gradient(100deg,#22d3ee,#6366f1 50%,#a855f7);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .eyebrow{font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--cyan);font-weight:600}
+  .brand{display:flex;align-items:center;gap:10px;margin-bottom:30px}.brand img{width:34px;height:34px}.brand b{font-family:'Space Grotesk';font-weight:700}
+  h1{font-size:clamp(28px,6vw,42px);font-weight:700;line-height:1.06;margin:14px 0 10px}
+  .lead{color:var(--mute);font-size:17px;max-width:62ch}
+  form{margin-top:30px;display:grid;gap:22px}
+  .sec{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:clamp(18px,4vw,28px)}
+  .sec h2{font-family:'Space Grotesk';font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--cyan);font-weight:600;margin-bottom:18px}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}@media(max-width:560px){.grid2{grid-template-columns:1fr}}
+  label{display:block;font-size:13px;color:var(--mute);margin-bottom:7px;font-weight:500}.req::after{content:" *";color:var(--cyan)}
+  input,textarea,select{width:100%;background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:12px;color:var(--text);padding:13px 14px;font:inherit;font-size:15px;transition:border-color .2s,background .2s}
+  input:focus,textarea:focus,select:focus{outline:none;border-color:var(--cyan);background:rgba(34,211,238,.06)}
+  select option{background:#0c0e17}
+  textarea{min-height:84px;resize:vertical}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:linear-gradient(100deg,#22d3ee,#6366f1);color:#06070d;font-weight:700;border:0;border-radius:999px;padding:16px 30px;font-size:16px;cursor:pointer;transition:filter .2s,transform .2s}
+  .btn:hover{filter:brightness(1.07);transform:translateY(-2px)}.btn:disabled{opacity:.6;cursor:not-allowed;transform:none}
+  .note{color:var(--mute);font-size:13px}
+  .ok{display:none;text-align:center;padding:50px 20px}
+  .ok .ring{width:74px;height:74px;border-radius:50%;margin:0 auto 22px;background:linear-gradient(100deg,#22d3ee,#6366f1);display:flex;align-items:center;justify-content:center}
+  .err{display:none;background:rgba(248,113,113,.1);border:1px solid rgba(248,113,113,.35);color:#fca5a5;border-radius:12px;padding:12px 14px;font-size:14px}
+</style></head>
+<body>
+<div class="aurora"><span class="a1"></span><span class="a2"></span></div>
+<div class="wrap">
+  <div class="brand"><img src="/assets/brand/qv-mark.svg" alt="Quantum Ventures"><b>Quantum<span style="color:var(--mute);font-weight:500"> Ventures</span></b></div>
+
+  <div id="formView">
+    <span class="eyebrow">Información fiscal</span>
+    <h1 class="display">Preparemos tu <span class="grad">estructura</span>.</h1>
+    <p class="lead">Para diseñar la colaboración y el contrato, necesitamos conocer tu situación fiscal actual. Es confidencial y nos permite proponerte la mejor estructura (y dejarlo todo limpio desde el día uno).</p>
+
+    <form id="fiscalForm" novalidate>
+      <div class="sec">
+        <h2>Identificación</h2>
+        <div class="grid2">
+          <div><label class="req">Nombre / Razón social</label><input name="nombre" required></div>
+          <div><label class="req">Email</label><input type="email" name="email" required></div>
+        </div>
+      </div>
+
+      <div class="sec">
+        <h2>Tu situación fiscal</h2>
+        <div class="grid2">
+          <div><label class="req">¿Persona física o empresa?</label>
+            <select name="tipo" required><option value="">Selecciona…</option><option>Persona física (autónomo)</option><option>Empresa (sociedad)</option><option>Las dos</option><option>Ninguna todavía</option></select></div>
+          <div><label>País</label><input name="pais" placeholder="España"></div>
+          <div><label>Residencia fiscal</label><input name="residencia_fiscal" placeholder="País donde tributas"></div>
+          <div><label>NIF / CIF</label><input name="identificador" placeholder="Opcional"></div>
+          <div><label>Régimen actual</label><input name="regimen" placeholder="Autónomo, SL, no tengo…"></div>
+          <div><label>¿Aplicas IVA?</label>
+            <select name="iva"><option value="">Selecciona…</option><option>Sí</option><option>No</option><option>No lo sé</option></select></div>
+          <div><label>Facturación aproximada / año</label><input name="facturacion_anual" placeholder="ej. 120.000€"></div>
+        </div>
+        <div style="margin-top:16px"><label>Estructura actual (si tienes)</label><textarea name="estructura_actual" placeholder="¿Tienes sociedad? ¿holding? ¿gestor? ¿alguna marca ya constituida? Cuéntanoslo."></textarea></div>
+      </div>
+
+      <div id="err" class="err"></div>
+      <button id="submitBtn" class="btn" type="submit">Enviar información →</button>
+      <p class="note">Datos tratados de forma confidencial. Esta información se usa para preparar tu propuesta de estructura y contrato; cualquier recomendación será validada por un asesor fiscal/abogado.</p>
+    </form>
+  </div>
+
+  <div id="okView" class="ok">
+    <div class="ring"><svg width="34" height="34" viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="#06070d" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <h1 class="display">Recibido.</h1>
+    <p class="lead" style="margin:0 auto">Gracias. Con esto preparamos tu estructura y el contrato de colaboración. Te contactamos con los siguientes pasos.</p>
+  </div>
+</div>
+<script>
+  const ENDPOINT = "https://qv-audit.128.140.44.162.sslip.io/api/fiscal";
+  const form=document.getElementById('fiscalForm'), btn=document.getElementById('submitBtn'), errBox=document.getElementById('err');
+  form.addEventListener('submit', async (e)=>{
+    e.preventDefault(); errBox.style.display='none';
+    if(!form.checkValidity()){ errBox.textContent='Completa los campos obligatorios (*).'; errBox.style.display='block'; return; }
+    const data=Object.fromEntries(new FormData(form).entries());
+    btn.disabled=true; btn.textContent='Enviando…';
+    try{
+      const r=await fetch(ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
+      if(!r.ok) throw new Error('bad status '+r.status);
+      document.getElementById('formView').style.display='none';
+      document.getElementById('okView').style.display='block';
+      window.scrollTo({top:0,behavior:'smooth'});
+    }catch(err){ btn.disabled=false; btn.textContent='Enviar información →'; errBox.textContent='No se pudo enviar. Inténtalo de nuevo o escríbenos a hello@quantumventures.io'; errBox.style.display='block'; }
+  });
+</script>
+</body></html>
