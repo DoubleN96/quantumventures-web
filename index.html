@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>QuantumVentures — We turn your audience into lasting wealth</title>
-<meta name="description" content="A venture builder for fitness creators. You create; we build and run the business — community, products, your own brands and wealth management. QuantumVentures LLC.">
+<title>Quantum Ventures — From audience to empire</title>
+<meta name="description" content="The venture builder for elite fitness creators. You create; we design, build and operate the companies, products and brands around your name — turning attention into diversified income and lasting wealth.">
 <meta name="theme-color" content="#06070d">
-<meta property="og:title" content="QuantumVentures — Your audience, built into wealth">
-<meta property="og:description" content="We design, build and operate the entire business around your personal brand, so your income no longer depends on the algorithm.">
+<meta property="og:title" content="Quantum Ventures — You built the audience. We build the empire.">
+<meta property="og:description" content="We build and run the entire business around your personal brand — so your income stops depending on the algorithm and starts compounding into real wealth.">
 <meta property="og:type" content="website">
 <link rel="icon" type="image/svg+xml" href="assets/brand/qv-mark.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -78,24 +78,41 @@
 <div class="grid-bg" aria-hidden="true"></div>
 <div class="noise" aria-hidden="true"></div>
 
-<!-- brand mark (reused inline) -->
+<!-- brand mark: glossy 3D atom (reusable symbol) -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
-  <linearGradient id="qg" x1="6" y1="6" x2="58" y2="58" gradientUnits="userSpaceOnUse">
-    <stop stop-color="#22d3ee"/><stop offset="0.5" stop-color="#6366f1"/><stop offset="1" stop-color="#a855f7"/>
+  <linearGradient id="qvOrbit" x1="10" y1="6" x2="54" y2="58" gradientUnits="userSpaceOnUse">
+    <stop stop-color="#a5f3fc"/><stop offset="0.45" stop-color="#38bdf8"/><stop offset="1" stop-color="#4f46e5"/>
   </linearGradient>
+  <radialGradient id="qvNucleus" cx="0.36" cy="0.3" r="0.78">
+    <stop stop-color="#ffffff"/><stop offset="0.22" stop-color="#bae6fd"/><stop offset="0.55" stop-color="#22d3ee"/><stop offset="1" stop-color="#312e81"/>
+  </radialGradient>
+  <radialGradient id="qvElectron" cx="0.35" cy="0.3" r="0.85">
+    <stop stop-color="#ffffff"/><stop offset="0.5" stop-color="#67e8f9"/><stop offset="1" stop-color="#0284c7"/>
+  </radialGradient>
+  <filter id="qvGlow" x="-60%" y="-60%" width="220%" height="220%">
+    <feGaussianBlur stdDeviation="1.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <symbol id="qmark" viewBox="0 0 64 64">
+    <g filter="url(#qvGlow)">
+      <ellipse cx="32" cy="32" rx="12" ry="26" transform="rotate(45 32 32)" fill="none" stroke="url(#qvOrbit)" stroke-width="3.2"/>
+      <ellipse cx="32" cy="32" rx="12" ry="26" transform="rotate(-45 32 32)" fill="none" stroke="url(#qvOrbit)" stroke-width="3.2"/>
+      <ellipse cx="32" cy="32" rx="12" ry="26" transform="rotate(45 32 32)" fill="none" stroke="#f0f9ff" stroke-width="0.8" opacity="0.5"/>
+      <ellipse cx="32" cy="32" rx="12" ry="26" transform="rotate(-45 32 32)" fill="none" stroke="#f0f9ff" stroke-width="0.8" opacity="0.5"/>
+    </g>
+    <circle cx="50" cy="15" r="3.4" fill="url(#qvElectron)"/>
+    <circle cx="48.9" cy="13.9" r="1" fill="#ffffff" opacity="0.85"/>
+    <circle cx="32" cy="32" r="8.2" fill="url(#qvNucleus)"/>
+    <ellipse cx="29.4" cy="29" rx="3" ry="2" fill="#ffffff" opacity="0.75"/>
+  </symbol>
 </defs></svg>
 
 <!-- NAV -->
 <header class="fixed inset-x-0 top-0 z-50">
   <div class="max-w-7xl mx-auto px-5 sm:px-8 mt-4">
     <div class="glass rounded-2xl px-4 sm:px-5 py-3 flex items-center justify-between">
-      <a href="#top" class="flex items-center gap-2.5 group" aria-label="QuantumVentures">
-        <svg width="34" height="34" viewBox="0 0 64 64" fill="none" class="shrink-0">
-          <ellipse cx="32" cy="32" rx="13" ry="27" transform="rotate(45 32 32)" stroke="url(#qg)" stroke-width="3.5"/>
-          <ellipse cx="32" cy="32" rx="13" ry="27" transform="rotate(-45 32 32)" stroke="url(#qg)" stroke-width="3.5" opacity="0.55"/>
-          <circle cx="32" cy="32" r="7" fill="url(#qg)"/><circle cx="51" cy="13" r="3.6" fill="#22d3ee"/>
-        </svg>
-        <span class="font-display font-bold tracking-tight text-[15px] sm:text-base">Quantum<span class="text-mute">Ventures</span></span>
+      <a href="#top" class="flex items-center gap-2.5 group" aria-label="Quantum Ventures">
+        <svg width="34" height="34" viewBox="0 0 64 64" class="shrink-0 transition-transform duration-300 group-hover:scale-110" aria-hidden="true"><use href="#qmark"/></svg>
+        <span class="font-display font-bold tracking-tight text-[15px] sm:text-base">Quantum<span class="text-white/70 font-medium"> Ventures</span></span>
       </a>
       <nav class="hidden lg:flex items-center gap-8 text-sm text-mute font-medium">
         <a href="#solution" class="hover:text-white transition">Approach</a>
@@ -131,15 +148,15 @@
   <div class="max-w-7xl mx-auto px-5 sm:px-8 w-full">
     <div class="grid lg:grid-cols-[1fr_440px] xl:grid-cols-[1fr_500px] gap-12 lg:gap-16 items-center">
       <div>
-        <span class="chip reveal"><span class="w-1.5 h-1.5 rounded-full bg-q-cyan"></span> The venture builder for fitness creators</span>
+        <span class="chip reveal"><span class="w-1.5 h-1.5 rounded-full bg-q-cyan"></span> The venture builder for elite fitness creators</span>
         <h1 class="reveal font-display text-[2.6rem] leading-[1.04] sm:text-6xl lg:text-[5rem] font-bold mt-7">
-          From creator to entrepreneur.
-          <span class="grad-anim">From audience to empire.</span>
+          You built the audience.
+          <span class="grad-anim">We build the empire.</span>
         </h1>
         <p class="reveal text-lg sm:text-xl text-mute leading-relaxed mt-7 max-w-2xl">
-          Your personal brand won't last forever — but the empire you build with it will. We install the
-          client-acquisition systems, products and brands that turn your audience into diversified income and lasting wealth.
-          <span class="text-white font-medium">You create; we build the empire.</span>
+          Your influence is the most valuable asset most creators never cash in. We design, build and operate
+          the companies, products and brands around your name — turning attention into diversified income and lasting wealth.
+          <span class="text-white font-medium">You create. We build the business.</span>
         </p>
         <div class="reveal flex flex-col sm:flex-row gap-3 mt-9">
           <a href="#contact" class="btn-primary inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full">
@@ -174,11 +191,11 @@
     <div class="max-w-3xl reveal">
       <span class="eyebrow text-sm font-semibold tracking-widest uppercase text-q-cyan">The problem</span>
       <h2 class="font-display text-3xl sm:text-5xl font-bold leading-tight mt-4">
-        A creator's career can end <span class="grad-text">fast.</span>
+        Attention is rented. <span class="grad-text">It can end fast.</span>
       </h2>
       <p class="text-lg text-mute leading-relaxed mt-6">
-        Your relevance and your income depend on attention — on the algorithm, on trends, on your energy to keep posting.
-        Today you earn well. What about five years from now?
+        Right now your relevance — and your income — live and die by the algorithm, the trends and your energy to keep posting.
+        You earn well today. But what is any of it worth the day you stop?
       </p>
     </div>
     <div class="grid sm:grid-cols-3 gap-5 mt-14">
@@ -214,11 +231,11 @@
       <div class="reveal">
         <span class="eyebrow text-sm font-semibold tracking-widest uppercase text-q-cyan">The approach</span>
         <h2 class="font-display text-3xl sm:text-5xl font-bold leading-tight mt-4">
-          We make you an <span class="grad-text">entrepreneur — and build the empire with you.</span>
+          Not an agency. <span class="grad-text">A venture builder behind your name.</span>
         </h2>
         <p class="text-lg text-mute leading-relaxed mt-6">
-          QuantumVentures is not a launch agency. We're a venture builder: we design, build and operate a
-          portfolio of businesses around you — so you stop renting your attention and start owning real companies.
+          Quantum Ventures doesn't run a campaign and walk away. We design, build and operate a portfolio of
+          companies around you — so you stop renting your attention and start owning real assets that pay you for years.
         </p>
         <ul class="mt-8 space-y-4">
           <li class="flex gap-3"><span class="text-q-cyan mt-1">◆</span><span><b class="text-white">We diversify</b> your income with your own products and services.</span></li>
@@ -255,8 +272,8 @@
   <div class="max-w-7xl mx-auto px-5 sm:px-8">
     <div class="max-w-3xl reveal">
       <span class="eyebrow text-sm font-semibold tracking-widest uppercase text-q-cyan">The engine</span>
-      <h2 class="font-display text-3xl sm:text-5xl font-bold leading-tight mt-4">We install the systems that turn a creator into an entrepreneur.</h2>
-      <p class="text-lg text-mute leading-relaxed mt-6">Not motivation. Machinery. The same playbook real companies run — built and operated around your brand.</p>
+      <h2 class="font-display text-3xl sm:text-5xl font-bold leading-tight mt-4">The machine that turns a following into a company.</h2>
+      <p class="text-lg text-mute leading-relaxed mt-6">Not motivation — machinery. The same operating systems real companies run, installed and run for you, around your brand.</p>
     </div>
     <div class="grid md:grid-cols-2 gap-5 mt-14">
       <div class="glass gborder rounded-2xl p-8 reveal card-hover">
@@ -334,7 +351,7 @@
   <div class="max-w-7xl mx-auto px-5 sm:px-8">
     <div class="max-w-3xl reveal">
       <span class="eyebrow text-sm font-semibold tracking-widest uppercase text-q-cyan">What we build with you</span>
-      <h2 class="font-display text-3xl sm:text-5xl font-bold leading-tight mt-4">An ecosystem of income, not a one-off launch.</h2>
+      <h2 class="font-display text-3xl sm:text-5xl font-bold leading-tight mt-4">A portfolio of income, not a one-off launch.</h2>
     </div>
     <div class="grid md:grid-cols-3 gap-5 mt-14">
       <div class="rounded-2xl reveal card-hover md:col-span-2 relative overflow-hidden" style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);min-height:180px">
@@ -443,11 +460,11 @@
   <div class="max-w-5xl mx-auto px-5 sm:px-8">
     <div class="rounded-3xl p-10 sm:p-16 text-center reveal" style="background:linear-gradient(140deg,rgba(99,102,241,.2),rgba(34,211,238,.08));border:1px solid rgba(99,102,241,.35)">
       <h2 class="font-display text-3xl sm:text-5xl font-bold leading-tight">
-        Ready to build something that <span class="grad-text">lasts?</span>
+        Build something that <span class="grad-text">outlasts the algorithm.</span>
       </h2>
       <p class="text-lg text-mute leading-relaxed mt-5 max-w-2xl mx-auto">
-        We partner with a select group of creators. It starts with an audit of your brand and your
-        monetization potential — and a tailored plan built around you.
+        We partner with a select few creators each year. It starts with a private audit of your brand and your
+        true monetization potential — and a tailored plan to build the business around you.
       </p>
       <div class="flex flex-col sm:flex-row gap-3 justify-center mt-9">
         <a href="mailto:hello@quantumventures.io?subject=Partnership%20application%20-%20QuantumVentures" class="btn-primary inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full">
@@ -466,12 +483,8 @@
 <footer class="border-t border-line">
   <div class="max-w-7xl mx-auto px-5 sm:px-8 py-12 flex flex-col sm:flex-row items-center justify-between gap-6">
     <a href="#top" class="flex items-center gap-2.5">
-      <svg width="30" height="30" viewBox="0 0 64 64" fill="none">
-        <ellipse cx="32" cy="32" rx="13" ry="27" transform="rotate(45 32 32)" stroke="url(#qg)" stroke-width="3.5"/>
-        <ellipse cx="32" cy="32" rx="13" ry="27" transform="rotate(-45 32 32)" stroke="url(#qg)" stroke-width="3.5" opacity="0.55"/>
-        <circle cx="32" cy="32" r="7" fill="url(#qg)"/><circle cx="51" cy="13" r="3.6" fill="#22d3ee"/>
-      </svg>
-      <span class="font-display font-bold">Quantum<span class="text-mute">Ventures</span></span>
+      <svg width="30" height="30" viewBox="0 0 64 64" aria-hidden="true"><use href="#qmark"/></svg>
+      <span class="font-display font-bold">Quantum<span class="text-white/70 font-medium"> Ventures</span></span>
     </a>
     <p class="text-sm text-mute text-center">© <span id="year"></span> QuantumVentures LLC · We turn audience into wealth</p>
     <p class="text-xs text-mute">Built by <a href="https://stratomai.com" target="_blank" rel="noopener" class="text-white/80 hover:text-white">Stratoma AI</a></p>

@@ -1,16 +1,37 @@
-<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="QuantumVentures">
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Quantum Ventures">
   <defs>
-    <linearGradient id="qg" x1="6" y1="6" x2="58" y2="58" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#22d3ee"/>
-      <stop offset="0.5" stop-color="#6366f1"/>
-      <stop offset="1" stop-color="#a855f7"/>
+    <linearGradient id="qvOrbit" x1="10" y1="6" x2="54" y2="58" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#a5f3fc"/>
+      <stop offset="0.45" stop-color="#38bdf8"/>
+      <stop offset="1" stop-color="#4f46e5"/>
     </linearGradient>
+    <radialGradient id="qvNucleus" cx="0.36" cy="0.3" r="0.78">
+      <stop stop-color="#ffffff"/>
+      <stop offset="0.22" stop-color="#bae6fd"/>
+      <stop offset="0.55" stop-color="#22d3ee"/>
+      <stop offset="1" stop-color="#312e81"/>
+    </radialGradient>
+    <radialGradient id="qvElectron" cx="0.35" cy="0.3" r="0.85">
+      <stop stop-color="#ffffff"/>
+      <stop offset="0.5" stop-color="#67e8f9"/>
+      <stop offset="1" stop-color="#0284c7"/>
+    </radialGradient>
+    <filter id="qvGlow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="1.9" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
   </defs>
-  <!-- orbital paths forming an abstract Q / atom -->
-  <ellipse cx="32" cy="32" rx="13" ry="27" transform="rotate(45 32 32)" stroke="url(#qg)" stroke-width="3"/>
-  <ellipse cx="32" cy="32" rx="13" ry="27" transform="rotate(-45 32 32)" stroke="url(#qg)" stroke-width="3" opacity="0.55"/>
-  <!-- nucleus -->
-  <circle cx="32" cy="32" r="7" fill="url(#qg)"/>
-  <!-- orbiting node (the spark / value) -->
-  <circle cx="51" cy="13" r="3.4" fill="#22d3ee"/>
+  <!-- glossy orbital paths -->
+  <g filter="url(#qvGlow)">
+    <ellipse cx="32" cy="32" rx="12" ry="26" transform="rotate(45 32 32)" fill="none" stroke="url(#qvOrbit)" stroke-width="3.2"/>
+    <ellipse cx="32" cy="32" rx="12" ry="26" transform="rotate(-45 32 32)" fill="none" stroke="url(#qvOrbit)" stroke-width="3.2"/>
+    <ellipse cx="32" cy="32" rx="12" ry="26" transform="rotate(45 32 32)" fill="none" stroke="#f0f9ff" stroke-width="0.8" opacity="0.5"/>
+    <ellipse cx="32" cy="32" rx="12" ry="26" transform="rotate(-45 32 32)" fill="none" stroke="#f0f9ff" stroke-width="0.8" opacity="0.5"/>
+  </g>
+  <!-- orbiting electron (glossy sphere) -->
+  <circle cx="50" cy="15" r="3.4" fill="url(#qvElectron)"/>
+  <circle cx="48.9" cy="13.9" r="1" fill="#ffffff" opacity="0.85"/>
+  <!-- nucleus (glossy 3D sphere) -->
+  <circle cx="32" cy="32" r="8.2" fill="url(#qvNucleus)"/>
+  <ellipse cx="29.4" cy="29" rx="3" ry="2" fill="#ffffff" opacity="0.75"/>
 </svg>
