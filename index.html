@@ -76,6 +76,13 @@
   .lang-switch button:hover { color:#e7ecf3; }
   .lang-switch button.active { color:#06070d; background:linear-gradient(100deg,#22d3ee,#6366f1); }
   .logo-mark { filter:drop-shadow(0 2px 10px rgba(34,211,238,.25)); }
+  /* marquee trust bar */
+  @keyframes marquee { from { transform:translateX(0); } to { transform:translateX(-50%); } }
+  .marquee { overflow:hidden; -webkit-mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent); mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent); }
+  .marquee-track { display:inline-flex; align-items:center; white-space:nowrap; animation:marquee 42s linear infinite; }
+  .marquee:hover .marquee-track { animation-play-state:paused; }
+  .marquee-track span.dot { color:#22d3ee; margin:0 1.4rem; opacity:.7; }
+  @media (prefers-reduced-motion: reduce){ .marquee-track{ animation:none; } }
 </style>
 </head>
 <body>
@@ -93,13 +100,13 @@
         <img src="assets/brand/qv-mark.png" alt="Quantum Ventures" width="36" height="36" class="logo-mark w-9 h-9 shrink-0 transition-transform duration-300 group-hover:scale-110">
         <span class="font-display font-bold tracking-tight text-[15px] sm:text-base">Quantum<span class="text-white/70 font-medium"> Ventures</span></span>
       </a>
-      <nav class="hidden lg:flex items-center gap-8 text-sm text-mute font-medium">
+      <nav class="hidden lg:flex items-center gap-7 text-sm text-mute font-medium">
+        <a href="#network" class="hover:text-white transition" data-i18n="nav.partners">Network</a>
         <a href="#solution" class="hover:text-white transition" data-i18n="nav.approach">Approach</a>
+        <a href="#services" class="hover:text-white transition" data-i18n="nav.services">Services</a>
         <a href="#systems" class="hover:text-white transition" data-i18n="nav.systems">Systems</a>
         <a href="#team" class="hover:text-white transition" data-i18n="nav.team">Team</a>
-        <a href="#build" class="hover:text-white transition" data-i18n="nav.build">What we build</a>
         <a href="#partnership" class="hover:text-white transition" data-i18n="nav.partnership">Partnership</a>
-        <a href="#process" class="hover:text-white transition" data-i18n="nav.process">Process</a>
       </nav>
       <div class="flex items-center gap-2 sm:gap-3">
         <div class="lang-switch" role="group" aria-label="Language">
@@ -114,7 +121,9 @@
       </div>
     </div>
     <div id="mobileMenu" class="lg:hidden hidden glass rounded-2xl mt-2 p-4 flex flex-col gap-1 text-sm">
+      <a href="#network" class="py-2.5 px-3 rounded-lg hover:bg-white/5" data-i18n="nav.partners">Network</a>
       <a href="#solution" class="py-2.5 px-3 rounded-lg hover:bg-white/5" data-i18n="nav.approach">Approach</a>
+      <a href="#services" class="py-2.5 px-3 rounded-lg hover:bg-white/5" data-i18n="nav.services">Services</a>
       <a href="#systems" class="py-2.5 px-3 rounded-lg hover:bg-white/5" data-i18n="nav.systems">Systems</a>
       <a href="#team" class="py-2.5 px-3 rounded-lg hover:bg-white/5" data-i18n="nav.team">Team</a>
       <a href="#build" class="py-2.5 px-3 rounded-lg hover:bg-white/5" data-i18n="nav.build">What we build</a>
@@ -163,6 +172,19 @@
             <p class="font-display text-xl font-bold leading-snug"><span data-i18n="hero.badge1">You create.</span><br><span class="grad-text" data-i18n="hero.badge2">We build the empire.</span></p>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST MARQUEE -->
+<section class="py-9 border-y border-line reveal" style="background:rgba(255,255,255,.015)">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <p class="text-[.7rem] uppercase tracking-[.2em] text-mute text-center mb-5" data-i18n="partners.eyebrow">Strategic partner network</p>
+    <div class="marquee">
+      <div class="marquee-track font-display font-semibold text-base sm:text-xl text-white/65">
+        <span>JuegaGerman<span class="dot">◆</span>Amilcar Aballay<span class="dot">◆</span>Angie Velasco<span class="dot">◆</span>Gero Arias<span class="dot">◆</span>Santutu<span class="dot">◆</span>Francis<span class="dot">◆</span>Unicornio<span class="dot">◆</span>Un Topo por el Mundo<span class="dot">◆</span>Lucas Abriata<span class="dot">◆</span>Gorilon<span class="dot">◆</span>Tito Church<span class="dot">◆</span></span>
+        <span aria-hidden="true">JuegaGerman<span class="dot">◆</span>Amilcar Aballay<span class="dot">◆</span>Angie Velasco<span class="dot">◆</span>Gero Arias<span class="dot">◆</span>Santutu<span class="dot">◆</span>Francis<span class="dot">◆</span>Unicornio<span class="dot">◆</span>Un Topo por el Mundo<span class="dot">◆</span>Lucas Abriata<span class="dot">◆</span>Gorilon<span class="dot">◆</span>Tito Church<span class="dot">◆</span></span>
       </div>
     </div>
   </div>
@@ -248,6 +270,33 @@
   </div>
 </section>
 
+<!-- STRATEGIC PARTNER NETWORK -->
+<section id="network" class="py-24 sm:py-32">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="max-w-3xl reveal">
+      <span class="eyebrow text-sm font-semibold tracking-widest uppercase text-q-cyan" data-i18n="partners.eyebrow">Strategic partner network</span>
+      <h2 class="font-display text-3xl sm:text-5xl font-bold leading-tight mt-4" data-i18n="partners.h2">Built on a network behind 70M+ followers.</h2>
+      <p class="text-lg text-mute leading-relaxed mt-6" data-i18n="partners.p">Quantum Ventures is powered by a strategic partnership with a creator agency that produces, grows and monetizes some of the largest channels online — the same operational muscle now working for your brand.</p>
+    </div>
+    <div class="grid grid-cols-3 gap-4 sm:gap-6 mt-14 reveal">
+      <div class="border-l-2 border-q-cyan/40 pl-4 sm:pl-6"><div class="font-display text-4xl sm:text-6xl font-bold grad-anim">70M+</div><div class="text-xs sm:text-sm text-mute mt-2" data-i18n="partners.stat1l">Combined audience</div></div>
+      <div class="border-l-2 border-q-indigo/40 pl-4 sm:pl-6"><div class="font-display text-4xl sm:text-6xl font-bold grad-anim">55M</div><div class="text-xs sm:text-sm text-mute mt-2" data-i18n="partners.stat2l">Largest channel</div></div>
+      <div class="border-l-2 border-q-violet/40 pl-4 sm:pl-6"><div class="font-display text-4xl sm:text-6xl font-bold grad-anim">11</div><div class="text-xs sm:text-sm text-mute mt-2" data-i18n="partners.stat3l">Creator channels</div></div>
+    </div>
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 mt-10">
+      <div class="glass rounded-2xl p-5 reveal card-hover"><div class="font-display font-bold truncate">JuegaGerman</div><div class="text-xs text-mute mt-0.5">@JuegaGerman</div><div class="font-display text-q-cyan text-lg font-bold mt-3">55M <span class="text-mute text-[.7rem] font-normal" data-i18n="partners.subs">subscribers</span></div></div>
+      <div class="glass rounded-2xl p-5 reveal card-hover"><div class="font-display font-bold truncate">Amilcar Aballay</div><div class="text-xs text-mute mt-0.5">@amilcaraballay</div><div class="font-display text-q-cyan text-lg font-bold mt-3">9.8M <span class="text-mute text-[.7rem] font-normal" data-i18n="partners.subs">subscribers</span></div></div>
+      <div class="glass rounded-2xl p-5 reveal card-hover"><div class="font-display font-bold truncate">Angie Velasco</div><div class="text-xs text-mute mt-0.5">@angievelasco</div><div class="font-display text-q-cyan text-lg font-bold mt-3">6.1M <span class="text-mute text-[.7rem] font-normal" data-i18n="partners.subs">subscribers</span></div></div>
+      <div class="glass rounded-2xl p-5 reveal card-hover"><div class="font-display font-bold truncate">Gero Arias</div><div class="text-xs text-mute mt-0.5">@geroariass</div><div class="font-display text-q-cyan text-lg font-bold mt-3">3.8M <span class="text-mute text-[.7rem] font-normal" data-i18n="partners.subs">subscribers</span></div></div>
+      <div class="glass rounded-2xl p-5 reveal card-hover"><div class="font-display font-bold truncate">Unicornio</div><div class="text-xs text-mute mt-0.5">@UnicornioPerro</div><div class="font-display text-q-cyan text-lg font-bold mt-3">915K <span class="text-mute text-[.7rem] font-normal" data-i18n="partners.subs">subscribers</span></div></div>
+      <div class="glass rounded-2xl p-5 reveal card-hover"><div class="font-display font-bold truncate">Santutu</div><div class="text-xs text-mute mt-0.5">@santutu</div><div class="font-display text-q-cyan text-lg font-bold mt-3">779K <span class="text-mute text-[.7rem] font-normal" data-i18n="partners.subs">subscribers</span></div></div>
+      <div class="glass rounded-2xl p-5 reveal card-hover"><div class="font-display font-bold truncate">Francis</div><div class="text-xs text-mute mt-0.5">@francisok</div><div class="font-display text-q-cyan text-lg font-bold mt-3">511K <span class="text-mute text-[.7rem] font-normal" data-i18n="partners.subs">subscribers</span></div></div>
+      <div class="glass rounded-2xl p-5 reveal card-hover"><div class="font-display font-bold truncate">Un Topo por el Mundo</div><div class="text-xs text-mute mt-0.5">@topo</div><div class="font-display text-q-cyan text-lg font-bold mt-3">419K <span class="text-mute text-[.7rem] font-normal" data-i18n="partners.subs">subscribers</span></div></div>
+    </div>
+    <p class="text-sm text-mute mt-7 reveal" data-i18n="partners.note">And a growing roster of partner creators.</p>
+  </div>
+</section>
+
 <!-- SYSTEMS -->
 <section id="systems" class="py-24 sm:py-32">
   <div class="max-w-7xl mx-auto px-5 sm:px-8">
@@ -281,6 +330,60 @@
         <div class="font-display text-q-cyan text-sm font-bold tracking-widest">05</div>
         <h3 class="font-display text-2xl font-bold mt-3" data-i18n="systems.s5t">Deals &amp; representation</h3>
         <p class="text-mute text-sm leading-relaxed mt-3 max-w-3xl" data-i18n="systems.s5d">We act as your professional agents: we negotiate brand deals and sponsorships, manage your rate card and media kit, filter opportunities that protect your brand, and turn one-off collabs into long-term partnerships. You stop selling your audience by DM — a specialist team handles it all.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES (full catalog) -->
+<section id="services" class="py-24 sm:py-32">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="max-w-3xl reveal">
+      <span class="eyebrow text-sm font-semibold tracking-widest uppercase text-q-cyan" data-i18n="services.eyebrow">Full service</span>
+      <h2 class="font-display text-3xl sm:text-5xl font-bold leading-tight mt-4" data-i18n="services.h2">Everything we run for you.</h2>
+      <p class="text-lg text-mute leading-relaxed mt-6" data-i18n="services.p">One partner for the entire business behind your brand — from the first thumbnail to long-term wealth.</p>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-14">
+      <div class="glass gborder rounded-2xl p-7 reveal card-hover">
+        <h3 class="font-display text-lg font-bold flex items-center gap-2.5"><span class="w-2.5 h-2.5 rounded-full bg-q-cyan shrink-0"></span> <span data-i18n="services.g1">Content &amp; Growth</span></h3>
+        <ul class="mt-5 space-y-3 text-sm text-mute">
+          <li class="flex gap-2.5"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" class="text-q-cyan shrink-0 mt-0.5"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="services.g1a">Content strategy</span></li>
+          <li class="flex gap-2.5"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" class="text-q-cyan shrink-0 mt-0.5"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="services.g1b">Video editing &amp; production</span></li>
+          <li class="flex gap-2.5"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" class="text-q-cyan shrink-0 mt-0.5"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="services.g1c">Thumbnails, titles &amp; metadata</span></li>
+          <li class="flex gap-2.5"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" class="text-q-cyan shrink-0 mt-0.5"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="services.g1d">Multi-channel repurposing</span></li>
+          <li class="flex gap-2.5"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" class="text-q-cyan shrink-0 mt-0.5"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="services.g1e">Media buying / paid ads</span></li>
+          <li class="flex gap-2.5"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" class="text-q-cyan shrink-0 mt-0.5"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="services.g1f">Audience growth</span></li>
+        </ul>
+      </div>
+      <div class="glass gborder rounded-2xl p-7 reveal card-hover">
+        <h3 class="font-display text-lg font-bold flex items-center gap-2.5"><span class="w-2.5 h-2.5 rounded-full bg-q-indigo shrink-0"></span> <span data-i18n="services.g2">Monetization &amp; Products</span></h3>
+        <ul class="mt-5 space-y-3 text-sm text-mute">
+          <li class="flex gap-2.5"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" class="text-q-indigo shrink-0 mt-0.5"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="services.g2a">Infoproduct creation</span></li>
+          <li class="flex gap-2.5"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" class="text-q-indigo shrink-0 mt-0.5"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="services.g2b">Paid community</span></li>
+          <li class="flex gap-2.5"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" class="text-q-indigo shrink-0 mt-0.5"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="services.g2c">Ecommerce &amp; storefront</span></li>
+          <li class="flex gap-2.5"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" class="text-q-indigo shrink-0 mt-0.5"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="services.g2d">Supplement brand</span></li>
+          <li class="flex gap-2.5"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" class="text-q-indigo shrink-0 mt-0.5"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="services.g2e">Apparel &amp; lifestyle line</span></li>
+          <li class="flex gap-2.5"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" class="text-q-indigo shrink-0 mt-0.5"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="services.g2f">Brand deals &amp; representation</span></li>
+        </ul>
+      </div>
+      <div class="glass gborder rounded-2xl p-7 reveal card-hover">
+        <h3 class="font-display text-lg font-bold flex items-center gap-2.5"><span class="w-2.5 h-2.5 rounded-full bg-q-violet shrink-0"></span> <span data-i18n="services.g3">AI &amp; Operations</span></h3>
+        <ul class="mt-5 space-y-3 text-sm text-mute">
+          <li class="flex gap-2.5"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" class="text-q-violet shrink-0 mt-0.5"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="services.g3a">AI-powered service delivery</span></li>
+          <li class="flex gap-2.5"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" class="text-q-violet shrink-0 mt-0.5"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="services.g3b">Sales systems &amp; CRM (GHL)</span></li>
+          <li class="flex gap-2.5"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" class="text-q-violet shrink-0 mt-0.5"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="services.g3c">Automation &amp; follow-up</span></li>
+          <li class="flex gap-2.5"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" class="text-q-violet shrink-0 mt-0.5"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="services.g3d">1:1 productized with AI</span></li>
+          <li class="flex gap-2.5"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" class="text-q-violet shrink-0 mt-0.5"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="services.g3e">Launch operations</span></li>
+        </ul>
+      </div>
+      <div class="glass gborder rounded-2xl p-7 reveal card-hover">
+        <h3 class="font-display text-lg font-bold flex items-center gap-2.5"><span class="w-2.5 h-2.5 rounded-full bg-white/70 shrink-0"></span> <span data-i18n="services.g4">Wealth &amp; Structure</span></h3>
+        <ul class="mt-5 space-y-3 text-sm text-mute">
+          <li class="flex gap-2.5"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" class="text-white/70 shrink-0 mt-0.5"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="services.g4a">Wealth management</span></li>
+          <li class="flex gap-2.5"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" class="text-white/70 shrink-0 mt-0.5"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="services.g4b">Tax optimization</span></li>
+          <li class="flex gap-2.5"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" class="text-white/70 shrink-0 mt-0.5"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="services.g4c">Company &amp; legal structure</span></li>
+          <li class="flex gap-2.5"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" class="text-white/70 shrink-0 mt-0.5"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="services.g4d">Investment &amp; asset planning</span></li>
+        </ul>
       </div>
     </div>
   </div>
@@ -534,7 +637,18 @@
       "contact.h2a": "Build something that", "contact.h2b": "outlasts the algorithm.",
       "contact.p": "We partner with a select few creators each year. It starts with a private audit of your brand and your true monetization potential — and a tailored plan to build the business around you.",
       "contact.back": "Back to top",
-      "footer.tagline": "We turn audience into wealth", "footer.builtby": "Built by"
+      "footer.tagline": "We turn audience into wealth", "footer.builtby": "Built by",
+      "nav.services": "Services", "nav.partners": "Network",
+      "partners.eyebrow": "Strategic partner network",
+      "partners.h2": "Built on a network behind 70M+ followers.",
+      "partners.p": "Quantum Ventures is powered by a strategic partnership with a creator agency that produces, grows and monetizes some of the largest channels online — the same operational muscle now working for your brand.",
+      "partners.subs": "subscribers", "partners.stat1l": "Combined audience", "partners.stat2l": "Largest channel", "partners.stat3l": "Creator channels", "partners.note": "And a growing roster of partner creators.",
+      "services.eyebrow": "Full service", "services.h2": "Everything we run for you.",
+      "services.p": "One partner for the entire business behind your brand — from the first thumbnail to long-term wealth.",
+      "services.g1": "Content &amp; Growth", "services.g1a": "Content strategy", "services.g1b": "Video editing &amp; production", "services.g1c": "Thumbnails, titles &amp; metadata", "services.g1d": "Multi-channel repurposing", "services.g1e": "Media buying / paid ads", "services.g1f": "Audience growth",
+      "services.g2": "Monetization &amp; Products", "services.g2a": "Infoproduct creation", "services.g2b": "Paid community", "services.g2c": "Ecommerce &amp; storefront", "services.g2d": "Supplement brand", "services.g2e": "Apparel &amp; lifestyle line", "services.g2f": "Brand deals &amp; representation",
+      "services.g3": "AI &amp; Operations", "services.g3a": "AI-powered service delivery", "services.g3b": "Sales systems &amp; CRM (GHL)", "services.g3c": "Automation &amp; follow-up", "services.g3d": "1:1 productized with AI", "services.g3e": "Launch operations",
+      "services.g4": "Wealth &amp; Structure", "services.g4a": "Wealth management", "services.g4b": "Tax optimization", "services.g4c": "Company &amp; legal structure", "services.g4d": "Investment &amp; asset planning"
     },
     es: {
       "meta.title": "Quantum Ventures — De tu audiencia a tu imperio",
@@ -596,7 +710,18 @@
       "contact.h2a": "Construye algo que", "contact.h2b": "sobreviva al algoritmo.",
       "contact.p": "Trabajamos con unos pocos creadores cada año. Empieza con una auditoría privada de tu marca y tu verdadero potencial de monetización — y un plan a medida para construir el negocio en torno a ti.",
       "contact.back": "Volver arriba",
-      "footer.tagline": "Convertimos audiencia en patrimonio", "footer.builtby": "Desarrollado por"
+      "footer.tagline": "Convertimos audiencia en patrimonio", "footer.builtby": "Desarrollado por",
+      "nav.services": "Servicios", "nav.partners": "Red",
+      "partners.eyebrow": "Red de socios estratégicos",
+      "partners.h2": "Construido sobre una red que mueve +70M de seguidores.",
+      "partners.p": "Quantum Ventures se apoya en una alianza estratégica con una agencia de creadores que produce, hace crecer y monetiza algunos de los canales más grandes de internet — la misma maquinaria operativa trabajando ahora para tu marca.",
+      "partners.subs": "suscriptores", "partners.stat1l": "Audiencia combinada", "partners.stat2l": "Canal más grande", "partners.stat3l": "Canales de creadores", "partners.note": "Y una lista creciente de creadores socios.",
+      "services.eyebrow": "Servicio integral", "services.h2": "Todo lo que gestionamos por ti.",
+      "services.p": "Un único socio para todo el negocio detrás de tu marca — desde la primera miniatura hasta tu patrimonio a largo plazo.",
+      "services.g1": "Contenido y Crecimiento", "services.g1a": "Estrategia de contenido", "services.g1b": "Edición y producción de vídeo", "services.g1c": "Miniaturas, títulos y metadatos", "services.g1d": "Reutilización multicanal", "services.g1e": "Media buying / publicidad pagada", "services.g1f": "Crecimiento de audiencia",
+      "services.g2": "Monetización y Productos", "services.g2a": "Creación de infoproductos", "services.g2b": "Comunidad de pago", "services.g2c": "Ecommerce y tienda", "services.g2d": "Marca de suplementos", "services.g2e": "Línea de ropa y lifestyle", "services.g2f": "Deals de marca y representación",
+      "services.g3": "IA y Operaciones", "services.g3a": "Servicios potenciados con IA", "services.g3b": "Sistemas de ventas y CRM (GHL)", "services.g3c": "Automatización y seguimiento", "services.g3d": "Productización 1-a-1 con IA", "services.g3e": "Operativa de lanzamientos",
+      "services.g4": "Patrimonio y Estructura", "services.g4a": "Gestión de patrimonio", "services.g4b": "Optimización fiscal", "services.g4c": "Estructura legal y societaria", "services.g4d": "Inversión y planificación de activos"
     },
     fr: {
       "meta.title": "Quantum Ventures — De votre audience à votre empire",
@@ -658,7 +783,18 @@
       "contact.h2a": "Bâtissez quelque chose qui", "contact.h2b": "survit à l'algorithme.",
       "contact.p": "Nous nous associons à quelques créateurs sélectionnés chaque année. Cela commence par un audit privé de votre marque et de votre véritable potentiel de monétisation — et un plan sur mesure pour bâtir l'entreprise autour de vous.",
       "contact.back": "Revenir en haut",
-      "footer.tagline": "Nous transformons l'audience en patrimoine", "footer.builtby": "Conçu par"
+      "footer.tagline": "Nous transformons l'audience en patrimoine", "footer.builtby": "Conçu par",
+      "nav.services": "Services", "nav.partners": "Réseau",
+      "partners.eyebrow": "Réseau de partenaires stratégiques",
+      "partners.h2": "Bâti sur un réseau qui fédère +70M d'abonnés.",
+      "partners.p": "Quantum Ventures s'appuie sur un partenariat stratégique avec une agence de créateurs qui produit, développe et monétise certaines des plus grandes chaînes en ligne — la même puissance opérationnelle désormais au service de votre marque.",
+      "partners.subs": "abonnés", "partners.stat1l": "Audience combinée", "partners.stat2l": "Plus grande chaîne", "partners.stat3l": "Chaînes de créateurs", "partners.note": "Et une liste croissante de créateurs partenaires.",
+      "services.eyebrow": "Service complet", "services.h2": "Tout ce que nous gérons pour vous.",
+      "services.p": "Un seul partenaire pour toute l'entreprise derrière votre marque — de la première miniature jusqu'à votre patrimoine à long terme.",
+      "services.g1": "Contenu et Croissance", "services.g1a": "Stratégie de contenu", "services.g1b": "Montage et production vidéo", "services.g1c": "Miniatures, titres et métadonnées", "services.g1d": "Recyclage multicanal", "services.g1e": "Media buying / publicité payante", "services.g1f": "Croissance de l'audience",
+      "services.g2": "Monétisation et Produits", "services.g2a": "Création d'infoproduits", "services.g2b": "Communauté payante", "services.g2c": "E-commerce et boutique", "services.g2d": "Marque de compléments", "services.g2e": "Ligne de vêtements et lifestyle", "services.g2f": "Deals de marque et représentation",
+      "services.g3": "IA et Opérations", "services.g3a": "Services propulsés par l'IA", "services.g3b": "Systèmes de vente et CRM (GHL)", "services.g3c": "Automatisation et relances", "services.g3d": "Productisation 1-à-1 avec l'IA", "services.g3e": "Opérations de lancement",
+      "services.g4": "Patrimoine et Structure", "services.g4a": "Gestion de patrimoine", "services.g4b": "Optimisation fiscale", "services.g4c": "Structure juridique et sociétaire", "services.g4d": "Investissement et planification d'actifs"
     }
   };
   const LANGS = ["en","es","fr"];
