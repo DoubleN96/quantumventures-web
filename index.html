@@ -83,6 +83,23 @@
   .marquee:hover .marquee-track { animation-play-state:paused; }
   .marquee-track span.dot { color:#22d3ee; margin:0 1.4rem; opacity:.7; }
   @media (prefers-reduced-motion: reduce){ .marquee-track{ animation:none; } }
+  /* prestige + nuclear fusion */
+  @keyframes spin { to { transform:rotate(360deg); } }
+  .overline { display:inline-block; font-size:.7rem; letter-spacing:.34em; text-transform:uppercase; color:#9fb0c3; font-weight:600; }
+  .hairline { height:1px; background:linear-gradient(90deg,transparent,rgba(34,211,238,.55),rgba(168,85,247,.45),transparent); }
+  .fusion-stage { position:relative; width:min(360px,78vw); aspect-ratio:1; margin-inline:auto; }
+  .fusion-stage .halo { position:absolute; inset:-6%; border-radius:50%; background:radial-gradient(circle, rgba(99,102,241,.20), transparent 62%); }
+  .fusion-stage .bloom { position:absolute; inset:34%; border-radius:50%;
+    background:radial-gradient(circle at 50% 42%, #ffffff, #bae6fd 24%, #22d3ee 48%, rgba(79,70,229,.55) 74%, transparent 82%);
+    box-shadow:0 0 70px 14px rgba(34,211,238,.45), 0 0 150px 52px rgba(99,102,241,.30); animation:fusionPulse 3.6s ease-in-out infinite; }
+  .fusion-stage .orbit { position:absolute; border-radius:50%; border:1px solid rgba(255,255,255,.09); animation:spin linear infinite; }
+  .fusion-stage .orbit.o1 { inset:8%;  animation-duration:15s; }
+  .fusion-stage .orbit.o2 { inset:22%; animation-duration:9s; animation-direction:reverse; }
+  .fusion-stage .orbit.o3 { inset:-2%; animation-duration:22s; }
+  .fusion-stage .orbit::before { content:""; position:absolute; top:-4px; left:50%; width:9px; height:9px; margin-left:-4.5px; border-radius:50%;
+    background:radial-gradient(circle at 35% 30%, #fff, #22d3ee 60%, #0284c7); box-shadow:0 0 12px 2px rgba(34,211,238,.65); }
+  @keyframes fusionPulse { 0%,100%{ transform:scale(1); opacity:.96 } 50%{ transform:scale(1.07); opacity:1 } }
+  @media (prefers-reduced-motion: reduce){ .fusion-stage .bloom{ animation:none } .fusion-stage .orbit{ animation:none } }
 </style>
 </head>
 <body>
@@ -141,6 +158,7 @@
   <div class="max-w-7xl mx-auto px-5 sm:px-8 w-full">
     <div class="grid lg:grid-cols-[1fr_440px] xl:grid-cols-[1fr_500px] gap-12 lg:gap-16 items-center">
       <div>
+        <span class="overline reveal mb-4" data-i18n="hero.overline">Private venture firm</span>
         <span class="chip reveal"><span class="w-1.5 h-1.5 rounded-full bg-q-cyan"></span> <span data-i18n="hero.chip">The venture builder for elite fitness creators</span></span>
         <h1 class="reveal font-display text-[2.6rem] leading-[1.04] sm:text-6xl lg:text-[5rem] font-bold mt-7">
           <span data-i18n="hero.h1a">You built the audience.</span>
@@ -222,6 +240,32 @@
         <div class="relative z-10 p-7">
           <h3 class="font-display text-xl font-bold" data-i18n="problem.card3t">Nothing that lasts</h3>
           <p class="text-mute text-sm leading-relaxed mt-3" data-i18n="problem.card3d">Years generating attention that never turns into real assets or wealth.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FUSION PHILOSOPHY -->
+<section id="fusion" class="py-24 sm:py-32 relative overflow-hidden">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="grid lg:grid-cols-2 gap-14 lg:gap-20 items-center">
+      <div class="reveal order-2 lg:order-1">
+        <span class="overline" data-i18n="fusion.eyebrow">The philosophy</span>
+        <h2 class="font-display text-3xl sm:text-5xl font-bold leading-tight mt-4">
+          <span data-i18n="fusion.h2a">Nuclear fusion.</span> <span class="grad-anim" data-i18n="fusion.h2b">The energy of everything, fused.</span>
+        </h2>
+        <p class="text-lg text-mute leading-relaxed mt-6" data-i18n="fusion.p">A star doesn't shine by burning — it shines by fusion, forcing separate nuclei together until they release an energy none of them held alone. Your brand works the same way. Every vertical — content, products, community, your own brands, wealth — is a nucleus. Apart, each is limited. Fused around your name, they release exponential energy: diversified income, freedom and a legacy that lasts.</p>
+        <div class="hairline w-40 mt-8 mb-6"></div>
+        <p class="font-display text-xl sm:text-2xl font-semibold leading-snug grad-text" data-i18n="fusion.q">We are the reactor that makes the reaction controlled, continuous — and entirely yours.</p>
+      </div>
+      <div class="reveal order-1 lg:order-2 flex justify-center">
+        <div class="fusion-stage" role="img" aria-label="Fusion core">
+          <div class="halo"></div>
+          <div class="orbit o3"></div>
+          <div class="orbit o1"></div>
+          <div class="orbit o2"></div>
+          <div class="bloom"></div>
         </div>
       </div>
     </div>
@@ -648,7 +692,11 @@
       "services.g1": "Content &amp; Growth", "services.g1a": "Content strategy", "services.g1b": "Video editing &amp; production", "services.g1c": "Thumbnails, titles &amp; metadata", "services.g1d": "Multi-channel repurposing", "services.g1e": "Media buying / paid ads", "services.g1f": "Audience growth",
       "services.g2": "Monetization &amp; Products", "services.g2a": "Infoproduct creation", "services.g2b": "Paid community", "services.g2c": "Ecommerce &amp; storefront", "services.g2d": "Supplement brand", "services.g2e": "Apparel &amp; lifestyle line", "services.g2f": "Brand deals &amp; representation",
       "services.g3": "AI &amp; Operations", "services.g3a": "AI-powered service delivery", "services.g3b": "Sales systems &amp; CRM (GHL)", "services.g3c": "Automation &amp; follow-up", "services.g3d": "1:1 productized with AI", "services.g3e": "Launch operations",
-      "services.g4": "Wealth &amp; Structure", "services.g4a": "Wealth management", "services.g4b": "Tax optimization", "services.g4c": "Company &amp; legal structure", "services.g4d": "Investment &amp; asset planning"
+      "services.g4": "Wealth &amp; Structure", "services.g4a": "Wealth management", "services.g4b": "Tax optimization", "services.g4c": "Company &amp; legal structure", "services.g4d": "Investment &amp; asset planning",
+      "hero.overline": "Private venture firm",
+      "fusion.eyebrow": "The philosophy", "fusion.h2a": "Nuclear fusion.", "fusion.h2b": "The energy of everything, fused.",
+      "fusion.p": "A star doesn't shine by burning — it shines by fusion, forcing separate nuclei together until they release an energy none of them held alone. Your brand works the same way. Every vertical — content, products, community, your own brands, wealth — is a nucleus. Apart, each is limited. Fused around your name, they release exponential energy: diversified income, freedom and a legacy that lasts.",
+      "fusion.q": "We are the reactor that makes the reaction controlled, continuous — and entirely yours."
     },
     es: {
       "meta.title": "Quantum Ventures — De tu audiencia a tu imperio",
@@ -721,7 +769,11 @@
       "services.g1": "Contenido y Crecimiento", "services.g1a": "Estrategia de contenido", "services.g1b": "Edición y producción de vídeo", "services.g1c": "Miniaturas, títulos y metadatos", "services.g1d": "Reutilización multicanal", "services.g1e": "Media buying / publicidad pagada", "services.g1f": "Crecimiento de audiencia",
       "services.g2": "Monetización y Productos", "services.g2a": "Creación de infoproductos", "services.g2b": "Comunidad de pago", "services.g2c": "Ecommerce y tienda", "services.g2d": "Marca de suplementos", "services.g2e": "Línea de ropa y lifestyle", "services.g2f": "Deals de marca y representación",
       "services.g3": "IA y Operaciones", "services.g3a": "Servicios potenciados con IA", "services.g3b": "Sistemas de ventas y CRM (GHL)", "services.g3c": "Automatización y seguimiento", "services.g3d": "Productización 1-a-1 con IA", "services.g3e": "Operativa de lanzamientos",
-      "services.g4": "Patrimonio y Estructura", "services.g4a": "Gestión de patrimonio", "services.g4b": "Optimización fiscal", "services.g4c": "Estructura legal y societaria", "services.g4d": "Inversión y planificación de activos"
+      "services.g4": "Patrimonio y Estructura", "services.g4a": "Gestión de patrimonio", "services.g4b": "Optimización fiscal", "services.g4c": "Estructura legal y societaria", "services.g4d": "Inversión y planificación de activos",
+      "hero.overline": "Firma privada de venture building",
+      "fusion.eyebrow": "La filosofía", "fusion.h2a": "Fusión nuclear.", "fusion.h2b": "La energía de fusionarlo todo.",
+      "fusion.p": "Una estrella no brilla por arder — brilla por fusión: obliga a núcleos separados a unirse hasta liberar una energía que ninguno tenía por sí solo. Tu marca funciona igual. Cada vertical — contenido, productos, comunidad, tus propias marcas, patrimonio — es un núcleo. Por separado, cada uno es limitado. Fusionados en torno a tu nombre, liberan una energía exponencial: ingresos diversificados, libertad y un legado que perdura.",
+      "fusion.q": "Somos el reactor que hace que la reacción sea controlada, continua — y enteramente tuya."
     },
     fr: {
       "meta.title": "Quantum Ventures — De votre audience à votre empire",
@@ -794,7 +846,11 @@
       "services.g1": "Contenu et Croissance", "services.g1a": "Stratégie de contenu", "services.g1b": "Montage et production vidéo", "services.g1c": "Miniatures, titres et métadonnées", "services.g1d": "Recyclage multicanal", "services.g1e": "Media buying / publicité payante", "services.g1f": "Croissance de l'audience",
       "services.g2": "Monétisation et Produits", "services.g2a": "Création d'infoproduits", "services.g2b": "Communauté payante", "services.g2c": "E-commerce et boutique", "services.g2d": "Marque de compléments", "services.g2e": "Ligne de vêtements et lifestyle", "services.g2f": "Deals de marque et représentation",
       "services.g3": "IA et Opérations", "services.g3a": "Services propulsés par l'IA", "services.g3b": "Systèmes de vente et CRM (GHL)", "services.g3c": "Automatisation et relances", "services.g3d": "Productisation 1-à-1 avec l'IA", "services.g3e": "Opérations de lancement",
-      "services.g4": "Patrimoine et Structure", "services.g4a": "Gestion de patrimoine", "services.g4b": "Optimisation fiscale", "services.g4c": "Structure juridique et sociétaire", "services.g4d": "Investissement et planification d'actifs"
+      "services.g4": "Patrimoine et Structure", "services.g4a": "Gestion de patrimoine", "services.g4b": "Optimisation fiscale", "services.g4c": "Structure juridique et sociétaire", "services.g4d": "Investissement et planification d'actifs",
+      "hero.overline": "Cabinet privé de venture building",
+      "fusion.eyebrow": "La philosophie", "fusion.h2a": "Fusion nucléaire.", "fusion.h2b": "L'énergie de tout fusionner.",
+      "fusion.p": "Une étoile ne brille pas en brûlant — elle brille par fusion : elle force des noyaux séparés à s'unir jusqu'à libérer une énergie qu'aucun ne possédait seul. Votre marque fonctionne pareil. Chaque vertical — contenu, produits, communauté, vos propres marques, patrimoine — est un noyau. Séparés, ils sont limités. Fusionnés autour de votre nom, ils libèrent une énergie exponentielle : des revenus diversifiés, la liberté et un héritage qui dure.",
+      "fusion.q": "Nous sommes le réacteur qui rend la réaction contrôlée, continue — et entièrement vôtre."
     }
   };
   const LANGS = ["en","es","fr"];
