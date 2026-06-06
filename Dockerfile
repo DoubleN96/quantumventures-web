@@ -8,6 +8,8 @@ COPY propuesta /usr/share/nginx/html/propuesta
 COPY coach /usr/share/nginx/html/coach
 COPY fiscal /usr/share/nginx/html/fiscal
 COPY contactos /usr/share/nginx/html/contactos
+COPY onboarding /usr/share/nginx/html/onboarding
+COPY nuevo-cliente /usr/share/nginx/html/nuevo-cliente
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 EXPOSE 80
 HEALTHCHECK --interval=30s --timeout=5s --start-period=5s --retries=3 \
