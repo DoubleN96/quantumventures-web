@@ -4,6 +4,7 @@ COPY assets /usr/share/nginx/html/assets
 COPY brand /usr/share/nginx/html/brand
 COPY auditoria /usr/share/nginx/html/auditoria
 COPY auditoria-servicio /usr/share/nginx/html/auditoria-servicio
+COPY propuesta /usr/share/nginx/html/propuesta
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 EXPOSE 80
 HEALTHCHECK --interval=30s --timeout=5s --start-period=5s --retries=3 \
