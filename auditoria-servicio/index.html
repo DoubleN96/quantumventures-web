@@ -7,31 +7,35 @@
 <style>
   :root{--ink:#06070d;--surface:#0c0e17;--line:rgba(255,255,255,.10);--cyan:#22d3ee;--indigo:#6366f1;--violet:#a855f7;--text:#e7ecf3;--mute:#8b97a8}
   *{margin:0;box-sizing:border-box}
-  body{background:var(--ink);color:var(--text);font-family:'Inter',sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+  body{background:var(--ink);color:var(--text);font-family:'Inter',sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
   .aurora{position:fixed;inset:0;z-index:-1;overflow:hidden}.aurora span{position:absolute;border-radius:50%;filter:blur(90px)}
   .a1{width:46vw;height:46vw;left:-10vw;top:-12vw;background:radial-gradient(circle,#a855f7,transparent 70%);opacity:.3}
   .a2{width:40vw;height:40vw;right:-12vw;top:6vw;background:radial-gradient(circle,#22d3ee,transparent 70%);opacity:.2}
   .wrap{max-width:780px;margin:0 auto;padding:clamp(28px,6vw,72px)}
   .display{font-family:'Space Grotesk',sans-serif;letter-spacing:-.02em}
-  .grad{background:linear-gradient(100deg,var(--cyan),var(--indigo) 50%,var(--violet));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .grad{background:linear-gradient(100deg,#22d3ee,#6366f1 50%,#a855f7);-webkit-background-clip:text;background-clip:text;color:transparent}
   .eyebrow{font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--cyan);font-weight:600}
   .brand{display:flex;align-items:center;gap:10px;margin-bottom:30px}.brand img{width:34px;height:34px}.brand b{font-family:'Space Grotesk';font-weight:700}
   h1{font-size:clamp(30px,6vw,44px);font-weight:700;line-height:1.06;margin:14px 0 10px}
   .lead{color:var(--mute);font-size:17px;max-width:62ch}
-  form{margin-top:34px;display:grid;gap:22px}
+  form{margin-top:30px;display:grid;gap:22px}
   .sec{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:clamp(18px,4vw,28px)}
   .sec h2{font-family:'Space Grotesk';font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--cyan);font-weight:600;margin-bottom:18px}
+  .sec.nichebox{background:linear-gradient(150deg,rgba(34,211,238,.1),rgba(99,102,241,.05));border-color:rgba(34,211,238,.28)}
   .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}@media(max-width:560px){.grid2{grid-template-columns:1fr}}
   label{display:block;font-size:13px;color:var(--mute);margin-bottom:7px;font-weight:500}.req::after{content:" *";color:var(--cyan)}
-  input,textarea{width:100%;background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:12px;color:var(--text);padding:13px 14px;font:inherit;font-size:15px;transition:border-color .2s,background .2s}
-  input:focus,textarea:focus{outline:none;border-color:var(--cyan);background:rgba(34,211,238,.06)}
+  input,textarea,select{width:100%;background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:12px;color:var(--text);padding:13px 14px;font:inherit;font-size:15px;transition:border-color .2s,background .2s}
+  input:focus,textarea:focus,select:focus{outline:none;border-color:var(--cyan);background:rgba(34,211,238,.06)}
+  select option{background:#0c0e17}
   textarea{min-height:84px;resize:vertical}
-  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:linear-gradient(100deg,var(--cyan),var(--indigo));color:var(--ink);font-weight:700;border:0;border-radius:999px;padding:16px 30px;font-size:16px;cursor:pointer;transition:filter .2s,transform .2s}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:linear-gradient(100deg,#22d3ee,#6366f1);color:#06070d;font-weight:700;border:0;border-radius:999px;padding:16px 30px;font-size:16px;cursor:pointer;transition:filter .2s,transform .2s}
   .btn:hover{filter:brightness(1.07);transform:translateY(-2px)}.btn:disabled{opacity:.6;cursor:not-allowed;transform:none}
   .note{color:var(--mute);font-size:13px}
+  .nichetag{display:inline-block;background:rgba(99,102,241,.16);border:1px solid rgba(99,102,241,.32);color:#c7d2fe;border-radius:999px;padding:4px 12px;font-size:12px;font-weight:500;margin-bottom:14px}
   .ok{display:none;text-align:center;padding:50px 20px}
-  .ok .ring{width:74px;height:74px;border-radius:50%;margin:0 auto 22px;background:linear-gradient(100deg,var(--cyan),var(--indigo));display:flex;align-items:center;justify-content:center}
+  .ok .ring{width:74px;height:74px;border-radius:50%;margin:0 auto 22px;background:linear-gradient(100deg,#22d3ee,#6366f1);display:flex;align-items:center;justify-content:center}
   .err{display:none;background:rgba(248,113,113,.1);border:1px solid rgba(248,113,113,.35);color:#fca5a5;border-radius:12px;padding:12px 14px;font-size:14px}
+  #specificSec{display:none}
 </style></head>
 <body>
 <div class="aurora"><span class="a1"></span><span class="a2"></span></div>
@@ -41,9 +45,18 @@
   <div id="formView">
     <span class="eyebrow">Auditoría de producto / servicio</span>
     <h1 class="display">Analicemos el <span class="grad">potencial de escalabilidad</span>.</h1>
-    <p class="lead">Esta es la auditoría profunda. Cuanto más preciso seas con tu oferta, tu operativa y tus números, mejor podremos diseñar cómo escalar tu negocio. Todo es confidencial.</p>
+    <p class="lead">La auditoría profunda. Adaptamos las preguntas a tu nicho. Cuanto más preciso seas con tu oferta y tus números, mejor diseñaremos cómo escalar tu negocio. Todo confidencial.</p>
 
     <form id="prodForm" novalidate>
+      <div class="sec nichebox">
+        <h2>Tu nicho</h2>
+        <label class="req">¿A qué te dedicas?</label>
+        <select name="nicho" id="nicho" required>
+          <option value="">Selecciona tu nicho…</option>
+        </select>
+        <p class="note" style="margin-top:10px">Esto adapta el resto del formulario a tu actividad.</p>
+      </div>
+
       <div class="sec">
         <h2>Identificación</h2>
         <div class="grid2">
@@ -57,18 +70,19 @@
         <div style="margin-bottom:16px"><label class="req">¿Qué vendes exactamente?</label><textarea name="producto" placeholder="Describe tu producto o servicio principal" required></textarea></div>
         <div class="grid2">
           <div><label>¿A quién va dirigido?</label><input name="a_quien" placeholder="Tu cliente ideal"></div>
-          <div><label>Formato de entrega</label><input name="formato_entrega" placeholder="1:1, grupal, curso, comunidad, físico…"></div>
+          <div><label>Nº de productos/servicios distintos</label><input name="cantidad_servicios" placeholder="ej. 3"></div>
+          <div><label>Formato de entrega</label><input name="formato_entrega" placeholder="1:1, grupal, curso, suscripción…"></div>
+          <div><label>¿Qué te hace único?</label><input name="diferenciacion" placeholder="Tu ventaja"></div>
         </div>
-        <div style="margin-top:16px"><label>Tu propuesta de valor / qué te hace único</label><textarea name="diferenciacion" placeholder="Por qué te compran a ti y no a otro"></textarea></div>
       </div>
 
       <div class="sec">
         <h2>Operativa y herramientas</h2>
         <div class="grid2">
-          <div><label>Herramientas / stack que usas</label><input name="herramientas" placeholder="CRM, web, pagos, automatizaciones…"></div>
-          <div><label>¿Quién entrega el servicio?</label><input name="quien_entrega" placeholder="Tú, equipo, automatizado…"></div>
+          <div><label>Herramientas / stack</label><input name="herramientas" placeholder="CRM, web, pagos, IA…"></div>
+          <div><label>¿Quién entrega?</label><input name="quien_entrega" placeholder="Tú, equipo, automatizado…"></div>
           <div><label>Capacidad actual</label><input name="capacidad_actual" placeholder="ej. 20 clientes/mes"></div>
-          <div><label>Principal cuello de botella</label><input name="cuello_botella" placeholder="Qué te impide crecer hoy"></div>
+          <div><label>Principal cuello de botella</label><input name="cuello_botella" placeholder="Qué te frena hoy"></div>
         </div>
       </div>
 
@@ -79,15 +93,20 @@
           <div><label>Coste de entrega aprox.</label><input name="coste_entrega" placeholder="Tiempo/dinero por cliente"></div>
           <div><label>Margen aproximado</label><input name="margen" placeholder="ej. 70%"></div>
           <div><label>Ingresos / mes</label><input name="ingresos_mes" placeholder="ej. 12.000€"></div>
-          <div><label>% ingresos recurrentes</label><input name="recurrencia" placeholder="ej. 60% mensual"></div>
+          <div><label>% ingresos recurrentes</label><input name="recurrencia" placeholder="ej. 60%"></div>
           <div><label>Churn / abandono</label><input name="churn" placeholder="ej. 8%/mes o no lo sé"></div>
         </div>
+      </div>
+
+      <div class="sec" id="specificSec">
+        <h2>Específico de tu nicho <span class="nichetag" id="nicheLabel"></span></h2>
+        <div class="grid2" id="specificFields"></div>
       </div>
 
       <div class="sec">
         <h2>Mercado y ambición</h2>
         <div style="margin-bottom:16px"><label>Competencia / alternativas</label><input name="competencia" placeholder="Contra quién compites"></div>
-        <div style="margin-bottom:16px"><label class="req">¿Hasta dónde quieres llevarlo?</label><textarea name="ambicion" placeholder="Tu visión: comunidad, marca propia, escalar el 1:1, SaaS, patrimonio…" required></textarea></div>
+        <div style="margin-bottom:16px"><label class="req">¿Hasta dónde quieres llevarlo?</label><textarea name="ambicion" placeholder="Tu visión: escalar, marca propia, comunidad, SaaS, patrimonio…" required></textarea></div>
         <div><label>Recursos disponibles (equipo, capital, tiempo)</label><input name="recursos" placeholder="Con qué cuentas hoy"></div>
       </div>
 
@@ -106,11 +125,67 @@
 
 <script>
   const ENDPOINT = "https://qv-audit.128.140.44.162.sslip.io/api/audit-product";
-  const form = document.getElementById('prodForm'), btn=document.getElementById('submitBtn'), errBox=document.getElementById('err');
+
+  // ===== Registro de NICHOS (config-driven). Añadir un nicho = añadir una ficha aquí. =====
+  const NICHES = {
+    "fitness": { label:"Entrenadores / Nutricionistas", fields:[
+      {name:"modalidad", label:"Modalidad", ph:"1:1, grupal, online, presencial"},
+      {name:"clientes_activos", label:"Clientes activos ahora", ph:"ej. 25"},
+      {name:"retencion", label:"Retención / adherencia media", ph:"ej. 4 meses · 85%"},
+      {name:"plataforma_coaching", label:"Plataforma de coaching que usas", ph:"Everfit, Trainerize, ninguna…"},
+      {name:"como_creas_planes", label:"¿Cómo creas los planes hoy?", ph:"Manual, plantillas, app…"},
+      {name:"certificaciones", label:"Certificaciones / especialidad", ph:"ej. fuerza, nutrición clínica"},
+    ]},
+    "ia-creativo": { label:"Creación con IA / Animaciones", fields:[
+      {name:"herramientas_ia", label:"Herramientas/IA que dominas", ph:"Runway, Midjourney, After Effects…"},
+      {name:"tiempo_entrega", label:"Tiempo medio por entrega", ph:"ej. 2 días por vídeo"},
+      {name:"proyectos_mes", label:"Proyectos / mes", ph:"ej. 12"},
+      {name:"tipo_cliente", label:"Tipo de cliente", ph:"marcas, agencias, creadores…"},
+      {name:"entregable", label:"Entregable tipo", ph:"vídeo, animación, pack…"},
+      {name:"automatizacion_pipeline", label:"¿Está automatizado tu proceso?", ph:"Nada / parcial / mucho"},
+    ]},
+    "consultoria": { label:"Consultoría / servicio escalable", fields:[
+      {name:"area", label:"Área de consultoría", ph:"marketing, finanzas, negocio…"},
+      {name:"formato_consultoria", label:"Formato", ph:"auditoría, mentoría, done-for-you"},
+      {name:"clientes_simultaneos", label:"Clientes simultáneos", ph:"ej. 8"},
+      {name:"estandarizacion", label:"¿Está productizado/estandarizado?", ph:"A medida / semi / producto cerrado"},
+      {name:"dependencia_tiempo", label:"Dependencia de tu tiempo", ph:"Alta / media / baja"},
+    ]},
+    "otro": { label:"Otro", fields:[
+      {name:"descripcion_nicho", label:"Describe tu actividad", ph:"Tu sector / tipo de servicio"},
+    ]},
+  };
+
+  // populate niche select
+  const sel = document.getElementById('nicho');
+  Object.entries(NICHES).forEach(([k,v]) => { const o=document.createElement('option'); o.value=k; o.textContent=v.label; sel.appendChild(o); });
+
+  const specSec = document.getElementById('specificSec');
+  const specFields = document.getElementById('specificFields');
+  const nicheLabel = document.getElementById('nicheLabel');
+  function renderSpecific(key){
+    specFields.innerHTML='';
+    const n = NICHES[key];
+    if(!n){ specSec.style.display='none'; return; }
+    nicheLabel.textContent = n.label;
+    n.fields.forEach(f => {
+      const wrap=document.createElement('div');
+      wrap.innerHTML = `<label>${f.label}</label><input name="${f.name}" placeholder="${f.ph||''}">`;
+      specFields.appendChild(wrap);
+    });
+    specSec.style.display = n.fields.length ? 'block' : 'none';
+  }
+  sel.addEventListener('change', e => renderSpecific(e.target.value));
+  // preselect from ?nicho=
+  const pre = new URLSearchParams(location.search).get('nicho');
+  if(pre && NICHES[pre]){ sel.value=pre; renderSpecific(pre); }
+
+  const form=document.getElementById('prodForm'), btn=document.getElementById('submitBtn'), errBox=document.getElementById('err');
   form.addEventListener('submit', async (e)=>{
     e.preventDefault(); errBox.style.display='none';
-    if(!form.checkValidity()){ errBox.textContent='Completa los campos obligatorios (*).'; errBox.style.display='block'; return; }
+    if(!form.checkValidity()){ errBox.textContent='Completa los campos obligatorios (*), incluido tu nicho.'; errBox.style.display='block'; return; }
     const data=Object.fromEntries(new FormData(form).entries());
+    data.nicho_label = (NICHES[data.nicho]||{}).label || data.nicho;
     btn.disabled=true; btn.textContent='Enviando…';
     try{
       const r=await fetch(ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
