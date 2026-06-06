@@ -1,0 +1,96 @@
+<!doctype html><html lang="es"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nuevo contacto — Quantum Ventures</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="/assets/brand/qv-favicon.png">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#06070d;--surface:#0c0e17;--line:rgba(255,255,255,.10);--cyan:#22d3ee;--indigo:#6366f1;--violet:#a855f7;--text:#e7ecf3;--mute:#8b97a8}
+  *{margin:0;box-sizing:border-box}
+  body{background:var(--ink);color:var(--text);font-family:'Inter',sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
+  .aurora{position:fixed;inset:0;z-index:-1;overflow:hidden}.aurora span{position:absolute;border-radius:50%;filter:blur(90px)}
+  .a1{width:46vw;height:46vw;left:-10vw;top:-12vw;background:radial-gradient(circle,#a855f7,transparent 70%);opacity:.3}
+  .a2{width:40vw;height:40vw;right:-12vw;top:6vw;background:radial-gradient(circle,#22d3ee,transparent 70%);opacity:.2}
+  .wrap{max-width:680px;margin:0 auto;padding:clamp(28px,6vw,64px)}
+  .display{font-family:'Space Grotesk',sans-serif;letter-spacing:-.02em}
+  .grad{background:linear-gradient(100deg,#22d3ee,#6366f1 50%,#a855f7);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .eyebrow{font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--cyan);font-weight:600}
+  .brand{display:flex;align-items:center;gap:10px;margin-bottom:26px}.brand img{width:32px;height:32px}.brand b{font-family:'Space Grotesk';font-weight:700}
+  h1{font-size:clamp(28px,6vw,40px);font-weight:700;line-height:1.06;margin:12px 0 8px}
+  .lead{color:var(--mute);font-size:16px;max-width:60ch}
+  form{margin-top:26px;display:grid;gap:18px}
+  .sec{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:clamp(18px,4vw,26px);display:grid;gap:14px}
+  label{display:block;font-size:13px;color:var(--mute);margin-bottom:6px;font-weight:500}.req::after{content:" *";color:var(--cyan)}
+  input,textarea,select{width:100%;background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:12px;color:var(--text);padding:13px 14px;font:inherit;font-size:15px;transition:border-color .2s,background .2s}
+  input:focus,textarea:focus,select:focus{outline:none;border-color:var(--cyan);background:rgba(34,211,238,.06)}
+  select option{background:#0c0e17}
+  textarea{min-height:70px;resize:vertical}
+  .check{display:flex;gap:12px;align-items:flex-start;background:rgba(34,211,238,.07);border:1px solid rgba(34,211,238,.25);border-radius:12px;padding:14px}
+  .check input{width:20px;height:20px;flex-shrink:0;margin-top:2px}
+  .check .t{font-size:14px;color:var(--text)}.check .s{font-size:12px;color:var(--mute)}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:linear-gradient(100deg,#22d3ee,#6366f1);color:#06070d;font-weight:700;border:0;border-radius:999px;padding:15px 28px;font-size:16px;cursor:pointer;transition:filter .2s,transform .2s}
+  .btn:hover{filter:brightness(1.07);transform:translateY(-2px)}.btn:disabled{opacity:.6;cursor:not-allowed;transform:none}
+  .note{color:var(--mute);font-size:13px}
+  .ok{display:none;text-align:center;padding:46px 20px}
+  .ok .ring{width:70px;height:70px;border-radius:50%;margin:0 auto 20px;background:linear-gradient(100deg,#22d3ee,#6366f1);display:flex;align-items:center;justify-content:center}
+  .err{display:none;background:rgba(248,113,113,.1);border:1px solid rgba(248,113,113,.35);color:#fca5a5;border-radius:12px;padding:12px 14px;font-size:14px}
+</style></head>
+<body>
+<div class="aurora"><span class="a1"></span><span class="a2"></span></div>
+<div class="wrap">
+  <div class="brand"><img src="/assets/brand/qv-mark.svg" alt="Quantum Ventures"><b>Quantum<span style="color:var(--mute);font-weight:500"> Ventures</span></b></div>
+
+  <div id="formView">
+    <span class="eyebrow">Red de contactos · privado</span>
+    <h1 class="display">Nuevo <span class="grad">contacto interesante</span>.</h1>
+    <p class="lead">Apúntalo al conocer a alguien con potencial (rev share, servicios, alianzas, red…). Si quieres, lo busco en internet y te resumo quién es y su potencial.</p>
+
+    <form id="contactForm" novalidate>
+      <div class="sec">
+        <div><label class="req">Nombre</label><input name="nombre" required placeholder="Nombre y apellidos / marca"></div>
+        <div><label>¿A qué se dedica?</label><input name="actividad" placeholder="Profesión, empresa, sector…"></div>
+        <div><label>Links / redes / web</label><input name="links" placeholder="@instagram, web, LinkedIn…"></div>
+        <div><label>¿Dónde/cómo lo conociste?</label><input name="como_conoci" placeholder="Evento, recomendación, online…"></div>
+        <div><label>¿Por qué es interesante?</label><textarea name="por_que" placeholder="Qué oportunidad ves"></textarea></div>
+        <div><label>Tipo de vínculo potencial</label>
+          <select name="tipo_vinculo"><option value="">Selecciona…</option><option>Rev share</option><option>Servicios</option><option>Ampliar red</option><option>Inversión</option><option>Partner estratégico</option><option>Otro</option></select></div>
+      </div>
+
+      <label class="check">
+        <input type="checkbox" name="buscar" value="si" checked>
+        <span><span class="t">Buscar en internet quién es y su potencial</span><br><span class="s">Un agente busca info pública y te resume relevancia + potencial comercial para QV.</span></span>
+      </label>
+
+      <div id="err" class="err"></div>
+      <button id="submitBtn" class="btn" type="submit">Guardar contacto →</button>
+      <p class="note">Se guarda en tu hoja de contactos y te llega un email con el resumen.</p>
+    </form>
+  </div>
+
+  <div id="okView" class="ok">
+    <div class="ring"><svg width="32" height="32" viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="#06070d" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <h1 class="display">Guardado.</h1>
+    <p class="lead" style="margin:0 auto" id="okMsg">Contacto guardado en tu base de datos.</p>
+  </div>
+</div>
+<script>
+  const ENDPOINT = "https://qv-audit.128.140.44.162.sslip.io/api/contacto";
+  const form=document.getElementById('contactForm'), btn=document.getElementById('submitBtn'), errBox=document.getElementById('err');
+  form.addEventListener('submit', async (e)=>{
+    e.preventDefault(); errBox.style.display='none';
+    if(!form.checkValidity()){ errBox.textContent='Pon al menos el nombre.'; errBox.style.display='block'; return; }
+    const data=Object.fromEntries(new FormData(form).entries());
+    if(!('buscar' in data)) data.buscar='no';
+    btn.disabled=true; btn.textContent = data.buscar==='si' ? 'Buscando y guardando…' : 'Guardando…';
+    try{
+      const r=await fetch(ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
+      if(!r.ok) throw new Error('bad status '+r.status);
+      const out=await r.json();
+      document.getElementById('okMsg').textContent = out.enriched ? 'Contacto guardado + resumen enviado a tu email.' : 'Contacto guardado en tu base de datos.';
+      document.getElementById('formView').style.display='none';
+      document.getElementById('okView').style.display='block';
+      window.scrollTo({top:0,behavior:'smooth'});
+    }catch(err){ btn.disabled=false; btn.textContent='Guardar contacto →'; errBox.textContent='No se pudo guardar. Inténtalo de nuevo.'; errBox.style.display='block'; }
+  });
+</script>
+</body></html>

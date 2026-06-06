@@ -1,6 +1,6 @@
 <!doctype html><html lang="es"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Información fiscal — Quantum Ventures</title>
+<title>Datos para el contrato — Quantum Ventures</title>
 <meta name="robots" content="noindex">
 <link rel="icon" href="/assets/brand/qv-favicon.png">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -26,13 +26,13 @@
   input,textarea,select{width:100%;background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:12px;color:var(--text);padding:13px 14px;font:inherit;font-size:15px;transition:border-color .2s,background .2s}
   input:focus,textarea:focus,select:focus{outline:none;border-color:var(--cyan);background:rgba(34,211,238,.06)}
   select option{background:#0c0e17}
-  textarea{min-height:84px;resize:vertical}
   .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:linear-gradient(100deg,#22d3ee,#6366f1);color:#06070d;font-weight:700;border:0;border-radius:999px;padding:16px 30px;font-size:16px;cursor:pointer;transition:filter .2s,transform .2s}
   .btn:hover{filter:brightness(1.07);transform:translateY(-2px)}.btn:disabled{opacity:.6;cursor:not-allowed;transform:none}
   .note{color:var(--mute);font-size:13px}
   .ok{display:none;text-align:center;padding:50px 20px}
   .ok .ring{width:74px;height:74px;border-radius:50%;margin:0 auto 22px;background:linear-gradient(100deg,#22d3ee,#6366f1);display:flex;align-items:center;justify-content:center}
   .err{display:none;background:rgba(248,113,113,.1);border:1px solid rgba(248,113,113,.35);color:#fca5a5;border-radius:12px;padding:12px 14px;font-size:14px}
+  .empresa{display:none}
 </style></head>
 <body>
 <div class="aurora"><span class="a1"></span><span class="a2"></span></div>
@@ -40,49 +40,59 @@
   <div class="brand"><img src="/assets/brand/qv-mark.svg" alt="Quantum Ventures"><b>Quantum<span style="color:var(--mute);font-weight:500"> Ventures</span></b></div>
 
   <div id="formView">
-    <span class="eyebrow">Información fiscal</span>
-    <h1 class="display">Preparemos tu <span class="grad">estructura</span>.</h1>
-    <p class="lead">Para diseñar la colaboración y el contrato, necesitamos conocer tu situación fiscal actual. Es confidencial y nos permite proponerte la mejor estructura (y dejarlo todo limpio desde el día uno).</p>
+    <span class="eyebrow">Datos para el contrato</span>
+    <h1 class="display">Últimos datos para <span class="grad">formalizar</span>.</h1>
+    <p class="lead">Necesitamos estos datos para redactar el contrato de colaboración. Es rápido y totalmente confidencial.</p>
 
     <form id="fiscalForm" novalidate>
       <div class="sec">
-        <h2>Identificación</h2>
+        <h2>Datos de facturación</h2>
         <div class="grid2">
-          <div><label class="req">Nombre / Razón social</label><input name="nombre" required></div>
-          <div><label class="req">Email</label><input type="email" name="email" required></div>
+          <div><label class="req">¿Persona física o empresa?</label>
+            <select name="tipo" id="tipo" required><option value="">Selecciona…</option><option value="Persona física">Persona física (autónomo)</option><option value="Empresa">Empresa (sociedad)</option></select></div>
+          <div><label class="req">Nombre completo / Razón social</label><input name="nombre" required></div>
+          <div><label class="req">NIF / CIF / VAT</label><input name="nif_cif" required></div>
+          <div><label class="req">País</label><input name="pais" required placeholder="España"></div>
+        </div>
+        <div style="margin-top:16px"><label class="req">Domicilio fiscal (dirección completa)</label><input name="domicilio" required placeholder="Calle, número, piso…"></div>
+        <div class="grid2" style="margin-top:16px">
+          <div><label>Ciudad</label><input name="ciudad"></div>
+          <div><label>Código postal</label><input name="cp"></div>
+        </div>
+      </div>
+
+      <div class="sec empresa" id="empresaSec">
+        <h2>Representante legal (empresa)</h2>
+        <div class="grid2">
+          <div><label>Nombre del representante legal</label><input name="representante"></div>
+          <div><label>NIF del representante</label><input name="nif_representante"></div>
         </div>
       </div>
 
       <div class="sec">
-        <h2>Tu situación fiscal</h2>
+        <h2>Contacto</h2>
         <div class="grid2">
-          <div><label class="req">¿Persona física o empresa?</label>
-            <select name="tipo" required><option value="">Selecciona…</option><option>Persona física (autónomo)</option><option>Empresa (sociedad)</option><option>Las dos</option><option>Ninguna todavía</option></select></div>
-          <div><label>País</label><input name="pais" placeholder="España"></div>
-          <div><label>Residencia fiscal</label><input name="residencia_fiscal" placeholder="País donde tributas"></div>
-          <div><label>NIF / CIF</label><input name="identificador" placeholder="Opcional"></div>
-          <div><label>Régimen actual</label><input name="regimen" placeholder="Autónomo, SL, no tengo…"></div>
-          <div><label>¿Aplicas IVA?</label>
-            <select name="iva"><option value="">Selecciona…</option><option>Sí</option><option>No</option><option>No lo sé</option></select></div>
-          <div><label>Facturación aproximada / año</label><input name="facturacion_anual" placeholder="ej. 120.000€"></div>
+          <div><label class="req">Email</label><input type="email" name="email" required></div>
+          <div><label>Teléfono</label><input name="telefono"></div>
         </div>
-        <div style="margin-top:16px"><label>Estructura actual (si tienes)</label><textarea name="estructura_actual" placeholder="¿Tienes sociedad? ¿holding? ¿gestor? ¿alguna marca ya constituida? Cuéntanoslo."></textarea></div>
       </div>
 
       <div id="err" class="err"></div>
-      <button id="submitBtn" class="btn" type="submit">Enviar información →</button>
-      <p class="note">Datos tratados de forma confidencial. Esta información se usa para preparar tu propuesta de estructura y contrato; cualquier recomendación será validada por un asesor fiscal/abogado.</p>
+      <button id="submitBtn" class="btn" type="submit">Enviar datos →</button>
+      <p class="note">Datos tratados de forma confidencial y usados únicamente para la redacción del contrato de colaboración.</p>
     </form>
   </div>
 
   <div id="okView" class="ok">
     <div class="ring"><svg width="34" height="34" viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="#06070d" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-    <h1 class="display">Recibido.</h1>
-    <p class="lead" style="margin:0 auto">Gracias. Con esto preparamos tu estructura y el contrato de colaboración. Te contactamos con los siguientes pasos.</p>
+    <h1 class="display">¡Recibido!</h1>
+    <p class="lead" style="margin:0 auto">Gracias. Con esto preparamos tu contrato de colaboración y te lo hacemos llegar.</p>
   </div>
 </div>
 <script>
   const ENDPOINT = "https://qv-audit.128.140.44.162.sslip.io/api/fiscal";
+  const tipo=document.getElementById('tipo'), empresaSec=document.getElementById('empresaSec');
+  tipo.addEventListener('change', ()=>{ empresaSec.style.display = tipo.value==='Empresa' ? 'block' : 'none'; });
   const form=document.getElementById('fiscalForm'), btn=document.getElementById('submitBtn'), errBox=document.getElementById('err');
   form.addEventListener('submit', async (e)=>{
     e.preventDefault(); errBox.style.display='none';
@@ -95,7 +105,7 @@
       document.getElementById('formView').style.display='none';
       document.getElementById('okView').style.display='block';
       window.scrollTo({top:0,behavior:'smooth'});
-    }catch(err){ btn.disabled=false; btn.textContent='Enviar información →'; errBox.textContent='No se pudo enviar. Inténtalo de nuevo o escríbenos a hello@quantumventures.io'; errBox.style.display='block'; }
+    }catch(err){ btn.disabled=false; btn.textContent='Enviar datos →'; errBox.textContent='No se pudo enviar. Inténtalo de nuevo o escríbenos a hello@quantumventures.io'; errBox.style.display='block'; }
   });
 </script>
 </body></html>
