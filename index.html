@@ -9,7 +9,8 @@
 <meta property="og:title" content="Quantum Ventures — You built the audience. We build the empire.">
 <meta property="og:description" content="We build and run the entire business around your personal brand — so your income stops depending on the algorithm and starts compounding into real wealth.">
 <meta property="og:type" content="website">
-<link rel="icon" type="image/svg+xml" href="assets/brand/qv-mark.svg">
+<link rel="icon" type="image/png" href="assets/brand/qv-favicon.png">
+<link rel="apple-touch-icon" href="assets/brand/qv-favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -69,6 +70,12 @@
     opacity:0; transition:opacity .35s; pointer-events:none; }
   .gborder:hover::before { opacity:1; }
   @media (prefers-reduced-motion: reduce){ .grad-anim{animation:none} }
+  /* language switch */
+  .lang-switch { display:inline-flex; align-items:center; gap:2px; padding:3px; border-radius:999px; background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.1); }
+  .lang-switch button { padding:.25rem .55rem; border-radius:999px; font-size:.72rem; font-weight:600; letter-spacing:.03em; color:#8b97a8; transition:color .2s, background .2s; }
+  .lang-switch button:hover { color:#e7ecf3; }
+  .lang-switch button.active { color:#06070d; background:linear-gradient(100deg,#22d3ee,#6366f1); }
+  .logo-mark { filter:drop-shadow(0 2px 10px rgba(34,211,238,.25)); }
 </style>
 </head>
 <body>
@@ -78,65 +85,42 @@
 <div class="grid-bg" aria-hidden="true"></div>
 <div class="noise" aria-hidden="true"></div>
 
-<!-- brand mark: glossy 3D atom (reusable symbol) -->
-<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
-  <linearGradient id="qvOrbit" x1="10" y1="6" x2="54" y2="58" gradientUnits="userSpaceOnUse">
-    <stop stop-color="#a5f3fc"/><stop offset="0.45" stop-color="#38bdf8"/><stop offset="1" stop-color="#4f46e5"/>
-  </linearGradient>
-  <radialGradient id="qvNucleus" cx="0.36" cy="0.3" r="0.78">
-    <stop stop-color="#ffffff"/><stop offset="0.22" stop-color="#bae6fd"/><stop offset="0.55" stop-color="#22d3ee"/><stop offset="1" stop-color="#312e81"/>
-  </radialGradient>
-  <radialGradient id="qvElectron" cx="0.35" cy="0.3" r="0.85">
-    <stop stop-color="#ffffff"/><stop offset="0.5" stop-color="#67e8f9"/><stop offset="1" stop-color="#0284c7"/>
-  </radialGradient>
-  <filter id="qvGlow" x="-60%" y="-60%" width="220%" height="220%">
-    <feGaussianBlur stdDeviation="1.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-  </filter>
-  <symbol id="qmark" viewBox="0 0 64 64">
-    <g filter="url(#qvGlow)">
-      <ellipse cx="32" cy="32" rx="12" ry="26" transform="rotate(45 32 32)" fill="none" stroke="url(#qvOrbit)" stroke-width="3.2"/>
-      <ellipse cx="32" cy="32" rx="12" ry="26" transform="rotate(-45 32 32)" fill="none" stroke="url(#qvOrbit)" stroke-width="3.2"/>
-      <ellipse cx="32" cy="32" rx="12" ry="26" transform="rotate(45 32 32)" fill="none" stroke="#f0f9ff" stroke-width="0.8" opacity="0.5"/>
-      <ellipse cx="32" cy="32" rx="12" ry="26" transform="rotate(-45 32 32)" fill="none" stroke="#f0f9ff" stroke-width="0.8" opacity="0.5"/>
-    </g>
-    <circle cx="50" cy="15" r="3.4" fill="url(#qvElectron)"/>
-    <circle cx="48.9" cy="13.9" r="1" fill="#ffffff" opacity="0.85"/>
-    <circle cx="32" cy="32" r="8.2" fill="url(#qvNucleus)"/>
-    <ellipse cx="29.4" cy="29" rx="3" ry="2" fill="#ffffff" opacity="0.75"/>
-  </symbol>
-</defs></svg>
-
 <!-- NAV -->
 <header class="fixed inset-x-0 top-0 z-50">
   <div class="max-w-7xl mx-auto px-5 sm:px-8 mt-4">
     <div class="glass rounded-2xl px-4 sm:px-5 py-3 flex items-center justify-between">
       <a href="#top" class="flex items-center gap-2.5 group" aria-label="Quantum Ventures">
-        <svg width="34" height="34" viewBox="0 0 64 64" class="shrink-0 transition-transform duration-300 group-hover:scale-110" aria-hidden="true"><use href="#qmark"/></svg>
+        <img src="assets/brand/qv-mark.png" alt="Quantum Ventures" width="36" height="36" class="logo-mark w-9 h-9 shrink-0 transition-transform duration-300 group-hover:scale-110">
         <span class="font-display font-bold tracking-tight text-[15px] sm:text-base">Quantum<span class="text-white/70 font-medium"> Ventures</span></span>
       </a>
       <nav class="hidden lg:flex items-center gap-8 text-sm text-mute font-medium">
-        <a href="#solution" class="hover:text-white transition">Approach</a>
-        <a href="#systems" class="hover:text-white transition">Systems</a>
-        <a href="#team" class="hover:text-white transition">Team</a>
-        <a href="#build" class="hover:text-white transition">What we build</a>
-        <a href="#partnership" class="hover:text-white transition">Partnership</a>
-        <a href="#process" class="hover:text-white transition">Process</a>
+        <a href="#solution" class="hover:text-white transition" data-i18n="nav.approach">Approach</a>
+        <a href="#systems" class="hover:text-white transition" data-i18n="nav.systems">Systems</a>
+        <a href="#team" class="hover:text-white transition" data-i18n="nav.team">Team</a>
+        <a href="#build" class="hover:text-white transition" data-i18n="nav.build">What we build</a>
+        <a href="#partnership" class="hover:text-white transition" data-i18n="nav.partnership">Partnership</a>
+        <a href="#process" class="hover:text-white transition" data-i18n="nav.process">Process</a>
       </nav>
-      <div class="flex items-center gap-2">
-        <a href="#contact" class="btn-primary hidden sm:inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-sm">Apply to work with us</a>
+      <div class="flex items-center gap-2 sm:gap-3">
+        <div class="lang-switch" role="group" aria-label="Language">
+          <button type="button" data-lang="en">EN</button>
+          <button type="button" data-lang="es">ES</button>
+          <button type="button" data-lang="fr">FR</button>
+        </div>
+        <a href="#contact" class="btn-primary hidden sm:inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-sm" data-i18n="cta.apply">Apply to work with us</a>
         <button id="menuBtn" class="lg:hidden w-10 h-10 grid place-items-center rounded-lg hover:bg-white/5" aria-label="Menu">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
         </button>
       </div>
     </div>
     <div id="mobileMenu" class="lg:hidden hidden glass rounded-2xl mt-2 p-4 flex flex-col gap-1 text-sm">
-      <a href="#solution" class="py-2.5 px-3 rounded-lg hover:bg-white/5">Approach</a>
-      <a href="#systems" class="py-2.5 px-3 rounded-lg hover:bg-white/5">Systems</a>
-      <a href="#team" class="py-2.5 px-3 rounded-lg hover:bg-white/5">Team</a>
-      <a href="#build" class="py-2.5 px-3 rounded-lg hover:bg-white/5">What we build</a>
-      <a href="#partnership" class="py-2.5 px-3 rounded-lg hover:bg-white/5">Partnership</a>
-      <a href="#process" class="py-2.5 px-3 rounded-lg hover:bg-white/5">Process</a>
-      <a href="#contact" class="btn-primary text-center py-3 rounded-full mt-2">Apply to work with us</a>
+      <a href="#solution" class="py-2.5 px-3 rounded-lg hover:bg-white/5" data-i18n="nav.approach">Approach</a>
+      <a href="#systems" class="py-2.5 px-3 rounded-lg hover:bg-white/5" data-i18n="nav.systems">Systems</a>
+      <a href="#team" class="py-2.5 px-3 rounded-lg hover:bg-white/5" data-i18n="nav.team">Team</a>
+      <a href="#build" class="py-2.5 px-3 rounded-lg hover:bg-white/5" data-i18n="nav.build">What we build</a>
+      <a href="#partnership" class="py-2.5 px-3 rounded-lg hover:bg-white/5" data-i18n="nav.partnership">Partnership</a>
+      <a href="#process" class="py-2.5 px-3 rounded-lg hover:bg-white/5" data-i18n="nav.process">Process</a>
+      <a href="#contact" class="btn-primary text-center py-3 rounded-full mt-2" data-i18n="cta.apply">Apply to work with us</a>
     </div>
   </div>
 </header>
@@ -148,28 +132,27 @@
   <div class="max-w-7xl mx-auto px-5 sm:px-8 w-full">
     <div class="grid lg:grid-cols-[1fr_440px] xl:grid-cols-[1fr_500px] gap-12 lg:gap-16 items-center">
       <div>
-        <span class="chip reveal"><span class="w-1.5 h-1.5 rounded-full bg-q-cyan"></span> The venture builder for elite fitness creators</span>
+        <span class="chip reveal"><span class="w-1.5 h-1.5 rounded-full bg-q-cyan"></span> <span data-i18n="hero.chip">The venture builder for elite fitness creators</span></span>
         <h1 class="reveal font-display text-[2.6rem] leading-[1.04] sm:text-6xl lg:text-[5rem] font-bold mt-7">
-          You built the audience.
-          <span class="grad-anim">We build the empire.</span>
+          <span data-i18n="hero.h1a">You built the audience.</span>
+          <span class="grad-anim" data-i18n="hero.h1b">We build the empire.</span>
         </h1>
         <p class="reveal text-lg sm:text-xl text-mute leading-relaxed mt-7 max-w-2xl">
-          Your influence is the most valuable asset most creators never cash in. We design, build and operate
-          the companies, products and brands around your name — turning attention into diversified income and lasting wealth.
-          <span class="text-white font-medium">You create. We build the business.</span>
+          <span data-i18n="hero.sub">Your influence is the most valuable asset most creators never cash in. We design, build and operate the companies, products and brands around your name — turning attention into diversified income and lasting wealth.</span>
+          <span class="text-white font-medium" data-i18n="hero.subStrong">You create. We build the business.</span>
         </p>
         <div class="reveal flex flex-col sm:flex-row gap-3 mt-9">
           <a href="#contact" class="btn-primary inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full">
-            Apply to work with us
+            <span data-i18n="cta.apply">Apply to work with us</span>
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
-          <a href="#solution" class="btn-ghost inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full">See how it works</a>
+          <a href="#solution" class="btn-ghost inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full" data-i18n="hero.ctaSecondary">See how it works</a>
         </div>
         <dl class="reveal grid grid-cols-2 gap-4 sm:gap-6 mt-14">
-          <div class="border-l-2 border-q-cyan/50 pl-4"><dt class="font-display text-lg font-bold">Acquisition systems</dt><dd class="text-sm text-mute mt-1">Clients in, on autopilot</dd></div>
-          <div class="border-l-2 border-q-indigo/50 pl-4"><dt class="font-display text-lg font-bold">Deals &amp; rep</dt><dd class="text-sm text-mute mt-1">We negotiate your brand deals</dd></div>
-          <div class="border-l-2 border-q-violet/50 pl-4"><dt class="font-display text-lg font-bold">Products &amp; brands</dt><dd class="text-sm text-mute mt-1">Built and operated for you</dd></div>
-          <div class="border-l-2 border-white/20 pl-4"><dt class="font-display text-lg font-bold">Lasting wealth</dt><dd class="text-sm text-mute mt-1">Income turned into real assets</dd></div>
+          <div class="border-l-2 border-q-cyan/50 pl-4"><dt class="font-display text-lg font-bold" data-i18n="hero.stat1t">Acquisition systems</dt><dd class="text-sm text-mute mt-1" data-i18n="hero.stat1d">Clients in, on autopilot</dd></div>
+          <div class="border-l-2 border-q-indigo/50 pl-4"><dt class="font-display text-lg font-bold" data-i18n="hero.stat2t">Deals &amp; rep</dt><dd class="text-sm text-mute mt-1" data-i18n="hero.stat2d">We negotiate your brand deals</dd></div>
+          <div class="border-l-2 border-q-violet/50 pl-4"><dt class="font-display text-lg font-bold" data-i18n="hero.stat3t">Products &amp; brands</dt><dd class="text-sm text-mute mt-1" data-i18n="hero.stat3d">Built and operated for you</dd></div>
+          <div class="border-l-2 border-white/20 pl-4"><dt class="font-display text-lg font-bold" data-i18n="hero.stat4t">Lasting wealth</dt><dd class="text-sm text-mute mt-1" data-i18n="hero.stat4d">Income turned into real assets</dd></div>
         </dl>
       </div>
       <div class="hidden lg:block reveal">
@@ -177,7 +160,7 @@
           <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=900&q=85&auto=format&fit=crop" alt="Fitness creator" class="w-full h-full object-cover" loading="eager" fetchpriority="high">
           <div class="absolute inset-0" style="background:linear-gradient(160deg,rgba(99,102,241,.18) 0%,transparent 45%,rgba(6,7,13,.75) 100%)"></div>
           <div class="absolute bottom-0 left-0 right-0 p-7">
-            <p class="font-display text-xl font-bold leading-snug">You create.<br><span class="grad-text">We build the empire.</span></p>
+            <p class="font-display text-xl font-bold leading-snug"><span data-i18n="hero.badge1">You create.</span><br><span class="grad-text" data-i18n="hero.badge2">We build the empire.</span></p>
           </div>
         </div>
       </div>
@@ -189,35 +172,34 @@
 <section id="problem" class="py-24 sm:py-32">
   <div class="max-w-7xl mx-auto px-5 sm:px-8">
     <div class="max-w-3xl reveal">
-      <span class="eyebrow text-sm font-semibold tracking-widest uppercase text-q-cyan">The problem</span>
+      <span class="eyebrow text-sm font-semibold tracking-widest uppercase text-q-cyan" data-i18n="problem.eyebrow">The problem</span>
       <h2 class="font-display text-3xl sm:text-5xl font-bold leading-tight mt-4">
-        Attention is rented. <span class="grad-text">It can end fast.</span>
+        <span data-i18n="problem.h2a">Attention is rented.</span> <span class="grad-text" data-i18n="problem.h2b">It can end fast.</span>
       </h2>
-      <p class="text-lg text-mute leading-relaxed mt-6">
-        Right now your relevance — and your income — live and die by the algorithm, the trends and your energy to keep posting.
-        You earn well today. But what is any of it worth the day you stop?
+      <p class="text-lg text-mute leading-relaxed mt-6" data-i18n="problem.p">
+        Right now your relevance — and your income — live and die by the algorithm, the trends and your energy to keep posting. You earn well today. But what is any of it worth the day you stop?
       </p>
     </div>
     <div class="grid sm:grid-cols-3 gap-5 mt-14">
       <div class="glass rounded-2xl reveal card-hover relative overflow-hidden" style="min-height:180px">
         <div class="absolute inset-0 opacity-15" style="background-image:url('https://images.unsplash.com/photo-1579621970795-87facc2f976d?w=500&q=60&auto=format&fit=crop');background-size:cover;background-position:center"></div>
         <div class="relative z-10 p-7">
-          <h3 class="font-display text-xl font-bold">Fragile income</h3>
-          <p class="text-mute text-sm leading-relaxed mt-3">You rely on one-off promos and on posting non-stop. If you stop, the money stops.</p>
+          <h3 class="font-display text-xl font-bold" data-i18n="problem.card1t">Fragile income</h3>
+          <p class="text-mute text-sm leading-relaxed mt-3" data-i18n="problem.card1d">You rely on one-off promos and on posting non-stop. If you stop, the money stops.</p>
         </div>
       </div>
       <div class="glass rounded-2xl reveal card-hover relative overflow-hidden" style="min-height:180px">
         <div class="absolute inset-0 opacity-15" style="background-image:url('https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=500&q=60&auto=format&fit=crop');background-size:cover;background-position:center"></div>
         <div class="relative z-10 p-7">
-          <h3 class="font-display text-xl font-bold">No structure</h3>
-          <p class="text-mute text-sm leading-relaxed mt-3">A thousand business ideas, zero time and no team to actually build and run them.</p>
+          <h3 class="font-display text-xl font-bold" data-i18n="problem.card2t">No structure</h3>
+          <p class="text-mute text-sm leading-relaxed mt-3" data-i18n="problem.card2d">A thousand business ideas, zero time and no team to actually build and run them.</p>
         </div>
       </div>
       <div class="glass rounded-2xl reveal card-hover relative overflow-hidden" style="min-height:180px">
         <div class="absolute inset-0 opacity-15" style="background-image:url('https://images.unsplash.com/photo-1553729459-efe14ef6055d?w=500&q=60&auto=format&fit=crop');background-size:cover;background-position:center"></div>
         <div class="relative z-10 p-7">
-          <h3 class="font-display text-xl font-bold">Nothing that lasts</h3>
-          <p class="text-mute text-sm leading-relaxed mt-3">Years generating attention that never turns into real assets or wealth.</p>
+          <h3 class="font-display text-xl font-bold" data-i18n="problem.card3t">Nothing that lasts</h3>
+          <p class="text-mute text-sm leading-relaxed mt-3" data-i18n="problem.card3d">Years generating attention that never turns into real assets or wealth.</p>
         </div>
       </div>
     </div>
@@ -229,37 +211,36 @@
   <div class="max-w-7xl mx-auto px-5 sm:px-8">
     <div class="grid lg:grid-cols-2 gap-14 lg:gap-20 items-center">
       <div class="reveal">
-        <span class="eyebrow text-sm font-semibold tracking-widest uppercase text-q-cyan">The approach</span>
+        <span class="eyebrow text-sm font-semibold tracking-widest uppercase text-q-cyan" data-i18n="solution.eyebrow">The approach</span>
         <h2 class="font-display text-3xl sm:text-5xl font-bold leading-tight mt-4">
-          Not an agency. <span class="grad-text">A venture builder behind your name.</span>
+          <span data-i18n="solution.h2a">Not an agency.</span> <span class="grad-text" data-i18n="solution.h2b">A venture builder behind your name.</span>
         </h2>
-        <p class="text-lg text-mute leading-relaxed mt-6">
-          Quantum Ventures doesn't run a campaign and walk away. We design, build and operate a portfolio of
-          companies around you — so you stop renting your attention and start owning real assets that pay you for years.
+        <p class="text-lg text-mute leading-relaxed mt-6" data-i18n="solution.p">
+          Quantum Ventures doesn't run a campaign and walk away. We design, build and operate a portfolio of companies around you — so you stop renting your attention and start owning real assets that pay you for years.
         </p>
         <ul class="mt-8 space-y-4">
-          <li class="flex gap-3"><span class="text-q-cyan mt-1">◆</span><span><b class="text-white">We diversify</b> your income with your own products and services.</span></li>
-          <li class="flex gap-3"><span class="text-q-cyan mt-1">◆</span><span><b class="text-white">We operate</b> the whole machine: technology, team, campaigns and brands.</span></li>
-          <li class="flex gap-3"><span class="text-q-cyan mt-1">◆</span><span><b class="text-white">We build wealth</b>: management, investment and tax planning on what you generate.</span></li>
+          <li class="flex gap-3"><span class="text-q-cyan mt-1">◆</span><span data-i18n="solution.li1"><b class="text-white">We diversify</b> your income with your own products and services.</span></li>
+          <li class="flex gap-3"><span class="text-q-cyan mt-1">◆</span><span data-i18n="solution.li2"><b class="text-white">We operate</b> the whole machine: technology, team, campaigns and brands.</span></li>
+          <li class="flex gap-3"><span class="text-q-cyan mt-1">◆</span><span data-i18n="solution.li3"><b class="text-white">We build wealth</b>: management, investment and tax planning on what you generate.</span></li>
         </ul>
       </div>
       <div class="reveal grid sm:grid-cols-2 gap-4">
         <div class="glass rounded-2xl p-7 card-hover">
-          <div class="text-xs uppercase tracking-widest text-mute">You</div>
-          <h3 class="font-display text-2xl font-bold mt-2">Create</h3>
+          <div class="text-xs uppercase tracking-widest text-mute" data-i18n="solution.youLabel">You</div>
+          <h3 class="font-display text-2xl font-bold mt-2" data-i18n="solution.youTitle">Create</h3>
           <ul class="text-sm text-mute mt-4 space-y-2">
-            <li>· Content for your channels</li>
-            <li>· Your face and your community</li>
-            <li>· Delivering your expertise</li>
+            <li data-i18n="solution.youL1">· Content for your channels</li>
+            <li data-i18n="solution.youL2">· Your face and your community</li>
+            <li data-i18n="solution.youL3">· Delivering your expertise</li>
           </ul>
         </div>
         <div class="rounded-2xl p-7 card-hover" style="background:linear-gradient(160deg,rgba(99,102,241,.18),rgba(34,211,238,.08));border:1px solid rgba(99,102,241,.35)">
-          <div class="text-xs uppercase tracking-widest text-q-cyan">We</div>
-          <h3 class="font-display text-2xl font-bold mt-2">Build the business</h3>
+          <div class="text-xs uppercase tracking-widest text-q-cyan" data-i18n="solution.weLabel">We</div>
+          <h3 class="font-display text-2xl font-bold mt-2" data-i18n="solution.weTitle">Build the business</h3>
           <ul class="text-sm text-mute mt-4 space-y-2">
-            <li>· Products, technology &amp; team</li>
-            <li>· Brands, campaigns &amp; sales</li>
-            <li>· Wealth &amp; tax structure</li>
+            <li data-i18n="solution.weL1">· Products, technology &amp; team</li>
+            <li data-i18n="solution.weL2">· Brands, campaigns &amp; sales</li>
+            <li data-i18n="solution.weL3">· Wealth &amp; tax structure</li>
           </ul>
         </div>
       </div>
@@ -271,35 +252,35 @@
 <section id="systems" class="py-24 sm:py-32">
   <div class="max-w-7xl mx-auto px-5 sm:px-8">
     <div class="max-w-3xl reveal">
-      <span class="eyebrow text-sm font-semibold tracking-widest uppercase text-q-cyan">The engine</span>
-      <h2 class="font-display text-3xl sm:text-5xl font-bold leading-tight mt-4">The machine that turns a following into a company.</h2>
-      <p class="text-lg text-mute leading-relaxed mt-6">Not motivation — machinery. The same operating systems real companies run, installed and run for you, around your brand.</p>
+      <span class="eyebrow text-sm font-semibold tracking-widest uppercase text-q-cyan" data-i18n="systems.eyebrow">The engine</span>
+      <h2 class="font-display text-3xl sm:text-5xl font-bold leading-tight mt-4" data-i18n="systems.h2">The machine that turns a following into a company.</h2>
+      <p class="text-lg text-mute leading-relaxed mt-6" data-i18n="systems.p">Not motivation — machinery. The same operating systems real companies run, installed and run for you, around your brand.</p>
     </div>
     <div class="grid md:grid-cols-2 gap-5 mt-14">
       <div class="glass gborder rounded-2xl p-8 reveal card-hover">
         <div class="font-display text-q-cyan text-sm font-bold tracking-widest">01</div>
-        <h3 class="font-display text-2xl font-bold mt-3">Client acquisition</h3>
-        <p class="text-mute text-sm leading-relaxed mt-3">Funnels, offers and automated sales that turn followers into paying clients — predictably, on autopilot, not by luck.</p>
+        <h3 class="font-display text-2xl font-bold mt-3" data-i18n="systems.s1t">Client acquisition</h3>
+        <p class="text-mute text-sm leading-relaxed mt-3" data-i18n="systems.s1d">Funnels, offers and automated sales that turn followers into paying clients — predictably, on autopilot, not by luck.</p>
       </div>
       <div class="glass gborder rounded-2xl p-8 reveal card-hover">
         <div class="font-display text-q-cyan text-sm font-bold tracking-widest">02</div>
-        <h3 class="font-display text-2xl font-bold mt-3">AI-powered service scale</h3>
-        <p class="text-mute text-sm leading-relaxed mt-3">We install an AI layer that handles calls, emails, delivery and follow-up — so your services scale from 10 to 10,000 clients without adding your hours.</p>
+        <h3 class="font-display text-2xl font-bold mt-3" data-i18n="systems.s2t">AI-powered service scale</h3>
+        <p class="text-mute text-sm leading-relaxed mt-3" data-i18n="systems.s2d">We install an AI layer that handles calls, emails, delivery and follow-up — so your services scale from 10 to 10,000 clients without adding your hours.</p>
       </div>
       <div class="glass gborder rounded-2xl p-8 reveal card-hover">
         <div class="font-display text-q-cyan text-sm font-bold tracking-widest">03</div>
-        <h3 class="font-display text-2xl font-bold mt-3">Brand &amp; product development</h3>
-        <p class="text-mute text-sm leading-relaxed mt-3">Your own brands and assets — supplements, apparel, digital products — designed, produced and launched for you.</p>
+        <h3 class="font-display text-2xl font-bold mt-3" data-i18n="systems.s3t">Brand &amp; product development</h3>
+        <p class="text-mute text-sm leading-relaxed mt-3" data-i18n="systems.s3d">Your own brands and assets — supplements, apparel, digital products — designed, produced and launched for you.</p>
       </div>
       <div class="glass gborder rounded-2xl p-8 reveal card-hover">
         <div class="font-display text-q-cyan text-sm font-bold tracking-widest">04</div>
-        <h3 class="font-display text-2xl font-bold mt-3">Wealth engine</h3>
-        <p class="text-mute text-sm leading-relaxed mt-3">Profit doesn't sit idle. We reinvest it into managed assets, structure and tax planning — compounding your empire.</p>
+        <h3 class="font-display text-2xl font-bold mt-3" data-i18n="systems.s4t">Wealth engine</h3>
+        <p class="text-mute text-sm leading-relaxed mt-3" data-i18n="systems.s4d">Profit doesn't sit idle. We reinvest it into managed assets, structure and tax planning — compounding your empire.</p>
       </div>
       <div class="glass gborder rounded-2xl p-8 reveal card-hover md:col-span-2" style="background:linear-gradient(120deg,rgba(99,102,241,.1),rgba(34,211,238,.05))">
         <div class="font-display text-q-cyan text-sm font-bold tracking-widest">05</div>
-        <h3 class="font-display text-2xl font-bold mt-3">Deals &amp; representation</h3>
-        <p class="text-mute text-sm leading-relaxed mt-3 max-w-3xl">We act as your professional agents: we negotiate brand deals and sponsorships, manage your rate card and media kit, filter opportunities that protect your brand, and turn one-off collabs into long-term partnerships. You stop selling your audience by DM — a specialist team handles it all.</p>
+        <h3 class="font-display text-2xl font-bold mt-3" data-i18n="systems.s5t">Deals &amp; representation</h3>
+        <p class="text-mute text-sm leading-relaxed mt-3 max-w-3xl" data-i18n="systems.s5d">We act as your professional agents: we negotiate brand deals and sponsorships, manage your rate card and media kit, filter opportunities that protect your brand, and turn one-off collabs into long-term partnerships. You stop selling your audience by DM — a specialist team handles it all.</p>
       </div>
     </div>
   </div>
@@ -309,38 +290,38 @@
 <section id="team" class="py-24 sm:py-32">
   <div class="max-w-7xl mx-auto px-5 sm:px-8">
     <div class="max-w-3xl reveal">
-      <span class="eyebrow text-sm font-semibold tracking-widest uppercase text-q-cyan">The team</span>
-      <h2 class="font-display text-3xl sm:text-5xl font-bold leading-tight mt-4">A specialist crew built for fitness creators.</h2>
-      <p class="text-lg text-mute leading-relaxed mt-6">Every role is fitness-native — people who know the audience, the content and the conversion mechanics of the space.</p>
+      <span class="eyebrow text-sm font-semibold tracking-widest uppercase text-q-cyan" data-i18n="team.eyebrow">The team</span>
+      <h2 class="font-display text-3xl sm:text-5xl font-bold leading-tight mt-4" data-i18n="team.h2">A specialist crew built for fitness creators.</h2>
+      <p class="text-lg text-mute leading-relaxed mt-6" data-i18n="team.p">Every role is fitness-native — people who know the audience, the content and the conversion mechanics of the space.</p>
     </div>
     <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-14">
       <div class="glass rounded-2xl p-7 reveal card-hover">
         <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-4" style="background:rgba(34,211,238,.12);border:1px solid rgba(34,211,238,.25)">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" stroke="#22d3ee" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </div>
-        <h3 class="font-display text-lg font-bold">Sales team</h3>
-        <p class="text-mute text-sm leading-relaxed mt-2">Fitness-specialist setters and closers trained in high-ticket offers, communities and premium services. They speak the language.</p>
+        <h3 class="font-display text-lg font-bold" data-i18n="team.t1t">Sales team</h3>
+        <p class="text-mute text-sm leading-relaxed mt-2" data-i18n="team.t1d">Fitness-specialist setters and closers trained in high-ticket offers, communities and premium services. They speak the language.</p>
       </div>
       <div class="glass rounded-2xl p-7 reveal card-hover">
         <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-4" style="background:rgba(99,102,241,.12);border:1px solid rgba(99,102,241,.25)">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="2" y="3" width="20" height="14" rx="2" stroke="#6366f1" stroke-width="2"/><path d="M8 21h8M12 17v4" stroke="#6366f1" stroke-width="2" stroke-linecap="round"/></svg>
         </div>
-        <h3 class="font-display text-lg font-bold">Content editors</h3>
-        <p class="text-mute text-sm leading-relaxed mt-2">In-house editors producing short-form, long-form and multi-channel repurposing. Every piece builds brand and drives sales.</p>
+        <h3 class="font-display text-lg font-bold" data-i18n="team.t2t">Content editors</h3>
+        <p class="text-mute text-sm leading-relaxed mt-2" data-i18n="team.t2d">In-house editors producing short-form, long-form and multi-channel repurposing. Every piece builds brand and drives sales.</p>
       </div>
       <div class="glass rounded-2xl p-7 reveal card-hover">
         <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-4" style="background:rgba(168,85,247,.12);border:1px solid rgba(168,85,247,.25)">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M22 12h-4l-3 9L9 3l-3 9H2" stroke="#a855f7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </div>
-        <h3 class="font-display text-lg font-bold">Media buyers</h3>
-        <p class="text-mute text-sm leading-relaxed mt-2">Paid media specialists on Meta, TikTok and YouTube. They amplify your brand far beyond what organic alone can reach.</p>
+        <h3 class="font-display text-lg font-bold" data-i18n="team.t3t">Media buyers</h3>
+        <p class="text-mute text-sm leading-relaxed mt-2" data-i18n="team.t3d">Paid media specialists on Meta, TikTok and YouTube. They amplify your brand far beyond what organic alone can reach.</p>
       </div>
       <div class="glass rounded-2xl p-7 reveal card-hover">
         <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-4" style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12)">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="#e7ecf3" stroke-width="2"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83" stroke="#e7ecf3" stroke-width="2" stroke-linecap="round"/></svg>
         </div>
-        <h3 class="font-display text-lg font-bold">Core ops &amp; tech</h3>
-        <p class="text-mute text-sm leading-relaxed mt-2">Strategy, AI automation, GHL, community management and launch ops — the shared nucleus that runs every creator's machine.</p>
+        <h3 class="font-display text-lg font-bold" data-i18n="team.t4t">Core ops &amp; tech</h3>
+        <p class="text-mute text-sm leading-relaxed mt-2" data-i18n="team.t4d">Strategy, AI automation, GHL, community management and launch ops — the shared nucleus that runs every creator's machine.</p>
       </div>
     </div>
   </div>
@@ -350,45 +331,45 @@
 <section id="build" class="py-24 sm:py-32">
   <div class="max-w-7xl mx-auto px-5 sm:px-8">
     <div class="max-w-3xl reveal">
-      <span class="eyebrow text-sm font-semibold tracking-widest uppercase text-q-cyan">What we build with you</span>
-      <h2 class="font-display text-3xl sm:text-5xl font-bold leading-tight mt-4">A portfolio of income, not a one-off launch.</h2>
+      <span class="eyebrow text-sm font-semibold tracking-widest uppercase text-q-cyan" data-i18n="build.eyebrow">What we build with you</span>
+      <h2 class="font-display text-3xl sm:text-5xl font-bold leading-tight mt-4" data-i18n="build.h2">A portfolio of income, not a one-off launch.</h2>
     </div>
     <div class="grid md:grid-cols-3 gap-5 mt-14">
       <div class="rounded-2xl reveal card-hover md:col-span-2 relative overflow-hidden" style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);min-height:180px">
         <div class="absolute inset-0 opacity-20" style="background-image:url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=70&auto=format&fit=crop');background-size:cover;background-position:center top"></div>
         <div class="absolute inset-0" style="background:linear-gradient(90deg,rgba(6,7,13,.85) 40%,rgba(6,7,13,.4) 100%)"></div>
         <div class="relative z-10 p-7">
-          <h3 class="font-display text-xl font-bold">Paid community</h3>
-          <p class="text-mute text-sm leading-relaxed mt-3">The ultimate one-to-many offer, on our own software. A membership with recurring, predictable revenue from day one.</p>
+          <h3 class="font-display text-xl font-bold" data-i18n="build.b1t">Paid community</h3>
+          <p class="text-mute text-sm leading-relaxed mt-3" data-i18n="build.b1d">The ultimate one-to-many offer, on our own software. A membership with recurring, predictable revenue from day one.</p>
         </div>
       </div>
       <div class="glass rounded-2xl p-7 reveal card-hover">
-        <h3 class="font-display text-xl font-bold">1-on-1, powered by AI</h3>
-        <p class="text-mute text-sm leading-relaxed mt-3">Your coaching, productized and enhanced with AI to scale without losing quality.</p>
+        <h3 class="font-display text-xl font-bold" data-i18n="build.b2t">1-on-1, powered by AI</h3>
+        <p class="text-mute text-sm leading-relaxed mt-3" data-i18n="build.b2d">Your coaching, productized and enhanced with AI to scale without losing quality.</p>
       </div>
       <div class="rounded-2xl reveal card-hover relative overflow-hidden" style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)">
         <div class="absolute inset-0 opacity-20" style="background-image:url('https://images.unsplash.com/photo-1505576399279-565b52d4ac71?w=400&q=70&auto=format&fit=crop');background-size:cover;background-position:center"></div>
         <div class="absolute inset-0" style="background:rgba(6,7,13,.55)"></div>
         <div class="relative z-10 p-7">
-          <h3 class="font-display text-xl font-bold">Supplement brand</h3>
-          <p class="text-mute text-sm leading-relaxed mt-3">Your own brand, where you're the founder. You don't rent your face — you build an asset.</p>
+          <h3 class="font-display text-xl font-bold" data-i18n="build.b3t">Supplement brand</h3>
+          <p class="text-mute text-sm leading-relaxed mt-3" data-i18n="build.b3d">Your own brand, where you're the founder. You don't rent your face — you build an asset.</p>
         </div>
       </div>
       <div class="rounded-2xl reveal card-hover relative overflow-hidden" style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)">
         <div class="absolute inset-0 opacity-20" style="background-image:url('https://images.unsplash.com/photo-1556906781-9a414e2a3a61?w=400&q=70&auto=format&fit=crop');background-size:cover;background-position:center"></div>
         <div class="absolute inset-0" style="background:rgba(6,7,13,.55)"></div>
         <div class="relative z-10 p-7">
-          <h3 class="font-display text-xl font-bold">Apparel &amp; lifestyle</h3>
-          <p class="text-mute text-sm leading-relaxed mt-3">Fitness and lifestyle apparel lines with your signature — design, production and logistics included.</p>
+          <h3 class="font-display text-xl font-bold" data-i18n="build.b4t">Apparel &amp; lifestyle</h3>
+          <p class="text-mute text-sm leading-relaxed mt-3" data-i18n="build.b4d">Fitness and lifestyle apparel lines with your signature — design, production and logistics included.</p>
         </div>
       </div>
       <div class="glass rounded-2xl p-7 reveal card-hover">
-        <h3 class="font-display text-xl font-bold">Ecommerce &amp; products</h3>
-        <p class="text-mute text-sm leading-relaxed mt-3">Store, courses and digital products with funnels and launches that actually convert.</p>
+        <h3 class="font-display text-xl font-bold" data-i18n="build.b5t">Ecommerce &amp; products</h3>
+        <p class="text-mute text-sm leading-relaxed mt-3" data-i18n="build.b5d">Store, courses and digital products with funnels and launches that actually convert.</p>
       </div>
       <div class="glass rounded-2xl p-7 reveal card-hover md:col-span-3" style="background:linear-gradient(120deg,rgba(168,85,247,.14),rgba(34,211,238,.06))">
-        <h3 class="font-display text-xl font-bold">Wealth &amp; tax <span class="text-q-cyan">— the core promise</span></h3>
-        <p class="text-mute text-sm leading-relaxed mt-3 max-w-3xl">Everything above is the engine that generates capital. The destination is your wealth: tax structure, saving and investing the surplus, and long-term planning. So today's money buys you peace of mind tomorrow.</p>
+        <h3 class="font-display text-xl font-bold"><span data-i18n="build.b6t">Wealth &amp; tax</span> <span class="text-q-cyan" data-i18n="build.b6span">— the core promise</span></h3>
+        <p class="text-mute text-sm leading-relaxed mt-3 max-w-3xl" data-i18n="build.b6d">Everything above is the engine that generates capital. The destination is your wealth: tax structure, saving and investing the surplus, and long-term planning. So today's money buys you peace of mind tomorrow.</p>
       </div>
     </div>
   </div>
@@ -398,21 +379,21 @@
 <section id="partnership" class="py-24 sm:py-32">
   <div class="max-w-7xl mx-auto px-5 sm:px-8">
     <div class="max-w-3xl reveal">
-      <span class="eyebrow text-sm font-semibold tracking-widest uppercase text-q-cyan">The partnership</span>
-      <h2 class="font-display text-3xl sm:text-5xl font-bold leading-tight mt-4">We only win when you win.</h2>
+      <span class="eyebrow text-sm font-semibold tracking-widest uppercase text-q-cyan" data-i18n="partnership.eyebrow">The partnership</span>
+      <h2 class="font-display text-3xl sm:text-5xl font-bold leading-tight mt-4" data-i18n="partnership.h2">We only win when you win.</h2>
     </div>
     <div class="grid sm:grid-cols-3 gap-5 mt-14">
       <div class="glass rounded-2xl p-8 reveal card-hover">
-        <h3 class="font-display text-xl font-bold">Aligned incentives</h3>
-        <p class="text-mute text-sm leading-relaxed mt-3">We grow when you grow. Same boat, same goals — built for the long run, not a quick launch.</p>
+        <h3 class="font-display text-xl font-bold" data-i18n="partnership.p1t">Aligned incentives</h3>
+        <p class="text-mute text-sm leading-relaxed mt-3" data-i18n="partnership.p1d">We grow when you grow. Same boat, same goals — built for the long run, not a quick launch.</p>
       </div>
       <div class="glass rounded-2xl p-8 reveal card-hover">
-        <h3 class="font-display text-xl font-bold">You stay the owner</h3>
-        <p class="text-mute text-sm leading-relaxed mt-3">It's your brand and your assets. We build them with you and they stay yours.</p>
+        <h3 class="font-display text-xl font-bold" data-i18n="partnership.p2t">You stay the owner</h3>
+        <p class="text-mute text-sm leading-relaxed mt-3" data-i18n="partnership.p2d">It's your brand and your assets. We build them with you and they stay yours.</p>
       </div>
       <div class="glass rounded-2xl p-8 reveal card-hover">
-        <h3 class="font-display text-xl font-bold">A select few</h3>
-        <p class="text-mute text-sm leading-relaxed mt-3">We partner with a small number of creators so we can do it properly. Terms are tailored to each one.</p>
+        <h3 class="font-display text-xl font-bold" data-i18n="partnership.p3t">A select few</h3>
+        <p class="text-mute text-sm leading-relaxed mt-3" data-i18n="partnership.p3d">We partner with a small number of creators so we can do it properly. Terms are tailored to each one.</p>
       </div>
     </div>
   </div>
@@ -422,24 +403,24 @@
 <section id="process" class="py-24 sm:py-32">
   <div class="max-w-7xl mx-auto px-5 sm:px-8">
     <div class="max-w-3xl reveal">
-      <span class="eyebrow text-sm font-semibold tracking-widest uppercase text-q-cyan">The process</span>
-      <h2 class="font-display text-3xl sm:text-5xl font-bold leading-tight mt-4">From audit to wealth, step by step.</h2>
+      <span class="eyebrow text-sm font-semibold tracking-widest uppercase text-q-cyan" data-i18n="process.eyebrow">The process</span>
+      <h2 class="font-display text-3xl sm:text-5xl font-bold leading-tight mt-4" data-i18n="process.h2">From audit to wealth, step by step.</h2>
     </div>
     <div class="grid md:grid-cols-3 gap-8 mt-14">
       <div class="reveal">
         <div class="step-num text-6xl font-bold">01</div>
-        <h3 class="font-display text-xl font-bold mt-4">Audit</h3>
-        <p class="text-mute text-sm leading-relaxed mt-3">We map your brand and your current vs. potential monetization, and design the roadmap.</p>
+        <h3 class="font-display text-xl font-bold mt-4" data-i18n="process.st1t">Audit</h3>
+        <p class="text-mute text-sm leading-relaxed mt-3" data-i18n="process.st1d">We map your brand and your current vs. potential monetization, and design the roadmap.</p>
       </div>
       <div class="reveal">
         <div class="step-num text-6xl font-bold">02</div>
-        <h3 class="font-display text-xl font-bold mt-4">Build</h3>
-        <p class="text-mute text-sm leading-relaxed mt-3">We set up and run your business lines: community, products, brands and campaigns.</p>
+        <h3 class="font-display text-xl font-bold mt-4" data-i18n="process.st2t">Build</h3>
+        <p class="text-mute text-sm leading-relaxed mt-3" data-i18n="process.st2d">We set up and run your business lines: community, products, brands and campaigns.</p>
       </div>
       <div class="reveal">
         <div class="step-num text-6xl font-bold">03</div>
-        <h3 class="font-display text-xl font-bold mt-4">Wealth</h3>
-        <p class="text-mute text-sm leading-relaxed mt-3">We turn profits into managed assets: investment, tax planning and a future that lasts.</p>
+        <h3 class="font-display text-xl font-bold mt-4" data-i18n="process.st3t">Wealth</h3>
+        <p class="text-mute text-sm leading-relaxed mt-3" data-i18n="process.st3d">We turn profits into managed assets: investment, tax planning and a future that lasts.</p>
       </div>
     </div>
   </div>
@@ -449,8 +430,8 @@
 <section class="py-16 sm:py-24">
   <div class="max-w-5xl mx-auto px-5 sm:px-8 text-center reveal">
     <p class="font-display text-2xl sm:text-4xl font-bold leading-snug">
-      Most creators sell their attention.
-      <span class="grad-text">The smart ones build an empire with it.</span>
+      <span data-i18n="empire.a">Most creators sell their attention.</span>
+      <span class="grad-text" data-i18n="empire.b">The smart ones build an empire with it.</span>
     </p>
   </div>
 </section>
@@ -460,17 +441,16 @@
   <div class="max-w-5xl mx-auto px-5 sm:px-8">
     <div class="rounded-3xl p-10 sm:p-16 text-center reveal" style="background:linear-gradient(140deg,rgba(99,102,241,.2),rgba(34,211,238,.08));border:1px solid rgba(99,102,241,.35)">
       <h2 class="font-display text-3xl sm:text-5xl font-bold leading-tight">
-        Build something that <span class="grad-text">outlasts the algorithm.</span>
+        <span data-i18n="contact.h2a">Build something that</span> <span class="grad-text" data-i18n="contact.h2b">outlasts the algorithm.</span>
       </h2>
-      <p class="text-lg text-mute leading-relaxed mt-5 max-w-2xl mx-auto">
-        We partner with a select few creators each year. It starts with a private audit of your brand and your
-        true monetization potential — and a tailored plan to build the business around you.
+      <p class="text-lg text-mute leading-relaxed mt-5 max-w-2xl mx-auto" data-i18n="contact.p">
+        We partner with a select few creators each year. It starts with a private audit of your brand and your true monetization potential — and a tailored plan to build the business around you.
       </p>
       <div class="flex flex-col sm:flex-row gap-3 justify-center mt-9">
-        <a href="mailto:hello@quantumventures.io?subject=Partnership%20application%20-%20QuantumVentures" class="btn-primary inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full">
+        <a href="mailto:hello@quantumventures.io?subject=Partnership%20application%20-%20Quantum%20Ventures" class="btn-primary inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full" data-i18n="cta.apply">
           Apply to work with us
         </a>
-        <a href="#top" class="btn-ghost inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full">Back to top</a>
+        <a href="#top" class="btn-ghost inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full" data-i18n="contact.back">Back to top</a>
       </div>
       <p class="text-xs text-mute mt-6">hello@quantumventures.io · quantumventures.io</p>
     </div>
@@ -483,17 +463,232 @@
 <footer class="border-t border-line">
   <div class="max-w-7xl mx-auto px-5 sm:px-8 py-12 flex flex-col sm:flex-row items-center justify-between gap-6">
     <a href="#top" class="flex items-center gap-2.5">
-      <svg width="30" height="30" viewBox="0 0 64 64" aria-hidden="true"><use href="#qmark"/></svg>
+      <img src="assets/brand/qv-mark.png" alt="Quantum Ventures" width="30" height="30" class="logo-mark w-[30px] h-[30px]">
       <span class="font-display font-bold">Quantum<span class="text-white/70 font-medium"> Ventures</span></span>
     </a>
-    <p class="text-sm text-mute text-center">© <span id="year"></span> QuantumVentures LLC · We turn audience into wealth</p>
-    <p class="text-xs text-mute">Built by <a href="https://stratomai.com" target="_blank" rel="noopener" class="text-white/80 hover:text-white">Stratoma AI</a></p>
+    <p class="text-sm text-mute text-center">© <span id="year"></span> Quantum Ventures LLC · <span data-i18n="footer.tagline">We turn audience into wealth</span></p>
+    <p class="text-xs text-mute"><span data-i18n="footer.builtby">Built by</span> <a href="https://stratomai.com" target="_blank" rel="noopener" class="text-white/80 hover:text-white">Stratoma AI</a></p>
   </div>
 </footer>
 
 <script>
+  // ===== i18n: EN (source) / ES / FR =====
+  const I18N = {
+    en: {
+      "meta.title": "Quantum Ventures — From audience to empire",
+      "nav.approach": "Approach", "nav.systems": "Systems", "nav.team": "Team", "nav.build": "What we build", "nav.partnership": "Partnership", "nav.process": "Process",
+      "cta.apply": "Apply to work with us",
+      "hero.chip": "The venture builder for elite fitness creators",
+      "hero.h1a": "You built the audience.", "hero.h1b": "We build the empire.",
+      "hero.sub": "Your influence is the most valuable asset most creators never cash in. We design, build and operate the companies, products and brands around your name — turning attention into diversified income and lasting wealth.",
+      "hero.subStrong": "You create. We build the business.",
+      "hero.ctaSecondary": "See how it works",
+      "hero.stat1t": "Acquisition systems", "hero.stat1d": "Clients in, on autopilot",
+      "hero.stat2t": "Deals &amp; rep", "hero.stat2d": "We negotiate your brand deals",
+      "hero.stat3t": "Products &amp; brands", "hero.stat3d": "Built and operated for you",
+      "hero.stat4t": "Lasting wealth", "hero.stat4d": "Income turned into real assets",
+      "hero.badge1": "You create.", "hero.badge2": "We build the empire.",
+      "problem.eyebrow": "The problem", "problem.h2a": "Attention is rented.", "problem.h2b": "It can end fast.",
+      "problem.p": "Right now your relevance — and your income — live and die by the algorithm, the trends and your energy to keep posting. You earn well today. But what is any of it worth the day you stop?",
+      "problem.card1t": "Fragile income", "problem.card1d": "You rely on one-off promos and on posting non-stop. If you stop, the money stops.",
+      "problem.card2t": "No structure", "problem.card2d": "A thousand business ideas, zero time and no team to actually build and run them.",
+      "problem.card3t": "Nothing that lasts", "problem.card3d": "Years generating attention that never turns into real assets or wealth.",
+      "solution.eyebrow": "The approach", "solution.h2a": "Not an agency.", "solution.h2b": "A venture builder behind your name.",
+      "solution.p": "Quantum Ventures doesn't run a campaign and walk away. We design, build and operate a portfolio of companies around you — so you stop renting your attention and start owning real assets that pay you for years.",
+      "solution.li1": "<b class=\"text-white\">We diversify</b> your income with your own products and services.",
+      "solution.li2": "<b class=\"text-white\">We operate</b> the whole machine: technology, team, campaigns and brands.",
+      "solution.li3": "<b class=\"text-white\">We build wealth</b>: management, investment and tax planning on what you generate.",
+      "solution.youLabel": "You", "solution.youTitle": "Create",
+      "solution.youL1": "· Content for your channels", "solution.youL2": "· Your face and your community", "solution.youL3": "· Delivering your expertise",
+      "solution.weLabel": "We", "solution.weTitle": "Build the business",
+      "solution.weL1": "· Products, technology &amp; team", "solution.weL2": "· Brands, campaigns &amp; sales", "solution.weL3": "· Wealth &amp; tax structure",
+      "systems.eyebrow": "The engine", "systems.h2": "The machine that turns a following into a company.",
+      "systems.p": "Not motivation — machinery. The same operating systems real companies run, installed and run for you, around your brand.",
+      "systems.s1t": "Client acquisition", "systems.s1d": "Funnels, offers and automated sales that turn followers into paying clients — predictably, on autopilot, not by luck.",
+      "systems.s2t": "AI-powered service scale", "systems.s2d": "We install an AI layer that handles calls, emails, delivery and follow-up — so your services scale from 10 to 10,000 clients without adding your hours.",
+      "systems.s3t": "Brand &amp; product development", "systems.s3d": "Your own brands and assets — supplements, apparel, digital products — designed, produced and launched for you.",
+      "systems.s4t": "Wealth engine", "systems.s4d": "Profit doesn't sit idle. We reinvest it into managed assets, structure and tax planning — compounding your empire.",
+      "systems.s5t": "Deals &amp; representation", "systems.s5d": "We act as your professional agents: we negotiate brand deals and sponsorships, manage your rate card and media kit, filter opportunities that protect your brand, and turn one-off collabs into long-term partnerships. You stop selling your audience by DM — a specialist team handles it all.",
+      "team.eyebrow": "The team", "team.h2": "A specialist crew built for fitness creators.",
+      "team.p": "Every role is fitness-native — people who know the audience, the content and the conversion mechanics of the space.",
+      "team.t1t": "Sales team", "team.t1d": "Fitness-specialist setters and closers trained in high-ticket offers, communities and premium services. They speak the language.",
+      "team.t2t": "Content editors", "team.t2d": "In-house editors producing short-form, long-form and multi-channel repurposing. Every piece builds brand and drives sales.",
+      "team.t3t": "Media buyers", "team.t3d": "Paid media specialists on Meta, TikTok and YouTube. They amplify your brand far beyond what organic alone can reach.",
+      "team.t4t": "Core ops &amp; tech", "team.t4d": "Strategy, AI automation, GHL, community management and launch ops — the shared nucleus that runs every creator's machine.",
+      "build.eyebrow": "What we build with you", "build.h2": "A portfolio of income, not a one-off launch.",
+      "build.b1t": "Paid community", "build.b1d": "The ultimate one-to-many offer, on our own software. A membership with recurring, predictable revenue from day one.",
+      "build.b2t": "1-on-1, powered by AI", "build.b2d": "Your coaching, productized and enhanced with AI to scale without losing quality.",
+      "build.b3t": "Supplement brand", "build.b3d": "Your own brand, where you're the founder. You don't rent your face — you build an asset.",
+      "build.b4t": "Apparel &amp; lifestyle", "build.b4d": "Fitness and lifestyle apparel lines with your signature — design, production and logistics included.",
+      "build.b5t": "Ecommerce &amp; products", "build.b5d": "Store, courses and digital products with funnels and launches that actually convert.",
+      "build.b6t": "Wealth &amp; tax", "build.b6span": "— the core promise", "build.b6d": "Everything above is the engine that generates capital. The destination is your wealth: tax structure, saving and investing the surplus, and long-term planning. So today's money buys you peace of mind tomorrow.",
+      "partnership.eyebrow": "The partnership", "partnership.h2": "We only win when you win.",
+      "partnership.p1t": "Aligned incentives", "partnership.p1d": "We grow when you grow. Same boat, same goals — built for the long run, not a quick launch.",
+      "partnership.p2t": "You stay the owner", "partnership.p2d": "It's your brand and your assets. We build them with you and they stay yours.",
+      "partnership.p3t": "A select few", "partnership.p3d": "We partner with a small number of creators so we can do it properly. Terms are tailored to each one.",
+      "process.eyebrow": "The process", "process.h2": "From audit to wealth, step by step.",
+      "process.st1t": "Audit", "process.st1d": "We map your brand and your current vs. potential monetization, and design the roadmap.",
+      "process.st2t": "Build", "process.st2d": "We set up and run your business lines: community, products, brands and campaigns.",
+      "process.st3t": "Wealth", "process.st3d": "We turn profits into managed assets: investment, tax planning and a future that lasts.",
+      "empire.a": "Most creators sell their attention.", "empire.b": "The smart ones build an empire with it.",
+      "contact.h2a": "Build something that", "contact.h2b": "outlasts the algorithm.",
+      "contact.p": "We partner with a select few creators each year. It starts with a private audit of your brand and your true monetization potential — and a tailored plan to build the business around you.",
+      "contact.back": "Back to top",
+      "footer.tagline": "We turn audience into wealth", "footer.builtby": "Built by"
+    },
+    es: {
+      "meta.title": "Quantum Ventures — De tu audiencia a tu imperio",
+      "nav.approach": "Enfoque", "nav.systems": "Sistemas", "nav.team": "Equipo", "nav.build": "Qué construimos", "nav.partnership": "Alianza", "nav.process": "Proceso",
+      "cta.apply": "Solicita trabajar con nosotros",
+      "hero.chip": "El venture builder para creadores fitness de élite",
+      "hero.h1a": "Tú creaste la audiencia.", "hero.h1b": "Nosotros construimos el imperio.",
+      "hero.sub": "Tu influencia es el activo más valioso que la mayoría de creadores nunca llega a capitalizar. Diseñamos, construimos y operamos las empresas, productos y marcas en torno a tu nombre — convirtiendo la atención en ingresos diversificados y patrimonio duradero.",
+      "hero.subStrong": "Tú creas. Nosotros construimos el negocio.",
+      "hero.ctaSecondary": "Ver cómo funciona",
+      "hero.stat1t": "Sistemas de captación", "hero.stat1d": "Clientes que entran, en piloto automático",
+      "hero.stat2t": "Deals y representación", "hero.stat2d": "Negociamos tus acuerdos de marca",
+      "hero.stat3t": "Productos y marcas", "hero.stat3d": "Creados y operados por ti",
+      "hero.stat4t": "Patrimonio duradero", "hero.stat4d": "Ingresos convertidos en activos reales",
+      "hero.badge1": "Tú creas.", "hero.badge2": "Nosotros construimos el imperio.",
+      "problem.eyebrow": "El problema", "problem.h2a": "La atención es alquilada.", "problem.h2b": "Puede acabarse rápido.",
+      "problem.p": "Ahora mismo tu relevancia — y tus ingresos — dependen del algoritmo, de las tendencias y de tu energía para seguir publicando. Hoy ganas bien. ¿Pero qué valor tiene todo eso el día que pares?",
+      "problem.card1t": "Ingresos frágiles", "problem.card1d": "Dependes de promos puntuales y de publicar sin parar. Si paras, el dinero se para.",
+      "problem.card2t": "Sin estructura", "problem.card2d": "Mil ideas de negocio, cero tiempo y ningún equipo que de verdad las construya y las gestione.",
+      "problem.card3t": "Nada que perdure", "problem.card3d": "Años generando atención que nunca se convierte en activos reales ni en patrimonio.",
+      "solution.eyebrow": "El enfoque", "solution.h2a": "No somos una agencia.", "solution.h2b": "Un venture builder detrás de tu nombre.",
+      "solution.p": "Quantum Ventures no lanza una campaña y se va. Diseñamos, construimos y operamos un portfolio de empresas en torno a ti — para que dejes de alquilar tu atención y empieces a ser dueño de activos reales que te pagan durante años.",
+      "solution.li1": "<b class=\"text-white\">Diversificamos</b> tus ingresos con tus propios productos y servicios.",
+      "solution.li2": "<b class=\"text-white\">Operamos</b> toda la maquinaria: tecnología, equipo, campañas y marcas.",
+      "solution.li3": "<b class=\"text-white\">Construimos patrimonio</b>: gestión, inversión y planificación fiscal sobre lo que generas.",
+      "solution.youLabel": "Tú", "solution.youTitle": "Creas",
+      "solution.youL1": "· Contenido para tus canales", "solution.youL2": "· Tu cara y tu comunidad", "solution.youL3": "· Aportando tu expertise",
+      "solution.weLabel": "Nosotros", "solution.weTitle": "Construimos el negocio",
+      "solution.weL1": "· Productos, tecnología y equipo", "solution.weL2": "· Marcas, campañas y ventas", "solution.weL3": "· Estructura de patrimonio y fiscal",
+      "systems.eyebrow": "El motor", "systems.h2": "La maquinaria que convierte una audiencia en una empresa.",
+      "systems.p": "No motivación — maquinaria. Los mismos sistemas operativos que usan las empresas reales, instalados y gestionados por ti, en torno a tu marca.",
+      "systems.s1t": "Captación de clientes", "systems.s1d": "Embudos, ofertas y ventas automatizadas que convierten seguidores en clientes de pago — de forma previsible, en piloto automático, no por suerte.",
+      "systems.s2t": "Escala de servicios con IA", "systems.s2d": "Instalamos una capa de IA que gestiona llamadas, emails, entrega y seguimiento — para que tus servicios escalen de 10 a 10.000 clientes sin sumar tus horas.",
+      "systems.s3t": "Desarrollo de marca y producto", "systems.s3d": "Tus propias marcas y activos — suplementos, ropa, productos digitales — diseñados, producidos y lanzados por ti.",
+      "systems.s4t": "Motor de patrimonio", "systems.s4d": "El beneficio no se queda parado. Lo reinvertimos en activos gestionados, estructura y planificación fiscal — multiplicando tu imperio.",
+      "systems.s5t": "Deals y representación", "systems.s5d": "Actuamos como tus agentes profesionales: negociamos acuerdos de marca y patrocinios, gestionamos tu tarifa y tu media kit, filtramos oportunidades que protegen tu marca, y convertimos colaboraciones puntuales en alianzas a largo plazo. Dejas de vender tu audiencia por DM — un equipo especialista se encarga de todo.",
+      "team.eyebrow": "El equipo", "team.h2": "Un equipo especialista creado para creadores fitness.",
+      "team.p": "Cada rol es nativo del fitness — personas que conocen la audiencia, el contenido y la mecánica de conversión del sector.",
+      "team.t1t": "Equipo de ventas", "team.t1d": "Setters y closers especialistas en fitness, formados en ofertas high-ticket, comunidades y servicios premium. Hablan tu idioma.",
+      "team.t2t": "Editores de contenido", "team.t2d": "Editores internos que producen formato corto, largo y reutilización multicanal. Cada pieza construye marca e impulsa ventas.",
+      "team.t3t": "Media buyers", "team.t3d": "Especialistas en publicidad pagada en Meta, TikTok y YouTube. Amplifican tu marca mucho más allá de lo que el orgánico alcanza por sí solo.",
+      "team.t4t": "Operaciones y tecnología", "team.t4d": "Estrategia, automatización con IA, GHL, gestión de comunidad y operativa de lanzamientos — el núcleo compartido que mueve la maquinaria de cada creador.",
+      "build.eyebrow": "Lo que construimos contigo", "build.h2": "Un portfolio de ingresos, no un lanzamiento puntual.",
+      "build.b1t": "Comunidad de pago", "build.b1d": "La oferta one-to-many definitiva, sobre nuestro propio software. Una membresía con ingresos recurrentes y previsibles desde el primer día.",
+      "build.b2t": "1-a-1, potenciado con IA", "build.b2d": "Tu mentoría, productizada y mejorada con IA para escalar sin perder calidad.",
+      "build.b3t": "Marca de suplementos", "build.b3d": "Tu propia marca, donde tú eres el fundador. No alquilas tu cara — construyes un activo.",
+      "build.b4t": "Ropa y lifestyle", "build.b4d": "Líneas de ropa fitness y lifestyle con tu firma — diseño, producción y logística incluidos.",
+      "build.b5t": "Ecommerce y productos", "build.b5d": "Tienda, cursos y productos digitales con embudos y lanzamientos que de verdad convierten.",
+      "build.b6t": "Patrimonio y fiscalidad", "build.b6span": "— la promesa central", "build.b6d": "Todo lo anterior es el motor que genera capital. El destino es tu patrimonio: estructura fiscal, ahorrar e invertir el excedente, y planificación a largo plazo. Para que el dinero de hoy te compre tranquilidad mañana.",
+      "partnership.eyebrow": "La alianza", "partnership.h2": "Solo ganamos cuando tú ganas.",
+      "partnership.p1t": "Incentivos alineados", "partnership.p1d": "Crecemos cuando tú creces. Mismo barco, mismos objetivos — construido para el largo plazo, no para un lanzamiento rápido.",
+      "partnership.p2t": "Tú sigues siendo el dueño", "partnership.p2d": "Es tu marca y son tus activos. Los construimos contigo y siguen siendo tuyos.",
+      "partnership.p3t": "Unos pocos elegidos", "partnership.p3d": "Trabajamos con un número reducido de creadores para hacerlo bien. Las condiciones se adaptan a cada uno.",
+      "process.eyebrow": "El proceso", "process.h2": "De la auditoría al patrimonio, paso a paso.",
+      "process.st1t": "Auditoría", "process.st1d": "Mapeamos tu marca y tu monetización actual frente a la potencial, y diseñamos la hoja de ruta.",
+      "process.st2t": "Construcción", "process.st2d": "Montamos y gestionamos tus líneas de negocio: comunidad, productos, marcas y campañas.",
+      "process.st3t": "Patrimonio", "process.st3d": "Convertimos los beneficios en activos gestionados: inversión, planificación fiscal y un futuro que perdura.",
+      "empire.a": "La mayoría de creadores vende su atención.", "empire.b": "Los inteligentes construyen un imperio con ella.",
+      "contact.h2a": "Construye algo que", "contact.h2b": "sobreviva al algoritmo.",
+      "contact.p": "Trabajamos con unos pocos creadores cada año. Empieza con una auditoría privada de tu marca y tu verdadero potencial de monetización — y un plan a medida para construir el negocio en torno a ti.",
+      "contact.back": "Volver arriba",
+      "footer.tagline": "Convertimos audiencia en patrimonio", "footer.builtby": "Desarrollado por"
+    },
+    fr: {
+      "meta.title": "Quantum Ventures — De votre audience à votre empire",
+      "nav.approach": "Approche", "nav.systems": "Systèmes", "nav.team": "Équipe", "nav.build": "Ce que nous bâtissons", "nav.partnership": "Partenariat", "nav.process": "Processus",
+      "cta.apply": "Candidatez pour travailler avec nous",
+      "hero.chip": "Le venture builder pour les créateurs fitness d'élite",
+      "hero.h1a": "Vous avez bâti l'audience.", "hero.h1b": "Nous bâtissons l'empire.",
+      "hero.sub": "Votre influence est l'actif le plus précieux que la plupart des créateurs ne monétisent jamais vraiment. Nous concevons, bâtissons et opérons les entreprises, produits et marques autour de votre nom — transformant l'attention en revenus diversifiés et en patrimoine durable.",
+      "hero.subStrong": "Vous créez. Nous bâtissons l'entreprise.",
+      "hero.ctaSecondary": "Voir comment ça marche",
+      "hero.stat1t": "Systèmes d'acquisition", "hero.stat1d": "Des clients qui arrivent, en automatique",
+      "hero.stat2t": "Deals et représentation", "hero.stat2d": "Nous négocions vos accords de marque",
+      "hero.stat3t": "Produits et marques", "hero.stat3d": "Créés et opérés pour vous",
+      "hero.stat4t": "Patrimoine durable", "hero.stat4d": "Des revenus transformés en actifs réels",
+      "hero.badge1": "Vous créez.", "hero.badge2": "Nous bâtissons l'empire.",
+      "problem.eyebrow": "Le problème", "problem.h2a": "L'attention est louée.", "problem.h2b": "Elle peut s'arrêter vite.",
+      "problem.p": "Aujourd'hui, votre pertinence — et vos revenus — dépendent de l'algorithme, des tendances et de votre énergie à publier sans cesse. Vous gagnez bien aujourd'hui. Mais que vaut tout cela le jour où vous vous arrêtez ?",
+      "problem.card1t": "Revenus fragiles", "problem.card1d": "Vous dépendez de promos ponctuelles et d'une publication non-stop. Si vous arrêtez, l'argent s'arrête.",
+      "problem.card2t": "Aucune structure", "problem.card2d": "Mille idées de business, zéro temps et aucune équipe pour vraiment les bâtir et les piloter.",
+      "problem.card3t": "Rien qui dure", "problem.card3d": "Des années à générer de l'attention qui ne se transforme jamais en actifs réels ni en patrimoine.",
+      "solution.eyebrow": "L'approche", "solution.h2a": "Pas une agence.", "solution.h2b": "Un venture builder derrière votre nom.",
+      "solution.p": "Quantum Ventures ne lance pas une campagne pour ensuite disparaître. Nous concevons, bâtissons et opérons un portefeuille d'entreprises autour de vous — pour que vous cessiez de louer votre attention et deveniez propriétaire d'actifs réels qui vous rapportent pendant des années.",
+      "solution.li1": "<b class=\"text-white\">Nous diversifions</b> vos revenus avec vos propres produits et services.",
+      "solution.li2": "<b class=\"text-white\">Nous opérons</b> toute la machine : technologie, équipe, campagnes et marques.",
+      "solution.li3": "<b class=\"text-white\">Nous bâtissons le patrimoine</b> : gestion, investissement et planification fiscale sur ce que vous générez.",
+      "solution.youLabel": "Vous", "solution.youTitle": "Créez",
+      "solution.youL1": "· Du contenu pour vos canaux", "solution.youL2": "· Votre visage et votre communauté", "solution.youL3": "· Votre expertise livrée",
+      "solution.weLabel": "Nous", "solution.weTitle": "Bâtissons l'entreprise",
+      "solution.weL1": "· Produits, technologie et équipe", "solution.weL2": "· Marques, campagnes et ventes", "solution.weL3": "· Structure patrimoniale et fiscale",
+      "systems.eyebrow": "Le moteur", "systems.h2": "La machine qui transforme une communauté en entreprise.",
+      "systems.p": "Pas de la motivation — de la machinerie. Les mêmes systèmes opérationnels que les vraies entreprises, installés et pilotés pour vous, autour de votre marque.",
+      "systems.s1t": "Acquisition de clients", "systems.s1d": "Tunnels, offres et ventes automatisées qui transforment vos abonnés en clients payants — de façon prévisible, en automatique, pas par chance.",
+      "systems.s2t": "Mise à l'échelle des services par l'IA", "systems.s2d": "Nous installons une couche d'IA qui gère les appels, les emails, la livraison et le suivi — pour que vos services passent de 10 à 10 000 clients sans ajouter vos heures.",
+      "systems.s3t": "Développement de marque et de produit", "systems.s3d": "Vos propres marques et actifs — compléments, vêtements, produits digitaux — conçus, produits et lancés pour vous.",
+      "systems.s4t": "Moteur de patrimoine", "systems.s4d": "Le profit ne dort pas. Nous le réinvestissons dans des actifs gérés, de la structure et de la planification fiscale — pour faire croître votre empire.",
+      "systems.s5t": "Deals et représentation", "systems.s5d": "Nous agissons comme vos agents professionnels : nous négocions les accords de marque et les sponsorings, gérons votre grille tarifaire et votre media kit, filtrons les opportunités qui protègent votre marque, et transformons les collaborations ponctuelles en partenariats durables. Vous arrêtez de vendre votre audience par DM — une équipe spécialisée s'occupe de tout.",
+      "team.eyebrow": "L'équipe", "team.h2": "Une équipe de spécialistes conçue pour les créateurs fitness.",
+      "team.p": "Chaque rôle est natif du fitness — des personnes qui connaissent l'audience, le contenu et les mécaniques de conversion du secteur.",
+      "team.t1t": "Équipe commerciale", "team.t1d": "Des setters et closers spécialistes du fitness, formés aux offres high-ticket, aux communautés et aux services premium. Ils parlent votre langage.",
+      "team.t2t": "Monteurs de contenu", "team.t2d": "Des monteurs internes produisant du format court, long et du recyclage multicanal. Chaque pièce construit la marque et génère des ventes.",
+      "team.t3t": "Media buyers", "team.t3d": "Des spécialistes de la publicité payante sur Meta, TikTok et YouTube. Ils amplifient votre marque bien au-delà de ce que l'organique seul peut atteindre.",
+      "team.t4t": "Opérations et tech", "team.t4d": "Stratégie, automatisation par IA, GHL, gestion de communauté et opérations de lancement — le noyau partagé qui fait tourner la machine de chaque créateur.",
+      "build.eyebrow": "Ce que nous bâtissons avec vous", "build.h2": "Un portefeuille de revenus, pas un lancement ponctuel.",
+      "build.b1t": "Communauté payante", "build.b1d": "L'offre one-to-many ultime, sur notre propre logiciel. Un abonnement avec des revenus récurrents et prévisibles dès le premier jour.",
+      "build.b2t": "1-à-1, propulsé par l'IA", "build.b2d": "Votre coaching, productisé et enrichi par l'IA pour passer à l'échelle sans perdre en qualité.",
+      "build.b3t": "Marque de compléments", "build.b3d": "Votre propre marque, dont vous êtes le fondateur. Vous ne louez pas votre image — vous bâtissez un actif.",
+      "build.b4t": "Vêtements et lifestyle", "build.b4d": "Des lignes de vêtements fitness et lifestyle à votre signature — design, production et logistique inclus.",
+      "build.b5t": "E-commerce et produits", "build.b5d": "Boutique, formations et produits digitaux avec des tunnels et des lancements qui convertissent vraiment.",
+      "build.b6t": "Patrimoine et fiscalité", "build.b6span": "— la promesse centrale", "build.b6d": "Tout ce qui précède est le moteur qui génère du capital. La destination, c'est votre patrimoine : structure fiscale, épargne et investissement du surplus, et planification à long terme. Pour que l'argent d'aujourd'hui vous achète la tranquillité de demain.",
+      "partnership.eyebrow": "Le partenariat", "partnership.h2": "Nous ne gagnons que lorsque vous gagnez.",
+      "partnership.p1t": "Intérêts alignés", "partnership.p1d": "Nous grandissons quand vous grandissez. Même bateau, mêmes objectifs — bâti pour le long terme, pas pour un lancement rapide.",
+      "partnership.p2t": "Vous restez le propriétaire", "partnership.p2d": "C'est votre marque et vos actifs. Nous les bâtissons avec vous et ils restent les vôtres.",
+      "partnership.p3t": "Quelques élus", "partnership.p3d": "Nous travaillons avec un nombre restreint de créateurs pour le faire correctement. Les conditions sont adaptées à chacun.",
+      "process.eyebrow": "Le processus", "process.h2": "De l'audit au patrimoine, étape par étape.",
+      "process.st1t": "Audit", "process.st1d": "Nous cartographions votre marque et votre monétisation actuelle face à son potentiel, et concevons la feuille de route.",
+      "process.st2t": "Construction", "process.st2d": "Nous mettons en place et pilotons vos lignes de business : communauté, produits, marques et campagnes.",
+      "process.st3t": "Patrimoine", "process.st3d": "Nous transformons les profits en actifs gérés : investissement, planification fiscale et un avenir qui dure.",
+      "empire.a": "La plupart des créateurs vendent leur attention.", "empire.b": "Les plus malins en bâtissent un empire.",
+      "contact.h2a": "Bâtissez quelque chose qui", "contact.h2b": "survit à l'algorithme.",
+      "contact.p": "Nous nous associons à quelques créateurs sélectionnés chaque année. Cela commence par un audit privé de votre marque et de votre véritable potentiel de monétisation — et un plan sur mesure pour bâtir l'entreprise autour de vous.",
+      "contact.back": "Revenir en haut",
+      "footer.tagline": "Nous transformons l'audience en patrimoine", "footer.builtby": "Conçu par"
+    }
+  };
+  const LANGS = ["en","es","fr"];
+  function setLang(lang){
+    if(!I18N[lang]) lang = "en";
+    document.documentElement.lang = lang;
+    const dict = I18N[lang];
+    document.querySelectorAll("[data-i18n]").forEach(function(el){
+      const k = el.getAttribute("data-i18n");
+      if(dict[k] != null) el.innerHTML = dict[k];
+    });
+    if(dict["meta.title"]) document.title = dict["meta.title"];
+    document.querySelectorAll(".lang-switch button").forEach(function(b){
+      b.classList.toggle("active", b.dataset.lang === lang);
+    });
+    try { localStorage.setItem("qv_lang", lang); } catch(e){}
+  }
+  (function initLang(){
+    let saved = null;
+    try { saved = localStorage.getItem("qv_lang"); } catch(e){}
+    const nav = (navigator.language || "en").slice(0,2).toLowerCase();
+    const initial = LANGS.indexOf(saved) >= 0 ? saved : (LANGS.indexOf(nav) >= 0 ? nav : "en");
+    setLang(initial);
+    document.querySelectorAll(".lang-switch button").forEach(function(b){
+      b.addEventListener("click", function(){ setLang(b.dataset.lang); });
+    });
+  })();
+
+  // ===== interactions =====
   document.getElementById('year').textContent = new Date().getFullYear();
-  // scroll progress
   const prog = document.getElementById('progress');
   const onScroll = () => { const h = document.documentElement; const max = h.scrollHeight - h.clientHeight;
     prog.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + '%'; };
