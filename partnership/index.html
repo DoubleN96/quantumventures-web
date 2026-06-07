@@ -1,0 +1,163 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Strategic Collaboration — Jaan &amp; Jivan × Quantum Ventures</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="/assets/brand/qv-favicon.png">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#06070d;--surface:#0c0e17;--line:rgba(255,255,255,.10);--cyan:#22d3ee;--indigo:#6366f1;--violet:#a855f7;--text:#e7ecf3;--mute:#8b97a8}
+  *{margin:0;box-sizing:border-box}
+  body{background:var(--ink);color:var(--text);font-family:'Inter',sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .aurora{position:fixed;inset:0;z-index:-2;overflow:hidden}.aurora span{position:absolute;border-radius:50%;filter:blur(90px)}
+  .a1{width:52vw;height:52vw;left:-12vw;top:-16vw;background:radial-gradient(circle,#22d3ee,transparent 70%);opacity:.30;animation:drift 30s ease-in-out infinite}
+  .a2{width:44vw;height:44vw;right:-14vw;top:6vw;background:radial-gradient(circle,#a855f7,transparent 70%);opacity:.22;animation:drift 36s ease-in-out infinite reverse}
+  @keyframes drift{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(5vw,4vw) scale(1.12)}}
+  .wrap{max-width:1020px;margin:0 auto;padding:clamp(28px,6vw,80px)}
+  .display{font-family:'Space Grotesk',sans-serif;letter-spacing:-.02em}
+  .grad{background:linear-gradient(100deg,#22d3ee,#6366f1 50%,#a855f7);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .eyebrow{font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--cyan);font-weight:600}
+  .lockup{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:30px}
+  .lockup .jaan{height:40px;width:auto}.lockup .x{color:var(--mute);font-size:18px}
+  .lockup .qv{display:flex;align-items:center;gap:8px}.lockup .qv img{width:24px;height:24px}.lockup .qv span{font-family:'Space Grotesk';font-weight:600;font-size:14px}
+  .lockup .by{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);display:block;line-height:1.5}
+  h1{font-size:clamp(32px,6.4vw,62px);font-weight:700;line-height:1.02;margin:14px 0 18px}
+  .intro{font-size:clamp(17px,2.5vw,21px);color:var(--mute);max-width:64ch;line-height:1.7}
+  section{margin-top:clamp(54px,9vw,104px)}
+  h2{font-size:clamp(24px,4vw,40px);font-weight:700;line-height:1.1;margin-bottom:14px}
+  .lead{color:var(--mute);font-size:17px;max-width:66ch;margin-bottom:30px}
+  .cards{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}@media(max-width:680px){.cards{grid-template-columns:1fr}}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}@media(max-width:760px){.grid3{grid-template-columns:1fr}}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:24px;transition:transform .35s cubic-bezier(.16,1,.3,1),border-color .35s}
+  .card:hover{transform:translateY(-5px);border-color:rgba(34,211,238,.4)}
+  .card h3{font-family:'Space Grotesk';font-size:18px;margin-bottom:8px}.card p{color:var(--mute);font-size:14.5px}
+  .pill{font-family:'Space Grotesk';color:var(--cyan);font-weight:700;font-size:12.5px;margin-bottom:8px;letter-spacing:.06em;text-transform:uppercase}
+  /* expansion roadmap */
+  .road{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:28px}
+  @media(max-width:720px){.road{grid-template-columns:1fr 1fr}}
+  .stop{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px;margin:6px}
+  .stop .ord{font-family:'Space Grotesk';font-size:12px;color:var(--cyan);font-weight:700;letter-spacing:.08em}
+  .stop h4{font-family:'Space Grotesk';font-size:18px;margin:6px 0 4px}.stop p{color:var(--mute);font-size:13px;line-height:1.5}
+  .stop.now{border-color:rgba(34,211,238,.5);box-shadow:0 0 0 1px rgba(34,211,238,.2)}
+  .stop .tag{display:inline-block;margin-top:10px;font-size:11px;font-weight:600;color:#06070d;background:linear-gradient(135deg,#22d3ee,#6366f1);border-radius:999px;padding:3px 10px}
+  /* triangle / winwin */
+  .winwin{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:24px}@media(max-width:680px){.winwin{grid-template-columns:1fr}}
+  .ww{background:linear-gradient(160deg,rgba(34,211,238,.08),rgba(99,102,241,.03));border:1px solid var(--line);border-radius:18px;padding:22px;text-align:center}
+  .ww .ic{font-size:24px;margin-bottom:8px}.ww h3{font-family:'Space Grotesk';font-size:17px;margin-bottom:6px}.ww p{color:var(--mute);font-size:13.5px}
+  /* engine b2c/b2b */
+  .engine{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px}@media(max-width:680px){.engine{grid-template-columns:1fr}}
+  .aibar{margin-top:16px;background:linear-gradient(100deg,rgba(34,211,238,.14),rgba(168,85,247,.12));border:1px solid rgba(99,102,241,.35);border-radius:16px;padding:20px 24px;font-size:15.5px;color:var(--text)}
+  .aibar b{font-family:'Space Grotesk'}
+  /* milestone ladder */
+  .ladder{margin-top:20px}
+  .rung{display:grid;grid-template-columns:120px 1fr 1fr;gap:16px;padding:18px 0;border-bottom:1px solid var(--line);align-items:start}
+  @media(max-width:680px){.rung{grid-template-columns:1fr;gap:6px}}
+  .rung .ph{font-family:'Space Grotesk';font-weight:700;color:var(--cyan);font-size:14px}
+  .rung .m b,.rung .u b{font-family:'Space Grotesk';font-size:12px;letter-spacing:.05em;text-transform:uppercase;display:block;margin-bottom:3px}
+  .rung .m b{color:var(--mute)}.rung .u b{color:var(--violet)}
+  .rung .m span,.rung .u span{color:var(--mute);font-size:14.5px}
+  .amb-grid{margin-top:22px}
+  .big{background:linear-gradient(150deg,rgba(99,102,241,.2),rgba(34,211,238,.07));border:1px solid rgba(99,102,241,.35);border-radius:24px;padding:clamp(28px,5vw,48px);text-align:center}
+  .btn{display:inline-block;background:linear-gradient(100deg,#22d3ee,#6366f1);color:#06070d;font-weight:700;text-decoration:none;padding:16px 34px;border-radius:999px;font-size:16px;margin-top:24px}
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s cubic-bezier(.16,1,.3,1)}.reveal.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}.a1,.a2{animation:none}}
+  footer{margin-top:70px;border-top:1px solid var(--line);padding-top:22px;color:var(--mute);font-size:13px;text-align:center}
+</style></head><body>
+<div class="aurora"><span class="a1"></span><span class="a2"></span></div>
+<div class="wrap">
+  <div class="lockup">
+    <img class="jaan" src="/assets/brands/jaan-wordmark.svg" alt="Jaan Water">
+    <span class="x">×</span>
+    <div><span class="by">Strategic collaboration with</span><div class="qv"><img src="/assets/brand/qv-mark.svg" alt=""><span>Quantum Ventures</span></div></div>
+  </div>
+
+  <span class="eyebrow reveal">Strategic collaboration · proposal</span>
+  <h1 class="display reveal">Build it in Bali. <span class="grad">Take it to the world, together.</span></h1>
+  <p class="intro reveal">This is not a one-off deal. It's a long-term strategic partnership: we build and prove a commercial engine for Jaan &amp; Jivan in Bali, then replicate it across Asia, into Spain &amp; Europe, and on to the Americas — earning international exclusivity together, milestone by milestone.</p>
+
+  <section>
+    <div class="eyebrow reveal">The relationship</div>
+    <h2 class="display reveal">A partnership built for <span class="grad">the long game</span>.</h2>
+    <p class="lead reveal">We're not here to move a pallet. We're here to build a brand and a system that compounds for years — where both sides win more as it grows.</p>
+    <div class="cards" style="margin-top:8px">
+      <div class="card reveal"><div class="pill">Aligned</div><h3>We grow when you grow</h3><p>Our upside is tied to your volume and your brand's success — fully aligned incentives over the long term.</p></div>
+      <div class="card reveal"><div class="pill">Builders</div><h3>We build the asset</h3><p>Brand, demand and distribution systems we own and operate — not a service we rent you.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow reveal">The reach</div>
+    <h2 class="display reveal">One system, <span class="grad">four markets</span>.</h2>
+    <p class="lead reveal">Prove the engine once in Bali, then replicate it. Same playbook, new geographies.</p>
+    <div class="road">
+      <div class="stop now reveal"><div class="ord">01 · NOW</div><h4>Bali</h4><p>Referral engine + venue acquisition + ambassadors. Prove the model.</p><span class="tag">Proof of concept</span></div>
+      <div class="stop reveal"><div class="ord">02 · NEXT</div><h4>Asia</h4><p>Replicate the system across key Asian markets.</p></div>
+      <div class="stop reveal"><div class="ord">03</div><h4>Spain &amp; Europe</h4><p>Export &amp; distribution with our Spanish logistics partner.</p></div>
+      <div class="stop reveal"><div class="ord">04</div><h4>Americas</h4><p>Carry the proven brand &amp; system to the American market.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow reveal">The engine</div>
+    <h2 class="display reveal">An influencer Venture Builder that <span class="grad">buys influence</span>.</h2>
+    <p class="lead reveal">There is nothing faster than acquiring influence directly. We sign creators as ambassadors and turn their reach and relationships into commercial results — and it works in both directions.</p>
+    <div class="engine">
+      <div class="card reveal"><div class="pill">B2C</div><h3>Reach the consumer</h3><p>Creators put the brand in front of the right audiences — health, longevity, lifestyle — driving demand and credibility at scale.</p></div>
+      <div class="card reveal"><div class="pill">B2B</div><h3>Open the venues</h3><p>The same creators open doors with owners of restaurants, clubs and hotels. A warm introduction from a known name beats any cold call — influence sells B2B, not just B2C.</p></div>
+    </div>
+    <div class="aibar reveal"><b>Powered by AI.</b> We scrape the market (10,000+ Bali venues already mapped), personalize outreach per venue, attribute every lead to its creator, and track results live. AI makes the development fast and effective — weeks, not years.</div>
+  </section>
+
+  <section>
+    <div class="eyebrow reveal">The model</div>
+    <h2 class="display reveal">A <span class="grad">win-win-win</span>, by design.</h2>
+    <p class="lead reveal">Everyone in the loop comes out ahead — that's why it spreads on its own.</p>
+    <div class="winwin">
+      <div class="ww reveal"><div class="ic">🏝️</div><h3>The venue</h3><p>Better pricing, a premium product with purpose, and real visibility — promoted by our creators.</p></div>
+      <div class="ww reveal"><div class="ic">⭐</div><h3>The creator</h3><p>Recurring commission on real data, ambassador status, and priority on future markets.</p></div>
+      <div class="ww reveal"><div class="ic">💧</div><h3>Jaan &amp; Jivan</h3><p>Growing volume, a brand built and protected, and a system that scales internationally.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow reveal">Already built</div>
+    <h2 class="display reveal">Not a plan — a <span class="grad">working machine</span>.</h2>
+    <div class="grid3" style="margin-top:28px">
+      <div class="card reveal"><h3>Brand &amp; web</h3><p>Branded sites, ambassador recruitment and live social proof — already deployed.</p></div>
+      <div class="card reveal"><h3>Acquisition system</h3><p>Venue forms, ambassador codes/links, data attribution and a 10k+ prospect database.</p></div>
+      <div class="card reveal"><h3>AI outreach &amp; tracking</h3><p>Personalized outreach, lead capture and commission tracking — running today.</p></div>
+    </div>
+    <div data-ambassadors style="display:none;margin-top:30px">
+      <div class="eyebrow reveal">Live</div>
+      <div data-amb-grid class="amb-grid reveal"></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow reveal">The path to exclusivity</div>
+    <h2 class="display reveal">Exclusivity, <span class="grad">earned by milestones</span>.</h2>
+    <p class="lead reveal">A strategic collaboration designed to lead to international exclusivity — step by step, with clear milestones that protect both sides. Hit the target, unlock the next level.</p>
+    <div class="ladder">
+      <div class="rung reveal"><div class="ph">Phase 1 · Bali</div><div class="m"><b>Milestone</b><span>Prove the engine: venues onboarded, recurring volume, active ambassadors.</span></div><div class="u"><b>Unlocks</b><span>Formal collaboration + regional priority.</span></div></div>
+      <div class="rung reveal"><div class="ph">Phase 2 · Asia</div><div class="m"><b>Milestone</b><span>Replicate in [1–2] Asian markets and hit agreed volumes.</span></div><div class="u"><b>Unlocks</b><span>Exclusive rights for those territories.</span></div></div>
+      <div class="rung reveal"><div class="ph">Phase 3 · Spain &amp; EU</div><div class="m"><b>Milestone</b><span>Launch Spain via our logistics partner; meet export targets.</span></div><div class="u"><b>Unlocks</b><span>Exclusive Spain + first right for Europe.</span></div></div>
+      <div class="rung reveal"><div class="ph">Phase 4 · Americas</div><div class="m"><b>Milestone</b><span>Carry the proven system to the American market.</span></div><div class="u"><b>Unlocks</b><span>International exclusivity partnership.</span></div></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="big reveal">
+      <div class="eyebrow">The proposal</div>
+      <h2 class="display" style="margin-top:8px">Let's start the collaboration — <span class="grad">and set the milestones</span>.</h2>
+      <p style="color:var(--text);font-size:18px;margin:12px auto 0;max-width:60ch">Begin in Bali now, define the milestones together, and build toward international exclusivity for Jaan &amp; Jivan — with the system, the influence and the AI to make it fast.</p>
+      <a class="btn" href="mailto:hello@quantumventures.io?subject=Jaan%20Jivan%20strategic%20collaboration">Let's build it →</a>
+    </div>
+  </section>
+
+  <footer>Quantum Ventures · Strategic collaboration proposal · Jaan &amp; Jivan · Bali → Asia → Europe → Americas</footer>
+</div>
+<script src="/assets/ambassadors.js" defer></script>
+<script>
+const rv=document.querySelectorAll('.reveal');
+if('IntersectionObserver'in window){const io=new IntersectionObserver((es)=>{es.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{threshold:.12,rootMargin:'0px 0px -8% 0px'});rv.forEach((el,i)=>{el.style.transitionDelay=(i%3*70)+'ms';io.observe(el)});setTimeout(()=>rv.forEach(el=>el.classList.add('in')),3000)}else{rv.forEach(el=>el.classList.add('in'))}
+</script>
+</body></html>

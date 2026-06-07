@@ -14,6 +14,7 @@ COPY vision /usr/share/nginx/html/vision
 COPY ambassadors /usr/share/nginx/html/ambassadors
 COPY ambassador /usr/share/nginx/html/ambassador
 COPY europe /usr/share/nginx/html/europe
+COPY partnership /usr/share/nginx/html/partnership
 COPY nuevo-cliente /usr/share/nginx/html/nuevo-cliente
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 EXPOSE 80
