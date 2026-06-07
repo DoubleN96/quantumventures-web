@@ -1,0 +1,100 @@
+<!doctype html><html lang="es"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Embajadores · Quantum Ventures (interno)</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="/assets/brand/qv-favicon.png">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#06070d;--surface:#0c0e17;--line:rgba(255,255,255,.10);--cyan:#22d3ee;--indigo:#6366f1;--text:#e7ecf3;--mute:#8b97a8}
+  *{margin:0;box-sizing:border-box}
+  body{background:var(--ink);color:var(--text);font-family:'Inter',sans-serif;line-height:1.6;padding:0}
+  .wrap{max-width:760px;margin:0 auto;padding:clamp(24px,5vw,56px)}
+  .display{font-family:'Space Grotesk',sans-serif;letter-spacing:-.02em}
+  .grad{background:linear-gradient(100deg,#22d3ee,#6366f1);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .brand{display:flex;align-items:center;gap:10px;margin-bottom:8px}.brand img{width:28px;height:28px}.brand b{font-family:'Space Grotesk';font-weight:700}
+  .eyebrow{font-size:12px;letter-spacing:.26em;text-transform:uppercase;color:var(--cyan);font-weight:600;margin-bottom:8px}
+  h1{font-size:clamp(26px,5vw,40px);font-weight:700;margin:6px 0 8px}
+  .sub{color:var(--mute);margin-bottom:30px;max-width:60ch}
+  form{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:clamp(20px,4vw,32px)}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}@media(max-width:560px){.grid{grid-template-columns:1fr}}
+  label{display:block;font-size:13.5px;font-weight:500;margin:0 0 6px}label .opt{color:var(--mute);font-weight:400}
+  input,select{width:100%;background:#070912;border:1px solid var(--line);border-radius:11px;padding:12px 14px;color:var(--text);font-family:inherit;font-size:15px}
+  input:focus,select:focus{outline:none;border-color:var(--cyan)}
+  .field{margin-bottom:14px}
+  .row{display:flex;align-items:center;gap:10px;margin:6px 0 4px}
+  .btn{width:100%;background:linear-gradient(100deg,#22d3ee,#6366f1);color:#06070d;font-weight:700;border:none;border-radius:999px;padding:15px;font-size:16px;cursor:pointer;margin-top:20px;font-family:'Space Grotesk'}
+  .btn:disabled{opacity:.6}
+  .msg{margin-top:14px;font-size:14px;text-align:center;display:none}
+  .preview{margin-top:36px}
+  .preview h2{font-family:'Space Grotesk';font-size:18px;margin-bottom:6px}
+  .amb-grid{display:flex;flex-wrap:wrap;gap:12px;margin-top:16px}
+  .amb{display:flex;align-items:center;gap:10px;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:6px 14px 6px 6px}
+  .amb img{width:34px;height:34px;border-radius:50%;object-fit:cover;background:#1b2233}
+  .amb b{font-size:13px}.amb s{display:block;font-size:11px;color:var(--mute);text-decoration:none}
+  .empty{color:var(--mute);font-size:14px;margin-top:14px}
+  code{background:#070912;border:1px solid var(--line);border-radius:6px;padding:2px 7px;font-size:13px;color:var(--cyan)}
+</style></head><body>
+<div class="wrap">
+  <div class="brand"><img src="/assets/brand/qv-mark.svg" alt=""><b>Quantum Ventures</b></div>
+  <div class="eyebrow">Interno · no indexado</div>
+  <h1 class="display">Alta de <span class="grad">embajadores</span>.</h1>
+  <p class="sub">Cada influencer que apruebe representar la marca se añade aquí. Si lo marcas como <b>aprobado</b>, aparece automáticamente en la web (/bali) y en los formularios como prueba social, y se le genera un <b>código de referido</b> para atribuir sus leads y comisiones por datos.</p>
+
+  <form id="f">
+    <div class="grid">
+      <div class="field"><label>Nombre</label><input name="nombre" placeholder="Nombre del creador"></div>
+      <div class="field"><label>Handle <span class="opt">(sin @)</span></label><input name="handle" required placeholder="entrenaconmiguel"></div>
+    </div>
+    <div class="grid">
+      <div class="field"><label>Plataforma</label>
+        <select name="plataforma"><option value="instagram">Instagram</option><option value="tiktok">TikTok</option><option value="youtube">YouTube</option><option value="twitter">X / Twitter</option></select></div>
+      <div class="field"><label>Nicho <span class="opt">(opcional)</span></label><input name="nicho" placeholder="Fitness, lifestyle, food…"></div>
+    </div>
+    <div class="grid">
+      <div class="field"><label>Followers <span class="opt">(opcional)</span></label><input name="followers" placeholder="p. ej. 120k"></div>
+      <div class="field"><label>Código de referido <span class="opt">(auto si vacío)</span></label><input name="code" placeholder="se genera del handle"></div>
+    </div>
+    <div class="field"><label>Notas <span class="opt">(opcional)</span></label><input name="notas" placeholder="Contexto, condiciones, tier…"></div>
+    <div class="row"><input type="checkbox" id="ap" name="aprobado" checked style="width:auto"><label for="ap" style="margin:0">Aprobado (visible en web/forms)</label></div>
+    <button class="btn" type="submit" id="b">Añadir embajador</button>
+    <div class="msg" id="msg"></div>
+  </form>
+
+  <div class="preview">
+    <h2>Embajadores aprobados (en vivo)</h2>
+    <div class="amb-grid" id="grid"></div>
+    <div class="empty" id="empty">Cargando…</div>
+  </div>
+</div>
+<script>
+const BASE='https://qv-audit.128.140.44.162.sslip.io';
+const f=document.getElementById('f'),b=document.getElementById('b'),msg=document.getElementById('msg');
+function pUrl(p,h){h=encodeURIComponent(h);return p==='youtube'?'https://youtube.com/@'+h:p==='tiktok'?'https://tiktok.com/@'+h:p==='twitter'?'https://twitter.com/'+h:'https://instagram.com/'+h;}
+async function load(){
+  try{
+    const r=await fetch(BASE+'/api/ambassadors');const list=await r.json();
+    const g=document.getElementById('grid'),e=document.getElementById('empty');
+    if(!list.length){e.textContent='Todavía no hay embajadores aprobados.';g.innerHTML='';return;}
+    e.style.display='none';
+    g.innerHTML=list.map(a=>`<a class="amb" target="_blank" href="${pUrl(a.platform,a.handle)}"><img src="${a.avatar}" onerror="this.style.visibility='hidden'"><span><b>${a.name||('@'+a.handle)}</b><s>@${a.handle}${a.niche?' · '+a.niche:''} · code: ${a.code}</s></span></a>`).join('');
+  }catch(err){document.getElementById('empty').textContent='No se pudo cargar la lista.';}
+}
+f.addEventListener('submit',async(e)=>{
+  e.preventDefault();
+  const data=Object.fromEntries(new FormData(f).entries());
+  data.aprobado=document.getElementById('ap').checked?'approved':'pending';
+  if(!data.handle){alert('El handle es obligatorio.');return;}
+  b.disabled=true;b.textContent='Guardando…';msg.style.display='none';
+  try{
+    const r=await fetch(BASE+'/api/ambassador',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
+    const j=await r.json();if(!r.ok)throw new Error();
+    msg.style.display='block';msg.style.color='#22d3ee';
+    msg.innerHTML='✓ Añadido · estado '+j.estado+' · link de referido: <code>quantumventures.io/bali/supply?ref='+j.code+'</code>';
+    f.reset();document.getElementById('ap').checked=true;
+    setTimeout(load,1500);
+  }catch(err){msg.style.display='block';msg.style.color='#f87171';msg.textContent='Error al guardar. Inténtalo de nuevo.';}
+  finally{b.disabled=false;b.textContent='Añadir embajador';}
+});
+load();
+</script>
+</body></html>

@@ -11,6 +11,7 @@ COPY contactos /usr/share/nginx/html/contactos
 COPY onboarding /usr/share/nginx/html/onboarding
 COPY bali /usr/share/nginx/html/bali
 COPY vision /usr/share/nginx/html/vision
+COPY ambassadors /usr/share/nginx/html/ambassadors
 COPY nuevo-cliente /usr/share/nginx/html/nuevo-cliente
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 EXPOSE 80
