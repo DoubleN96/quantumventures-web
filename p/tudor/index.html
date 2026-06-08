@@ -1,0 +1,320 @@
+<!doctype html><html lang="es"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Quantum Ventures × Tudor — Estrategia de Lanzamiento</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="/assets/brand/qv-favicon.png">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#06070d;--surface:#0c0e17;--surface2:#11131f;--line:rgba(255,255,255,.09);--cyan:#22d3ee;--indigo:#6366f1;--violet:#a855f7;--text:#e7ecf3;--mute:#8b97a8;--green:#34d399;--amber:#fbbf24;--red:#fb7185}
+*{margin:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--text);font-family:'Inter',sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+.display{font-family:'Space Grotesk',sans-serif;letter-spacing:-.02em}
+.grad{background:linear-gradient(100deg,var(--cyan),var(--indigo) 50%,var(--violet));-webkit-background-clip:text;background-clip:text;color:transparent}
+.wrap{max-width:1100px;margin:0 auto;padding:0 clamp(18px,5vw,40px)}
+.eyebrow{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--cyan);font-weight:600}
+section{padding:clamp(48px,8vw,90px) 0;border-top:1px solid var(--line)}
+h2.sec{font-size:clamp(26px,4.5vw,40px);font-weight:700;line-height:1.1;margin:10px 0 6px}
+.lead{color:var(--mute);max-width:680px}
+.illus{display:inline-block;font-size:11px;color:var(--amber);border:1px solid rgba(251,191,36,.35);border-radius:999px;padding:3px 10px;margin-top:14px}
+/* nav */
+nav{position:sticky;top:0;z-index:50;background:rgba(6,7,13,.82);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;gap:18px;height:60px}
+nav img{height:26px}
+nav .links{display:flex;gap:16px;margin-left:auto;flex-wrap:wrap}
+nav a{color:var(--mute);text-decoration:none;font-size:13px;font-weight:500}
+nav a:hover{color:var(--text)}
+@media(max-width:760px){nav .links{display:none}}
+/* hero */
+.hero{padding:clamp(60px,12vw,120px) 0 clamp(40px,7vw,70px);border-top:none;position:relative;overflow:hidden}
+.hero h1{font-size:clamp(38px,7vw,74px);font-weight:700;line-height:1.02;margin:16px 0}
+.aurora{position:absolute;border-radius:50%;filter:blur(80px);opacity:.5;z-index:-1}
+.a1{width:420px;height:420px;background:radial-gradient(circle,var(--indigo),transparent 65%);top:-120px;right:-80px}
+.a2{width:360px;height:360px;background:radial-gradient(circle,var(--violet),transparent 65%);bottom:-140px;left:-100px}
+.pill{display:inline-flex;gap:8px;align-items:center;font-size:12px;color:var(--mute);border:1px solid var(--line);border-radius:999px;padding:6px 14px}
+.cards{display:grid;gap:16px}
+.c2{grid-template-columns:repeat(2,1fr)}.c3{grid-template-columns:repeat(3,1fr)}.c4{grid-template-columns:repeat(4,1fr)}
+@media(max-width:820px){.c3,.c4{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.c2,.c3,.c4{grid-template-columns:1fr}}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:22px}
+.card h3{font-size:15px;font-weight:600;margin-bottom:6px}
+.card p{font-size:14px;color:var(--mute)}
+.kpi{font-family:'Space Grotesk';font-size:30px;font-weight:700}
+.kpi.s{font-size:22px}
+.metric{font-size:12px;color:var(--mute);text-transform:uppercase;letter-spacing:.08em}
+.bar{height:8px;border-radius:99px;background:var(--surface2);overflow:hidden;margin-top:8px}
+.bar>i{display:block;height:100%;background:linear-gradient(90deg,var(--cyan),var(--indigo))}
+.dot{width:9px;height:9px;border-radius:50%;display:inline-block;margin-right:7px}
+.g{background:var(--green)}.am{background:var(--amber)}.rd{background:var(--red)}
+/* ladder */
+.ladder{display:grid;gap:8px}
+.rung{display:flex;justify-content:space-between;align-items:center;border:1px solid var(--line);border-radius:12px;padding:14px 18px;background:linear-gradient(90deg,var(--surface),transparent)}
+.rung b{font-weight:600}.rung span{color:var(--mute);font-size:13px}
+.rung:nth-child(1){margin-right:40%}.rung:nth-child(2){margin-right:28%}.rung:nth-child(3){margin-right:16%}.rung:nth-child(4){margin-right:6%}
+/* funnel */
+.funnel{display:grid;gap:6px}
+.fstep{display:flex;align-items:center;gap:14px}
+.fbar{height:42px;border-radius:8px;display:flex;align-items:center;padding-left:14px;font-weight:600;font-size:14px;color:#06121a;background:linear-gradient(90deg,var(--cyan),var(--indigo))}
+.fstep small{color:var(--mute);font-size:12px;white-space:nowrap}
+/* phases timeline */
+.phases{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
+@media(max-width:820px){.phases{grid-template-columns:repeat(2,1fr)}}
+.phase{border:1px solid var(--line);border-radius:14px;padding:16px;background:var(--surface);position:relative}
+.phase .ph{font-family:'Space Grotesk';font-size:12px;color:var(--cyan);font-weight:600}
+.phase h4{font-size:14px;margin:6px 0}
+.phase p{font-size:12px;color:var(--mute)}
+/* table */
+.tbl{width:100%;border-collapse:collapse;font-size:13px}
+.tbl th,.tbl td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+.tbl th{color:var(--mute);font-weight:600;font-size:11px;text-transform:uppercase;letter-spacing:.06em;position:sticky;top:60px;background:var(--ink)}
+.tbl td b{font-weight:600}
+.tag{font-size:11px;padding:2px 8px;border-radius:6px;background:var(--surface2);border:1px solid var(--line);white-space:nowrap}
+.t-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:14px}
+.f1{color:var(--cyan)}.f2{color:var(--violet)}.f3{color:var(--green)}.f4{color:var(--amber)}.f5{color:var(--mute)}
+/* org */
+.org{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:760px){.org{grid-template-columns:1fr}}
+.flow{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.flow .node{border:1px solid var(--line);border-radius:10px;padding:8px 14px;font-size:13px;background:var(--surface)}
+.flow .arr{color:var(--cyan)}
+/* roadmap */
+.road{position:relative;padding-left:24px}
+.road:before{content:"";position:absolute;left:7px;top:6px;bottom:6px;width:2px;background:linear-gradient(var(--cyan),var(--violet))}
+.mile{position:relative;margin-bottom:20px}
+.mile:before{content:"";position:absolute;left:-21px;top:5px;width:12px;height:12px;border-radius:50%;background:var(--ink);border:2px solid var(--cyan)}
+.mile b{font-family:'Space Grotesk'}
+.btn{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(100deg,var(--cyan),var(--indigo));color:var(--ink);font-weight:700;text-decoration:none;padding:12px 22px;border-radius:999px;font-size:14px}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+.btnrow{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}
+.foot{padding:40px 0;border-top:1px solid var(--line);color:var(--mute);font-size:13px;text-align:center}
+.mute{color:var(--mute)}.sm{font-size:13px}
+</style></head>
+<body>
+
+<nav><div class="wrap">
+  <img src="/assets/brand/qv-mark.svg" alt="QV">
+  <div class="links">
+    <a href="#analisis">Análisis</a>
+    <a href="#propuesta">Propuesta</a>
+    <a href="#calendario">Calendario</a>
+    <a href="#equipo">Equipo & Sistemas</a>
+    <a href="#metricas">Métricas</a>
+    <a href="#roadmap">Roadmap</a>
+  </div>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+  <div class="aurora a1"></div><div class="aurora a2"></div>
+  <span class="pill">Quantum Ventures · Estrategia de Lanzamiento</span>
+  <h1 class="display">Tudor × <span class="grad">Quantum Ventures</span></h1>
+  <p class="lead" style="font-size:18px">Sistema completo de lanzamiento orientado a venta: de la audiencia a una comunidad de pago, con calendario, equipo, métricas y roadmap en un solo lugar.</p>
+  <span class="illus">⚠️ Ejemplo con datos ILUSTRATIVOS — se sustituyen por los reales de Tudor antes de ejecutar.</span>
+  <div class="btnrow">
+    <a class="btn" href="#propuesta">Ver propuesta</a>
+    <a class="btn ghost" href="#calendario">Calendario de publicaciones ↗</a>
+  </div>
+</div></header>
+
+<!-- 1. ANALISIS -->
+<section id="analisis"><div class="wrap">
+  <span class="eyebrow">01 · Análisis</span>
+  <h2 class="sec">Dónde está hoy el activo de Tudor</h2>
+  <p class="lead">Diagnóstico de audiencia, engagement y monetización actual frente a su potencial. Base del Quantum Score.</p>
+  <div class="cards c4" style="margin-top:26px">
+    <div class="card"><div class="metric">Instagram</div><div class="kpi">480K</div><div class="sm mute">ER 6,1% · vídeo medio 95K views</div></div>
+    <div class="card"><div class="metric">TikTok</div><div class="kpi">320K</div><div class="sm mute">Alcance frío fuerte</div></div>
+    <div class="card"><div class="metric">YouTube</div><div class="kpi">210K</div><div class="sm mute">Long-form / autoridad</div></div>
+    <div class="card"><div class="metric">Email / Comunidad</div><div class="kpi">12K</div><div class="sm mute">Lista templada, infrautilizada</div></div>
+  </div>
+  <div class="cards c2" style="margin-top:16px">
+    <div class="card">
+      <h3>Quantum Score <span class="grad display" style="font-size:22px">82</span> · Tier A</h3>
+      <p class="sm">Encaje alto con QV: tráfico orgánico consolidado + autoridad para infoproductos y comunidad propia.</p>
+      <div style="margin-top:14px">
+        <div class="sm"><span class="dot g"></span>Audiencia &nbsp;<span class="mute">90</span></div><div class="bar"><i style="width:90%"></i></div>
+        <div class="sm" style="margin-top:8px"><span class="dot g"></span>Engagement &nbsp;<span class="mute">85</span></div><div class="bar"><i style="width:85%"></i></div>
+        <div class="sm" style="margin-top:8px"><span class="dot am"></span>Monetización actual &nbsp;<span class="mute">45</span></div><div class="bar"><i style="width:45%"></i></div>
+        <div class="sm" style="margin-top:8px"><span class="dot am"></span>Diversificación &nbsp;<span class="mute">40</span></div><div class="bar"><i style="width:40%"></i></div>
+      </div>
+    </div>
+    <div class="card">
+      <h3>Monetización: actual vs potencial</h3>
+      <p class="sm mute" style="margin-bottom:10px">Hoy depende de colaboraciones puntuales. El valor está sin capturar.</p>
+      <div class="sm"><b>Hoy</b> · patrocinios + ebook 19€ &nbsp;→&nbsp; <span class="mute">~3,5K€/mes</span></div>
+      <div class="bar"><i style="width:22%"></i></div>
+      <div class="sm" style="margin-top:12px"><b>Potencial QV</b> · comunidad + programa + 1-1 + marca propia</div>
+      <div class="bar"><i style="width:100%"></i></div>
+      <div class="sm grad display" style="margin-top:8px;font-size:18px">Brecha: 8–12× en 12 meses (ilustrativo)</div>
+    </div>
+  </div>
+</div></section>
+
+<!-- 2. PROPUESTA -->
+<section id="propuesta"><div class="wrap">
+  <span class="eyebrow">02 · Resumen de propuesta</span>
+  <h2 class="sec">La estrategia de un vistazo</h2>
+  <p class="lead">Modelo elegido: <b>Reto de 7 días</b> (gratis, en comunidad) → <b>Live Launch</b> del programa core. Ideal para fitness y primer lanzamiento: valida demanda con poco riesgo.</p>
+
+  <div class="cards c2" style="margin-top:26px">
+    <div class="card">
+      <h3>Oferta · Escalera de valor</h3>
+      <div class="ladder" style="margin-top:12px">
+        <div class="rung"><b>Reto 7 días</b><span>Gratis · lead magnet</span></div>
+        <div class="rung"><b>Plantilla + mini-clase</b><span>17€ · tripwire</span></div>
+        <div class="rung"><b>Programa Tudor 12 sem + Comunidad</b><span>197€ · CORE</span></div>
+        <div class="rung"><b>Mentoría 1-1 / Élite</b><span>900€ · premium</span></div>
+        <div class="rung"><b>Membresía mensual + marca propia</b><span>29€/mes · recurrente</span></div>
+      </div>
+    </div>
+    <div class="card">
+      <h3>Promesa & mecanismo</h3>
+      <p class="sm"><b>Promesa:</b> "Construye fuerza y físico visible en 12 semanas con un sistema, no con rutinas sueltas."</p>
+      <p class="sm" style="margin-top:8px"><b>Mecanismo único:</b> método de progresión + comunidad que rinde cuentas dentro de la app (one-to-many).</p>
+      <h3 style="margin-top:18px">Objetivos del lanzamiento <span class="illus" style="margin:0">ilustrativo</span></h3>
+      <div class="cards c3" style="margin-top:10px">
+        <div><div class="kpi s grad">5.000</div><div class="metric">leads al reto</div></div>
+        <div><div class="kpi s grad">300</div><div class="metric">ventas programa</div></div>
+        <div><div class="kpi s grad">62K€</div><div class="metric">facturación</div></div>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="display" style="margin:30px 0 12px;font-size:18px">Las 6 fases del lanzamiento</h3>
+  <div class="phases">
+    <div class="phase"><div class="ph">F0</div><h4>Estrategia & Oferta</h4><p>Oferta, precio, tracking, assets. (Semana 0)</p></div>
+    <div class="phase"><div class="ph">F1</div><h4>Semilla</h4><p>Siembra del problema + apuntarse al reto. (Días −10→−4)</p></div>
+    <div class="phase"><div class="ph">F2</div><h4>Reto 7 días</h4><p>Valor diario en comunidad, autoridad y deseo. (Días −3→+3)</p></div>
+    <div class="phase"><div class="ph">F3</div><h4>Apertura carrito</h4><p>Oferta + bonus. (Días +3→+7)</p></div>
+    <div class="phase"><div class="ph">F4</div><h4>Cierre</h4><p>Escasez real, objeciones, últimas plazas. (Días +7→+8)</p></div>
+    <div class="phase"><div class="ph">F5</div><h4>Post-venta</h4><p>Onboarding, ascensión, reducir refunds. (continuo)</p></div>
+  </div>
+</div></section>
+
+<!-- 3. CALENDARIO -->
+<section id="calendario"><div class="wrap">
+  <span class="eyebrow">03 · Calendario de publicaciones</span>
+  <h2 class="sec">Todo lo que se publica, día a día</h2>
+  <p class="lead">Calendario completo (fase · fecha · plataforma · formato · hook · CTA · responsable · estado). La versión maestra y editable vive en <b>Notion</b>, con vistas por fecha, plataforma y responsable.</p>
+  <div class="btnrow">
+    <a class="btn" id="notion-link" href="https://app.notion.com/p/QV-Calendario-de-Lanzamiento-Tudor-EJEMPLO-379b57135a1281e3aab2d6cb199706ed" target="_blank">Abrir calendario en Notion ↗</a>
+    <a class="btn ghost" href="#" target="_blank">Secuencia de emails (GHL) ↗</a>
+  </div>
+  <div class="t-scroll" style="margin-top:22px">
+    <table class="tbl">
+      <thead><tr><th>Fase</th><th>Día</th><th>Plataforma</th><th>Formato</th><th>Hook / Ángulo</th><th>CTA</th><th>Resp.</th><th>Estado</th></tr></thead>
+      <tbody>
+        <tr><td class="f1"><b>F1</b></td><td>−10</td><td>YouTube</td><td>Long-form</td><td>"Por qué entrenas duro y no creces"</td><td>Apúntate al reto</td><td>Tudor+Editor</td><td><span class="tag">Guion</span></td></tr>
+        <tr><td class="f1"><b>F1</b></td><td>−9</td><td>Instagram</td><td>Reel</td><td>Error nº1 en hipertrofia</td><td>Link en bio → reto</td><td>Editor</td><td><span class="tag">Idea</span></td></tr>
+        <tr><td class="f1"><b>F1</b></td><td>−8</td><td>TikTok</td><td>Serie corta</td><td>"3 días, 3 fallos que te frenan"</td><td>Perfil → reto</td><td>Editor</td><td><span class="tag">Idea</span></td></tr>
+        <tr><td class="f1"><b>F1</b></td><td>−7→−4</td><td>IG Stories</td><td>Stories diarias</td><td>Cuenta atrás + prueba social</td><td>Apúntate</td><td>Tudor</td><td><span class="tag">Plan</span></td></tr>
+        <tr><td class="f1"><b>F1</b></td><td>−6</td><td>Email</td><td>Bienvenida</td><td>Promesa + guarda tu sitio</td><td>Reservar plaza</td><td>Copy</td><td><span class="tag">Plan</span></td></tr>
+        <tr><td class="f2"><b>F2</b></td><td>−3</td><td>Comunidad GHL</td><td>Reto día 1</td><td>Quick win + reto público</td><td>Completa día 1</td><td>Tudor</td><td><span class="tag">Plan</span></td></tr>
+        <tr><td class="f2"><b>F2</b></td><td>−2→+2</td><td>WhatsApp/Telegram</td><td>Broadcast diario</td><td>Recordatorio + tip del día</td><td>Entra al reto</td><td>Soporte</td><td><span class="tag">Plan</span></td></tr>
+        <tr><td class="f2"><b>F2</b></td><td>+1</td><td>Instagram</td><td>Live</td><td>Sesión en directo del reto</td><td>Avisa: algo llega</td><td>Tudor</td><td><span class="tag">Plan</span></td></tr>
+        <tr><td class="f2"><b>F2</b></td><td>+2</td><td>Email</td><td>Valor 3</td><td>Resultado + "mañana abrimos"</td><td>Prepárate</td><td>Copy</td><td><span class="tag">Plan</span></td></tr>
+        <tr><td class="f3"><b>F3</b></td><td>+3</td><td>Todas</td><td>Apertura</td><td>"Ya está abierto: Programa Tudor"</td><td>Compra ahora</td><td>Equipo</td><td><span class="tag">Plan</span></td></tr>
+        <tr><td class="f3"><b>F3</b></td><td>+4</td><td>YouTube</td><td>VSL / oferta</td><td>Qué incluye + transformación</td><td>Únete</td><td>Tudor</td><td><span class="tag">Plan</span></td></tr>
+        <tr><td class="f3"><b>F3</b></td><td>+5</td><td>Email</td><td>Prueba social</td><td>Casos + bonus por tiempo</td><td>Compra ahora</td><td>Copy</td><td><span class="tag">Plan</span></td></tr>
+        <tr><td class="f4"><b>F4</b></td><td>+7</td><td>IG/Email</td><td>Objeciones</td><td>Precio/tiempo/"¿me sirve?"</td><td>Últimas plazas</td><td>Copy</td><td><span class="tag">Plan</span></td></tr>
+        <tr><td class="f4"><b>F4</b></td><td>+8</td><td>Todas</td><td>Cierre</td><td>"Se cierra hoy a las 23:59"</td><td>Cierra tu plaza</td><td>Equipo</td><td><span class="tag">Plan</span></td></tr>
+        <tr><td class="f5"><b>F5</b></td><td>+9→</td><td>Comunidad/Email</td><td>Onboarding</td><td>Primeros pasos + win rápido</td><td>Empieza semana 1</td><td>Soporte</td><td><span class="tag">Plan</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="sm mute" style="margin-top:10px">Vista resumida (15 hitos). El calendario completo en Notion incluye ~40 piezas + variantes y la secuencia de 9 emails.</p>
+</div></section>
+
+<!-- 4. EQUIPO Y SISTEMAS -->
+<section id="equipo"><div class="wrap">
+  <span class="eyebrow">04 · Equipo & sistemas de trabajo</span>
+  <h2 class="sec">Quién hace qué y cómo fluye</h2>
+  <div class="org" style="margin-top:24px">
+    <div class="card"><h3>🎯 Estrategia (QV)</h3><p class="sm mute">Diseño del lanzamiento, oferta, métricas y reporting.</p></div>
+    <div class="card"><h3>🎬 Edición (Caprichoso/Church)</h3><p class="sm mute">Reels, VSL, TikTok, miniaturas.</p></div>
+    <div class="card"><h3>✍️ Copy</h3><p class="sm mute">Guiones, emails, página de venta, objeciones.</p></div>
+    <div class="card"><h3>📈 Media buyer</h3><p class="sm mute">Amplifica con ads lo que ya convierte (F2–F4).</p></div>
+    <div class="card"><h3>🤝 Closer / Soporte</h3><p class="sm mute">Comunidad, DMs, dudas, ventas 1-1 (Élite).</p></div>
+    <div class="card"><h3>⭐ Tudor</h3><p class="sm mute">Cara, contenido, lives, autoridad.</p></div>
+  </div>
+
+  <h3 class="display" style="margin:28px 0 12px;font-size:18px">Flujo de trabajo</h3>
+  <div class="flow">
+    <span class="node">Idea / brief</span><span class="arr">→</span>
+    <span class="node">Guion (Copy)</span><span class="arr">→</span>
+    <span class="node">Grabación (Tudor)</span><span class="arr">→</span>
+    <span class="node">Edición</span><span class="arr">→</span>
+    <span class="node">Aprobación</span><span class="arr">→</span>
+    <span class="node">Programación</span><span class="arr">→</span>
+    <span class="node">Publicación</span><span class="arr">→</span>
+    <span class="node">Seguimiento</span>
+  </div>
+
+  <div class="cards c2" style="margin-top:24px">
+    <div class="card"><h3>🛠️ Sistemas / herramientas</h3>
+      <p class="sm"><b>GoHighLevel</b> — funnel, comunidad one-to-many, automatizaciones, tags.<br>
+      <b>Notion</b> — calendario y base del proyecto.<br>
+      <b>Drive</b> — assets y entregables.<br>
+      <b>Pasarela (GHL/Stripe)</b> — checkout + facilidades.<br>
+      <b>n8n</b> — vuelca métricas al panel automáticamente.</p>
+    </div>
+    <div class="card"><h3>💬 Comunicaciones</h3>
+      <p class="sm"><b>Canal de equipo</b> (Slack/Telegram) — operativa diaria.<br>
+      <b>Standup</b> — diario durante carrito (F3–F4), 10 min.<br>
+      <b>Weekly</b> — en pre-lanzamiento, revisión de calendario.<br>
+      <b>Fuente de verdad</b> — esta web + Notion. Nada se decide fuera de aquí.</p>
+    </div>
+  </div>
+</div></section>
+
+<!-- 5. METRICAS -->
+<section id="metricas"><div class="wrap">
+  <span class="eyebrow">05 · Control de métricas & reporting</span>
+  <h2 class="sec">Qué medimos y cómo lo leemos</h2>
+  <p class="lead">El lanzamiento se instrumenta desde el diseño (UTMs, pixel, tags GHL). El análisis lo realiza la skill <b>qv-analisis-lanzamientos</b> sobre datos reales.</p>
+
+  <h3 class="display" style="margin:24px 0 10px;font-size:18px">Embudo objetivo <span class="illus" style="margin:0">ilustrativo</span></h3>
+  <div class="funnel">
+    <div class="fstep"><div class="fbar" style="width:100%">Alcance 1,2M</div><small>impresiones</small></div>
+    <div class="fstep"><div class="fbar" style="width:70%">Clicks 42K · CTR 3,5%</div><small>al funnel</small></div>
+    <div class="fstep"><div class="fbar" style="width:45%">Leads reto 5.000 · opt-in 38%</div><small>en GHL</small></div>
+    <div class="fstep"><div class="fbar" style="width:30%">Asistentes 2.750 · 55%</div><small>reto día 1</small></div>
+    <div class="fstep"><div class="fbar" style="width:14%">Llegan a la oferta 1.500</div><small>retención</small></div>
+    <div class="fstep"><div class="fbar" style="width:7%">Ventas 300 · 6% de leads</div><small>62K€ · EPL 12,4€</small></div>
+  </div>
+
+  <div class="cards c4" style="margin-top:22px">
+    <div class="card"><div class="metric">EPL (norte)</div><div class="kpi s">12,4€</div></div>
+    <div class="card"><div class="metric">ROAS objetivo</div><div class="kpi s">≥4x</div></div>
+    <div class="card"><div class="metric">AOV</div><div class="kpi s">207€</div></div>
+    <div class="card"><div class="metric">Refund sano</div><div class="kpi s">&lt;6%</div></div>
+  </div>
+  <div class="cards c2" style="margin-top:16px">
+    <div class="card"><h3>Cadencia de reporting</h3><p class="sm">Pre-lanzamiento: <b>semanal</b>. Carrito (F3–F4): <b>diario</b>. Cierre: informe post-mortem con cuello de botella + plan de mejora.</p></div>
+    <div class="card"><h3>Dónde se ve</h3><p class="sm">Hoja <b>"QV — Registro de lanzamientos"</b> (un registro comparable por lanzamiento) + dashboard. <a class="grad" href="#" target="_blank">Abrir panel ↗</a></p></div>
+  </div>
+</div></section>
+
+<!-- 6. ROADMAP -->
+<section id="roadmap"><div class="wrap">
+  <span class="eyebrow">06 · Roadmap de trabajo</span>
+  <h2 class="sec">De hoy al lanzamiento (y más allá)</h2>
+  <div class="road" style="margin-top:26px">
+    <div class="mile"><b>Semana 0 — Cimientos</b><p class="sm mute">Oferta cerrada, página de venta + funnel GHL, tracking, comunidad del reto, calendario aprobado.</p></div>
+    <div class="mile"><b>Semana 1 — Semilla (F1)</b><p class="sm mute">Contenido de siembra + captación de leads al reto. Objetivo: 5.000 inscritos.</p></div>
+    <div class="mile"><b>Semana 2 — Reto + Apertura (F2–F3)</b><p class="sm mute">Reto 7 días en comunidad → apertura de carrito con bonus.</p></div>
+    <div class="mile"><b>Semana 3 — Cierre (F4)</b><p class="sm mute">Escasez real, objeciones, últimas plazas. ~50% de ventas aquí.</p></div>
+    <div class="mile"><b>Semana 4 — Post-venta (F5)</b><p class="sm mute">Onboarding, reducir refunds, ascensión a 1-1/Élite. Post-mortem.</p></div>
+    <div class="mile"><b>Mes 2+ — Escalar</b><p class="sm mute">Evergreen del programa + membresía recurrente + marca propia. Siguiente lanzamiento con aprendizajes.</p></div>
+  </div>
+  <div class="btnrow">
+    <a class="btn" href="#analisis">Volver arriba ↑</a>
+  </div>
+</div></section>
+
+<footer class="foot"><div class="wrap">
+  <img src="/assets/brand/qv-mark.svg" style="height:30px;opacity:.85" alt="QV"><br><br>
+  Quantum Ventures · Estrategia de Lanzamiento — Tudor &nbsp;·&nbsp; documento vivo, fuente única de verdad<br>
+  <span class="mute">Datos ilustrativos. Sustituir por métricas y fechas reales antes de ejecutar.</span>
+</div></footer>
+
+</body></html>
