@@ -1,6 +1,6 @@
-<!doctype html><html lang="es"><head>
+<!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Quantum Ventures × Tudor — Plan de la comunidad</title>
+<title>Quantum Ventures × Tudor — Community Plan</title>
 <meta name="robots" content="noindex">
 <link rel="icon" href="/assets/brand/qv-favicon.png">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -47,7 +47,6 @@ ul.clean li:before{content:"→";position:absolute;left:0;color:var(--cyan)}
 .btnrow{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
 .foot{padding:40px 0;border-top:1px solid var(--line);color:var(--mute);font-size:13px;text-align:center}
 .sm{font-size:13px}.mute{color:var(--mute)}
-/* split reparto */
 .split{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:24px}@media(max-width:680px){.split{grid-template-columns:1fr}}
 .col{border-radius:18px;padding:26px;border:1px solid var(--line)}
 .col.tudor{background:linear-gradient(150deg,rgba(168,85,247,.14),rgba(99,102,241,.05));border-color:rgba(168,85,247,.32)}
@@ -57,7 +56,6 @@ ul.clean li:before{content:"→";position:absolute;left:0;color:var(--cyan)}
 .col ul{list-style:none;padding:0}.col li{padding:7px 0 7px 26px;position:relative;font-size:15px}
 .col li:before{content:"";position:absolute;left:0;top:13px;width:8px;height:8px;border-radius:50%;background:linear-gradient(135deg,var(--cyan),var(--indigo))}
 .col.tudor li:before{background:linear-gradient(135deg,var(--violet),var(--indigo))}
-/* funnel */
 .funnel{display:flex;flex-direction:column;align-items:center;gap:10px;margin-top:28px}
 .fstage{width:100%;max-width:760px;border-radius:14px;padding:18px 24px;border:1px solid var(--line);background:var(--surface);position:relative}
 .fstage .fn{font-family:'Space Grotesk';font-weight:700;font-size:13px;color:var(--cyan);letter-spacing:.06em}
@@ -68,20 +66,17 @@ ul.clean li:before{content:"→";position:absolute;left:0;color:var(--cyan)}
 .f2{max-width:660px}.f3{max-width:560px}.f4{max-width:460px;background:linear-gradient(150deg,rgba(99,102,241,.16),transparent);border-color:rgba(99,102,241,.4)}
 .f5{max-width:360px;background:linear-gradient(150deg,rgba(168,85,247,.16),transparent);border-color:rgba(168,85,247,.4)}
 .farr{color:var(--cyan);font-size:18px}
-/* ladder */
 .ladder{display:flex;flex-direction:column;gap:10px;margin-top:24px}
 .rung{display:flex;align-items:center;gap:16px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 20px}
 .rung .lv{font-family:'Space Grotesk';font-weight:700;color:var(--cyan);font-size:14px;flex:0 0 92px}
 .rung h4{font-size:16px;margin-bottom:2px}.rung p{font-size:13px;color:var(--mute)}
 .rung.core{background:linear-gradient(150deg,rgba(99,102,241,.16),transparent);border-color:rgba(99,102,241,.4)}
-/* timeline */
 .tl{position:relative;margin-top:28px;padding-left:26px}
 .tl:before{content:"";position:absolute;left:7px;top:6px;bottom:6px;width:2px;background:linear-gradient(180deg,var(--cyan),var(--violet))}
 .tlrow{position:relative;padding:0 0 22px 18px}
 .tlrow:before{content:"";position:absolute;left:-26px;top:4px;width:16px;height:16px;border-radius:50%;background:var(--ink);border:3px solid var(--cyan)}
 .tlrow .w{font-family:'Space Grotesk';font-weight:700;font-size:13px;color:var(--cyan)}
 .tlrow h4{font-size:16px;margin:2px 0}.tlrow p{font-size:14px;color:var(--mute)}
-/* projection bars */
 .bars{display:flex;align-items:flex-end;gap:14px;height:200px;margin-top:24px}
 .bcol{flex:1;display:flex;flex-direction:column;align-items:center;height:100%;justify-content:flex-end}
 .bval{font-family:'Space Grotesk';font-weight:700;font-size:14px;margin-bottom:8px}
@@ -97,210 +92,208 @@ ul.clean li:before{content:"→";position:absolute;left:0;color:var(--cyan)}
 <nav><div class="wrap">
   <img src="/assets/brand/qv-mark.svg" alt="QV">
   <div class="links">
-    <a href="#creador">Creador</a><a href="#reparto">Reparto</a><a href="#servicio">El servicio</a>
-    <a href="#modelo">Modelo</a><a href="#funnel">Funnel</a><a href="#oferta">Oferta</a>
-    <a href="#lanzamiento">Lanzamiento</a><a href="#docs">El sistema</a>
+    <a href="#creator">Creator</a><a href="#roles">Roles</a><a href="#service">The service</a>
+    <a href="#model">Model</a><a href="#funnel">Funnel</a><a href="#offer">Offer</a>
+    <a href="#launch">Launch</a><a href="#docs">The system</a>
   </div>
 </div></nav>
 
 <header class="hero"><div class="wrap">
   <div class="aurora a1"></div><div class="aurora a2"></div>
-  <span class="pill">Quantum Ventures · Plan de la comunidad</span>
+  <span class="pill">Quantum Ventures · Community plan</span>
   <h1 class="display">Tudor <span class="grad">× Quantum Ventures</span></h1>
-  <p class="lead" style="font-size:19px">Convertimos 333K de alcance y una comunidad gratuita de 147 miembros en una <b style="color:var(--text)">comunidad de pago recurrente</b> — con el modelo que ya funciona (clase semanal en directo → comunidad, estilo Ángel Aparicio), aplicado a tu nicho: la animación con IA y la historia/cine.</p>
-  <div style="margin-top:14px"><span class="real">✔ Datos reales de @tudormorari.ai · plan "todo mascado"</span></div>
-  <div class="btnrow"><a class="btn" href="#servicio">Ver el servicio ↓</a><a class="btn ghost" href="#funnel">El funnel principal</a></div>
+  <p class="lead" style="font-size:19px">We turn 333K of reach and a free community of 147 members into a <b style="color:var(--text)">recurring paid community</b> — using the model that already works (weekly live class → community, Ángel Aparicio style), applied to your niche: AI animation and history/cinema.</p>
+  <div style="margin-top:14px"><span class="real">✔ Real data from @tudormorari.ai · fully done-for-you plan</span></div>
+  <div class="btnrow"><a class="btn" href="#service">See the service ↓</a><a class="btn ghost" href="#funnel">The main funnel</a></div>
 </div></header>
 
-<!-- CREADOR -->
-<section id="creador"><div class="wrap">
-  <span class="eyebrow reveal">01 · El creador</span>
-  <h2 class="sec display reveal">Tudor, hoy</h2>
-  <p class="lead reveal">Un activo enorme y desaprovechado: alcance viral que hoy se evapora. La jugada es capturarlo en una comunidad de pago que crece sola.</p>
+<!-- CREATOR -->
+<section id="creator"><div class="wrap">
+  <span class="eyebrow reveal">01 · The creator</span>
+  <h2 class="sec display reveal">Tudor, today</h2>
+  <p class="lead reveal">A huge, underused asset: viral reach that today simply evaporates. The play is to capture it into a paid community that grows on its own.</p>
   <div class="cards c4 reveal" style="margin-top:24px">
-    <div class="card"><div class="metric">Seguidores IG</div><div class="kpi">333,7K</div><div class="sm mute">Cuenta verificada ✔</div></div>
-    <div class="card"><div class="metric">Nicho</div><div class="kpi s">Animación IA</div><div class="sm mute">+ historia / cine</div></div>
-    <div class="card"><div class="metric">Comunidad Skool</div><div class="kpi">147</div><div class="sm mute">hoy GRATIS → de pago</div></div>
-    <div class="card"><div class="metric">Su superpoder</div><div class="kpi s">Viral</div><div class="sm mute">reels con miles de comentarios</div></div>
+    <div class="card"><div class="metric">IG followers</div><div class="kpi">333.7K</div><div class="sm mute">Verified account ✔</div></div>
+    <div class="card"><div class="metric">Niche</div><div class="kpi s">AI animation</div><div class="sm mute">+ history / cinema</div></div>
+    <div class="card"><div class="metric">Skool community</div><div class="kpi">147</div><div class="sm mute">free today → paid</div></div>
+    <div class="card"><div class="metric">Superpower</div><div class="kpi s">Viral</div><div class="sm mute">reels with thousands of comments</div></div>
   </div>
-  <div class="card reveal" style="margin-top:16px"><p class="sm">El alcance viral (historia/cine reanimados con IA) atrae masa; los reels de "cómo lo hago con IA" convierten a interesados en aprender. Hoy ese alcance no se monetiza de forma recurrente. Lo capturamos en una comunidad de pago, su <b>activo de mayor margen y previsibilidad (MRR)</b>.</p></div>
+  <div class="card reveal" style="margin-top:16px"><p class="sm">Viral reach (history/cinema reanimated with AI) pulls the crowd; the "how I do it with AI" reels convert viewers into people who want to learn. Today that reach isn't monetised on a recurring basis. We capture it into a paid community — your <b>highest-margin, most predictable asset (MRR)</b>.</p></div>
 </div></section>
 
-<!-- REPARTO -->
-<section id="reparto"><div class="wrap">
-  <span class="eyebrow reveal">02 · El reparto</span>
-  <h2 class="sec display reveal">Tú creas. Nosotros <span class="grad">montamos el negocio</span>.</h2>
-  <p class="lead reveal">La diferencia clave de tu caso: <b style="color:var(--text)">tú grabas Y editas tus propios vídeos</b>. Tu edición es tu sello — eso no se delega, y garantiza coherencia total con tu marca. Nosotros construimos todo lo demás para que solo te concentres en crear.</p>
+<!-- ROLES -->
+<section id="roles"><div class="wrap">
+  <span class="eyebrow reveal">02 · The roles</span>
+  <h2 class="sec display reveal">You create. We <span class="grad">build the business</span>.</h2>
+  <p class="lead reveal">The key difference in your case: <b style="color:var(--text)">you record AND edit your own videos</b>. Your edit is your signature — that's not delegated, and it guarantees full coherence with your brand. We build everything else so you only have to focus on creating.</p>
   <div class="split reveal">
     <div class="col tudor">
-      <div class="role">Tú · el creador</div>
-      <h3>Creas y editas</h3>
+      <div class="role">You · the creator</div>
+      <h3>You create & edit</h3>
       <ul>
-        <li>Grabas y <b>editas tus vídeos</b> (tu estilo = tu marca).</li>
-        <li>Pones la cara y la voz: eres el producto.</li>
-        <li>Das la clase semanal en directo.</li>
-        <li>Aportas a tu Brand Codex y validas el contenido en 1 reunión semanal.</li>
+        <li>You record and <b>edit your videos</b> (your style = your brand).</li>
+        <li>You are the face and the voice: you are the product.</li>
+        <li>You teach the weekly live class.</li>
+        <li>You feed your Brand Codex and approve content in 1 weekly meeting.</li>
       </ul>
     </div>
     <div class="col qv">
-      <div class="role">Quantum Ventures · el motor</div>
-      <h3>Montamos el negocio</h3>
+      <div class="role">Quantum Ventures · the engine</div>
+      <h3>We build the business</h3>
       <ul>
-        <li>Estrategia, oferta y escalera de precio.</li>
-        <li>Ganchos y guiones listos para grabar (tú solo ejecutas).</li>
-        <li>Funnel, landing, WhatsApp y automatizaciones (Skool/GHL/Klarna/n8n).</li>
-        <li>Lanzamiento, ventas, comunidad, soporte y métricas.</li>
+        <li>Strategy, offer and price ladder.</li>
+        <li>Hooks and scripts ready to film (you just execute).</li>
+        <li>Funnel, landing, WhatsApp and automations (Skool/GHL/Klarna/n8n).</li>
+        <li>Launch, sales, community, support and metrics.</li>
       </ul>
     </div>
   </div>
-  <div class="note reveal">Como editas tú, QV no toca la postproducción: te entregamos el <b>qué decir y cómo engancha</b> (hooks + guion por escenas), y tú le pones tu montaje. Más rápido, más tuyo, más coherente.</div>
+  <div class="note reveal">Because you edit, QV doesn't touch post-production: we hand you <b>what to say and how it hooks</b> (hooks + scene-by-scene script), and you add your edit. Faster, more yours, more coherent.</div>
 </div></section>
 
-<!-- SERVICIO -->
-<section id="servicio"><div class="wrap">
-  <span class="eyebrow reveal">03 · El servicio que creamos</span>
-  <h2 class="sec display reveal">Tu academia de <span class="grad">animación con IA</span></h2>
-  <p class="lead reveal">Una comunidad de pago al estilo de Ángel Aparicio, pero en tu nicho: un sitio donde cualquiera aprende a crear contenido cinematográfico e histórico con IA — de cero a su primer corto — con tu guía, en directo y en comunidad. Se llama <b style="color:var(--text)">Societies RS Animation Academy</b>.</p>
+<!-- SERVICE -->
+<section id="service"><div class="wrap">
+  <span class="eyebrow reveal">03 · The service we build</span>
+  <h2 class="sec display reveal">Your <span class="grad">AI animation academy</span></h2>
+  <p class="lead reveal">A paid community in the style of Ángel Aparicio, but in your niche: a place where anyone learns to create cinematic and historical content with AI — from zero to their first short — with your guidance, live and in community. It's called <b style="color:var(--text)">Societies RS Animation Academy</b>.</p>
   <div class="cards c3 reveal" style="margin-top:26px">
-    <div class="card"><h3>🎬 Clase semanal en directo</h3><p>Tudor construye en vivo una escena animada con IA, paso a paso. El corazón del valor y el ritmo de la comunidad.</p></div>
-    <div class="card"><h3>🗺️ Ruta de aprendizaje</h3><p>Módulos ordenados: fundamentos de IA → pipelines de animación → historia/cine con IA → edición → publicar y crecer.</p></div>
-    <div class="card"><h3>🧰 Librería de recursos</h3><p>Banco de prompts, presets, pipelines y plantillas. El "atajo" que ahorra meses de prueba y error.</p></div>
-    <div class="card"><h3>🏆 Retos mensuales</h3><p>Cada mes un reto con premio. Genera actividad, resultados de alumnos y prueba social constante.</p></div>
-    <div class="card"><h3>🤝 Comunidad y feedback</h3><p>Miembros que comparten, preguntan y reciben feedback. La pertenencia es lo que retiene (y reduce el churn).</p></div>
-    <div class="card"><h3>🎖️ Niveles (gamificación Skool)</h3><p>Puntos y niveles que desbloquean contenido. Engancha, premia la constancia y sube el LTV.</p></div>
+    <div class="card"><h3>🎬 Weekly live class</h3><p>Tudor builds an AI-animated scene live, step by step. The heart of the value and the rhythm of the community.</p></div>
+    <div class="card"><h3>🗺️ Learning path</h3><p>Ordered modules: AI fundamentals → animation pipelines → history/cinema with AI → editing → publish & grow.</p></div>
+    <div class="card"><h3>🧰 Resource library</h3><p>A bank of prompts, presets, pipelines and templates. The shortcut that saves months of trial and error.</p></div>
+    <div class="card"><h3>🏆 Monthly challenges</h3><p>A challenge with a prize every month. Drives activity, student results and constant social proof.</p></div>
+    <div class="card"><h3>🤝 Community & feedback</h3><p>Members who share, ask and get feedback. Belonging is what retains (and lowers churn).</p></div>
+    <div class="card"><h3>🎖️ Levels (Skool gamification)</h3><p>Points and levels that unlock content. Hooks members, rewards consistency and raises LTV.</p></div>
   </div>
-  <div class="note reveal">El modelo de Ángel Aparicio funciona porque combina <b>formación + directo + comunidad + gamificación</b> en un solo sitio (Skool), con recurrencia mensual. Lo replicamos exacto, con tu contenido y tu nicho.</div>
+  <div class="note reveal">The Ángel Aparicio model works because it combines <b>training + live + community + gamification</b> in one place (Skool), with monthly recurrence. We replicate it exactly, with your content and your niche.</div>
 </div></section>
 
-<!-- MODELO -->
-<section id="modelo"><div class="wrap">
-  <span class="eyebrow reveal">04 · El modelo (Ángel Aparicio)</span>
-  <h2 class="sec display reveal">Clase gratis semanal → comunidad de pago</h2>
-  <p class="lead reveal">El mecanismo probado: una clase EN DIRECTO gratis cada semana (día y hora fijos) que enseña de verdad y, al final, invita a la comunidad de pago. Evergreen, con escasez real y precio que sube por tramos = valor percibido en aumento.</p>
+<!-- MODEL -->
+<section id="model"><div class="wrap">
+  <span class="eyebrow reveal">04 · The model (Ángel Aparicio)</span>
+  <h2 class="sec display reveal">Free weekly class → paid community</h2>
+  <p class="lead reveal">The proven mechanism: a free LIVE class every week (fixed day and time) that genuinely teaches and, at the end, invites people into the paid community. Evergreen, with real scarcity and a price that rises in tiers = perceived value that keeps growing.</p>
   <div class="cards c3 reveal" style="margin-top:24px">
-    <div class="card"><h3>🔁 Mini-lanzamiento semanal</h3><p>Cada clase es una oportunidad de venta recurrente, no un único lanzamiento al año.</p></div>
-    <div class="card"><h3>🔒 Escasez real</h3><p>Acceso por ventanas + precio founding bloqueado + bonus que expiran. "Entra antes de que suba."</p></div>
-    <div class="card"><h3>📈 Precio escalado</h3><p>El precio solo sube por tramos según crece la comunidad. Quien entra antes paga menos para siempre.</p></div>
+    <div class="card"><h3>🔁 Weekly mini-launch</h3><p>Each class is a recurring sales opportunity, not a single launch once a year.</p></div>
+    <div class="card"><h3>🔒 Real scarcity</h3><p>Access in windows + locked founding price + bonuses that expire. "Get in before it goes up."</p></div>
+    <div class="card"><h3>📈 Scaled price</h3><p>The price only rises in tiers as the community grows. Whoever joins earlier pays less forever.</p></div>
   </div>
 </div></section>
 
 <!-- FUNNEL -->
 <section id="funnel"><div class="wrap">
-  <span class="eyebrow reveal">05 · El funnel principal</span>
-  <h2 class="sec display reveal">De viral a <span class="grad">miembro de pago</span></h2>
-  <p class="lead reveal">Cada pieza de contenido tiene un trabajo. El feed vende la CLASE (no la comunidad) para mantenerse limpio y viral; la clase vende la comunidad. Así se ve el embudo, etapa a etapa:</p>
+  <span class="eyebrow reveal">05 · The main funnel</span>
+  <h2 class="sec display reveal">From viral to <span class="grad">paying member</span></h2>
+  <p class="lead reveal">Every piece of content has a job. The feed sells the CLASS (not the community) to stay clean and viral; the class sells the community. Here's the funnel, stage by stage:</p>
   <div class="funnel reveal">
-    <div class="fstage f1"><span class="tag">Objetivo: alcance</span><div class="fn">01 · ATRACCIÓN</div><h4>Reels virales — historia/cine + IA</h4><p>Contenido diario (lo graba y edita Tudor) que para el scroll. Un solo CTA: la clase gratis.</p></div>
+    <div class="fstage f1"><span class="tag">Goal: reach</span><div class="fn">01 · ATTRACTION</div><h4>Viral reels — history/cinema + AI</h4><p>Daily content (recorded and edited by Tudor) that stops the scroll. One CTA only: the free class.</p></div>
     <span class="farr">▼</span>
-    <div class="fstage f2"><span class="tag">Objetivo: leads</span><div class="fn">02 · CAPTACIÓN</div><h4>Clase en directo gratis + comunidad free (Skool)</h4><p>Se apuntan por WhatsApp/email. Entran los 147 actuales y los nuevos. Aquí se capta el contacto.</p></div>
+    <div class="fstage f2"><span class="tag">Goal: leads</span><div class="fn">02 · CAPTURE</div><h4>Free live class + free community (Skool)</h4><p>They sign up via WhatsApp/email. The current 147 and new members come in. This is where contact is captured.</p></div>
     <span class="farr">▼</span>
-    <div class="fstage f3"><span class="tag">Objetivo: deseo</span><div class="fn">03 · NUTRICIÓN</div><h4>Valor en directo + WhatsApp + comunidad gratis</h4><p>Demostramos autoridad y resultados. El miembro ve lo que conseguiría dentro. Se calienta para comprar.</p></div>
+    <div class="fstage f3"><span class="tag">Goal: desire</span><div class="fn">03 · NURTURE</div><h4>Live value + WhatsApp + free community</h4><p>We prove authority and results. The member sees what they'd get inside. They warm up to buy.</p></div>
     <span class="farr">▼</span>
-    <div class="fstage f4"><span class="tag">Objetivo: venta</span><div class="fn">04 · CONVERSIÓN</div><h4>Comunidad de pago — founding, precio escalado</h4><p>Al final de la clase: oferta con escasez y precio bloqueado. Pago mensual (financiable con Klarna).</p></div>
+    <div class="fstage f4"><span class="tag">Goal: sale</span><div class="fn">04 · CONVERSION</div><h4>Paid community — founding, scaled price</h4><p>At the end of the class: offer with scarcity and locked price. Monthly payment (financeable with Klarna).</p></div>
     <span class="farr">▼</span>
-    <div class="fstage f5"><span class="tag">Objetivo: LTV</span><div class="fn">05 · RETENCIÓN / ASCENSIÓN</div><h4>Recurrencia, niveles y futuro premium</h4><p>Gamificación, retos y comunidad retienen (MRR). Más adelante: peldaño premium / 1:1 cuando aplique.</p></div>
+    <div class="fstage f5"><span class="tag">Goal: LTV</span><div class="fn">05 · RETENTION / ASCENSION</div><h4>Recurrence, levels and future premium</h4><p>Gamification, challenges and community retain (MRR). Later: a premium / 1:1 tier when it makes sense.</p></div>
   </div>
-  <div class="note reveal">Métrica norte: <b>EPL</b> (ingreso por lead) y <b>MRR</b> (ingreso recurrente). Todo se mide por etapa para optimizar el cuello de botella en cada ciclo.</div>
+  <div class="note reveal">North-star metrics: <b>EPL</b> (earnings per lead) and <b>MRR</b> (recurring revenue). Everything is measured per stage to optimise the bottleneck each cycle.</div>
 </div></section>
 
-<!-- OFERTA -->
-<section id="oferta"><div class="wrap">
-  <span class="eyebrow reveal">06 · Oferta y precios</span>
-  <h2 class="sec display reveal">50€/mes, founding bloqueado, precio escalado</h2>
+<!-- OFFER -->
+<section id="offer"><div class="wrap">
+  <span class="eyebrow reveal">06 · Offer & pricing</span>
+  <h2 class="sec display reveal">€50/mo, founding locked, scaled price</h2>
   <div class="cards c2 reveal" style="margin-top:24px">
     <div class="card">
-      <h3>La oferta de la comunidad</h3>
+      <h3>The community offer</h3>
       <ul class="clean">
-        <li>Clase en directo semanal + grabaciones</li>
-        <li>Ruta de aprendizaje completa por módulos</li>
-        <li>Librería de pipelines IA + banco de prompts/presets</li>
-        <li>Retos mensuales con premio + comunidad activa</li>
-        <li>Garantía "primer corto o no pagas" (14 días)</li>
-        <li>Bonus founding + precio bloqueado de por vida</li>
+        <li>Weekly live class + recordings</li>
+        <li>Full module-based learning path</li>
+        <li>AI pipeline library + prompt/preset bank</li>
+        <li>Monthly challenges with a prize + active community</li>
+        <li>"First short or you don't pay" guarantee (14 days)</li>
+        <li>Founding bonus + price locked for life</li>
       </ul>
     </div>
     <div class="card">
-      <h3>Escalera de precio (modelo Ángel)</h3>
+      <h3>Price ladder (Ángel model)</h3>
       <table class="tbl" style="margin-top:6px">
-        <tr><th>Tramo</th><th>€/mes</th><th>Disparador</th></tr>
-        <tr><td>Founding</td><td>50</td><td>147 + 1ª ventana</td></tr>
-        <tr><td>T1</td><td>65</td><td>cierre founding</td></tr>
-        <tr><td>T2</td><td>80</td><td>250 miembros</td></tr>
-        <tr><td>T3</td><td>97</td><td>400 miembros</td></tr>
-        <tr><td>T4–T5</td><td>120–147</td><td>600–1.000</td></tr>
+        <tr><th>Tier</th><th>€/mo</th><th>Trigger</th></tr>
+        <tr><td>Founding</td><td>50</td><td>147 + 1st window</td></tr>
+        <tr><td>T1</td><td>65</td><td>founding closes</td></tr>
+        <tr><td>T2</td><td>80</td><td>250 members</td></tr>
+        <tr><td>T3</td><td>97</td><td>400 members</td></tr>
+        <tr><td>T4–T5</td><td>120–147</td><td>600–1,000</td></tr>
       </table>
-      <p class="sm mute" style="margin-top:8px">Anual ~600€ financiable con Klarna. Precios a validar con Tudor.</p>
+      <p class="sm mute" style="margin-top:8px">Annual ~€600, financeable with Klarna. Prices to validate with Tudor.</p>
     </div>
   </div>
-  <!-- Escalera de valor -->
-  <h3 class="display reveal" style="font-size:20px;margin:34px 0 0">La escalera de valor</h3>
+  <h3 class="display reveal" style="font-size:20px;margin:34px 0 0">The value ladder</h3>
   <div class="ladder reveal">
-    <div class="rung"><div class="lv">Gratis</div><div><h4>Reels + clase semanal + comunidad free</h4><p>Capta y calienta. Coste de entrada cero.</p></div></div>
-    <div class="rung core"><div class="lv">Core · 50€+</div><div><h4>Societies RS Animation Academy (comunidad de pago)</h4><p>El producto principal. Recurrencia mensual.</p></div></div>
-    <div class="rung"><div class="lv">Futuro</div><div><h4>Premium / mentoría / 1:1</h4><p>Peldaño alto cuando haya demanda y capacidad. Hoy no se ofrece.</p></div></div>
+    <div class="rung"><div class="lv">Free</div><div><h4>Reels + weekly class + free community</h4><p>Captures and warms up. Zero entry cost.</p></div></div>
+    <div class="rung core"><div class="lv">Core · €50+</div><div><h4>Societies RS Animation Academy (paid community)</h4><p>The main product. Monthly recurrence.</p></div></div>
+    <div class="rung"><div class="lv">Future</div><div><h4>Premium / mentorship / 1:1</h4><p>High tier when there's demand and capacity. Not offered today.</p></div></div>
   </div>
 </div></section>
 
-<!-- PROYECCION -->
-<section id="proyeccion"><div class="wrap">
-  <span class="eyebrow reveal">07 · Proyección</span>
-  <h2 class="sec display reveal">A dónde lleva la <span class="grad">recurrencia</span></h2>
-  <p class="lead reveal">Ilustrativo: el poder del MRR es que cada miembro suma cada mes. Cifras a validar con los datos reales del lanzamiento.</p>
+<!-- PROJECTION -->
+<section id="projection"><div class="wrap">
+  <span class="eyebrow reveal">07 · Projection</span>
+  <h2 class="sec display reveal">Where <span class="grad">recurrence</span> leads</h2>
+  <p class="lead reveal">Illustrative: the power of MRR is that every member adds up every month. Figures to validate with real launch data.</p>
   <div class="cards c2" style="margin-top:8px">
-    <div class="card reveal"><div class="metric">Miembros de pago</div>
+    <div class="card reveal"><div class="metric">Paying members</div>
       <div class="bars">
         <div class="bcol"><div class="bval">147</div><div class="btrack"><div class="bar" style="height:18%"></div></div><div class="bper">Founding</div></div>
-        <div class="bcol"><div class="bval">250</div><div class="btrack"><div class="bar" style="height:32%"></div></div><div class="bper">3 meses</div></div>
-        <div class="bcol"><div class="bval">400</div><div class="btrack"><div class="bar" style="height:55%"></div></div><div class="bper">6 meses</div></div>
-        <div class="bcol"><div class="bval">800</div><div class="btrack"><div class="bar" style="height:100%"></div></div><div class="bper">12 meses</div></div>
+        <div class="bcol"><div class="bval">250</div><div class="btrack"><div class="bar" style="height:32%"></div></div><div class="bper">3 months</div></div>
+        <div class="bcol"><div class="bval">400</div><div class="btrack"><div class="bar" style="height:55%"></div></div><div class="bper">6 months</div></div>
+        <div class="bcol"><div class="bval">800</div><div class="btrack"><div class="bar" style="height:100%"></div></div><div class="bper">12 months</div></div>
       </div>
     </div>
-    <div class="card reveal"><div class="metric">MRR estimado (€/mes)</div>
+    <div class="card reveal"><div class="metric">Estimated MRR (€/mo)</div>
       <div class="bars">
-        <div class="bcol"><div class="bval">7,3k</div><div class="btrack"><div class="bar" style="height:14%;background:linear-gradient(180deg,var(--violet),var(--indigo))"></div></div><div class="bper">Founding</div></div>
-        <div class="bcol"><div class="bval">16k</div><div class="btrack"><div class="bar" style="height:30%;background:linear-gradient(180deg,var(--violet),var(--indigo))"></div></div><div class="bper">3 meses</div></div>
-        <div class="bcol"><div class="bval">32k</div><div class="btrack"><div class="bar" style="height:58%;background:linear-gradient(180deg,var(--violet),var(--indigo))"></div></div><div class="bper">6 meses</div></div>
-        <div class="bcol"><div class="bval">+70k</div><div class="btrack"><div class="bar" style="height:100%;background:linear-gradient(180deg,var(--violet),var(--indigo))"></div></div><div class="bper">12 meses</div></div>
+        <div class="bcol"><div class="bval">7.3k</div><div class="btrack"><div class="bar" style="height:14%;background:linear-gradient(180deg,var(--violet),var(--indigo))"></div></div><div class="bper">Founding</div></div>
+        <div class="bcol"><div class="bval">16k</div><div class="btrack"><div class="bar" style="height:30%;background:linear-gradient(180deg,var(--violet),var(--indigo))"></div></div><div class="bper">3 months</div></div>
+        <div class="bcol"><div class="bval">32k</div><div class="btrack"><div class="bar" style="height:58%;background:linear-gradient(180deg,var(--violet),var(--indigo))"></div></div><div class="bper">6 months</div></div>
+        <div class="bcol"><div class="bval">+70k</div><div class="btrack"><div class="bar" style="height:100%;background:linear-gradient(180deg,var(--violet),var(--indigo))"></div></div><div class="bper">12 months</div></div>
       </div>
     </div>
   </div>
-  <p class="sm mute reveal" style="margin-top:14px">*Proyección ilustrativa para mostrar el efecto de la recurrencia + precio escalado. Se ajusta con los datos reales del primer ciclo (qv-analisis-lanzamientos).</p>
+  <p class="sm mute reveal" style="margin-top:14px">*Illustrative projection to show the effect of recurrence + scaled price. Adjusted with real data from the first cycle.</p>
 </div></section>
 
-<!-- LANZAMIENTO -->
-<section id="lanzamiento"><div class="wrap">
-  <span class="eyebrow reveal">08 · El plan de lanzamiento</span>
-  <h2 class="sec display reveal">Live Launch · 14 días</h2>
-  <p class="lead reveal">Convertimos primero a los 147 actuales con oferta founding (precio bloqueado), luego abrimos al público con precio escalado.</p>
+<!-- LAUNCH -->
+<section id="launch"><div class="wrap">
+  <span class="eyebrow reveal">08 · The launch plan</span>
+  <h2 class="sec display reveal">Live Launch · 14 days</h2>
+  <p class="lead reveal">We first convert the current 147 with a founding offer (locked price), then open to the public with the scaled price.</p>
   <div class="tl reveal">
-    <div class="tlrow"><div class="w">Días 1–5 · Pre-aviso</div><h4>"El gratis cierra, se viene algo grande"</h4><p>Siembra en reels + stories. Captación a la última clase gratis. Lista de espera por WhatsApp.</p></div>
-    <div class="tlrow"><div class="w">Día 6 · Última clase gratis</div><h4>Autoridad en directo</h4><p>Clase de altísimo valor → "el lunes abrimos founding, plazas y precio limitados".</p></div>
-    <div class="tlrow"><div class="w">Días 7–13 · Carrito founding</div><h4>Apertura (7 días)</h4><p>Oferta founding 50€ bloqueado + bonus + prueba social. Secuencia de 7 emails + 7 WhatsApp. Derribo de objeciones.</p></div>
-    <div class="tlrow"><div class="w">Día 14 · Cierre + subida real</div><h4>Escasez de verdad</h4><p>"Mañana sube a 65€" — y sube de verdad. El 40–60% de las ventas suele caer aquí.</p></div>
+    <div class="tlrow"><div class="w">Days 1–5 · Pre-announcement</div><h4>"The free version is closing, something big is coming"</h4><p>Seed it in reels + stories. Drive sign-ups to the last free class. WhatsApp waitlist.</p></div>
+    <div class="tlrow"><div class="w">Day 6 · Last free class</div><h4>Authority, live</h4><p>A very high-value class → "on Monday we open founding, limited seats and price".</p></div>
+    <div class="tlrow"><div class="w">Days 7–13 · Founding cart</div><h4>Open (7 days)</h4><p>Founding offer €50 locked + bonuses + social proof. Sequence of 7 emails + 7 WhatsApp. Objection handling.</p></div>
+    <div class="tlrow"><div class="w">Day 14 · Close + real price rise</div><h4>Real scarcity</h4><p>"Tomorrow it goes up to €65" — and it really does. 40–60% of sales usually land here.</p></div>
   </div>
 </div></section>
 
 <!-- DOCS -->
 <section id="docs"><div class="wrap">
-  <span class="eyebrow reveal">09 · El sistema completo (el back)</span>
-  <h2 class="sec display reveal">Todo mascado, documentado</h2>
-  <p class="lead reveal">Cada parte desarrollada al detalle — del Brand Codex (coherencia) a los mensajes de la comunidad y la estructura del webinar.</p>
+  <span class="eyebrow reveal">09 · The full system (the back-end)</span>
+  <h2 class="sec display reveal">Fully done-for-you, documented</h2>
+  <p class="lead reveal">Every part developed in detail — from the Brand Codex (coherence) to the community messages and the webinar structure.</p>
   <div class="cards c2 reveal" style="margin-top:24px">
-    <a class="card doc" href="https://docs.google.com/document/d/1tbeJKWMiPilNLzrTc5gEPCO_2U-CeJEAOeNWVIsJgMI/edit" target="_blank"><div class="t">🧭 0 · Brand Codex (coherencia de base) ↗</div><div class="d">Esencia, pilares, tono, mundo visual y checklist. El filtro de todo lo que se publica.</div></a>
-    <a class="card doc" href="https://docs.google.com/document/d/1VJMIg_ks4RVK2GpZYXUaNYCVnAWnV2vBDVeTAve2RKc/edit" target="_blank"><div class="t">📄 1 · Webinar / Clase en directo ↗</div><div class="d">Estructura sección a sección + guion del lanzamiento + oferta en vivo + checklist.</div></a>
-    <a class="card doc" href="https://docs.google.com/document/d/1fbS2LVqFcIExzsSw1ZOjCsXjY7xWE5BQ9Z-AtrqqIPI/edit" target="_blank"><div class="t">📄 2 · Contenido orgánico + calendario ↗</div><div class="d">Pilares, Trial Reels, 10 ganchos, calendario de 4 semanas pieza a pieza.</div></a>
-    <a class="card doc" href="https://docs.google.com/document/d/1-VS9uhS2L37oabRbb3Z3Dzgp3uF92A6wTTngNVdeCas/edit" target="_blank"><div class="t">📄 3 · Comunidad + mensajes privados ↗</div><div class="d">Módulos, onboarding y TODOS los mensajes listos para copiar (bienvenida, retención, founding…).</div></a>
-    <a class="card doc" href="https://docs.google.com/document/d/1xqV5xptK5_u-zl-d-Ig91jZEtmg3WEXnJ0bvAV5n3xo/edit" target="_blank"><div class="t">📄 4 · Lanzamiento, precios, secuencias y automatización ↗</div><div class="d">Oferta, tramos de precio, secuencia 14 días, 7 emails + 7 WhatsApp, flujo Skool/GHL/Klarna/n8n, KPIs.</div></a>
-    <a class="card doc" href="https://docs.google.com/document/d/10mkgugkTUcfKvJaaLCPJgkdSlKU5EHbAyS5Hz63G-GM/edit" target="_blank"><div class="t">📄 5 · Motor de contenido viral ↗</div><div class="d">Swipe file de outliers, anatomía de hooks y guiones listos para grabar (y editar).</div></a>
+    <a class="card doc" href="https://docs.google.com/document/d/1tbeJKWMiPilNLzrTc5gEPCO_2U-CeJEAOeNWVIsJgMI/edit" target="_blank"><div class="t">🧭 0 · Brand Codex (coherence base) ↗</div><div class="d">Essence, pillars, tone, visual world and checklist. The filter for everything published.</div></a>
+    <a class="card doc" href="https://docs.google.com/document/d/1VJMIg_ks4RVK2GpZYXUaNYCVnAWnV2vBDVeTAve2RKc/edit" target="_blank"><div class="t">📄 1 · Webinar / live class ↗</div><div class="d">Section-by-section structure + launch script + live offer + checklist.</div></a>
+    <a class="card doc" href="https://docs.google.com/document/d/1fbS2LVqFcIExzsSw1ZOjCsXjY7xWE5BQ9Z-AtrqqIPI/edit" target="_blank"><div class="t">📄 2 · Organic content + calendar ↗</div><div class="d">Pillars, Trial Reels, 10 hooks, a 4-week calendar piece by piece.</div></a>
+    <a class="card doc" href="https://docs.google.com/document/d/1-VS9uhS2L37oabRbb3Z3Dzgp3uF92A6wTTngNVdeCas/edit" target="_blank"><div class="t">📄 3 · Community + private messages ↗</div><div class="d">Modules, onboarding and ALL the messages ready to copy (welcome, retention, founding…).</div></a>
+    <a class="card doc" href="https://docs.google.com/document/d/1xqV5xptK5_u-zl-d-Ig91jZEtmg3WEXnJ0bvAV5n3xo/edit" target="_blank"><div class="t">📄 4 · Launch, pricing, sequences & automation ↗</div><div class="d">Offer, price tiers, 14-day sequence, 7 emails + 7 WhatsApp, Skool/GHL/Klarna/n8n flow, KPIs.</div></a>
+    <a class="card doc" href="https://docs.google.com/document/d/10mkgugkTUcfKvJaaLCPJgkdSlKU5EHbAyS5Hz63G-GM/edit" target="_blank"><div class="t">📄 5 · Viral content engine ↗</div><div class="d">Swipe file of outliers, hook anatomy and scripts ready to film (and edit).</div></a>
   </div>
-  <p class="sm mute" style="margin-top:14px">Carpeta: Drive › 02_INFLUENCERS_Y_CLIENTES › Tudor Morari.</p>
-  <div class="btnrow"><a class="btn" href="/como-trabajamos">Cómo trabajamos →</a></div>
+  <p class="sm mute" style="margin-top:14px">Folder: Drive › 02_INFLUENCERS_Y_CLIENTES › Tudor Morari.</p>
 </div></section>
 
 <footer class="foot"><div class="wrap">
   <img src="/assets/brand/qv-mark.svg" style="height:30px;opacity:.85" alt="QV"><br><br>
-  Quantum Ventures · Plan de la comunidad — Tudor (Societies RS Animation Academy)<br>
-  <span class="mute">Documento de trabajo. Precios y fechas a confirmar antes de ejecutar.</span>
+  Quantum Ventures · Community plan — Tudor (Societies RS Animation Academy)<br>
+  <span class="mute">Working document. Prices and dates to confirm before execution.</span>
 </div></footer>
 <script>
 const rv=document.querySelectorAll('.reveal');
