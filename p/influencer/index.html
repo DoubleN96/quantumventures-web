@@ -3,7 +3,7 @@
 <title>Quantum Ventures — Tu marca, tu imperio</title>
 <meta name="robots" content="noindex">
 <link rel="icon" href="/assets/brand/qv-favicon.png">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=Cormorant+Garamond:ital,wght@1,500;1,600&display=swap" rel="stylesheet">
 <style>
 :root{--ink:#06070d;--surface:#0c0e17;--surface2:#11131f;--line:rgba(255,255,255,.09);--cyan:#22d3ee;--indigo:#6366f1;--violet:#a855f7;--text:#e7ecf3;--mute:#8b97a8;--green:#34d399;--amber:#fbbf24}
 *{margin:0;box-sizing:border-box}html{scroll-behavior:smooth}
@@ -59,6 +59,24 @@ nav .cta{color:var(--ink);background:linear-gradient(100deg,var(--cyan),var(--in
 .btnrow{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
 .foot{padding:40px 0;border-top:1px solid var(--line);color:var(--mute);font-size:13px;text-align:center}
 .sm{font-size:13px}.mute{color:var(--mute)}.hl{background:linear-gradient(100deg,rgba(99,102,241,.14),transparent)}
+.serif{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-weight:500;letter-spacing:.01em}
+.kicker{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-size:clamp(19px,2.6vw,26px);color:#cbd5e1;font-weight:500}
+.rule{width:54px;height:1px;background:linear-gradient(90deg,var(--cyan),transparent);margin:18px 0 22px}
+/* grand slam offer */
+.offer{border:1px solid rgba(34,211,238,.25);border-radius:24px;padding:clamp(24px,4vw,42px);margin-top:26px;background:radial-gradient(120% 120% at 0% 0%,rgba(99,102,241,.12),transparent 60%),var(--surface)}
+.offer .name{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-size:clamp(13px,2vw,15px);color:var(--cyan);letter-spacing:.04em}
+.stack{margin:22px 0 0;border-top:1px solid var(--line)}
+.srow{display:flex;justify-content:space-between;gap:16px;padding:11px 0;border-bottom:1px solid var(--line);font-size:14.5px}
+.srow span:first-child{color:var(--text)}.srow span:last-child{color:var(--mute);font-family:'Space Grotesk';white-space:nowrap}
+.stotal{display:flex;justify-content:space-between;gap:16px;padding:16px 0 4px;align-items:baseline}
+.stotal .l{color:var(--mute);font-size:14px}.stotal .v{font-family:'Space Grotesk';font-weight:700;font-size:20px;color:var(--mute);text-decoration:line-through;text-decoration-color:rgba(255,255,255,.3)}
+.syou{display:flex;justify-content:space-between;gap:16px;align-items:baseline;margin-top:6px}
+.syou .l{font-family:'Cormorant Garamond';font-style:italic;font-size:18px;color:#e7ecf3}.syou .v{font-family:'Space Grotesk';font-weight:700;font-size:clamp(26px,4vw,38px)}
+.twocol{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:18px}@media(max-width:680px){.twocol{grid-template-columns:1fr}}
+.mini{background:var(--surface2);border:1px solid var(--line);border-radius:14px;padding:18px}
+.mini h4{font-family:'Space Grotesk';font-size:14px;margin-bottom:10px;color:#fff}
+.mini ul{list-style:none;padding:0}.mini li{font-size:13.5px;color:var(--mute);padding:5px 0 5px 20px;position:relative}
+.mini li:before{content:"✦";position:absolute;left:0;color:var(--cyan);font-size:11px}
 .reveal{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s cubic-bezier(.16,1,.3,1)}.reveal.in{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}}
 </style></head>
@@ -73,9 +91,10 @@ nav .cta{color:var(--ink);background:linear-gradient(100deg,var(--cyan),var(--in
 
 <header class="hero"><div class="wrap">
   <div class="aurora a1"></div><div class="aurora a2"></div>
-  <span class="pill">Quantum Ventures · Propuesta de colaboración</span>
+  <span class="pill">Quantum Ventures · Invitación privada</span>
   <h1 class="display">Tu marca ya tiene público.<br>Vamos a convertirla en un <span class="grad">imperio</span>.</h1>
-  <p class="lead" style="font-size:19px">Has hecho lo más difícil: construir una audiencia que confía en ti. Ese es el activo. Nosotros ponemos la máquina que lo convierte en un negocio real, escalable y recurrente — y nos encargamos de absolutamente todo menos de lo único que solo tú puedes hacer: crear y ser tú.</p>
+  <p class="kicker" style="margin:6px 0 14px">Una invitación, no una oferta más. Para construir algo que perdure.</p>
+  <p class="lead" style="font-size:19px">Has hecho lo más difícil: construir una audiencia que confía en ti. Ese es el activo. Nosotros ponemos la máquina que lo convierte en un negocio real, escalable y recurrente — y nos ocupamos de todo, salvo de lo único que nadie puede hacer por ti: crear y ser tú.</p>
   <div class="btnrow"><a class="btn" href="#todo">Lo que hacemos por ti ↓</a><a class="btn ghost" href="#siguiente">Quiero saber más</a></div>
 </div></header>
 
@@ -108,6 +127,7 @@ nav .cta{color:var(--ink);background:linear-gradient(100deg,var(--cyan),var(--in
 <section id="red"><div class="wrap">
   <span class="eyebrow reveal">03 · La red que te respalda</span>
   <h2 class="sec display reveal">El mismo equipo detrás de <span class="grad">+70M de seguidores</span>.</h2>
+  <p class="kicker reveal" style="margin-bottom:10px">El pedigrí no se improvisa.</p>
   <p class="lead reveal">Nuestra producción de contenido la respalda una red de creadores que produce, hace crecer y monetiza algunos de los canales más grandes del mundo. Ese músculo operativo — el que ya ha llevado canales a decenas de millones — trabaja ahora para tu marca.</p>
   <div class="stat3 reveal">
     <div class="s"><div class="kpi grad">70M+</div><div class="metric">Audiencia combinada de la red</div></div>
@@ -131,6 +151,7 @@ nav .cta{color:var(--ink);background:linear-gradient(100deg,var(--cyan),var(--in
 <section id="todo"><div class="wrap">
   <span class="eyebrow reveal">04 · Todo cubierto</span>
   <h2 class="sec display reveal">Tú creas. Nosotros hacemos <span class="grad">absolutamente todo lo demás</span>.</h2>
+  <p class="kicker reveal" style="margin-bottom:10px">Nada que contratar. Nada que aprender. Nada de lo que preocuparte.</p>
   <p class="lead reveal">No tendrás que contratar, coordinar ni aprender nada nuevo. Cada necesidad de tu negocio ya está cubierta por nuestro sistema — y mejoramos lo que ya tengas funcionando.</p>
   <div class="value reveal">
     <div class="vitem"><span class="ck">✓</span><div><b>Estrategia y posicionamiento</b> de tu marca personal</div></div>
@@ -168,22 +189,51 @@ nav .cta{color:var(--ink);background:linear-gradient(100deg,var(--cyan),var(--in
   </div>
 </div></section>
 
-<!-- EL MODELO -->
+<!-- LA OFERTA · GRAND SLAM -->
 <section id="modelo"><div class="wrap">
-  <span class="eyebrow reveal">06 · El modelo</span>
-  <h2 class="sec display reveal">No arriesgas nada. <span class="grad">Ganamos cuando tú ganas.</span></h2>
-  <div class="model reveal">
-    <div class="big display" style="font-family:'Space Grotesk';font-size:clamp(22px,3.2vw,30px);font-weight:700">Inversión 0 por tu parte.</div>
-    <p style="color:var(--text);margin-top:12px;font-size:16px;max-width:720px">Trabajamos a éxito: ponemos el sistema, el equipo y la inversión, y compartimos el resultado. Nuestro incentivo es uno solo — que tu negocio crezca, mes a mes. Si tú no ganas, nosotros tampoco. No hay forma más alineada de hacerlo.</p>
+  <span class="eyebrow reveal">06 · La oferta</span>
+  <h2 class="sec display reveal">El Acuerdo <span class="grad">Founder</span></h2>
+  <p class="kicker reveal">Todo lo que necesita un imperio. Sin que pongas un euro.</p>
+  <div class="offer reveal">
+    <div class="name">— Un equipo completo, a tu servicio —</div>
+    <div class="stack">
+      <div class="srow"><span>Dirección de estrategia y negocio</span><span>3.000 €/mes</span></div>
+      <div class="srow"><span>Producción de contenido full-service</span><span>4.000 €/mes</span></div>
+      <div class="srow"><span>Captación, funnel y automatización</span><span>2.000 €/mes</span></div>
+      <div class="srow"><span>Media buying · tráfico pago</span><span>1.500 €/mes</span></div>
+      <div class="srow"><span>Copywriting, email y CRM</span><span>1.200 €/mes</span></div>
+      <div class="srow"><span>Comunidad y soporte</span><span>1.200 €/mes</span></div>
+      <div class="srow"><span>Estructura fiscal, legal y financiera</span><span>900 €/mes</span></div>
+      <div class="srow"><span>Datos, dashboard y reporting</span><span>800 €/mes</span></div>
+      <div class="stotal"><span class="l">Valor de mercado de este equipo</span><span class="v">+14.600 €/mes</span></div>
+      <div class="syou"><span class="l">Tu inversión</span><span class="v grad">0 €</span></div>
+    </div>
+    <div class="twocol">
+      <div class="mini"><h4>Incluido — sin coste adicional</h4><ul>
+        <li>Tu Brand Codex a medida — tu identidad, blindada</li>
+        <li>Acceso a la red de producción tras +70M</li>
+        <li>Sistema de captación automatizada, 24/7</li>
+        <li>Mejora de tus productos y servicios actuales</li>
+        <li>Reinversión de capital en tu propio crecimiento</li>
+      </ul></div>
+      <div class="mini"><h4>Nuestra garantía</h4><ul>
+        <li>Inversión 0 — el riesgo lo asumimos nosotros</li>
+        <li>Solo ganamos un % cuando tú ya has ganado</li>
+        <li>Sin permanencia que te ate: te quedas porque funciona</li>
+        <li>Transparencia total en un dashboard que es tuyo</li>
+      </ul></div>
+    </div>
+    <p class="serif" style="font-size:clamp(17px,2.4vw,22px);color:#e7ecf3;margin-top:24px;line-height:1.5">Un equipo de más de 14.000 € al mes, dedicado a tu marca, por una inversión de cero. Solo participamos del crecimiento que construimos contigo.</p>
   </div>
 </div></section>
 
 <!-- ESCASEZ -->
 <section id="seleccion"><div class="wrap">
   <span class="eyebrow reveal">07 · Por qué tú</span>
-  <h2 class="sec display reveal">No trabajamos con todo el mundo</h2>
+  <h2 class="sec display reveal">Trabajamos con <span class="grad">muy pocos</span>. A propósito.</h2>
+  <p class="kicker reveal">La exclusividad no es una táctica. Es cómo garantizamos el resultado.</p>
   <div class="scar reveal">
-    <p style="color:var(--text);font-size:17px;max-width:760px">Solo entramos donde vemos <b>potencial real de negocio</b> — por eso auditamos producto y estructura, no solo seguidores. Llevamos un número limitado de creadores a la vez para volcarnos en cada uno. Te escribimos porque encajas en esa lista corta. La oportunidad de construir esto, ahora y con nosotros, no estará abierta siempre.</p>
+    <p style="color:var(--text);font-size:17px;max-width:760px">Elegimos un círculo reducido de creadores en los que vemos <b>un negocio, no solo una cuenta</b> — por eso auditamos producto y estructura, nunca solo seguidores. Volcarnos en cada uno exige no ser muchos. Si estás leyendo esto, es porque ya estás en esa lista corta — y esa puerta no permanece abierta de forma indefinida.</p>
   </div>
 </div></section>
 
