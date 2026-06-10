@@ -179,6 +179,35 @@ textarea:focus{outline:none;border-color:var(--cyan)}
 .swm{width:34px;height:19px;border-radius:999px;background:rgba(52,211,153,.35);position:relative;cursor:pointer}
 .swm i{position:absolute;top:2.5px;right:3px;width:14px;height:14px;border-radius:50%;background:var(--green)}
 .note{margin-top:18px;font-size:12px;color:var(--mute);text-align:center}
+/* ===== espacio influencer ===== */
+.space-hero{display:flex;align-items:center;gap:14px;background:linear-gradient(120deg,rgba(168,85,247,.13),rgba(99,102,241,.07));border:1px solid rgba(168,85,247,.3);border-radius:18px;padding:18px 20px;margin-bottom:18px;flex-wrap:wrap}
+.space-h{font-family:'Space Grotesk';font-size:15px;margin:20px 0 12px}
+.growth{display:flex;align-items:flex-end;gap:10px;height:150px;padding-top:8px}
+.gcol{flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;height:100%;justify-content:flex-end}
+.gbar{width:100%;border-radius:8px 8px 4px 4px;background:linear-gradient(180deg,var(--violet),var(--indigo));transform-origin:bottom;animation:grow .9s cubic-bezier(.16,1,.3,1) both}
+@keyframes grow{from{transform:scaleY(0)}}
+.gcol .gl{font-size:10px;color:var(--mute)}
+.gcol .gv{font-size:10.5px;font-weight:700;color:#cbd5e1}
+.proj{margin-top:8px}
+.projbar{height:14px;border-radius:999px;background:#141929;position:relative;overflow:visible}
+.projbar i{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,var(--cyan),var(--indigo),var(--violet));transition:width 1.2s cubic-bezier(.16,1,.3,1)}
+.projmark{position:absolute;top:-4px;width:22px;height:22px;border-radius:50%;background:#fff;border:4px solid var(--indigo);transform:translateX(-50%);box-shadow:0 0 14px rgba(99,102,241,.8)}
+.projlbl{display:flex;justify-content:space-between;font-size:11.5px;color:var(--mute);margin-top:10px}
+.hitos{display:flex;flex-direction:column;gap:0}
+.hito{display:flex;gap:12px;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.05);font-size:13px;align-items:center}
+.hito:last-child{border-bottom:0}
+.hito .hi{width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex:0 0 auto}
+.hi-done{background:rgba(52,211,153,.18);color:var(--green)}
+.hi-now{background:rgba(34,211,238,.2);color:var(--cyan);box-shadow:0 0 10px rgba(34,211,238,.4)}
+.hi-next{background:rgba(255,255,255,.06);color:#5b6678}
+.hito .ht{flex:1}.hito.now .ht{color:#fff;font-weight:600}.hito.next .ht{color:var(--mute)}
+.hito .hs{font-size:10.5px;color:#5b6678}
+.revrow{display:flex;align-items:center;gap:10px;margin-bottom:10px;font-size:12.5px}
+.revrow .rl{flex:0 0 120px;color:var(--mute)}
+.revrow .bar{flex:1;height:18px;border-radius:6px;background:#141929;overflow:hidden}
+.revrow .bar i{display:block;height:100%;border-radius:6px;animation:grow2 1s cubic-bezier(.16,1,.3,1) both;transform-origin:left}
+@keyframes grow2{from{transform:scaleX(0)}}
+.revrow b{flex:0 0 66px;text-align:right;font-size:12.5px}
 /* ===== responsive ===== */
 @media(max-width:880px){
   :root{--side:0px}
@@ -207,6 +236,7 @@ textarea:focus{outline:none;border-color:var(--cyan)}
     <div class="ni" data-v="contacts"><svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 19c.6-3 2.8-4.5 5.5-4.5s4.9 1.5 5.5 4.5M16 4.8a3.2 3.2 0 010 6.4M17.5 14.7c2 .6 3.1 1.9 3.5 4.3"/></svg>Contactos</div>
     <div class="ni" data-v="inbox"><svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M21 12a8.5 8.5 0 01-12.4 7.5L4 21l1.5-4.4A8.5 8.5 0 1121 12z"/></svg>Conversaciones<span class="bdg" id="binbox"></span></div>
     <div class="ni" data-v="cal"><svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/></svg>Calendario</div>
+    <div class="ni" data-v="space"><svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M12 2.5l2.6 5.8 6.4.6-4.8 4.2 1.4 6.2-5.6-3.3-5.6 3.3 1.4-6.2L3 8.9l6.4-.6z"/></svg>Espacio influencer</div>
     <div class="ni" data-v="settings"><svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a7.9 7.9 0 00.1-6l-2.1-.4a6 6 0 00-1.1-1.9l.7-2a8 8 0 00-5.2-3l-1.3 1.7a6 6 0 00-2.2 0L7 1.7a8 8 0 00-5.2 3l.7 2A6 6 0 001.4 8.6L-.7 9" transform="translate(3 3) scale(.78)"/><path d="M12 5.5V3M12 21v-2.5M5.5 12H3M21 12h-2.5M7.4 7.4L5.6 5.6M18.4 18.4l-1.8-1.8M7.4 16.6l-1.8 1.8M18.4 5.6l-1.8 1.8"/></svg>Ajustes</div>
   </nav>
   <div class="foot"><span class="demo-pill">DEMO · datos de ejemplo</span><br>QV CRM · Quantum Ventures<br>Sync: DB propia + backup Sheets ✓</div>
@@ -260,6 +290,50 @@ textarea:focus{outline:none;border-color:var(--cyan)}
       </div>
     </div>
 
+    <!-- ESPACIO INFLUENCER -->
+    <div class="view" id="v-space">
+      <div class="space-hero">
+        <div class="ini" style="width:54px;height:54px;font-size:19px;background:linear-gradient(120deg,#a855f7,#6366f1)">TM</div>
+        <div>
+          <div style="font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--cyan);font-weight:600">Tu espacio · Quantum Ventures</div>
+          <h2 class="display" style="font-size:24px;margin-top:3px">Hola, Tudor 👋</h2>
+          <div style="font-size:12.5px;color:var(--mute)">Animación con IA · semana del 9 de junio · <span style="color:var(--green)">todo en marcha ✓</span></div>
+        </div>
+        <span class="chip ch-hum" style="margin-left:auto">vista del influencer · white-label con SU marca</span>
+      </div>
+
+      <h3 class="space-h">📈 Tu marca personal</h3>
+      <div class="kpis" style="grid-template-columns:repeat(4,1fr)" id="sp-brand"></div>
+      <div class="panelgrid" style="margin-top:12px">
+        <div class="pcard"><h3>Crecimiento de seguidores (Instagram · 6 meses)</h3><div class="growth" id="sp-growth"></div></div>
+        <div class="pcard"><h3>🔥 Tus virales detectados (outliers)</h3><div class="feed" id="sp-virals"></div></div>
+      </div>
+
+      <h3 class="space-h">💶 Tus ingresos</h3>
+      <div class="panelgrid" style="grid-template-columns:1fr 1.2fr">
+        <div class="pcard">
+          <h3>Este mes, por vertical</h3><div id="sp-rev"></div>
+          <div style="border-top:1px solid var(--line);margin-top:12px;padding-top:12px;display:flex;justify-content:space-between;align-items:baseline">
+            <span style="font-size:12.5px;color:var(--mute)">Total junio</span>
+            <b class="display grad" style="font-size:26px">13.850 €</b>
+          </div>
+        </div>
+        <div class="pcard">
+          <h3>Camino a tu proyección (mes 6: 24.000 €/mes)</h3>
+          <div class="proj">
+            <div class="projbar"><i style="width:58%"></i><span class="projmark" style="left:58%"></span></div>
+            <div class="projlbl"><span>Hoy: 13.850 €/mes · <b style="color:var(--cyan)">58% del objetivo</b></span><span>24.000 €</span></div>
+          </div>
+          <p style="font-size:12.5px;color:var(--mute);margin-top:14px;line-height:1.7">Vas <b style="color:var(--green)">por delante del plan</b> (esperado a estas alturas: 52%). Parte del capital se está reinvirtiendo en tu audiencia: +2 editores y 400 €/mes en amplificación de tus mejores reels.</p>
+        </div>
+      </div>
+
+      <div class="panelgrid" style="margin-top:12px">
+        <div class="pcard"><h3>🗺 Tu roadmap</h3><div class="hitos" id="sp-hitos"></div></div>
+        <div class="pcard"><h3>⚡ Esta semana, el equipo hizo por ti</h3><div class="feed" id="sp-week"></div></div>
+      </div>
+    </div>
+
     <!-- AJUSTES -->
     <div class="view" id="v-settings">
       <p style="color:var(--mute);font-size:13px;margin-bottom:14px">Configuración del AI Setter por influencer — voz, oferta, criterios de calificación y horarios. Cada creador es un “espacio” independiente.</p>
@@ -308,7 +382,7 @@ let filter='all', inboxSel=null;
 const fil=()=>DATA.filter(l=>filter==='all'||l.inf===filter);
 
 /* ===== nav ===== */
-const TITLES={panel:'Panel',opps:'Oportunidades',contacts:'Contactos',inbox:'Conversaciones',cal:'Calendario',settings:'Ajustes'};
+const TITLES={panel:'Panel',opps:'Oportunidades',contacts:'Contactos',inbox:'Conversaciones',cal:'Calendario',space:'Espacio influencer',settings:'Ajustes'};
 document.querySelectorAll('.ni').forEach(n=>n.addEventListener('click',()=>{
   document.querySelectorAll('.ni').forEach(x=>x.classList.toggle('on',x===n));
   document.querySelectorAll('.view').forEach(v=>v.classList.remove('on'));
@@ -472,7 +546,39 @@ function renderSettings(){
     <div class="onoff">Alerta Telegram lead 🔥 <span class="swm"><i></i></span></div>
     <div class="onoff">Backup en Google Sheets <span class="swm"><i></i></span></div></div>`}).join('');
 }
-function renderAll(){renderBoard();renderPanel();renderContacts();renderInbox();renderCal();renderSettings()}
+/* ===== espacio influencer (demo: Tudor) ===== */
+function renderSpace(){
+  $('#sp-brand').innerHTML=[
+    ['333,7K','Instagram','+8,2K este mes'],['89K','TikTok','+5,1K este mes'],['41K','YouTube','+2,3K este mes'],['4,8%','Engagement','+0,6 pts vs mayo']
+  ].map(k=>`<div class="kpi"><div class="v grad">${k[0]}</div><div class="k">${k[1]}</div><div class="d">${k[2]}</div></div>`).join('');
+  const months=[['Ene',286],['Feb',295],['Mar',304],['Abr',312],['May',325],['Jun',334]];
+  const mx=340, mn=280;
+  $('#sp-growth').innerHTML=months.map((m,i)=>`<div class="gcol"><span class="gv">${m[1]}K</span><div class="gbar" style="height:${(m[1]-mn)/(mx-mn)*100}%;animation-delay:${i*0.08}s"></div><span class="gl">${m[0]}</span></div>`).join('');
+  $('#sp-virals').innerHTML=[
+    ['🎬','<b>"Documental URSS en 10 min con IA"</b> · 4,7x tu media — 7.008 likes · 4.481 comentarios','tu pilar ganador: “cómo lo hago con IA”'],
+    ['🎬','<b>"De guion a corto animado en una tarde"</b> · 3,2x tu media','replicado en 2 guiones nuevos esta semana'],
+    ['📈','El gancho "resultado + plazo" es tu mejor fórmula','la IA ya la prioriza en tus guiones']
+  ].map(f=>`<div class="fe"><div class="ic">${f[0]}</div><div>${f[1]}<span class="t">${f[2]}</span></div></div>`).join('');
+  const rev=[['Comunidad (MRR)',7350,'linear-gradient(90deg,#22d3ee,#6366f1)'],['Asesoría 1-1',4500,'linear-gradient(90deg,#6366f1,#a855f7)'],['Deals & promos',2000,'linear-gradient(90deg,#a855f7,#f472b6)']];
+  const rmx=7350;
+  $('#sp-rev').innerHTML=rev.map((r,i)=>`<div class="revrow"><span class="rl">${r[0]}</span><div class="bar"><i style="width:${r[1]/rmx*100}%;background:${r[2]};animation-delay:${i*0.12}s"></i></div><b>${r[1].toLocaleString('es-ES')} €</b></div>`).join('');
+  $('#sp-hitos').innerHTML=[
+    ['done','Auditoría completa (marca + producto)','mayo'],
+    ['done','Estrategia de oferta y escalera de valor','mayo'],
+    ['done','Lanzamiento founding de tu comunidad (50 €/mes)','1-14 jun'],
+    ['now','Escalar comunidad a 300 miembros · subida a 65 €','en curso'],
+    ['next','Clase semanal evergreen + funnel automático','jul'],
+    ['next','Tu marca propia (producto físico/digital)','T4 2026']
+  ].map(h=>`<div class="hito ${h[0]==='now'?'now':h[0]==='next'?'next':''}"><span class="hi hi-${h[0]}">${h[0]==='done'?'✓':h[0]==='now'?'●':'○'}</span><span class="ht">${h[1]}</span><span class="hs">${h[2]}</span></div>`).join('');
+  $('#sp-week').innerHTML=[
+    ['✍️','<b>6 guiones</b> nuevos entregados (2 con tu fórmula viral)','lun'],
+    ['🎞','<b>2 reels</b> editados y programados','mar'],
+    ['🤖','La IA gestionó <b>14 conversaciones</b> y agendó <b>3 llamadas</b>','toda la semana'],
+    ['💶','<b>1.250 €</b> cobrados (2 altas comunidad + 1 asesoría)','hoy'],
+    ['📊','Informe semanal enviado al consejo','viernes']
+  ].map(f=>`<div class="fe"><div class="ic">${f[0]}</div><div>${f[1]}<span class="t">${f[2]}</span></div></div>`).join('');
+}
+function renderAll(){renderBoard();renderPanel();renderContacts();renderInbox();renderCal();renderSettings();renderSpace()}
 renderAll();
 </script>
 </body></html>
