@@ -1,0 +1,260 @@
+<!doctype html><html lang="es"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>QV CRM · Demo</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="/assets/brand/qv-favicon.png">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#06070d;--surface:#0c0e17;--s2:#11131f;--line:rgba(255,255,255,.10);--cyan:#22d3ee;--indigo:#6366f1;--violet:#a855f7;--text:#e7ecf3;--mute:#8b97a8;--green:#34d399;--amber:#fbbf24;--red:#f87171}
+*{margin:0;box-sizing:border-box}
+body{background:var(--ink);color:var(--text);font-family:'Inter',sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased;min-height:100vh}
+.display{font-family:'Space Grotesk',sans-serif;letter-spacing:-.02em}
+.grad{background:linear-gradient(100deg,var(--cyan),var(--indigo) 50%,var(--violet));-webkit-background-clip:text;background-clip:text;color:transparent}
+/* topbar */
+.top{position:sticky;top:0;z-index:40;background:rgba(6,7,13,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);padding:0 18px}
+.top .in{display:flex;align-items:center;gap:14px;height:58px;max-width:1500px;margin:0 auto}
+.top img{height:24px}
+.top .ttl{font-family:'Space Grotesk';font-weight:700;font-size:15px}
+.top .ttl span{color:var(--mute);font-weight:500}
+.demo-pill{font-size:10.5px;font-weight:700;letter-spacing:.08em;background:rgba(251,191,36,.15);color:var(--amber);border:1px solid rgba(251,191,36,.35);border-radius:999px;padding:3px 10px}
+.tabs{display:flex;gap:4px;margin-left:18px}
+.vtab{font-family:'Space Grotesk';font-size:13px;font-weight:600;color:var(--mute);background:none;border:0;border-radius:8px;padding:8px 14px;cursor:pointer}
+.vtab.on{color:var(--text);background:rgba(255,255,255,.07)}
+.usr{margin-left:auto;display:flex;align-items:center;gap:10px}
+select{background:var(--s2);border:1px solid var(--line);color:var(--text);border-radius:10px;padding:8px 12px;font:inherit;font-size:13px}
+.avatar{width:32px;height:32px;border-radius:50%;background:linear-gradient(120deg,var(--cyan),var(--indigo));display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px;color:var(--ink)}
+/* board */
+.wrap{max-width:1500px;margin:0 auto;padding:18px}
+.board{display:flex;gap:12px;overflow-x:auto;padding-bottom:24px;align-items:flex-start}
+.col{flex:0 0 268px;background:rgba(255,255,255,.025);border:1px solid var(--line);border-radius:16px;padding:12px;min-height:240px}
+.col.drag{border-color:rgba(34,211,238,.55);background:rgba(34,211,238,.05)}
+.colh{display:flex;align-items:center;gap:8px;padding:2px 4px 12px}
+.dot{width:9px;height:9px;border-radius:50%}
+.colh h3{font-family:'Space Grotesk';font-size:13px;font-weight:600}
+.colh .n{margin-left:auto;font-size:11.5px;color:var(--mute);background:rgba(255,255,255,.06);border-radius:999px;padding:2px 8px}
+.colsum{font-size:11px;color:var(--mute);padding:0 4px 10px}
+.cardlist{display:flex;flex-direction:column;gap:9px;min-height:60px}
+.lead{background:var(--surface);border:1px solid var(--line);border-radius:13px;padding:12px;cursor:grab;transition:transform .25s cubic-bezier(.16,1,.3,1),border-color .25s,box-shadow .25s}
+.lead:hover{transform:translateY(-2px);border-color:rgba(99,102,241,.45);box-shadow:0 8px 22px rgba(0,0,0,.35)}
+.lead.dragging{opacity:.45;transform:rotate(2deg)}
+.lead .r1{display:flex;align-items:center;gap:9px;margin-bottom:7px}
+.ini{width:30px;height:30px;border-radius:50%;flex:0 0 auto;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:11px;color:var(--ink)}
+.lead .nm{font-weight:600;font-size:13.5px;line-height:1.25}
+.lead .hd{font-size:11px;color:var(--mute)}
+.lead .r2{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.chip{font-size:10px;font-weight:600;border-radius:999px;padding:2.5px 8px}
+.ch-inf{background:rgba(168,85,247,.14);color:#c084fc}
+.ch-src{background:rgba(255,255,255,.06);color:var(--mute)}
+.ch-val{background:rgba(52,211,153,.13);color:var(--green)}
+.ch-hot{background:rgba(34,211,238,.15);color:var(--cyan)}
+.ch-hum{background:rgba(251,191,36,.15);color:var(--amber)}
+.scorebar{margin-top:8px;display:flex;align-items:center;gap:7px}
+.sb{flex:1;height:5px;border-radius:4px;background:#1b2233;overflow:hidden}
+.sb i{display:block;height:100%;border-radius:4px;background:linear-gradient(90deg,var(--cyan),var(--indigo))}
+.scorebar b{font-size:11px;color:var(--mute);font-weight:600}
+.lead .ago{font-size:10.5px;color:#5b6678;margin-top:7px}
+/* drawer */
+.ovl{position:fixed;inset:0;background:rgba(3,4,8,.6);backdrop-filter:blur(3px);opacity:0;pointer-events:none;transition:opacity .3s;z-index:60}
+.ovl.open{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(480px,100vw);background:var(--s2);border-left:1px solid var(--line);z-index:70;transform:translateX(102%);transition:transform .38s cubic-bezier(.16,1,.3,1);overflow-y:auto}
+.drawer.open{transform:none}
+.dh{padding:20px 22px;border-bottom:1px solid var(--line);display:flex;gap:13px;align-items:center;position:sticky;top:0;background:var(--s2);z-index:2}
+.dh .ini{width:44px;height:44px;font-size:15px}
+.dh h2{font-family:'Space Grotesk';font-size:19px}
+.dh .sub{font-size:12.5px;color:var(--mute)}
+.x{margin-left:auto;background:none;border:1px solid var(--line);color:var(--mute);width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:15px}
+.dbody{padding:20px 22px 40px}
+.dsec{margin-bottom:22px}
+.dsec h4{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--cyan);font-weight:600;margin-bottom:10px}
+.kv{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.kv .b{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.kv .k{font-size:10.5px;color:var(--mute);text-transform:uppercase;letter-spacing:.06em}
+.kv .v{font-size:13.5px;font-weight:600;margin-top:2px}
+.stsel{display:flex;gap:6px;flex-wrap:wrap}
+.stbtn{font-size:11.5px;font-weight:600;border-radius:999px;padding:6px 12px;border:1px solid var(--line);background:none;color:var(--mute);cursor:pointer}
+.stbtn.on{background:linear-gradient(100deg,var(--cyan),var(--indigo));color:var(--ink);border-color:transparent}
+.convo{display:flex;flex-direction:column;gap:8px}
+.msg{max-width:86%;border-radius:13px;padding:9px 13px;font-size:13px;line-height:1.55}
+.m-lead{background:var(--surface);border:1px solid var(--line);align-self:flex-start}
+.m-ia{background:linear-gradient(120deg,rgba(34,211,238,.16),rgba(99,102,241,.13));border:1px solid rgba(34,211,238,.25);align-self:flex-end}
+.m-ia .who,.m-lead .who{font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;margin-bottom:3px}
+.m-ia .who{color:var(--cyan)}.m-lead .who{color:var(--mute)}
+.tl{border-left:2px solid rgba(34,211,238,.3);padding-left:14px;display:flex;flex-direction:column;gap:10px}
+.tl .e{font-size:12.5px;color:#aab4c4}.tl .e b{color:var(--text)}.tl .e .t{color:#5b6678;font-size:11px}
+.toggle{display:flex;align-items:center;gap:10px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;cursor:pointer}
+.toggle .sw{width:38px;height:21px;border-radius:999px;background:#1b2233;position:relative;transition:background .25s;flex:0 0 auto}
+.toggle .sw i{position:absolute;top:2.5px;left:3px;width:16px;height:16px;border-radius:50%;background:#8b97a8;transition:transform .25s,background .25s}
+.toggle.on .sw{background:rgba(251,191,36,.4)}.toggle.on .sw i{transform:translateX(16px);background:var(--amber)}
+.toggle .lbl{font-size:13px}.toggle .lbl b{display:block;font-size:13.5px}
+textarea{width:100%;background:var(--surface);border:1px solid var(--line);border-radius:12px;color:var(--text);padding:11px 13px;font:inherit;font-size:13px;min-height:64px;resize:vertical}
+textarea:focus{outline:none;border-color:var(--cyan)}
+/* metrics */
+.mwrap{display:none}
+.kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+@media(max-width:900px){.kpis{grid-template-columns:repeat(2,1fr)}}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:15px;padding:17px}
+.kpi .v{font-family:'Space Grotesk';font-size:clamp(22px,3vw,32px);font-weight:700}
+.kpi .k{font-size:11px;color:var(--mute);text-transform:uppercase;letter-spacing:.08em;margin-top:4px}
+.kpi .d{font-size:11px;color:var(--green);margin-top:6px}
+.funnel{margin-top:18px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px}
+.funnel h3{font-family:'Space Grotesk';font-size:15px;margin-bottom:16px}
+.frow{display:flex;align-items:center;gap:12px;margin-bottom:11px}
+.frow .l{flex:0 0 150px;font-size:12.5px;color:var(--mute)}
+.frow .bar{flex:1;height:26px;border-radius:7px;background:#141929;overflow:hidden}
+.frow .bar i{display:block;height:100%;border-radius:7px;background:linear-gradient(90deg,var(--cyan),var(--indigo));transition:width 1s cubic-bezier(.16,1,.3,1)}
+.frow b{flex:0 0 70px;text-align:right;font-size:13px}
+.byinf{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}
+@media(max-width:900px){.byinf{grid-template-columns:1fr}}
+.infc{background:var(--surface);border:1px solid var(--line);border-radius:15px;padding:17px}
+.infc .h{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.infc h3{font-family:'Space Grotesk';font-size:14.5px}
+.infc table{width:100%;border-collapse:collapse;font-size:12.5px}
+.infc td{padding:5px 0;color:var(--mute)}.infc td:last-child{text-align:right;color:var(--text);font-weight:600}
+.note{margin-top:20px;font-size:12px;color:var(--mute);text-align:center}
+@media(max-width:700px){.top .ttl span,.usr select{display:none}.tabs{margin-left:4px}}
+</style></head>
+<body>
+<div class="top"><div class="in">
+  <img src="/assets/brand/qv-mark.svg" alt="QV"><div class="ttl">QV CRM <span>· Oportunidades</span></div>
+  <span class="demo-pill">DEMO · datos de ejemplo</span>
+  <div class="tabs">
+    <button class="vtab on" data-v="board">Pipeline</button>
+    <button class="vtab" data-v="metrics">Métricas</button>
+  </div>
+  <div class="usr">
+    <select id="finf"><option value="all">Todos los influencers</option><option>Tudor</option><option>Isma</option><option>Laura</option></select>
+    <div class="avatar">DM</div>
+  </div>
+</div></div>
+
+<div class="wrap">
+  <div class="board" id="board"></div>
+  <div class="mwrap" id="metrics">
+    <div class="kpis" id="kpis"></div>
+    <div class="funnel"><h3>Embudo (últimos 30 días)</h3><div id="funnel"></div></div>
+    <div class="byinf" id="byinf"></div>
+  </div>
+  <p class="note">Demo navegable — arrastra leads entre columnas, abre una ficha, silencia la IA. Los cambios se guardan en tu navegador. En producción: cada cambio sincroniza con la base de datos + copia de seguridad automática en Google Sheets.</p>
+</div>
+
+<div class="ovl" id="ovl"></div>
+<aside class="drawer" id="drawer"></aside>
+
+<script>
+const STAGES=[
+ {id:'nuevo',n:'Nuevo lead',c:'#8b97a8'},
+ {id:'conv',n:'En conversación',c:'#22d3ee'},
+ {id:'cal',n:'Calificado',c:'#6366f1'},
+ {id:'cita',n:'Cita agendada',c:'#a855f7'},
+ {id:'ganado',n:'Ganado',c:'#34d399'},
+ {id:'perdido',n:'Perdido / Nutrición',c:'#f87171'}
+];
+const INF={Tudor:'#a855f7',Isma:'#22d3ee',Laura:'#f472b6'};
+const SEED=[
+ {id:1,nm:'Carlos Ruiz',hd:'@carlosfit',inf:'Isma',src:'Reel "PLAN"',st:'nuevo',sc:0,val:0,ago:'hace 4 min',msgs:[['lead','PLAN'],['ia','¡Hola Carlos! 💪 Soy del equipo de Isma. Te paso el plan en un momento — antes dime: ¿tu objetivo ahora mismo es perder grasa, ganar músculo o rendimiento?']]},
+ {id:2,nm:'Andrea Gómez',hd:'@andrea.gmz',inf:'Isma',src:'wa.me bio',st:'conv',sc:46,val:150,ago:'hace 18 min',msgs:[['lead','Hola! Vi tu story, quiero info de la asesoría'],['ia','¡Hola Andrea! Genial 🙌 Cuéntame: ¿qué has probado hasta ahora y qué te ha frenado?'],['lead','Llevo 1 año en el gym pero no veo cambios, creo que como mal'],['ia','Te entiendo — el 80% del resultado está en eso. ¿Entrenas por tu cuenta o has tenido coach antes?']]},
+ {id:3,nm:'Marc Vidal',hd:'@marcvidal_',inf:'Tudor',src:'Reel "IA"',st:'conv',sc:38,val:600,ago:'hace 1 h',msgs:[['lead','IA'],['ia','¡Hola Marc! Soy del equipo de Tudor 👋 ¿Ya creas contenido con IA o estarías empezando de cero?'],['lead','Hago alguna cosa con Midjourney pero quiero vivir de esto']]},
+ {id:4,nm:'Lucía Fernández',hd:'@luciafdz',inf:'Isma',src:'DM directo',st:'cal',sc:84,val:450,ago:'hace 2 h',hot:true,msgs:[['lead','Hola Isma! Quiero empezar ya en serio, tengo boda en septiembre'],['ia','¡Hola Lucía! Eso es un objetivo perfecto con fecha 🎯 ¿Cuántos días a la semana puedes entrenar?'],['lead','4 días sin problema, y puedo invertir en esto'],['ia','Con 4 días y septiembre de fecha vamos sobrados. Te encajo una llamada con el equipo para diseñarte el plan — ¿mañana 17:00 o 19:30?']]},
+ {id:5,nm:'Javi Moreno',hd:'@javimoreno.fit',inf:'Isma',src:'Reel "PLAN"',st:'cita',sc:91,val:450,ago:'mañana 17:00',hot:true,msgs:[['lead','PLAN'],['ia','¡Hola Javi! 💪 ¿Objetivo principal: perder grasa, músculo o rendimiento?'],['lead','Perder 12kg, me caso en otoño y voy en serio'],['ia','Compromiso + fecha = la combinación que mejor funciona. ¿Has tenido coach antes?'],['lead','No, siempre por mi cuenta con apps'],['ia','Perfecto, entonces una llamada corta con el equipo te va a aclarar el plan exacto. Tengo mañana 17:00 o jueves 10:00 — ¿cuál te viene mejor?'],['lead','Mañana 17 perfecto'],['ia','✅ Reservado — mañana 17:00. Te llega la confirmación con el enlace. Llévate apuntado tu peso actual y cuántas comidas haces al día 😉']]},
+ {id:6,nm:'Sara López',hd:'@saralopez.ai',inf:'Tudor',src:'wa.me bio',st:'cita',sc:78,val:600,ago:'jueves 10:00',msgs:[['lead','Quiero entrar en la comunidad pero tengo dudas'],['ia','¡Hola Sara! Dime — ¿qué te frena?'],['lead','Si sirve para alguien sin experiencia en animación'],['ia','Justo el 60% de la comunidad empezó de cero. Para verlo claro, mejor 15 min con el equipo: ¿jueves 10:00?'],['lead','Va, jueves']]},
+ {id:7,nm:'Pablo Núñez',hd:'@pablonz',inf:'Laura',src:'Ad CTW',st:'ganado',sc:88,val:1200,ago:'cerrado ayer',msgs:[['lead','Vengo del anuncio, quiero info del programa premium'],['ia','¡Hola Pablo! Te cuento — ¿facturas ya con tu marca o estás empezando?'],['lead','Facturo unos 3k/mes pero estancado'],['ia','Caso ideal para el programa. Te agendo con Laura directamente 👌']]},
+ {id:8,nm:'Elena Castro',hd:'@elenacastro',inf:'Laura',src:'Reel "CRECER"',st:'perdido',sc:22,val:0,ago:'hace 3 días',msgs:[['lead','CRECER'],['ia','¡Hola Elena! ¿En qué punto está tu marca ahora mismo?'],['lead','Aún no tengo cuenta, quiero empezar de 0'],['ia','¡Gracias por la sinceridad! Este programa es para marcas ya en marcha — te dejo la guía gratuita para arrancar y te escribo en unos meses 💜']]},
+ {id:9,nm:'Diego Martín',hd:'@diegomartin',inf:'Tudor',src:'DM directo',st:'cal',sc:71,val:600,ago:'hace 5 h',msgs:[['lead','Tudor, tu último vídeo me voló la cabeza. ¿Enseñas a hacer eso?'],['ia','¡Eso intento! 😄 ¿A qué te dedicas ahora y cuánto tiempo le podrías dedicar?'],['lead','Soy diseñador freelance, 2h al día fácil'],['ia','Perfil perfecto. ¿Te muevo una llamada con el equipo esta semana?']]},
+ {id:10,nm:'Nerea Ortiz',hd:'@nereaortiz',inf:'Isma',src:'Reel "PLAN"',st:'nuevo',sc:0,val:0,ago:'hace 9 min',msgs:[['lead','PLAN'],['ia','¡Hola Nerea! 💪 Te paso el plan — antes, ¿objetivo: grasa, músculo o rendimiento?']]},
+ {id:11,nm:'Hugo Sanz',hd:'@hugosanz',inf:'Tudor',src:'Ad DM',st:'conv',sc:54,val:600,ago:'hace 40 min',hum:true,msgs:[['lead','Quiero detalles del precio y formas de pago'],['ia','¡Claro Hugo! Antes de hablar de números, dime qué quieres conseguir — así te digo si esto te sirve de verdad.'],['lead','Quiero negociar algo especial, conozco a Tudor del gym'],['ia','👤 (El equipo ha tomado el control de esta conversación)']]},
+ {id:12,nm:'Claudia Pérez',hd:'@claudiaperez',inf:'Laura',src:'wa.me stories',st:'ganado',sc:93,val:1200,ago:'cerrado hoy',msgs:[['lead','Laura me encanta tu contenido, quiero el programa'],['ia','¡Hola Claudia! 🙌 ¿Tu marca está facturando ya?'],['lead','5k/mes con mi tienda'],['ia','Encaje total. Te paso con el equipo para cerrarlo hoy mismo ✨']]}
+];
+let DATA=JSON.parse(localStorage.getItem('qvcrm')||'null')||SEED;
+const save=()=>localStorage.setItem('qvcrm',JSON.stringify(DATA));
+const $=s=>document.querySelector(s);
+const inis=n=>n.split(' ').map(x=>x[0]).join('').slice(0,2).toUpperCase();
+const fEUR=v=>v?v.toLocaleString('es-ES')+' €':'—';
+let filter='all';
+
+function render(){
+  const b=$('#board');b.innerHTML='';
+  STAGES.forEach(st=>{
+    const leads=DATA.filter(l=>l.st===st.id&&(filter==='all'||l.inf===filter));
+    const val=leads.reduce((a,l)=>a+(l.val||0),0);
+    const col=document.createElement('div');col.className='col';col.dataset.st=st.id;
+    col.innerHTML=`<div class="colh"><span class="dot" style="background:${st.c}"></span><h3>${st.n}</h3><span class="n">${leads.length}</span></div><div class="colsum">${val?fEUR(val)+' en juego':'&nbsp;'}</div><div class="cardlist"></div>`;
+    const list=col.querySelector('.cardlist');
+    leads.forEach(l=>{
+      const c=document.createElement('div');c.className='lead';c.draggable=true;c.dataset.id=l.id;
+      c.innerHTML=`<div class="r1"><div class="ini" style="background:linear-gradient(120deg,${INF[l.inf]},#6366f1)">${inis(l.nm)}</div><div><div class="nm">${l.nm}</div><div class="hd">${l.hd}</div></div></div>
+      <div class="r2"><span class="chip ch-inf">${l.inf}</span><span class="chip ch-src">${l.src}</span>${l.val?`<span class="chip ch-val">${fEUR(l.val)}</span>`:''}${l.hot?'<span class="chip ch-hot">🔥 caliente</span>':''}${l.hum?'<span class="chip ch-hum">👤 humano</span>':''}</div>
+      ${l.sc?`<div class="scorebar"><div class="sb"><i style="width:${l.sc}%"></i></div><b>${l.sc}</b></div>`:''}
+      <div class="ago">${l.ago}</div>`;
+      c.addEventListener('click',()=>openDrawer(l.id));
+      c.addEventListener('dragstart',e=>{c.classList.add('dragging');e.dataTransfer.setData('text/plain',l.id)});
+      c.addEventListener('dragend',()=>c.classList.remove('dragging'));
+      list.appendChild(c);
+    });
+    col.addEventListener('dragover',e=>{e.preventDefault();col.classList.add('drag')});
+    col.addEventListener('dragleave',()=>col.classList.remove('drag'));
+    col.addEventListener('drop',e=>{e.preventDefault();col.classList.remove('drag');
+      const id=+e.dataTransfer.getData('text/plain');const l=DATA.find(x=>x.id===id);
+      if(l&&l.st!==st.id){l.st=st.id;l.ago='movido a mano · ahora';save();render();}
+    });
+    b.appendChild(col);
+  });
+  renderMetrics();
+}
+function openDrawer(id){
+  const l=DATA.find(x=>x.id===id);if(!l)return;
+  const d=$('#drawer');
+  d.innerHTML=`<div class="dh"><div class="ini" style="background:linear-gradient(120deg,${INF[l.inf]},#6366f1)">${inis(l.nm)}</div>
+    <div><h2 class="display">${l.nm}</h2><div class="sub">${l.hd} · ${l.inf} · ${l.src}</div></div>
+    <button class="x" onclick="closeDrawer()">✕</button></div>
+  <div class="dbody">
+    <div class="dsec"><h4>Estado</h4><div class="stsel">${STAGES.map(s=>`<button class="stbtn ${s.id===l.st?'on':''}" onclick="setStage(${l.id},'${s.id}')">${s.n}</button>`).join('')}</div></div>
+    <div class="dsec"><h4>Resumen</h4><div class="kv">
+      <div class="b"><div class="k">Score IA</div><div class="v">${l.sc||'—'} / 100</div></div>
+      <div class="b"><div class="k">Valor estimado</div><div class="v">${fEUR(l.val)}</div></div>
+      <div class="b"><div class="k">Origen</div><div class="v">${l.src}</div></div>
+      <div class="b"><div class="k">Última actividad</div><div class="v">${l.ago}</div></div>
+    </div></div>
+    <div class="dsec"><div class="toggle ${l.hum?'on':''}" onclick="toggleHum(${l.id})"><div class="sw"><i></i></div><div class="lbl"><b>Modo humano</b>${l.hum?'La IA está silenciada — el equipo lleva esta conversación.':'La IA gestiona esta conversación. Actívalo para tomar el control.'}</div></div></div>
+    <div class="dsec"><h4>Conversación (${l.msgs.length} mensajes)</h4><div class="convo">${l.msgs.map(m=>`<div class="msg m-${m[0]==='ia'?'ia':'lead'}"><div class="who">${m[0]==='ia'?'IA Setter · voz de '+l.inf:l.nm}</div>${m[1]}</div>`).join('')}</div></div>
+    <div class="dsec"><h4>Notas del equipo</h4><textarea placeholder="Escribe una nota interna… (en producción queda en la ficha y en el backup de Sheets)">${l.note||''}</textarea></div>
+    <div class="dsec"><h4>Historial</h4><div class="tl">
+      <div class="e"><b>IA</b> creó el lead desde ${l.src} <span class="t">· ${l.ago}</span></div>
+      ${l.sc?`<div class="e"><b>IA</b> calificó con score ${l.sc} <span class="t">· auto</span></div>`:''}
+      ${l.st==='cita'||l.st==='ganado'?`<div class="e"><b>IA</b> agendó llamada en el calendario <span class="t">· auto</span></div>`:''}
+      ${l.st==='ganado'?`<div class="e"><b>Closer</b> marcó GANADO ${l.val?'('+fEUR(l.val)+')':''} <span class="t">· manual</span></div>`:''}
+    </div></div>
+  </div>`;
+  d.querySelector('textarea').addEventListener('input',e=>{l.note=e.target.value;save()});
+  d.classList.add('open');$('#ovl').classList.add('open');
+}
+function closeDrawer(){$('#drawer').classList.remove('open');$('#ovl').classList.remove('open')}
+function setStage(id,st){const l=DATA.find(x=>x.id===id);l.st=st;l.ago='movido a mano · ahora';save();render();openDrawer(id)}
+function toggleHum(id){const l=DATA.find(x=>x.id===id);l.hum=!l.hum;save();render();openDrawer(id)}
+$('#ovl').addEventListener('click',closeDrawer);
+$('#finf').addEventListener('change',e=>{filter=e.target.value;render()});
+document.querySelectorAll('.vtab').forEach(t=>t.addEventListener('click',()=>{
+  document.querySelectorAll('.vtab').forEach(x=>x.classList.toggle('on',x===t));
+  $('#board').style.display=t.dataset.v==='board'?'flex':'none';
+  $('#metrics').style.display=t.dataset.v==='metrics'?'block':'none';
+}));
+function renderMetrics(){
+  const ds=DATA.filter(l=>filter==='all'||l.inf===filter);
+  const won=ds.filter(l=>l.st==='ganado');
+  const conv=ds.filter(l=>['conv','cal','cita','ganado'].includes(l.st)).length;
+  const cal=ds.filter(l=>['cal','cita','ganado'].includes(l.st)).length;
+  const citas=ds.filter(l=>['cita','ganado'].includes(l.st)).length;
+  const rev=won.reduce((a,l)=>a+(l.val||0),0);
+  $('#kpis').innerHTML=[['Leads',ds.length,'+18% vs mes anterior'],['Conversaciones',conv,'respuesta media: 11 s'],['Calificados',cal,(ds.length?Math.round(cal/ds.length*100):0)+'% de los leads'],['Citas',citas,'show-rate 78%'],['Ingresos',fEUR(rev),won.length+' cierres']]
+    .map(k=>`<div class="kpi"><div class="v grad">${k[1]}</div><div class="k">${k[0]}</div><div class="d">${k[2]}</div></div>`).join('');
+  const mx=Math.max(ds.length,1);
+  $('#funnel').innerHTML=[['Leads entrantes',ds.length],['En conversación',conv],['Calificados',cal],['Citas agendadas',citas],['Ganados',won.length]]
+    .map(f=>`<div class="frow"><div class="l">${f[0]}</div><div class="bar"><i style="width:${f[1]/mx*100}%"></i></div><b>${f[1]}</b></div>`).join('');
+  $('#byinf').innerHTML=Object.keys(INF).map(inf=>{
+    const il=DATA.filter(l=>l.inf===inf);const iw=il.filter(l=>l.st==='ganado');
+    return `<div class="infc"><div class="h"><div class="ini" style="background:linear-gradient(120deg,${INF[inf]},#6366f1)">${inf.slice(0,2).toUpperCase()}</div><h3>${inf}</h3></div>
+    <table><tr><td>Leads</td><td>${il.length}</td></tr><tr><td>Citas</td><td>${il.filter(l=>['cita','ganado'].includes(l.st)).length}</td></tr><tr><td>Cierres</td><td>${iw.length}</td></tr><tr><td>Ingresos</td><td>${fEUR(iw.reduce((a,l)=>a+(l.val||0),0))}</td></tr></table></div>`;
+  }).join('');
+}
+render();
+</script>
+</body></html>
