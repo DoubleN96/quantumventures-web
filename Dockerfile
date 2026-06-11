@@ -19,6 +19,7 @@ COPY nuevo-cliente /usr/share/nginx/html/nuevo-cliente
 COPY p /usr/share/nginx/html/p
 COPY como-trabajamos /usr/share/nginx/html/como-trabajamos
 COPY crm-demo /usr/share/nginx/html/crm-demo
+COPY villa-brisa /usr/share/nginx/html/villa-brisa
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 EXPOSE 80
 HEALTHCHECK --interval=30s --timeout=5s --start-period=5s --retries=3 \

@@ -1,0 +1,176 @@
+<!doctype html><html lang="es"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Proyecto Villa Brisa · Ficha de propiedad</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="/assets/brand/qv-favicon.png">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#07090c;--surface:#0d1115;--line:rgba(255,255,255,.10);--sand:#e8c98e;--teal:#2dd4bf;--text:#eceff2;--mute:#94a1ad}
+  *{margin:0;box-sizing:border-box}
+  body{background:var(--ink);color:var(--text);font-family:'Inter',sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+  .aurora{position:fixed;inset:0;z-index:-1;overflow:hidden}
+  .aurora span{position:absolute;border-radius:50%;filter:blur(95px)}
+  .a1{width:46vw;height:46vw;left:-10vw;top:-12vw;background:radial-gradient(circle,#0f766e,transparent 70%);opacity:.45}
+  .a2{width:40vw;height:40vw;right:-12vw;top:8vw;background:radial-gradient(circle,#b4884b,transparent 70%);opacity:.28}
+  .wrap{max-width:780px;margin:0 auto;padding:clamp(28px,6vw,72px)}
+  .display{font-family:'Space Grotesk',sans-serif;letter-spacing:-.02em}
+  .grad{background:linear-gradient(100deg,var(--teal),var(--sand));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--teal);font-weight:600}
+  h1{font-size:clamp(30px,6vw,46px);font-weight:700;line-height:1.06;margin:14px 0 10px}
+  .lead{color:var(--mute);font-size:17px;max-width:62ch}
+  form{margin-top:36px;display:grid;gap:22px}
+  .sec{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:clamp(18px,4vw,28px)}
+  .sec h2{font-family:'Space Grotesk';font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--teal);font-weight:600;margin-bottom:6px}
+  .sec .hint{font-size:13px;color:var(--mute);margin-bottom:18px}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
+  @media(max-width:600px){.grid2,.grid3{grid-template-columns:1fr}}
+  label{display:block;font-size:13px;color:var(--mute);margin-bottom:7px;font-weight:500}
+  .req::after{content:" *";color:var(--teal)}
+  input,select,textarea{width:100%;background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:12px;color:var(--text);padding:13px 14px;font:inherit;font-size:15px;transition:border-color .2s,background .2s}
+  input:focus,select:focus,textarea:focus{outline:none;border-color:var(--teal);background:rgba(45,212,191,.06)}
+  textarea{min-height:88px;resize:vertical}
+  .chks{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:9px;margin-top:4px}
+  .chk{display:flex;gap:9px;align-items:center;background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:11px;padding:11px 12px;font-size:13.5px;cursor:pointer;transition:border-color .2s}
+  .chk:hover{border-color:rgba(45,212,191,.4)}
+  .chk input{width:auto;accent-color:var(--teal)}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:linear-gradient(100deg,var(--teal),var(--sand));color:#06251f;font-weight:700;border:0;border-radius:999px;padding:16px 30px;font-size:16px;cursor:pointer;transition:filter .2s,transform .2s}
+  .btn:hover{filter:brightness(1.07);transform:translateY(-2px)}
+  .btn:disabled{opacity:.6;cursor:not-allowed;transform:none}
+  .note{color:var(--mute);font-size:13px}
+  .ok{display:none;text-align:center;padding:50px 20px}
+  .ok .ring{width:74px;height:74px;border-radius:50%;margin:0 auto 22px;background:linear-gradient(100deg,var(--teal),var(--sand));display:flex;align-items:center;justify-content:center;font-size:30px}
+  .err{display:none;background:rgba(248,113,113,.1);border:1px solid rgba(248,113,113,.35);color:#fca5a5;border-radius:12px;padding:12px 14px;font-size:14px}
+</style></head>
+<body>
+<div class="aurora"><span class="a1"></span><span class="a2"></span></div>
+<div class="wrap">
+  <div style="font-family:'Space Grotesk';font-weight:700;margin-bottom:30px">🌴 Proyecto <span class="grad">Villa Brisa</span> <span style="color:var(--mute);font-weight:500">· Bali</span></div>
+
+  <div id="formView">
+    <span class="eyebrow">Ficha de propiedad</span>
+    <h1 class="display">Cuéntanos todo sobre <span class="grad">tu villa</span>.</h1>
+    <p class="lead">Con esta ficha preparamos el dossier profesional de la propiedad y salimos a buscar agencias partner en Estados Unidos, Australia y Rusia. Rellena una ficha por cada villa — cuanto más detalle, mejor dossier.</p>
+
+    <form id="vform" novalidate>
+      <div class="sec">
+        <h2>1 · La villa</h2>
+        <div class="grid2">
+          <div><label class="req">¿Qué villa es?</label><select name="villa" required><option value="">Elige…</option><option>Villa Alaya</option><option>Villa Brisa</option><option>Otra</option></select></div>
+          <div><label class="req">Ubicación (zona de Bali + dirección)</label><input name="ubicacion" placeholder="ej. Canggu, Jl. ..." required></div>
+          <div style="grid-column:1/-1"><label>Enlaces — fotos, anuncio actual, web, Drive</label><input name="enlaces" placeholder="Airbnb, Booking, carpeta de fotos…"></div>
+          <div><label class="req">Habitaciones</label><input name="habitaciones" inputmode="numeric" required></div>
+          <div><label class="req">Baños</label><input name="banos" inputmode="numeric" required></div>
+          <div><label class="req">Capacidad (huéspedes)</label><input name="huespedes" inputmode="numeric" required></div>
+          <div><label>M2 (construidos / parcela)</label><input name="m2" placeholder="ej. 350 / 800"></div>
+          <div style="grid-column:1/-1"><label>Piscina y extras</label><textarea name="extras" placeholder="Piscina privada, rooftop, jacuzzi, gimnasio, zona de trabajo, vistas…"></textarea></div>
+        </div>
+      </div>
+
+      <div class="sec">
+        <h2>2 · Servicios incluidos</h2>
+        <p class="hint">Todo lo que el huésped o inquilino recibe con la villa.</p>
+        <textarea name="servicios" placeholder="Limpieza (frecuencia), cambio de sábanas, chef, chófer, jardinero, seguridad, wifi (velocidad), mantenimiento de piscina, desayuno, scooter incluido…"></textarea>
+      </div>
+
+      <div class="sec">
+        <h2>3 · Situación actual</h2>
+        <div class="grid2">
+          <div><label class="req">¿Está alquilada ahora?</label><select name="alquilada" required><option value="">Elige…</option><option>Sí, largo plazo</option><option>Sí, vacacional</option><option>Parcialmente</option><option>No, vacía</option></select></div>
+          <div><label>Canales actuales</label><input name="canales" placeholder="Airbnb, Booking, directo, ninguno…"></div>
+          <div><label>Precio actual (noche o mes)</label><input name="precio_actual" placeholder="ej. 250 $/noche · 3.500 $/mes"></div>
+          <div><label>Ocupación aproximada (%)</label><input name="ocupacion" inputmode="numeric" placeholder="ej. 60"></div>
+          <div><label>Licencia turística / permisos</label><input name="licencia" placeholder="Pondok Wisata, en trámite, no…"></div>
+        </div>
+      </div>
+
+      <div class="sec">
+        <h2>4 · Cómo quieres alquilarla</h2>
+        <div class="grid2">
+          <div><label class="req">Modalidad</label><select name="modalidad" required><option value="">Elige…</option><option>Largo plazo (meses/años)</option><option>Vacacional · por día</option><option>Paquetes vacacionales</option><option>Mixto / abierto a propuestas</option></select></div>
+          <div><label>Precio objetivo</label><input name="precio_objetivo" placeholder="ej. 4.000 $/mes · 300 $/noche"></div>
+          <div><label>Estancia mínima</label><input name="estancia_min" placeholder="ej. 2 noches · 6 meses"></div>
+          <div><label>Disponibilidad / temporadas</label><input name="disponibilidad" placeholder="todo el año, bloqueos…"></div>
+          <div style="grid-column:1/-1"><label>Restricciones</label><input name="restricciones" placeholder="sin eventos, sin mascotas, máx. ocupantes…"></div>
+        </div>
+      </div>
+
+      <div class="sec">
+        <h2>5 · Colaboración con agencias</h2>
+        <p class="hint">Qué acuerdo estás dispuesto a ofrecer a las agencias que traigan inquilinos o huéspedes.</p>
+        <div class="grid2">
+          <div><label class="req">Tipo de acuerdo</label><select name="tipo_acuerdo" required><option value="">Elige…</option><option>Revenue share (% de cada reserva)</option><option>Comisión fija por reserva</option><option>Master lease (alquiler garantizado a la agencia)</option><option>Abierto a propuestas</option></select></div>
+          <div><label>% o condiciones que ofreces</label><input name="condiciones" placeholder="ej. 15-20% por reserva"></div>
+          <div><label>Exclusividad</label><select name="exclusividad"><option value="">Elige…</option><option>Sin exclusividad (varias agencias)</option><option>Exclusiva por mercado/país</option><option>Exclusiva total (1 agencia)</option><option>A negociar</option></select></div>
+          <div><label>Objetivo de ingresos al mes</label><input name="objetivo_ingresos" placeholder="ej. 5.000 $"></div>
+        </div>
+        <div style="margin-top:16px"><label class="req">Mercados objetivo</label>
+          <div class="chks">
+            <label class="chk"><input type="checkbox" name="mk" value="Estados Unidos" checked> Estados Unidos</label>
+            <label class="chk"><input type="checkbox" name="mk" value="Australia" checked> Australia</label>
+            <label class="chk"><input type="checkbox" name="mk" value="Rusia" checked> Rusia</label>
+            <label class="chk"><input type="checkbox" name="mk" value="Europa"> Europa</label>
+            <label class="chk"><input type="checkbox" name="mk" value="Asia / Singapur"> Asia / Singapur</label>
+            <label class="chk"><input type="checkbox" name="mk" value="Oriente Medio"> Oriente Medio</label>
+          </div>
+        </div>
+        <div style="margin-top:16px"><label>Qué debe cubrir la agencia</label>
+          <div class="chks">
+            <label class="chk"><input type="checkbox" name="cv" value="Marketing y captación" checked> Marketing y captación</label>
+            <label class="chk"><input type="checkbox" name="cv" value="Gestión de reservas" checked> Gestión de reservas</label>
+            <label class="chk"><input type="checkbox" name="cv" value="Atención al huésped"> Atención al huésped</label>
+            <label class="chk"><input type="checkbox" name="cv" value="Check-in / check-out"> Check-in / check-out</label>
+            <label class="chk"><input type="checkbox" name="cv" value="Limpieza y mantenimiento"> Limpieza y mantenimiento</label>
+            <label class="chk"><input type="checkbox" name="cv" value="Contratos e inquilinos"> Contratos e inquilinos</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="sec">
+        <h2>6 · Contacto</h2>
+        <div class="grid2">
+          <div><label class="req">Tu nombre</label><input name="contacto" required></div>
+          <div><label class="req">Email</label><input type="email" name="email" required></div>
+          <div><label>Teléfono / WhatsApp</label><input name="telefono"></div>
+          <div style="grid-column:1/-1"><label>Comentarios</label><textarea name="comentarios" placeholder="Cualquier cosa que debamos saber…"></textarea></div>
+        </div>
+      </div>
+
+      <div class="err" id="err">No se pudo enviar. Inténtalo de nuevo en un minuto.</div>
+      <div><button class="btn" type="submit" id="sbtn">Enviar ficha de la villa →</button>
+      <p class="note" style="margin-top:14px">¿Tienes dos villas? Envía esta ficha y vuelve a rellenarla para la segunda.</p></div>
+    </form>
+  </div>
+
+  <div class="ok" id="okView">
+    <div class="ring">✓</div>
+    <h2 class="display" style="font-size:28px;margin-bottom:10px">Ficha recibida</h2>
+    <p class="lead" style="margin:0 auto;max-width:46ch">Gracias. Te hemos enviado una confirmación por email. Si tienes otra villa, <a href="" style="color:var(--teal)">rellena su ficha aquí</a>.</p>
+  </div>
+</div>
+
+<script>
+const API='https://qv-audit.128.140.44.162.sslip.io/api/villa-brisa';
+document.getElementById('vform').addEventListener('submit', async (e)=>{
+  e.preventDefault();
+  const f=e.target;
+  if(!f.reportValidity())return;
+  const data=Object.fromEntries(new FormData(f).entries());
+  data.mercados=[...f.querySelectorAll('input[name="mk"]:checked')].map(x=>x.value).join(', ');
+  data.cobertura=[...f.querySelectorAll('input[name="cv"]:checked')].map(x=>x.value).join(', ');
+  delete data.mk; delete data.cv;
+  const btn=document.getElementById('sbtn'); btn.disabled=true; btn.textContent='Enviando…';
+  document.getElementById('err').style.display='none';
+  try{
+    const r=await fetch(API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
+    if(!r.ok)throw 0;
+    document.getElementById('formView').style.display='none';
+    document.getElementById('okView').style.display='block';
+    window.scrollTo({top:0,behavior:'smooth'});
+  }catch(_){
+    document.getElementById('err').style.display='block';
+    btn.disabled=false; btn.textContent='Enviar ficha de la villa →';
+  }
+});
+</script>
+</body></html>
