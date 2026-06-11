@@ -44,6 +44,10 @@
   input,select,textarea{width:100%;background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:12px;color:var(--text);padding:12px 14px;font:inherit;font-size:15px;transition:border-color .2s,background .2s}
   input:focus,select:focus,textarea:focus{outline:none;border-color:var(--aqua);background:rgba(103,232,249,.07)}
   textarea{min-height:80px;resize:vertical}
+  .chks{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px;margin-top:4px}
+  .chk{display:flex;gap:8px;align-items:center;background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:11px;padding:10px 11px;font-size:13.5px;cursor:pointer;transition:border-color .2s}
+  .chk:hover{border-color:rgba(103,232,249,.4)}
+  .chk input{width:auto;accent-color:var(--aqua)}
   .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:linear-gradient(100deg,var(--aqua),var(--blue));color:#03222e;font-weight:700;border:0;border-radius:999px;padding:16px 30px;font-size:16px;cursor:pointer;transition:filter .2s,transform .2s}
   .btn:hover{filter:brightness(1.07);transform:translateY(-2px)}
   .btn:disabled{opacity:.6;cursor:not-allowed;transform:none}
@@ -72,12 +76,12 @@
         <div class="facts">
           <span class="fact">💧 Acuífero de granito</span>
           <span class="fact">🔬 Última tecnología</span>
-          <span class="fact">♻️ Vidrio y lata · 0 plástico</span>
+          <span class="fact">🥫 Enlatado premium · 0 plástico</span>
         </div>
         <div class="gal">
-          <div class="g"><img src="img/glass.jpg" alt="Botella de cristal Jaan"><span class="tag">Cristal</span></div>
+          <div class="g"><img src="img/can-tile.jpg" alt="Lata premium Jaan"><span class="tag">Lata premium</span></div>
           <div class="g"><img src="img/sky.jpg" alt="Jaan"><span class="tag">Premium</span></div>
-          <div class="g"><img src="img/gallons.jpg" alt="Garrafas Jaan"><span class="tag">Galón</span></div>
+          <div class="g"><img src="img/gallons.jpg" alt="Garrafas Jaan"><span class="tag">Galón 11L</span></div>
         </div>
       </div>
     </div>
@@ -96,7 +100,20 @@
           <div class="grid2">
             <div><label class="req">Nombre del local / marca</label><input name="local" required></div>
             <div><label class="req">Tipo</label><select name="tipo" required><option value="">Elige…</option><option>Club / Discoteca</option><option>Beach club</option><option>Festival / Eventos</option><option>Restaurante / Rooftop</option><option>Hotel</option><option>Otro</option></select></div>
-            <div><label class="req">Ciudad</label><input name="ciudad" required></div>
+            <div style="grid-column:1/-1"><label class="req">Ciudad / ciudades donde operáis (marca todas)</label>
+              <div class="chks" id="cities">
+                <label class="chk"><input type="checkbox" name="city" value="Madrid"> Madrid</label>
+                <label class="chk"><input type="checkbox" name="city" value="Barcelona"> Barcelona</label>
+                <label class="chk"><input type="checkbox" name="city" value="Ibiza"> Ibiza</label>
+                <label class="chk"><input type="checkbox" name="city" value="Marbella / Málaga"> Marbella / Málaga</label>
+                <label class="chk"><input type="checkbox" name="city" value="Mallorca"> Mallorca</label>
+                <label class="chk"><input type="checkbox" name="city" value="Valencia"> Valencia</label>
+                <label class="chk"><input type="checkbox" name="city" value="Sevilla"> Sevilla</label>
+                <label class="chk"><input type="checkbox" name="city" value="Alicante"> Alicante</label>
+                <label class="chk"><input type="checkbox" name="city" value="Canarias"> Canarias</label>
+                <label class="chk"><input type="checkbox" name="city" value="Bilbao"> Bilbao</label>
+              </div>
+              <input name="ciudad_otras" placeholder="Otras ciudades…" style="margin-top:10px"></div>
           </div>
         </div>
         <div class="sec">
@@ -112,9 +129,9 @@
           <h2>El agua premium, hoy</h2>
           <div class="grid2">
             <div><label>¿Qué agua premium servís? (VIP, mesas, reservados)</label><input name="agua_actual" placeholder="Voss, Evian, Fiji, Acqua Panna…"></div>
-            <div><label>¿A qué precio os entra la botella?</label><input name="coste" placeholder="ej. 1,80 € / botella 750ml vidrio"></div>
-            <div><label>¿A cuánto la vendéis en mesa?</label><input name="pvp" placeholder="ej. 8 €"></div>
-            <div><label>Consumo mensual aproximado</label><input name="consumo" placeholder="ej. 40 cajas / 500 botellas"></div>
+            <div><label>¿A qué precio os entra la unidad?</label><input name="coste" placeholder="ej. 1,20 € / lata premium 330ml"></div>
+            <div><label>¿A cuánto la vendéis en mesa?</label><input name="pvp" placeholder="ej. 6 € la lata / 8 € la botella"></div>
+            <div><label>Consumo mensual aproximado</label><input name="consumo" placeholder="ej. 40 cajas / 600 latas"></div>
           </div>
         </div>
         <div class="sec">
@@ -148,6 +165,11 @@ document.getElementById('jform').addEventListener('submit', async (e)=>{
   const f=e.target;
   if(!f.reportValidity())return;
   const data=Object.fromEntries(new FormData(f).entries());
+  const cities=[...f.querySelectorAll('input[name=city]:checked')].map(x=>x.value);
+  if(data.ciudad_otras) cities.push(data.ciudad_otras);
+  data.ciudad=cities.join(', ');
+  delete data.city; delete data.ciudad_otras;
+  if(!data.ciudad){alert('Marca al menos una ciudad');return}
   const btn=document.getElementById('sbtn'); btn.disabled=true; btn.textContent='Enviando…';
   document.getElementById('err').style.display='none';
   try{
