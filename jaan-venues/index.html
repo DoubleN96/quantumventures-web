@@ -3,102 +3,144 @@
 <title>Jaan · Agua premium — Lanzamiento en España</title>
 <meta name="robots" content="noindex">
 <link rel="icon" href="/assets/brand/qv-favicon.png">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=Cormorant+Garamond:ital,wght@1,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
 <style>
   :root{--ink:#04121c;--surface:#0a1d2b;--line:rgba(255,255,255,.10);--aqua:#67e8f9;--blue:#38bdf8;--gold:#e8c98e;--text:#eef4f8;--mute:#8fa6b5}
   *{margin:0;box-sizing:border-box}
   body{background:var(--ink);color:var(--text);font-family:'Inter',sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
-  .aurora{position:fixed;inset:0;z-index:-1;overflow:hidden}
-  .aurora span{position:absolute;border-radius:50%;filter:blur(95px)}
-  .a1{width:48vw;height:48vw;left:-12vw;top:-14vw;background:radial-gradient(circle,#0e7490,transparent 70%);opacity:.5}
-  .a2{width:42vw;height:42vw;right:-12vw;top:10vw;background:radial-gradient(circle,#1d4ed8,transparent 70%);opacity:.3}
-  .wrap{max-width:760px;margin:0 auto;padding:clamp(28px,6vw,72px)}
   .display{font-family:'Space Grotesk',sans-serif;letter-spacing:-.02em}
+  .serif{font-family:'Cormorant Garamond',Georgia,serif}
   .grad{background:linear-gradient(100deg,var(--aqua),var(--blue) 60%,var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
-  .eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--aqua);font-weight:600}
-  h1{font-size:clamp(30px,6vw,46px);font-weight:700;line-height:1.06;margin:14px 0 10px}
-  .lead{color:var(--mute);font-size:17px;max-width:60ch}
-  .serif{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic}
-  form{margin-top:36px;display:grid;gap:22px}
-  .sec{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:clamp(18px,4vw,28px)}
-  .sec h2{font-family:'Space Grotesk';font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--aqua);font-weight:600;margin-bottom:18px}
-  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-  @media(max-width:560px){.grid2{grid-template-columns:1fr}}
-  label{display:block;font-size:13px;color:var(--mute);margin-bottom:7px;font-weight:500}
+  .split{display:grid;grid-template-columns:minmax(380px,44%) 1fr;min-height:100vh}
+  /* ===== panel visual ===== */
+  .visual{position:relative;overflow:hidden;background:#06141f}
+  .visual .bg{position:absolute;inset:0;background:url('img/can.jpg') center/cover;transform:scale(1.04)}
+  .visual .veil{position:absolute;inset:0;background:linear-gradient(200deg,rgba(4,18,28,.15) 0%,rgba(4,18,28,.55) 55%,rgba(4,18,28,.94) 100%)}
+  .visual .inner{position:relative;z-index:2;display:flex;flex-direction:column;height:100%;padding:clamp(26px,4vw,48px)}
+  .brand{font-family:'Space Grotesk';font-weight:700;letter-spacing:.14em;font-size:18px}
+  .brand span{color:var(--mute);font-weight:500;letter-spacing:.02em;font-size:12px;display:block;margin-top:2px}
+  .vcopy{margin-top:auto}
+  .vcopy .ttl{font-size:clamp(26px,2.6vw,38px);font-weight:700;line-height:1.12}
+  .vcopy .sub{font-family:'Cormorant Garamond';font-style:italic;font-size:clamp(17px,1.6vw,21px);color:#cfe0ea;margin-top:10px;max-width:40ch}
+  .facts{display:flex;gap:10px;margin-top:22px;flex-wrap:wrap}
+  .fact{font-size:11.5px;color:#d6e6ef;border:1px solid rgba(255,255,255,.22);background:rgba(4,18,28,.45);backdrop-filter:blur(4px);border-radius:999px;padding:6px 13px}
+  .gal{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:24px}
+  .gal .g{border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.16);aspect-ratio:1/1.15;position:relative}
+  .gal img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s cubic-bezier(.16,1,.3,1)}
+  .gal .g:hover img{transform:scale(1.06)}
+  .gal .tag{position:absolute;left:8px;bottom:8px;font-size:9.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:rgba(4,18,28,.72);backdrop-filter:blur(4px);border-radius:999px;padding:3px 9px;color:#d6e6ef}
+  /* ===== panel formulario ===== */
+  .formside{padding:clamp(26px,4.5vw,60px) clamp(20px,4.5vw,64px);max-width:860px}
+  .eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:11.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--aqua);font-weight:600}
+  h1{font-size:clamp(27px,3.4vw,40px);font-weight:700;line-height:1.08;margin:12px 0 10px}
+  .lead{color:var(--mute);font-size:16px;max-width:60ch}
+  form{margin-top:30px;display:grid;gap:20px}
+  .sec{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:clamp(18px,3vw,26px)}
+  .sec h2{font-family:'Space Grotesk';font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--aqua);font-weight:600;margin-bottom:16px}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+  @media(max-width:620px){.grid2{grid-template-columns:1fr}}
+  label{display:block;font-size:13px;color:var(--mute);margin-bottom:6px;font-weight:500}
   .req::after{content:" *";color:var(--aqua)}
-  input,select,textarea{width:100%;background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:12px;color:var(--text);padding:13px 14px;font:inherit;font-size:15px;transition:border-color .2s,background .2s}
+  input,select,textarea{width:100%;background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:12px;color:var(--text);padding:12px 14px;font:inherit;font-size:15px;transition:border-color .2s,background .2s}
   input:focus,select:focus,textarea:focus{outline:none;border-color:var(--aqua);background:rgba(103,232,249,.07)}
-  textarea{min-height:84px;resize:vertical}
+  textarea{min-height:80px;resize:vertical}
   .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:linear-gradient(100deg,var(--aqua),var(--blue));color:#03222e;font-weight:700;border:0;border-radius:999px;padding:16px 30px;font-size:16px;cursor:pointer;transition:filter .2s,transform .2s}
   .btn:hover{filter:brightness(1.07);transform:translateY(-2px)}
   .btn:disabled{opacity:.6;cursor:not-allowed;transform:none}
-  .note{color:var(--mute);font-size:13px}
-  .ok{display:none;text-align:center;padding:50px 20px}
+  .note{color:var(--mute);font-size:12.5px}
+  .ok{display:none;text-align:center;padding:60px 20px}
   .ok .ring{width:74px;height:74px;border-radius:50%;margin:0 auto 22px;background:linear-gradient(100deg,var(--aqua),var(--blue));display:flex;align-items:center;justify-content:center;font-size:30px}
   .err{display:none;background:rgba(248,113,113,.1);border:1px solid rgba(248,113,113,.35);color:#fca5a5;border-radius:12px;padding:12px 14px;font-size:14px}
+  /* ===== responsive ===== */
+  @media(max-width:920px){
+    .split{grid-template-columns:1fr}
+    .visual{min-height:54vh}
+    .visual .inner{padding:22px}
+    .gal{display:none}
+    .formside{max-width:none}
+  }
 </style></head>
 <body>
-<div class="aurora"><span class="a1"></span><span class="a2"></span></div>
-<div class="wrap">
-  <div style="font-family:'Space Grotesk';font-weight:700;margin-bottom:30px;letter-spacing:.06em">💧 JAAN <span style="color:var(--mute);font-weight:500">· premium water</span></div>
+<div class="split">
+  <aside class="visual">
+    <div class="bg"></div><div class="veil"></div>
+    <div class="inner">
+      <div class="brand">JAAN<span>premium water · Bali</span></div>
+      <div class="vcopy">
+        <div class="ttl display">El agua del circuito premium de Bali<br><span class="grad">llega a España.</span></div>
+        <p class="sub">Nacida de un acuífero de granito junto al Monte Batukaru. Remineralizada con tecnología de última generación. Cero plástico.</p>
+        <div class="facts">
+          <span class="fact">💧 Acuífero de granito</span>
+          <span class="fact">🔬 Última tecnología</span>
+          <span class="fact">♻️ Vidrio y lata · 0 plástico</span>
+        </div>
+        <div class="gal">
+          <div class="g"><img src="img/glass.jpg" alt="Botella de cristal Jaan"><span class="tag">Cristal</span></div>
+          <div class="g"><img src="img/sky.jpg" alt="Jaan"><span class="tag">Premium</span></div>
+          <div class="g"><img src="img/gallons.jpg" alt="Garrafas Jaan"><span class="tag">Galón</span></div>
+        </div>
+      </div>
+    </div>
+  </aside>
 
-  <div id="formView">
-    <span class="eyebrow">Lanzamiento en España · acceso anticipado</span>
-    <h1 class="display">Un agua premium nueva llega a España. <span class="grad">Tu local, primero.</span></h1>
-    <p class="lead">Jaan es un agua premium embotellada en Bali que está preparando su entrada en España, empezando por una selección reducida de clubs, beach clubs y locales de referencia. Estamos en fase de análisis de mercado: cuéntanos cómo trabajáis el agua premium hoy y entra en la lista de primeros locales (muestras y condiciones de lanzamiento para los primeros).</p>
-    <p class="serif" style="font-size:19px;color:#cbdce6;margin-top:10px">2 minutos. Sin compromiso.</p>
+  <main class="formside">
+    <div id="formView">
+      <span class="eyebrow">Lanzamiento en España · acceso anticipado</span>
+      <h1 class="display">Tu local, <span class="grad">entre los primeros</span>.</h1>
+      <p class="lead">Jaan está preparando su entrada en España con una selección reducida de clubs, beach clubs y locales de referencia. Estamos en fase de análisis de mercado: cuéntanos cómo trabajáis el agua premium hoy y entra en la lista de primeros — con muestras y condiciones de lanzamiento.</p>
+      <p class="serif" style="font-style:italic;font-size:18px;color:#cbdce6;margin-top:8px">2 minutos. Sin compromiso.</p>
 
-    <form id="jform" novalidate>
-      <div class="sec">
-        <h2>El local</h2>
-        <div class="grid2">
-          <div><label class="req">Nombre del local / marca</label><input name="local" required></div>
-          <div><label class="req">Tipo</label><select name="tipo" required><option value="">Elige…</option><option>Club / Discoteca</option><option>Beach club</option><option>Festival / Eventos</option><option>Restaurante / Rooftop</option><option>Hotel</option><option>Otro</option></select></div>
-          <div><label class="req">Ciudad</label><input name="ciudad" required></div>
+      <form id="jform" novalidate>
+        <div class="sec">
+          <h2>El local</h2>
+          <div class="grid2">
+            <div><label class="req">Nombre del local / marca</label><input name="local" required></div>
+            <div><label class="req">Tipo</label><select name="tipo" required><option value="">Elige…</option><option>Club / Discoteca</option><option>Beach club</option><option>Festival / Eventos</option><option>Restaurante / Rooftop</option><option>Hotel</option><option>Otro</option></select></div>
+            <div><label class="req">Ciudad</label><input name="ciudad" required></div>
+          </div>
         </div>
-      </div>
-      <div class="sec">
-        <h2>Tu contacto</h2>
-        <div class="grid2">
-          <div><label class="req">Nombre y apellidos</label><input name="contacto" required></div>
-          <div><label>Cargo</label><input name="cargo" placeholder="Dueño, dirección, compras…"></div>
-          <div><label class="req">Email</label><input type="email" name="email" required></div>
-          <div><label>Teléfono / WhatsApp</label><input name="telefono"></div>
+        <div class="sec">
+          <h2>Tu contacto</h2>
+          <div class="grid2">
+            <div><label class="req">Nombre y apellidos</label><input name="contacto" required></div>
+            <div><label>Cargo</label><input name="cargo" placeholder="Dueño, dirección, compras…"></div>
+            <div><label class="req">Email</label><input type="email" name="email" required></div>
+            <div><label>Teléfono / WhatsApp</label><input name="telefono"></div>
+          </div>
         </div>
-      </div>
-      <div class="sec">
-        <h2>El agua premium, hoy</h2>
-        <div class="grid2">
-          <div><label>¿Qué agua premium servís? (VIP, mesas, reservados)</label><input name="agua_actual" placeholder="Voss, Evian, Fiji, Acqua Panna…"></div>
-          <div><label>¿A qué precio os entra la botella?</label><input name="coste" placeholder="ej. 1,80 € / botella 750ml vidrio"></div>
-          <div><label>¿A cuánto la vendéis en mesa?</label><input name="pvp" placeholder="ej. 8 €"></div>
-          <div><label>Consumo mensual aproximado</label><input name="consumo" placeholder="ej. 40 cajas / 500 botellas"></div>
+        <div class="sec">
+          <h2>El agua premium, hoy</h2>
+          <div class="grid2">
+            <div><label>¿Qué agua premium servís? (VIP, mesas, reservados)</label><input name="agua_actual" placeholder="Voss, Evian, Fiji, Acqua Panna…"></div>
+            <div><label>¿A qué precio os entra la botella?</label><input name="coste" placeholder="ej. 1,80 € / botella 750ml vidrio"></div>
+            <div><label>¿A cuánto la vendéis en mesa?</label><input name="pvp" placeholder="ej. 8 €"></div>
+            <div><label>Consumo mensual aproximado</label><input name="consumo" placeholder="ej. 40 cajas / 500 botellas"></div>
+          </div>
         </div>
-      </div>
-      <div class="sec">
-        <h2>Tu interés</h2>
-        <div class="grid2">
-          <div><label class="req">¿Quieres conocer Jaan?</label><select name="interes" required><option value="">Elige…</option><option>Sí — quiero muestras</option><option>Sí — quiero info y precios</option><option>Quizá — contactadme más adelante</option><option>Solo comparto datos</option></select></div>
-          <div><label>¿Quién te ha invitado?</label><input name="referido" value="Magalis"></div>
-          <div style="grid-column:1/-1"><label>Comentarios</label><textarea name="comentarios" placeholder="Lo que debamos saber…"></textarea></div>
+        <div class="sec">
+          <h2>Tu interés</h2>
+          <div class="grid2">
+            <div><label class="req">¿Quieres conocer Jaan?</label><select name="interes" required><option value="">Elige…</option><option>Sí — quiero muestras</option><option>Sí — quiero info y precios</option><option>Quizá — contactadme más adelante</option><option>Solo comparto datos</option></select></div>
+            <div><label>¿Quién te ha invitado?</label><input name="referido" value="Magalis"></div>
+            <div style="grid-column:1/-1"><label>Comentarios</label><textarea name="comentarios" placeholder="Lo que debamos saber…"></textarea></div>
+          </div>
         </div>
-      </div>
-      <div class="err" id="err">No se pudo enviar. Inténtalo de nuevo en un minuto.</div>
-      <div><button class="btn" type="submit" id="sbtn">Entrar en la lista de primeros locales →</button>
-      <p class="note" style="margin-top:14px">Tus datos solo se usan para este análisis de mercado y para contactarte sobre Jaan.</p></div>
-    </form>
-  </div>
+        <div class="err" id="err">No se pudo enviar. Inténtalo de nuevo en un minuto.</div>
+        <div><button class="btn" type="submit" id="sbtn">Entrar en la lista de primeros locales →</button>
+        <p class="note" style="margin-top:13px">Tus datos solo se usan para este análisis de mercado y para contactarte sobre Jaan. · jaanwater.com</p></div>
+      </form>
+    </div>
 
-  <div class="ok" id="okView">
-    <div class="ring">💧</div>
-    <h2 class="display" style="font-size:28px;margin-bottom:10px">Estás dentro</h2>
-    <p class="lead" style="margin:0 auto;max-width:46ch">Gracias. Tu local queda registrado en la lista de primeros. Te contactaremos con los siguientes pasos — y si pediste muestras, con la propuesta de envío.</p>
-  </div>
+    <div class="ok" id="okView">
+      <div class="ring">💧</div>
+      <h2 class="display" style="font-size:28px;margin-bottom:10px">Estás dentro</h2>
+      <p class="lead" style="margin:0 auto;max-width:46ch">Gracias. Tu local queda registrado en la lista de primeros. Te contactaremos con los siguientes pasos — y si pediste muestras, con la propuesta de envío.</p>
+    </div>
+  </main>
 </div>
 
 <script>
 const API='https://qv-audit.128.140.44.162.sslip.io/api/jaan-venue';
-// preselección por URL: ?ref=Nombre
 const ref=new URL(location.href).searchParams.get('ref');
 if(ref) document.querySelector('input[name=referido]').value=ref;
 document.getElementById('jform').addEventListener('submit', async (e)=>{
