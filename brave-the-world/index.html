@@ -1,0 +1,227 @@
+<!doctype html><html lang="es"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Auditoría de Negocio · Brave The World</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="/assets/brand/qv-favicon.png">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#07090c;--surface:#0d1115;--line:rgba(255,255,255,.10);--accent:#f97316;--accent2:#fb923c;--teal:#2dd4bf;--text:#eceff2;--mute:#94a1ad}
+  *{margin:0;box-sizing:border-box}
+  body{background:var(--ink);color:var(--text);font-family:'Inter',sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+  .aurora{position:fixed;inset:0;z-index:-1;overflow:hidden}
+  .aurora span{position:absolute;border-radius:50%;filter:blur(95px)}
+  .a1{width:48vw;height:48vw;left:-14vw;top:-14vw;background:radial-gradient(circle,#f97316,transparent 70%);opacity:.18}
+  .a2{width:42vw;height:42vw;right:-14vw;top:10vw;background:radial-gradient(circle,#0f766e,transparent 70%);opacity:.22}
+  .wrap{max-width:780px;margin:0 auto;padding:clamp(28px,6vw,72px)}
+  .display{font-family:'Space Grotesk',sans-serif;letter-spacing:-.02em}
+  .grad{background:linear-gradient(100deg,var(--accent),var(--teal));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--accent2);font-weight:600}
+  .brand{font-family:'Space Grotesk';font-weight:700;font-size:16px;margin-bottom:32px;display:flex;align-items:center;gap:8px}
+  .brand-dot{width:8px;height:8px;border-radius:50%;background:var(--accent)}
+  h1{font-size:clamp(28px,5.5vw,44px);font-weight:700;line-height:1.07;margin:14px 0 12px}
+  .lead{color:var(--mute);font-size:16.5px;max-width:60ch;line-height:1.65}
+  form{margin-top:36px;display:grid;gap:20px}
+  .sec{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:clamp(18px,4vw,28px)}
+  .sec h2{font-family:'Space Grotesk';font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent2);font-weight:600;margin-bottom:18px;display:flex;align-items:center;gap:8px}
+  .sec h2::before{content:'';display:inline-block;width:18px;height:2px;background:var(--accent);border-radius:1px}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
+  @media(max-width:580px){.grid2,.grid3{grid-template-columns:1fr}}
+  .field{display:flex;flex-direction:column}
+  label{font-size:13px;color:var(--mute);margin-bottom:7px;font-weight:500}
+  .req::after{content:" *";color:var(--accent2)}
+  input,select,textarea{width:100%;background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:12px;color:var(--text);padding:13px 14px;font:inherit;font-size:14.5px;transition:border-color .2s,background .2s}
+  input:focus,select:focus,textarea:focus{outline:none;border-color:var(--accent2);background:rgba(249,115,22,.06)}
+  select option{background:#0d1115}
+  textarea{min-height:90px;resize:vertical}
+  .chks{display:grid;grid-template-columns:repeat(auto-fill,minmax(175px,1fr));gap:9px;margin-top:4px}
+  .chk{display:flex;gap:9px;align-items:center;background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:11px;padding:11px 13px;font-size:13.5px;cursor:pointer;transition:border-color .2s,background .2s;user-select:none}
+  .chk:hover{border-color:rgba(249,115,22,.35);background:rgba(249,115,22,.04)}
+  .chk input{width:auto;flex-shrink:0;accent-color:var(--accent)}
+  .scale-row{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:4px}
+  .scale-item{display:flex;flex-direction:column;align-items:center;gap:6px;font-size:12px;color:var(--mute)}
+  .scale-item input{width:auto;accent-color:var(--accent)}
+  .hint{font-size:12.5px;color:var(--mute);margin-bottom:12px;line-height:1.55}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:linear-gradient(100deg,var(--accent),var(--accent2));color:#fff;font-weight:700;border:0;border-radius:999px;padding:16px 32px;font-size:16px;cursor:pointer;transition:filter .2s,transform .2s;letter-spacing:.01em}
+  .btn:hover{filter:brightness(1.08);transform:translateY(-2px)}
+  .btn:disabled{opacity:.55;cursor:not-allowed;transform:none}
+  .note{color:var(--mute);font-size:12.5px;margin-top:8px}
+  #okView{display:none;text-align:center;padding:56px 20px}
+  .ok-ring{width:76px;height:76px;border-radius:50%;margin:0 auto 24px;background:linear-gradient(135deg,var(--accent),var(--teal));display:flex;align-items:center;justify-content:center;font-size:32px}
+  .ok-title{font-family:'Space Grotesk';font-size:28px;font-weight:700;margin-bottom:10px}
+  .ok-sub{color:var(--mute);font-size:16px;max-width:42ch;margin:0 auto}
+  .err{display:none;background:rgba(248,113,113,.1);border:1px solid rgba(248,113,113,.35);color:#fca5a5;border-radius:12px;padding:12px 14px;font-size:14px;margin-top:8px}
+  .divider{height:1px;background:var(--line);margin:4px 0}
+</style></head>
+<body>
+<div class="aurora"><span class="a1"></span><span class="a2"></span></div>
+<div class="wrap">
+
+  <div class="brand"><span class="brand-dot"></span>Brave The World <span style="color:var(--mute);font-weight:500">· Auditoría</span></div>
+
+  <div id="formView">
+    <span class="eyebrow">Auditoría de negocio</span>
+    <h1 class="display">Vamos a construir vuestro sistema de <span class="grad">ventas escalable</span>.</h1>
+    <p class="lead">Cuéntanos cómo funciona Brave The World ahora mismo. Con esta información diseñaremos el sistema completo de captación de clientes, partnerships con gimnasios y automatización de ventas. Tiempo: ~20 min.</p>
+
+    <form id="btForm" novalidate>
+
+      <!-- SECCIÓN 1: CONTACTO -->
+      <div class="sec">
+        <h2>Contacto</h2>
+        <div class="grid2">
+          <div class="field"><label class="req">Nombre y apellidos</label><input name="nombre" required placeholder="Javier / Lucía…"></div>
+          <div class="field"><label class="req">Email de contacto</label><input type="email" name="email" required placeholder="hola@braveviajes.com"></div>
+          <div class="field"><label>Teléfono / WhatsApp</label><input name="telefono" placeholder="+34 6xx xxx xxx"></div>
+          <div class="field"><label>¿Mejor hora para hablar?</label><input name="hora_contacto" placeholder="Mañanas, tardes…"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 2: NÚMEROS DEL NEGOCIO -->
+      <div class="sec">
+        <h2>Números del negocio</h2>
+        <p class="hint">Sé lo más preciso posible — esto nos permite calcular el impacto real del sistema que diseñemos.</p>
+        <div class="grid3">
+          <div class="field"><label class="req">Clientes en los últimos 12 meses</label><input name="clientes_12m" inputmode="numeric" required placeholder="ej. 45"></div>
+          <div class="field"><label class="req">Ticket medio por cliente (€)</label><input name="ticket_medio" inputmode="numeric" required placeholder="ej. 1.200"></div>
+          <div class="field"><label class="req">Facturación mensual actual (€)</label><input name="facturacion_mensual" inputmode="numeric" required placeholder="ej. 5.000"></div>
+          <div class="field"><label>Margen neto aproximado (%)</label><input name="margen" inputmode="numeric" placeholder="ej. 30"></div>
+          <div class="field"><label>Plazas por viaje en grupo</label><input name="plazas_grupo" inputmode="numeric" placeholder="ej. 12"></div>
+          <div class="field"><label>Viajes en grupo al año (actual)</label><input name="viajes_anuales" inputmode="numeric" placeholder="ej. 4"></div>
+        </div>
+        <div class="field" style="margin-top:16px"><label>¿Os cuesta llenar los viajes en grupo o se llenan solos? ¿Cuánto tardáis?</label><textarea name="llenar_viajes" placeholder="ej. Tardamos 2-3 meses, tenemos que empujar mucho en Instagram…"></textarea></div>
+      </div>
+
+      <!-- SECCIÓN 3: PROCESO DE VENTAS -->
+      <div class="sec">
+        <h2>Proceso de ventas actual</h2>
+        <div class="field"><label class="req">Describid el recorrido completo desde que alguien os descubre hasta que paga</label><textarea name="proceso_ventas" required placeholder="ej. Nos ven en Instagram → mandan DM → les respondemos → les enviamos info por WhatsApp → pagan por transferencia…" style="min-height:110px"></textarea></div>
+        <div class="grid2" style="margin-top:16px">
+          <div class="field"><label>Leads al mes (personas que preguntan)</label><input name="leads_mes" inputmode="numeric" placeholder="ej. 30"></div>
+          <div class="field"><label>Ventas al mes (personas que compran)</label><input name="ventas_mes" inputmode="numeric" placeholder="ej. 5"></div>
+          <div class="field"><label>Objeción más habitual para NO comprar</label><input name="objecion_principal" placeholder="ej. Precio, fechas, miedo a ir solo…"></div>
+          <div class="field"><label>¿Usáis CRM o algún sistema de seguimiento?</label><select name="crm"><option value="">Elige…</option><option>No, todo es manual/WhatsApp</option><option>Trello/Notion básico</option><option>GoHighLevel</option><option>HubSpot</option><option>Otro</option></select></div>
+        </div>
+        <div class="field" style="margin-top:16px"><label>¿Cuántas horas semanales dedicáis a responder consultas, seguimiento y ventas?</label><input name="horas_ventas" placeholder="ej. Javier 5h, Lucía 3h…"></div>
+      </div>
+
+      <!-- SECCIÓN 4: CANALES DE CAPTACIÓN -->
+      <div class="sec">
+        <h2>Canales de captación actuales</h2>
+        <p class="hint">Marcad todos los que usáis actualmente.</p>
+        <div class="chks">
+          <label class="chk"><input type="checkbox" name="canal_instagram" value="si"> Instagram</label>
+          <label class="chk"><input type="checkbox" name="canal_tiktok" value="si"> TikTok</label>
+          <label class="chk"><input type="checkbox" name="canal_youtube" value="si"> YouTube</label>
+          <label class="chk"><input type="checkbox" name="canal_google" value="si"> Google orgánico / SEO</label>
+          <label class="chk"><input type="checkbox" name="canal_metaads" value="si"> Meta Ads (pagado)</label>
+          <label class="chk"><input type="checkbox" name="canal_googleads" value="si"> Google Ads (pagado)</label>
+          <label class="chk"><input type="checkbox" name="canal_bocaaboca" value="si"> Boca a boca</label>
+          <label class="chk"><input type="checkbox" name="canal_influencers" value="si"> Influencers / colaboraciones</label>
+          <label class="chk"><input type="checkbox" name="canal_email" value="si"> Email marketing</label>
+          <label class="chk"><input type="checkbox" name="canal_whatsapp" value="si"> WhatsApp listas/grupos</label>
+        </div>
+        <div class="grid2" style="margin-top:16px">
+          <div class="field"><label>Seguidores en Instagram (@bravetheworld_)</label><input name="ig_seguidores" inputmode="numeric" placeholder="ej. 4.200"></div>
+          <div class="field"><label>Alcance medio por reel / publicación</label><input name="ig_alcance" placeholder="ej. 1.500 views"></div>
+          <div class="field"><label>Presupuesto mensual en publicidad de pago (€)</label><input name="budget_ads" inputmode="numeric" placeholder="ej. 0 / 200 / 500…"></div>
+          <div class="field"><label>¿Tenéis lista de emails de clientes actuales y pasados?</label><select name="lista_emails"><option value="">Elige…</option><option>No tenemos</option><option>Sí, menos de 100</option><option>Sí, 100-500</option><option>Sí, más de 500</option></select></div>
+        </div>
+        <div class="field" style="margin-top:16px"><label>¿Sabéis qué canal os da más ventas actualmente? ¿Hacéis seguimiento de dónde viene cada cliente?</label><textarea name="tracking_clientes" placeholder="ej. Todo llega por Instagram, no llevamos registro exacto…"></textarea></div>
+      </div>
+
+      <!-- SECCIÓN 5: PARTNERSHIPS CON GIMNASIOS -->
+      <div class="sec">
+        <h2>Programa de partnerships con gimnasios</h2>
+        <p class="hint">Nos habéis comentado que queréis lanzar colaboraciones con gimnasios de Muay Thai/artes marciales. Necesitamos entender dónde estáis.</p>
+        <div class="field"><label>¿Habéis contactado ya con algún gimnasio en España? ¿Cuál fue la respuesta?</label><textarea name="gimnasios_contactados" placeholder="ej. Hemos hablado con 2 de Madrid, les interesa pero no tenemos propuesta formal todavía…"></textarea></div>
+        <div class="grid2" style="margin-top:16px">
+          <div class="field"><label>¿Cuántos gimnasios de Muay Thai/kickboxing/MMA creéis que hay en España?</label><input name="estimacion_gimnasios" placeholder="ej. No lo sabemos / ~200 / ~500…"></div>
+          <div class="field"><label>¿Cómo se estructuraría la comisión para el gimnasio?</label><input name="estructura_comision" placeholder="ej. X€ por viajero, % del paquete…"></div>
+          <div class="field"><label>¿Estáis dispuestos a crear landing pages co-branded (con el logo del gimnasio)?</label><select name="landing_cobranded"><option value="">Elige…</option><option>Sí, totalmente</option><option>Sí si no es mucho trabajo</option><option>Preferiríamos una página genérica</option><option>No lo habíamos pensado</option></select></div>
+          <div class="field"><label>¿Qué os frena ahora mismo para lanzar el programa de gimnasios?</label><select name="freno_gimnasios"><option value="">Elige…</option><option>Falta la propuesta formal</option><option>No tenemos materiales de marketing para darles</option><option>No sabemos cómo trackear sus ventas</option><option>No tenemos tiempo de gestionarlo</option><option>Falta un sistema de comisiones automatizado</option><option>Varios de los anteriores</option></select></div>
+        </div>
+        <div class="field" style="margin-top:16px"><label>¿Qué tipo de socios os interesan más? (Ordenad de más a menos interés)</label><textarea name="tipo_socios" placeholder="ej. 1) Gimnasios Muay Thai, 2) Influencers fitness, 3) Coaches personales, 4) Escuelas MMA…"></textarea></div>
+      </div>
+
+      <!-- SECCIÓN 6: WEB Y TECH -->
+      <div class="sec">
+        <h2>Web y herramientas</h2>
+        <div class="grid2">
+          <div class="field"><label>¿Con qué tecnología está hecha braveviajes.com?</label><select name="tech_web"><option value="">Elige…</option><option>WordPress</option><option>Webflow</option><option>Shopify</option><option>Custom / a medida</option><option>No lo sabemos</option></select></div>
+          <div class="field"><label>Visitas mensuales en la web (aprox.)</label><input name="visitas_web" placeholder="ej. 500 / no lo sabemos"></div>
+          <div class="field"><label>¿Aparecéis en Google para búsquedas como "viaje Muay Thai Tailandia"?</label><select name="seo_actual"><option value="">Elige…</option><option>Sí, en primera página</option><option>Sí, pero en páginas 2-3</option><option>No aparecemos</option><option>No lo hemos comprobado</option></select></div>
+          <div class="field"><label>¿Tenéis Google My Business activo con reseñas?</label><select name="gmb"><option value="">Elige…</option><option>Sí, con reseñas</option><option>Sí, sin reseñas</option><option>No</option></select></div>
+          <div class="field"><label>¿Usáis GoHighLevel (GHL) actualmente?</label><select name="usa_ghl"><option value="">Elige…</option><option>Sí, activamente</option><option>Sí, pero apenas lo usamos</option><option>No, pero nos interesa</option><option>No y preferiríamos otra herramienta</option></select></div>
+          <div class="field"><label>¿Cuánto podéis invertir/mes en herramientas y publicidad?</label><select name="presupuesto_mensual"><option value="">Elige…</option><option>Menos de 200€/mes</option><option>200–500€/mes</option><option>500€–1.000€/mes</option><option>Más de 1.000€/mes</option></select></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 7: OBJETIVOS -->
+      <div class="sec">
+        <h2>Objetivos y prioridades</h2>
+        <div class="field"><label class="req">Si en 6 meses solo pudierais conseguir UNA COSA, ¿cuál sería?</label><textarea name="objetivo_principal" required placeholder="ej. Tener los viajes en grupo llenos con 3 meses de antelación y sin tener que empujar…" style="min-height:80px"></textarea></div>
+        <div style="margin-top:16px">
+          <label style="margin-bottom:10px;display:block">¿Cuántos partners de gimnasios queréis tener activos en 6 meses?</label>
+          <div class="grid3">
+            <div class="field"><label>Objetivo partners (6 meses)</label><input name="objetivo_partners" inputmode="numeric" placeholder="ej. 10"></div>
+            <div class="field"><label>Facturación objetivo (12 meses, €/mes)</label><input name="objetivo_facturacion" inputmode="numeric" placeholder="ej. 15.000"></div>
+            <div class="field"><label>Viajes en grupo que queréis organizar/año</label><input name="objetivo_viajes" inputmode="numeric" placeholder="ej. 6"></div>
+          </div>
+        </div>
+        <div class="field" style="margin-top:16px">
+          <label>Ordenad estas prioridades del 1 (más urgente) al 5 (menos urgente)</label>
+          <p class="hint">Escribidlo libremente: ej. "1. Llenar viajes, 2. Programa gimnasios, 3. SEO…"</p>
+          <textarea name="prioridades" placeholder="1. &#10;2. &#10;3. &#10;4. &#10;5. "></textarea>
+        </div>
+        <div class="field" style="margin-top:16px"><label>¿Hay algo importante que no hayamos preguntado?</label><textarea name="otro" placeholder="Cualquier cosa que creáis relevante para entender vuestro negocio…"></textarea></div>
+      </div>
+
+      <div id="err" class="err"></div>
+      <div>
+        <button id="submitBtn" class="btn" type="submit">Enviar auditoría →</button>
+        <p class="note" style="margin-top:10px">Dani revisará vuestras respuestas y os contactará en menos de 48h con los próximos pasos.</p>
+      </div>
+
+    </form>
+  </div>
+
+  <div id="okView">
+    <div class="ok-ring">✓</div>
+    <p class="ok-title display">Auditoría recibida.</p>
+    <p class="ok-sub">Dani lo tiene ya en bandeja. Os contactamos en menos de 48h con los próximos pasos. 🥊</p>
+  </div>
+
+</div>
+
+<script>
+const ENDPOINT = 'https://qv-audit.128.140.44.162.sslip.io/api/brave-the-world';
+const form = document.getElementById('btForm');
+const btn = document.getElementById('submitBtn');
+const errBox = document.getElementById('err');
+
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  errBox.style.display = 'none';
+  if (!form.checkValidity()) { form.reportValidity(); return; }
+
+  const data = Object.fromEntries(new FormData(form).entries());
+  // Collect checkboxes
+  ['canal_instagram','canal_tiktok','canal_youtube','canal_google','canal_metaads','canal_googleads','canal_bocaaboca','canal_influencers','canal_email','canal_whatsapp'].forEach(k => {
+    data[k] = form.querySelector(`input[name="${k}"]`)?.checked ? 'sí' : 'no';
+  });
+
+  btn.disabled = true; btn.textContent = 'Enviando…';
+  try {
+    const r = await fetch(ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
+    if (!r.ok) throw new Error('server ' + r.status);
+    document.getElementById('formView').style.display = 'none';
+    document.getElementById('okView').style.display = 'block';
+  } catch (err) {
+    errBox.textContent = 'Error al enviar. Inténtalo de nuevo o escríbenos directamente.';
+    errBox.style.display = 'block';
+    btn.disabled = false; btn.textContent = 'Enviar auditoría →';
+  }
+});
+</script>
+</body></html>
