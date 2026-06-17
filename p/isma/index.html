@@ -64,12 +64,12 @@ ul.clean li:before{content:"→";position:absolute;left:0;color:var(--cyan)}
 .fw-node .t{font-size:12.5px;font-weight:600;margin-top:1px}
 .fw-node .d{font-size:11px;color:var(--mute);margin-top:3px;line-height:1.32}
 .fw-1{left:50%;top:8%}.fw-2{left:90%;top:32%}.fw-3{left:90%;top:68%}.fw-4{left:50%;top:92%}.fw-5{left:10%;top:68%}.fw-6{left:10%;top:32%}
-.shots{display:grid;gap:12px;margin-top:24px;grid-template-columns:1.4fr 1fr 1fr;grid-template-rows:172px 172px;grid-template-areas:"a b d" "a c e"}
+.shots{display:grid;gap:12px;margin-top:24px;grid-template-columns:1.5fr 1fr;grid-template-rows:172px 172px;grid-template-areas:"a b" "a c"}
 .shots figure{position:relative;margin:0;border-radius:16px;overflow:hidden;border:1px solid var(--line)}
 .shots figure img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s cubic-bezier(.16,1,.3,1)}
 .shots figure:hover img{transform:scale(1.06)}
 .shots figure::after{content:'';position:absolute;inset:0;background:linear-gradient(0deg,rgba(6,7,13,.5),transparent 62%)}
-.s-a{grid-area:a}.s-b{grid-area:b}.s-c{grid-area:c}.s-d{grid-area:d}.s-e{grid-area:e}
+.s-a{grid-area:a}.s-b{grid-area:b}.s-c{grid-area:c}
 @media(max-width:760px){.shots{grid-template-columns:1fr 1fr;grid-template-rows:none;grid-template-areas:none}.shots figure{height:150px}.s-a{grid-column:span 2;height:210px}}
 @media(max-width:640px){
  .flywheel{width:100%;aspect-ratio:auto;display:grid;gap:10px}
@@ -110,10 +110,8 @@ ul.clean li:before{content:"→";position:absolute;left:0;color:var(--cyan)}
   <p class="lead">Lectura basada en datos públicos reales de tu perfil de Instagram.</p>
   <div class="shots">
     <figure class="s-a"><img src="/p/isma/img/isma-gym-front.jpg" style="object-position:center 16%" alt="Ismael Rachidi"></figure>
-    <figure class="s-b"><img src="/p/isma/img/isma-running.jpg" style="object-position:center 24%" alt=""></figure>
-    <figure class="s-c"><img src="/p/isma/img/isma-cable-row.jpg" style="object-position:center 30%" alt=""></figure>
-    <figure class="s-d"><img src="/p/isma/img/isma-pullup.jpg" style="object-position:center 18%" alt=""></figure>
-    <figure class="s-e"><img src="/p/isma/img/isma-handstand-rio.jpg" style="object-position:center 35%" alt=""></figure>
+    <figure class="s-b"><img src="/p/isma/img/isma-handstand-rio.jpg" style="object-position:center 35%" alt=""></figure>
+    <figure class="s-c"><img src="/p/isma/img/isma-pullup.jpg" style="object-position:center 18%" alt=""></figure>
   </div>
   <div class="cards c4" style="margin-top:16px">
     <div class="card"><div class="metric">Seguidores IG</div><div class="kpi">311K</div><div class="sm mute">Hybrid Athlete · Online Coach</div></div>
@@ -342,7 +340,7 @@ ul.clean li:before{content:"→";position:absolute;left:0;color:var(--cyan)}
       </div>
     </div>
     <div class="card" style="padding:0;overflow:hidden">
-      <img src="/p/isma/img/isma-gym-front.jpg" style="width:100%;height:170px;object-fit:cover;object-position:center 18%" alt="Comunidad Isma">
+      <img src="/p/isma/img/isma-cable-row.jpg" style="width:100%;height:170px;object-fit:cover;object-position:center 25%" alt="Comunidad Isma">
       <div style="padding:20px">
         <h3 style="font-size:17px;margin-bottom:6px">👥 Tu comunidad</h3>
         <p class="sm mute" style="margin-bottom:14px">Tu espacio privado estilo Skool: feed, classroom, retos y ranking.</p>
@@ -350,7 +348,7 @@ ul.clean li:before{content:"→";position:absolute;left:0;color:var(--cyan)}
       </div>
     </div>
     <div class="card" style="padding:0;overflow:hidden">
-      <img src="/p/isma/img/isma-cable-row.jpg" style="width:100%;height:170px;object-fit:cover;object-position:center 25%" alt="Emails Isma">
+      <img src="/p/isma/img/isma-dips.jpg" style="width:100%;height:170px;object-fit:cover;object-position:center 25%" alt="Emails Isma">
       <div style="padding:20px">
         <h3 style="font-size:17px;margin-bottom:6px">✉️ Tus emails a clientes</h3>
         <p class="sm mute" style="margin-bottom:14px">La secuencia automática que da la bienvenida, aporta valor y vende.</p>
