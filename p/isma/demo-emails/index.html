@@ -4,83 +4,115 @@
 <meta name="robots" content="noindex">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{--ink:#0a0b0a;--paper:#faf9f5;--surface:#13150f;--line:rgba(255,255,255,.10);--acid:#c6f24e;--text:#eef2e9;--mute:#9aa394;--dark:#11130d}
+:root{
+  --ink:#0a0b0a;--paper:#fbfaf6;--line:rgba(255,255,255,.10);--acid:#c6f24e;--acid-d:#7cb518;
+  --text:#eef2e9;--mute:#9aa394;--dark:#13150f;
+  --p-ink:#23261d;--p-soft:#565b4c;--p-line:#e7e3d6;--p-bg2:#f1efe6;
+  --r:18px;--pad:clamp(22px,5vw,32px);
+}
 *{margin:0;box-sizing:border-box}
-body{background:var(--ink);color:var(--text);font-family:'Inter',sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
-img{display:block}
-.display{font-family:'Space Grotesk',sans-serif}
+body{background:var(--ink);color:var(--text);font-family:'Inter',sans-serif;line-height:1.62;-webkit-font-smoothing:antialiased}
+.display{font-family:'Space Grotesk',sans-serif;letter-spacing:-.01em}
 .demo-badge{position:fixed;top:10px;right:10px;z-index:99;background:var(--acid);color:#0a0b0a;font-weight:700;font-size:11px;padding:6px 12px;border-radius:999px;font-family:'Space Grotesk'}
-.wrap{max-width:680px;margin:0 auto;padding:clamp(34px,6vw,64px) clamp(16px,5vw,24px)}
-.eyebrow{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--acid);font-weight:600}
-h1{font-size:clamp(28px,5vw,42px);font-weight:700;margin:10px 0 8px}
-.lead{color:var(--mute);margin-bottom:34px}
-.mono{width:42px;height:42px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk';font-weight:700;font-size:16px;color:#0a0b0a;background:linear-gradient(135deg,var(--acid),#7cb518);flex-shrink:0}
-.tag{display:inline-block;font-size:12px;color:var(--acid);border:1px solid rgba(198,242,78,.4);border-radius:999px;padding:5px 14px;margin-bottom:14px;font-family:'Space Grotesk';font-weight:600}
-.mail{background:var(--paper);color:#20231a;border-radius:18px;overflow:hidden;margin-bottom:38px;border:1px solid var(--line);box-shadow:0 30px 70px -36px rgba(0,0,0,.8)}
-.subjbar{background:#eceadf;border-bottom:1px solid #ddd9c9;padding:13px 22px;font-size:13px;color:#6a6f5d}
-.subjbar b{color:#20231a}
-.hd{background:var(--dark);padding:20px 26px;display:flex;align-items:center;gap:13px}
-.hd .nm{color:#fff;font-family:'Space Grotesk';font-weight:700;line-height:1.2}
-.hd .nm span{display:block;font-size:12px;color:#aeb89f;font-weight:400;margin-top:2px}
-.bd{padding:30px 26px 8px}
-.bd h2{font-family:'Space Grotesk';font-size:23px;margin-bottom:14px;color:#16180f;line-height:1.15}
-.bd p{font-size:15px;color:#3d4234;margin-bottom:15px}
-.figimg{border-radius:14px;overflow:hidden;margin:4px 0 20px;aspect-ratio:16/9;border:1px solid #e2decf}
-.figimg img{width:100%;height:100%;object-fit:cover;object-position:center 28%}
-.ctawrap{text-align:center;margin:22px 0 8px}
-.cta{display:inline-block;background:#16180f;color:var(--acid);font-weight:700;text-decoration:none;padding:15px 30px;border-radius:999px;font-family:'Space Grotesk';font-size:15px}
-.ft{padding:18px 26px;border-top:1px solid #e2decf;font-size:12px;color:#8a907e;background:#f3f1e7}
-.dis{color:var(--mute);font-size:13px;text-align:center;margin-top:6px}
+.wrap{max-width:600px;margin:0 auto;padding:clamp(40px,7vw,72px) clamp(16px,5vw,22px)}
+.head{margin-bottom:40px}
+.eyebrow{font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--acid);font-weight:600}
+.head h1{font-size:clamp(27px,5vw,38px);font-weight:700;margin:12px 0 10px;line-height:1.1}
+.head p{color:var(--mute);font-size:15px}
+.mono{width:40px;height:40px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk';font-weight:700;font-size:15px;color:#0a0b0a;background:linear-gradient(135deg,var(--acid),var(--acid-d));flex-shrink:0}
+/* step label */
+.step{display:flex;align-items:center;gap:12px;margin:0 4px 14px}
+.step .dot{width:30px;height:30px;border-radius:50%;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk';font-weight:700;font-size:13px;color:var(--acid)}
+.step .lbl{font-family:'Space Grotesk';font-weight:600;font-size:14px}
+.step .when{margin-left:auto;font-size:12px;color:var(--mute)}
+/* email card */
+.mail{background:var(--paper);color:var(--p-ink);border-radius:var(--r);overflow:hidden;margin-bottom:42px;border:1px solid var(--line);box-shadow:0 28px 64px -34px rgba(0,0,0,.85)}
+.chrome{display:flex;align-items:center;gap:7px;padding:11px 18px;background:var(--p-bg2);border-bottom:1px solid var(--p-line)}
+.chrome i{width:10px;height:10px;border-radius:50%;background:#d6d2c2;display:block}
+.chrome span{margin-left:8px;font-size:12px;color:#8c917e}
+.from{display:flex;align-items:center;gap:12px;padding:18px var(--pad) 0}
+.from .nm{font-family:'Space Grotesk';font-weight:700;font-size:15px;color:var(--p-ink);line-height:1.3}
+.from .nm .addr{font-family:'Inter';font-weight:400;color:#9a9e8c;font-size:13px}
+.from .nm .to{font-size:12px;color:#9a9e8c;font-weight:400}
+.from time{margin-left:auto;font-size:12px;color:#9a9e8c;align-self:flex-start;padding-top:3px}
+.subject{padding:16px var(--pad) 2px;font-family:'Space Grotesk';font-weight:700;font-size:19px;color:var(--p-ink);line-height:1.25}
+.pre{padding:0 var(--pad);font-size:13px;color:#9a9e8c}
+.rule{height:1px;background:var(--p-line);margin:18px var(--pad) 0}
+.bd{padding:22px var(--pad) var(--pad)}
+.bd p{font-size:15px;color:#3a3e30;margin-bottom:15px}
+.bd p:last-child{margin-bottom:0}
+.bd strong{color:var(--p-ink)}
+.tip{border-left:3px solid var(--acid-d);background:#f3f5e6;border-radius:0 10px 10px 0;padding:13px 16px;font-size:14px;color:#46492f;margin:4px 0 18px}
+.cta-row{margin:22px 0 6px}
+.cta{display:inline-block;background:var(--p-ink);color:var(--acid);font-weight:700;text-decoration:none;padding:14px 28px;border-radius:999px;font-family:'Space Grotesk';font-size:15px}
+.sign{margin-top:18px;font-family:'Space Grotesk';font-weight:600;color:var(--p-ink)}
+.ft{padding:16px var(--pad);border-top:1px solid var(--p-line);background:var(--p-bg2);display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.ft .so{display:flex;gap:10px}
+.ft .so a{width:26px;height:26px;border-radius:7px;background:#e4e1d3;color:#6a6f5d;display:flex;align-items:center;justify-content:center;font-size:12px;text-decoration:none;font-weight:600}
+.ft .sm{font-size:11px;color:#9a9e8c;margin-left:auto;text-align:right;line-height:1.5}
+.dis{color:var(--mute);font-size:13px;text-align:center;margin-top:10px}
 </style></head>
 <body>
 <div class="demo-badge">DEMO · creada por Quantum Ventures</div>
 <div class="wrap">
-  <span class="eyebrow">Secuencia de emails</span>
-  <h1 class="display">Los emails que reciben tus clientes</h1>
-  <p class="lead">Ejemplo de la secuencia automática que montamos: da la bienvenida, aporta valor y convierte — todo con tu marca y tu tono. (Textos de muestra.)</p>
+  <div class="head">
+    <span class="eyebrow">Secuencia de emails</span>
+    <h1 class="display">Los emails que reciben tus clientes</h1>
+    <p>La secuencia automática que montamos: da la bienvenida, aporta valor y convierte — con tu marca y tu tono. (Textos de muestra.)</p>
+  </div>
 
-  <span class="tag">Email 1 · Bienvenida — minuto 0</span>
+  <!-- EMAIL 1 -->
+  <div class="step"><span class="dot">1</span><span class="lbl">Bienvenida</span><span class="when">Minuto 0</span></div>
   <article class="mail">
-    <div class="subjbar">Asunto: <b>Bienvenido a Fuerza Híbrida 💪 (empieza por aquí)</b></div>
-    <div class="hd"><span class="mono">IR</span><div class="nm">Ismael Rachidi<span>hola@ismarg.com · Fuerza Híbrida</span></div></div>
+    <div class="chrome"><i></i><i></i><i></i><span>Recibidos</span></div>
+    <div class="from"><span class="mono">IR</span><div class="nm">Ismael Rachidi <span class="addr">&lt;hola@ismarg.com&gt;</span><div class="to">para ti</div></div><time>09:00</time></div>
+    <div class="subject">Bienvenido a Fuerza Híbrida 💪</div>
+    <div class="pre">Empieza por aquí — tu primera sesión te espera dentro.</div>
+    <div class="rule"></div>
     <div class="bd">
-      <div class="figimg"><img src="/p/isma/img/isma-running.jpg" alt="" loading="lazy"></div>
-      <h2>¡Estás dentro! Vamos al lío.</h2>
       <p>Qué tal, soy Isma. Acabas de dar el paso que la mayoría no da: comprometerte de verdad con tu físico. Bienvenido.</p>
-      <p>Para empezar con buen pie, entra en el módulo <b>"Empieza aquí"</b> y haz tu primera sesión hoy mismo. No necesitas material, solo ganas.</p>
-      <div class="ctawrap"><a class="cta" href="#">Acceder a la comunidad →</a></div>
-      <p>Nos vemos dentro. A entrenar para rendir. 🔥</p>
+      <p>Para arrancar con buen pie, entra en el módulo <strong>"Empieza aquí"</strong> y haz tu primera sesión hoy mismo. No necesitas material, solo ganas.</p>
+      <div class="tip">💡 Consejo: reserva 30 minutos hoy en tu calendario. Empezar el primer día es lo que marca la diferencia.</div>
+      <div class="cta-row"><a class="cta" href="#">Acceder a la comunidad →</a></div>
+      <p class="sign">— Isma</p>
     </div>
-    <div class="ft">Ismael Rachidi · Fuerza Híbrida · Recibes este email porque te uniste a la comunidad. Darse de baja.</div>
+    <div class="ft"><div class="so"><a href="#">IG</a><a href="#">YT</a><a href="#">TT</a></div><div class="sm">Fuerza Híbrida · Ismael Rachidi<br>Darse de baja · Preferencias</div></div>
   </article>
 
-  <span class="tag">Email 2 · Valor — día 2</span>
+  <!-- EMAIL 2 -->
+  <div class="step"><span class="dot">2</span><span class="lbl">Valor</span><span class="when">Día 2</span></div>
   <article class="mail">
-    <div class="subjbar">Asunto: <b>El error nº1 que frena tu progreso (lo cometía yo también)</b></div>
-    <div class="hd"><span class="mono">IR</span><div class="nm">Ismael Rachidi<span>hola@ismarg.com · Fuerza Híbrida</span></div></div>
+    <div class="chrome"><i></i><i></i><i></i><span>Recibidos</span></div>
+    <div class="from"><span class="mono">IR</span><div class="nm">Ismael Rachidi <span class="addr">&lt;hola@ismarg.com&gt;</span><div class="to">para ti</div></div><time>18:30</time></div>
+    <div class="subject">El error nº1 que frena tu progreso</div>
+    <div class="pre">Lo cometía yo también — y es más simple de lo que crees.</div>
+    <div class="rule"></div>
     <div class="bd">
-      <h2>No es tu rutina. Es esto.</h2>
-      <p>La mayoría cambia de rutina cada 2 semanas buscando "la mejor". Y ese es justo el error: <b>sin progresión y constancia, ninguna rutina funciona.</b></p>
+      <p>La mayoría cambia de rutina cada dos semanas buscando "la mejor". Y ese es justo el error: <strong>sin progresión y constancia, ninguna rutina funciona.</strong></p>
       <p>En el directo de esta semana te enseño cómo estructurar tu progreso para no estancarte nunca. Tienes la guía rápida dentro del Classroom.</p>
-      <div class="ctawrap"><a class="cta" href="#">Ver la guía de progresión →</a></div>
-      <p>Cualquier duda, respóndeme a este email. Leo todo. 💪</p>
+      <div class="cta-row"><a class="cta" href="#">Ver la guía de progresión →</a></div>
+      <p>¿Alguna duda? Respóndeme a este email, lo leo todo. 💪</p>
+      <p class="sign">— Isma</p>
     </div>
-    <div class="ft">Ismael Rachidi · Fuerza Híbrida · Darse de baja.</div>
+    <div class="ft"><div class="so"><a href="#">IG</a><a href="#">YT</a><a href="#">TT</a></div><div class="sm">Fuerza Híbrida · Ismael Rachidi<br>Darse de baja · Preferencias</div></div>
   </article>
 
-  <span class="tag">Email 3 · Oferta 1-1 élite — día 5</span>
+  <!-- EMAIL 3 -->
+  <div class="step"><span class="dot">3</span><span class="lbl">Oferta 1-1 élite</span><span class="when">Día 5</span></div>
   <article class="mail">
-    <div class="subjbar">Asunto: <b>¿Quieres ir más rápido? Abro 5 plazas de asesoría 1-1</b></div>
-    <div class="hd"><span class="mono">IR</span><div class="nm">Ismael Rachidi<span>hola@ismarg.com · Fuerza Híbrida</span></div></div>
+    <div class="chrome"><i></i><i></i><i></i><span>Recibidos</span></div>
+    <div class="from"><span class="mono">IR</span><div class="nm">Ismael Rachidi <span class="addr">&lt;hola@ismarg.com&gt;</span><div class="to">para ti</div></div><time>10:00</time></div>
+    <div class="subject">¿Quieres ir más rápido? Abro 5 plazas</div>
+    <div class="pre">Asesoría 1-1 conmigo — cupo muy limitado.</div>
+    <div class="rule"></div>
     <div class="bd">
-      <div class="figimg"><img src="/p/isma/img/isma-handstand-rio.jpg" alt="" loading="lazy"></div>
-      <h2>Acompañamiento personal, solo 5 plazas</h2>
-      <p>La comunidad te da el sistema. Pero si quieres resultados al máximo y que te lleve <b>de la mano yo personalmente</b>, abro plazas de asesoría 1-1 élite.</p>
-      <p>Plan a tu medida, revisiones de técnica y contacto directo conmigo. Cupo muy limitado para cuidar a cada persona.</p>
-      <div class="ctawrap"><a class="cta" href="#">Solicitar mi plaza →</a></div>
-      <p>Si es tu momento, no lo dejes pasar. Nos vemos arriba.</p>
+      <p>La comunidad te da el sistema. Pero si quieres resultados al máximo y que te lleve <strong>de la mano yo personalmente</strong>, abro plazas de asesoría 1-1 élite.</p>
+      <p>Plan a tu medida, revisiones de técnica y contacto directo conmigo.</p>
+      <div class="tip">⭐ Solo 5 plazas este mes. Cuando se llenan, cierro hasta la próxima tanda.</div>
+      <div class="cta-row"><a class="cta" href="#">Solicitar mi plaza →</a></div>
+      <p class="sign">— Isma</p>
     </div>
-    <div class="ft">Ismael Rachidi · Fuerza Híbrida · Darse de baja.</div>
+    <div class="ft"><div class="so"><a href="#">IG</a><a href="#">YT</a><a href="#">TT</a></div><div class="sm">Fuerza Híbrida · Ismael Rachidi<br>Darse de baja · Preferencias</div></div>
   </article>
 
   <p class="dis">DEMO de secuencia de emails · ejemplo creado por Quantum Ventures. Textos y direcciones de muestra.</p>
