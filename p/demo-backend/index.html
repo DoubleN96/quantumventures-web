@@ -1,0 +1,159 @@
+<!doctype html><html lang="es"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Panel de gestión · Quantum Ventures — DEMO</title>
+<meta name="robots" content="noindex">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#06070d;--surface:#0c0e17;--surface2:#11131f;--line:rgba(255,255,255,.09);--cyan:#22d3ee;--indigo:#6366f1;--violet:#a855f7;--text:#e7ecf3;--mute:#8b97a8;--green:#34d399;--amber:#fbbf24}
+*{margin:0;box-sizing:border-box}
+body{background:var(--ink);color:var(--text);font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased}
+.display{font-family:'Space Grotesk',sans-serif;letter-spacing:-.01em}
+.grad{background:linear-gradient(100deg,var(--cyan),var(--indigo) 50%,var(--violet));-webkit-background-clip:text;background-clip:text;color:transparent}
+.demo-badge{position:fixed;top:12px;right:14px;z-index:99;background:linear-gradient(100deg,var(--cyan),var(--indigo));color:#06070d;font-weight:700;font-size:11px;padding:6px 12px;border-radius:999px;font-family:'Space Grotesk'}
+.app{display:grid;grid-template-columns:248px 1fr;min-height:100vh}
+/* SIDEBAR */
+.side{background:var(--surface);border-right:1px solid var(--line);padding:20px 14px;display:flex;flex-direction:column;gap:6px}
+.brand{display:flex;align-items:center;gap:10px;padding:6px 8px 18px;font-family:'Space Grotesk';font-weight:700;font-size:16px}
+.logo{width:30px;height:30px;border-radius:9px;background:linear-gradient(135deg,var(--cyan),var(--violet));display:flex;align-items:center;justify-content:center;color:#06070d;font-weight:700;font-family:'Space Grotesk'}
+.nav-i{display:flex;align-items:center;gap:11px;padding:10px 12px;border-radius:10px;color:var(--mute);font-size:14px;font-weight:500;cursor:pointer}
+.nav-i .ic{width:18px;text-align:center}
+.nav-i:hover{background:var(--surface2);color:var(--text)}
+.nav-i.on{background:linear-gradient(100deg,rgba(34,211,238,.16),rgba(168,85,247,.12));color:var(--text);border:1px solid rgba(34,211,238,.25)}
+.side .sep{margin:12px 8px 6px;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--mute);opacity:.7}
+.side .user{margin-top:auto;display:flex;align-items:center;gap:10px;padding:10px 8px;border-top:1px solid var(--line)}
+.av{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--indigo),var(--violet));display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;font-family:'Space Grotesk'}
+/* MAIN */
+.main{padding:22px 26px;overflow:auto}
+.top{display:flex;align-items:center;gap:14px;margin-bottom:22px}
+.top h1{font-size:21px;font-weight:700}
+.top .crumb{font-size:12px;color:var(--mute);margin-top:2px}
+.top .actions{margin-left:auto;display:flex;gap:10px}
+.btn{display:inline-flex;align-items:center;gap:7px;background:linear-gradient(100deg,var(--cyan),var(--indigo));color:#06070d;font-weight:700;border:none;border-radius:9px;padding:9px 16px;font-size:13px;font-family:'Space Grotesk';cursor:pointer}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:20px}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px}
+.kpi .lbl{font-size:12px;color:var(--mute);text-transform:uppercase;letter-spacing:.06em}
+.kpi .v{font-family:'Space Grotesk';font-size:26px;font-weight:700;margin-top:6px}
+.kpi .d{font-size:12px;margin-top:4px}
+.up{color:var(--green)}
+.cols{display:grid;grid-template-columns:1.5fr 1fr;gap:16px}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px;margin-bottom:16px}
+.panel h2{font-size:14px;font-family:'Space Grotesk';display:flex;align-items:center;gap:8px;margin-bottom:4px}
+.panel .sub{font-size:12px;color:var(--mute);margin-bottom:16px}
+.field{margin-bottom:14px}
+.field label{display:block;font-size:12px;color:var(--mute);margin-bottom:6px}
+.inp{width:100%;background:var(--surface2);border:1px solid var(--line);border-radius:9px;color:var(--text);padding:11px 13px;font:inherit;font-size:14px}
+textarea.inp{resize:none;line-height:1.5}
+.row{display:flex;gap:12px}.row>*{flex:1}
+.tag{display:inline-flex;align-items:center;gap:6px;font-size:11px;color:var(--green);background:rgba(52,211,153,.12);border:1px solid rgba(52,211,153,.3);border-radius:999px;padding:3px 10px}
+.tag.amber{color:var(--amber);background:rgba(251,191,36,.12);border-color:rgba(251,191,36,.3)}
+.meter{height:7px;border-radius:99px;background:var(--surface2);overflow:hidden;margin-top:8px}
+.meter>i{display:block;height:100%;background:linear-gradient(90deg,var(--cyan),var(--indigo))}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--mute);font-weight:600;padding:0 8px 10px}
+td{padding:10px 8px;border-top:1px solid var(--line)}
+.pill{font-size:11px;padding:3px 9px;border-radius:999px;font-weight:600}
+.pill.new{color:var(--cyan);background:rgba(34,211,238,.12)}
+.pill.won{color:var(--green);background:rgba(52,211,153,.12)}
+.pill.warm{color:var(--amber);background:rgba(251,191,36,.12)}
+.sub-row{display:flex;align-items:center;gap:10px;padding:9px 0;border-top:1px solid var(--line);font-size:13px}
+.sub-row:first-of-type{border:none}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--green)}
+.muted{color:var(--mute)}
+@media(max-width:980px){.app{grid-template-columns:1fr}.side{display:none}.kpis{grid-template-columns:repeat(2,1fr)}.cols{grid-template-columns:1fr}}
+</style></head>
+<body>
+<div class="demo-badge">DEMO · Quantum Ventures</div>
+<div class="app">
+  <!-- SIDEBAR -->
+  <aside class="side">
+    <div class="brand"><span class="logo">QV</span> Quantum<span class="grad">Panel</span></div>
+    <div class="nav-i"><span class="ic">▦</span> Dashboard</div>
+    <div class="nav-i on"><span class="ic">✎</span> Contenido / Copys</div>
+    <div class="nav-i"><span class="ic">🔍</span> SEO</div>
+    <div class="nav-i"><span class="ic">✉️</span> Suscriptores</div>
+    <div class="nav-i"><span class="ic">👤</span> Leads / CRM</div>
+    <div class="nav-i"><span class="ic">📊</span> Analítica</div>
+    <div class="sep">Sistema</div>
+    <div class="nav-i"><span class="ic">🎨</span> Diseño</div>
+    <div class="nav-i"><span class="ic">⚙️</span> Ajustes</div>
+    <div class="user"><span class="av">QV</span><div><div style="font-size:13px;font-weight:600">Quantum Ventures</div><div style="font-size:11px" class="muted">Administrador</div></div></div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+    <div class="top">
+      <div>
+        <h1 class="display">Contenido de la web</h1>
+        <div class="crumb">Inicio · Editar página principal</div>
+      </div>
+      <div class="actions">
+        <button class="btn ghost">👁 Ver web</button>
+        <button class="btn">💾 Guardar cambios</button>
+      </div>
+    </div>
+
+    <!-- KPIs -->
+    <div class="kpis">
+      <div class="kpi"><div class="lbl">Visitas (30d)</div><div class="v">12.480</div><div class="d up">▲ 18%</div></div>
+      <div class="kpi"><div class="lbl">Leads (30d)</div><div class="v">214</div><div class="d up">▲ 26%</div></div>
+      <div class="kpi"><div class="lbl">Suscriptores</div><div class="v">3.902</div><div class="d up">▲ 5%</div></div>
+      <div class="kpi"><div class="lbl">Conversión</div><div class="v">3,1%</div><div class="d up">▲ 0,4 pts</div></div>
+    </div>
+
+    <div class="cols">
+      <!-- LEFT: content editor -->
+      <div>
+        <div class="panel">
+          <h2>✎ Editar textos (copys) <span class="tag">cambios en vivo</span></h2>
+          <div class="sub">Cambia el texto de la web sin tocar código. Pulsa Guardar y se publica al instante.</div>
+          <div class="field"><label>Titular principal (Hero)</label><input class="inp" value="Construimos el sistema empresarial de tu marca personal"></div>
+          <div class="field"><label>Subtítulo</label><textarea class="inp" rows="2">Tú creas; nosotros montamos y operamos la empresa que hay detrás. Sin que pongas capital.</textarea></div>
+          <div class="row">
+            <div class="field"><label>Texto del botón</label><input class="inp" value="Reservar llamada"></div>
+            <div class="field"><label>Enlace del botón</label><input class="inp" value="/reservar"></div>
+          </div>
+          <div class="field" style="margin:0"><label>Sección "Sobre nosotros"</label><textarea class="inp" rows="3">No somos una agencia de promos: somos tu venture builder. Te quitamos todo lo que no es crear, para que solo hagas contenido…</textarea></div>
+        </div>
+        <div class="panel" style="margin-bottom:0">
+          <h2>👤 Últimos leads</h2>
+          <div class="sub">Entran solos desde los formularios de la web → tu CRM.</div>
+          <table>
+            <tr><th>Nombre</th><th>Origen</th><th>Fecha</th><th>Estado</th></tr>
+            <tr><td>Laura G.</td><td>Formulario Home</td><td>Hoy 09:14</td><td><span class="pill new">Nuevo</span></td></tr>
+            <tr><td>Marc T.</td><td>Anuncio Meta</td><td>Hoy 08:02</td><td><span class="pill warm">En seguimiento</span></td></tr>
+            <tr><td>Carlos M.</td><td>Lead magnet</td><td>Ayer</td><td><span class="pill won">Cliente</span></td></tr>
+            <tr><td>Nadia R.</td><td>Instagram</td><td>Ayer</td><td><span class="pill warm">En seguimiento</span></td></tr>
+          </table>
+        </div>
+      </div>
+
+      <!-- RIGHT: SEO + mailing -->
+      <div>
+        <div class="panel">
+          <h2>🔍 SEO de la página</h2>
+          <div class="sub">Cómo aparece en Google.</div>
+          <div class="field"><label>Título SEO</label><input class="inp" value="Quantum Ventures · Venture builder para creadores"></div>
+          <div class="field"><label>Meta descripción</label><textarea class="inp" rows="2">Convertimos tu marca personal en un negocio escalable: comunidad, contenido, ventas y ads.</textarea></div>
+          <div style="font-size:12px" class="muted">Puntuación SEO: <b style="color:var(--green)">86/100</b></div>
+          <div class="meter"><i style="width:86%"></i></div>
+        </div>
+        <div class="panel">
+          <h2>✉️ Lista de correo <span class="tag amber">Mailchimp conectado</span></h2>
+          <div class="sub">3.902 suscriptores · sincronizados solos desde la web.</div>
+          <div class="sub-row"><span class="dot"></span> +128 nuevos esta semana</div>
+          <div class="sub-row"><span class="dot"></span> Campaña "Newsletter junio" · 41% abierto</div>
+          <div class="sub-row"><span class="dot"></span> Secuencia bienvenida · activa</div>
+          <button class="btn" style="margin-top:14px;width:100%;justify-content:center">+ Crear campaña</button>
+        </div>
+        <div class="panel" style="margin-bottom:0">
+          <h2>⚙️ Estado del sistema</h2>
+          <div class="sub-row"><span class="dot"></span> Web publicada · dominio activo (SSL)</div>
+          <div class="sub-row"><span class="dot"></span> Copias de seguridad: al día</div>
+          <div class="sub-row"><span class="dot"></span> Pagos (Stripe) · conectado</div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+</body></html>
