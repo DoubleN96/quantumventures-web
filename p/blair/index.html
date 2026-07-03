@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Propuesta de colaboración · Quantum Ventures × Blair</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#0A0A0B; --surface:#141417; --surface-2:#1C1C21; --line:#2A2A31;
+    --text:#F2F2F0; --muted:#9A9AA3; --accent:#C6FF3D; --accent-dim:#8FBE1F;
+    --danger:#FF5C5C; --warm:#FFB86B;
+    --font-d:'Space Grotesk',sans-serif; --font-b:'Inter',sans-serif;
+    --maxw:1080px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--text);font-family:var(--font-b);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  section{padding:110px 0;position:relative}
+  h1,h2,h3{font-family:var(--font-d);font-weight:700;line-height:1.05;letter-spacing:-0.02em}
+  .eyebrow{font-family:var(--font-d);font-weight:600;font-size:13px;letter-spacing:0.18em;text-transform:uppercase;color:var(--accent);margin-bottom:22px}
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
+  .reveal.in{opacity:1;transform:none}
+
+  /* HERO */
+  .hero{min-height:100vh;display:flex;align-items:center;padding:0;overflow:hidden}
+  .hero::before{content:"";position:absolute;inset:0;background:radial-gradient(900px 500px at 78% 12%,rgba(198,255,61,.14),transparent 60%),radial-gradient(700px 500px at 10% 90%,rgba(255,184,107,.08),transparent 55%);pointer-events:none}
+  .hero-grid{position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:64px 64px;opacity:.15;mask-image:radial-gradient(circle at 70% 20%,black,transparent 75%)}
+  .hero h1{font-size:clamp(2.9rem,7vw,6rem);letter-spacing:-0.03em}
+  .hero h1 .x{color:var(--accent);font-weight:400}
+  .hero .lead{font-size:clamp(1.05rem,2vw,1.4rem);color:var(--muted);max-width:620px;margin-top:28px}
+  .hero .tag{display:inline-flex;gap:10px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:50px;padding:9px 18px;font-size:13px;font-weight:600;color:var(--muted);margin-bottom:34px}
+  .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 12px var(--accent)}
+  .scroll-hint{position:absolute;bottom:34px;left:24px;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+
+  .sec-head{max-width:720px;margin-bottom:56px}
+  .sec-head h2{font-size:clamp(2rem,4.5vw,3.3rem)}
+  .sec-head p{color:var(--muted);font-size:1.12rem;margin-top:20px}
+
+  /* WEAK POINTS */
+  .weak{background:linear-gradient(180deg,transparent,rgba(255,92,92,.03),transparent)}
+  .weak-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+  .weak-card{background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--danger);border-radius:14px;padding:26px}
+  .weak-card .n{font-family:var(--font-d);font-size:13px;color:var(--danger);font-weight:600;letter-spacing:.1em}
+  .weak-card h3{font-size:1.18rem;margin:12px 0 8px}
+  .weak-card p{color:var(--muted);font-size:.96rem}
+  .consequence{margin-top:44px;background:var(--surface-2);border:1px solid var(--line);border-radius:16px;padding:38px 34px;font-family:var(--font-d);font-size:clamp(1.2rem,2.4vw,1.7rem);font-weight:500;line-height:1.35}
+  .consequence b{color:var(--accent)}
+
+  /* VALUE STACK */
+  .value{background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .stack{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+  .stack-list{display:flex;flex-direction:column;gap:14px}
+  .stack-row{display:flex;justify-content:space-between;align-items:center;gap:18px;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:20px 22px;transition:border-color .3s,transform .3s}
+  .stack-row:hover{border-color:var(--accent-dim);transform:translateX(4px)}
+  .stack-row .l h4{font-family:var(--font-d);font-size:1.06rem;font-weight:600}
+  .stack-row .l span{color:var(--muted);font-size:.9rem}
+  .stack-row .v{font-family:var(--font-d);font-weight:700;font-size:1.15rem;color:var(--accent);white-space:nowrap}
+  .total-card{background:linear-gradient(160deg,#181a12,#101109);border:1px solid var(--accent-dim);border-radius:20px;padding:40px 34px;position:relative;overflow:hidden}
+  .total-card::before{content:"";position:absolute;top:-40%;right:-20%;width:60%;height:120%;background:radial-gradient(circle,rgba(198,255,61,.18),transparent 65%)}
+  .total-card .k{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:600}
+  .total-card .big{font-family:var(--font-d);font-size:clamp(3rem,7vw,4.6rem);font-weight:700;line-height:1;margin:14px 0 6px;letter-spacing:-.03em}
+  .total-card .big small{font-size:1.3rem;color:var(--muted);font-weight:500}
+  .total-card p{color:var(--muted);font-size:.98rem;margin-top:16px;position:relative}
+
+  /* PILLARS */
+  .pillars-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px}
+  .pillar{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:30px;transition:transform .35s,border-color .35s}
+  .pillar:hover{transform:translateY(-6px);border-color:var(--accent-dim)}
+  .pillar .num{font-family:var(--font-d);font-size:2.4rem;font-weight:700;color:var(--accent);opacity:.9}
+  .pillar h3{font-size:1.24rem;margin:8px 0 12px}
+  .pillar ul{list-style:none;color:var(--muted);font-size:.95rem;display:flex;flex-direction:column;gap:7px}
+  .pillar ul li{padding-left:18px;position:relative}
+  .pillar ul li::before{content:"→";position:absolute;left:0;color:var(--accent-dim)}
+
+  /* MEETINGS */
+  .meet{background:var(--surface);border-top:1px solid var(--line)}
+  .meet-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:14px}
+  .meet-card{background:var(--bg);border:1px solid var(--line);border-radius:16px;padding:28px;position:relative}
+  .meet-card .tagm{font-family:var(--font-d);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:600}
+  .meet-card h3{font-size:1.15rem;margin:12px 0 8px}
+  .meet-card p{color:var(--muted);font-size:.95rem}
+  .meet-note{margin-top:26px;color:var(--muted);font-size:1rem}
+  .meet-note b{color:var(--text)}
+
+  /* ROADMAP */
+  .road{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:14px}
+  .road-step{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:28px;position:relative}
+  .road-step .ph{font-family:var(--font-d);color:var(--accent);font-weight:600;font-size:.85rem;letter-spacing:.1em;text-transform:uppercase}
+  .road-step .goal{font-family:var(--font-d);font-size:1.5rem;font-weight:700;margin:8px 0}
+  .road-step p{color:var(--muted);font-size:.94rem}
+
+  /* MODEL */
+  .model{background:linear-gradient(180deg,transparent,rgba(198,255,61,.04))}
+  .model-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .model-card{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:40px 34px}
+  .model-card.hl{border-color:var(--accent-dim);background:linear-gradient(160deg,#16180f,var(--surface))}
+  .model-card .k{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600}
+  .split{font-family:var(--font-d);font-size:clamp(3rem,8vw,5rem);font-weight:700;letter-spacing:-.03em;margin:10px 0}
+  .split .sep{color:var(--accent)}
+  .model-card p{color:var(--muted)}
+  .model-card .term{font-family:var(--font-d);font-size:2rem;font-weight:700;margin:8px 0}
+  .align{margin-top:26px;text-align:center;font-family:var(--font-d);font-size:clamp(1.3rem,3vw,2rem);font-weight:600}
+  .align b{color:var(--accent)}
+
+  /* CTA */
+  .cta{text-align:center}
+  .cta h2{font-size:clamp(2.2rem,6vw,4rem);max-width:800px;margin:0 auto}
+  .cta p{color:var(--muted);font-size:1.15rem;margin:24px auto 40px;max-width:540px}
+  .btn{display:inline-block;background:var(--accent);color:#0A0A0B;font-family:var(--font-d);font-weight:700;font-size:1.05rem;padding:18px 42px;border-radius:50px;text-decoration:none;transition:transform .25s,box-shadow .25s;box-shadow:0 0 0 rgba(198,255,61,0)}
+  .btn:hover{transform:translateY(-3px);box-shadow:0 14px 40px rgba(198,255,61,.28)}
+
+  footer{border-top:1px solid var(--line);padding:40px 0;text-align:center;color:var(--muted);font-size:.9rem}
+
+  @media(max-width:820px){
+    .stack{grid-template-columns:1fr;gap:28px}
+    .model-grid{grid-template-columns:1fr}
+    .road{grid-template-columns:1fr}
+    section{padding:80px 0}
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="wrap">
+    <div class="tag reveal"><span class="dot"></span> Propuesta de colaboración · confidencial</div>
+    <h1 class="reveal">Quantum Ventures <span class="x">×</span><br/>Blair</h1>
+    <p class="lead reveal">De crecer a fuerza de esfuerzo, a construir un negocio con sistema. Tú pones la marca. Nosotros, la máquina.</p>
+  </div>
+  <div class="scroll-hint reveal">Scroll ↓</div>
+</section>
+
+<!-- HOY -->
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">Dónde estás hoy</div>
+      <h2>Una base sólida… con un freno.</h2>
+      <p>Junio ha sido tu mejor mes (~1.025€) y acabas de lanzar oficial. Oferta clara, escalera de producto, nutricionista titulada (credibilidad real) y una comunidad que ya confía en ti. La materia prima está. Pero el crecimiento tiene un techo — y ese techo no es tu talento.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FRENOS -->
+<section class="weak">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow" style="color:var(--danger)">Los frenos · seamos honestos</div>
+      <h2>Lo que hoy te impide escalar.</h2>
+    </div>
+    <div class="weak-grid">
+      <div class="weak-card reveal"><div class="n">01</div><h3>Cuello de botella</h3><p>Editar tus vídeos te come el tiempo. Tu recurso más escaso se gasta en producción, no en crecer.</p></div>
+      <div class="weak-card reveal"><div class="n">02</div><h3>Captación sin sistema</h3><p>100% orgánica, sin funnel ni lead magnets. Dependes del algoritmo para que entren clientas.</p></div>
+      <div class="weak-card reveal"><div class="n">03</div><h3>Producto con techo</h3><p>El 57% viene del 1:1, limitado por tus horas. Con 1:1 solo no se llega lejos sin quemarte.</p></div>
+      <div class="weak-card reveal"><div class="n">04</div><h3>Dependencia peligrosa</h3><p>Gymshark fue el ~37% de junio. Una colaboración de marca se corta de un día para otro.</p></div>
+      <div class="weak-card reveal"><div class="n">05</div><h3>Sin producto escalable</h3><p>No existe el escalón que permite ganar sin sumar horas (comunidad / programa grupal).</p></div>
+      <div class="weak-card reveal"><div class="n">06</div><h3>Todo manual</h3><p>Gestión por DM, sin CRM, sin arquitectura. No es un negocio, todavía es un esfuerzo.</p></div>
+    </div>
+    <div class="consequence reveal">Con este modelo solo hay dos caminos: <b>estancarte</b> o <b>quemarte</b>. Un negocio serio no se construye a fuerza de esfuerzo manual — necesita un <b>sistema</b>.</div>
+  </div>
+</section>
+
+<!-- VALOR -->
+<section class="value">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">Lo que aporta Quantum Ventures</div>
+      <h2>No es consejo. Es inversión real, cada mes.</h2>
+      <p>Ponemos equipo, tecnología y tiempo — valorado a precio de mercado — desde el primer día, y sin coste por adelantado para ti.</p>
+    </div>
+    <div class="stack">
+      <div class="stack-list">
+        <div class="stack-row reveal"><div class="l"><h4>Editor de vídeo dedicado</h4><span>Desatasca tu cuello de botella</span></div><div class="v">~850&nbsp;$/mes</div></div>
+        <div class="stack-row reveal"><div class="l"><h4>Consultoría estratégica</h4><span>3 reuniones/sem · tiempo a 200&nbsp;€/h</span></div><div class="v">~2.600&nbsp;€/mes</div></div>
+        <div class="stack-row reveal"><div class="l"><h4>Stack tecnológico + automatización</h4><span>Funnel · CRM · n8n · checkout · analítica</span></div><div class="v">~800&nbsp;€/mes</div></div>
+        <div class="stack-row reveal"><div class="l"><h4>Ejecución y gestión del sistema</h4><span>Montaje, mantenimiento y optimización</span></div><div class="v">incluido</div></div>
+      </div>
+      <div class="total-card reveal">
+        <div class="k">Valor que QV pone cada mes</div>
+        <div class="big">+4.200&nbsp;€<small>&nbsp;/mes</small></div>
+        <p>Inversión real de equipo, tecnología y tiempo — <b style="color:var(--text)">a riesgo y sin coste por adelantado para ti</b>. Lo financiamos con el crecimiento que generamos juntos.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PILARES -->
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">Las 4 palancas</div>
+      <h2>El sistema que te falta.</h2>
+    </div>
+    <div class="pillars-grid">
+      <div class="pillar reveal"><div class="num">01</div><h3>Editor de vídeo</h3><ul><li>Edición de reels y YouTube</li><li>Multiplicas contenido sin sumar horas</li><li>Más contenido → más alcance → más leads</li></ul></div>
+      <div class="pillar reveal"><div class="num">02</div><h3>Stack tecnológico</h3><ul><li>Funnel de captación + lead magnets</li><li>CRM y automatización (n8n)</li><li>Landing, checkout y analítica</li></ul></div>
+      <div class="pillar reveal"><div class="num">03</div><h3>Estrategia + equipo</h3><ul><li>Reuniones de planificación semanales</li><li>Dirección de marketing</li><li>Tu escalera de valor optimizada</li></ul></div>
+      <div class="pillar reveal"><div class="num">04</div><h3>Producto escalable</h3><ul><li>Comunidad / programa grupal</li><li>Ganar sin sumar horas</li><li>Facturación centralizada (Stripe)</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- REUNIONES -->
+<section class="meet">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">Cómo empezamos</div>
+      <h2>3 reuniones semanales · 1h cada una.</h2>
+      <p>Desde el arranque, tiempo real de nuestro equipo contigo, cada semana, con un foco claro por sesión.</p>
+    </div>
+    <div class="meet-grid">
+      <div class="meet-card reveal"><div class="tagm">Sesión 1</div><h3>Diseño de estrategia</h3><p>Dirección del negocio, escalera de valor, prioridades de la semana y objetivos medibles.</p></div>
+      <div class="meet-card reveal"><div class="tagm">Sesión 2</div><h3>Mejora de servicios con IA</h3><p>Aplicar soluciones de IA para elevar la experiencia, automatizar y diferenciar tu oferta.</p></div>
+      <div class="meet-card reveal"><div class="tagm">Sesión 3</div><h3>Lanzamiento de servicios</h3><p>Diseño y puesta en marcha de nuevos productos y campañas: del concepto al mercado.</p></div>
+    </div>
+    <p class="meet-note reveal">Son <b>3h semanales de consultoría a 200&nbsp;€/h</b> — más de <b>2.600&nbsp;€/mes de dirección estratégica</b>, dentro de la colaboración.</p>
+  </div>
+</section>
+
+<!-- ROADMAP -->
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">El objetivo</div>
+      <h2>50.000&nbsp;€ — viable en 9-12 meses.</h2>
+      <p>Llegar ahí es un problema de motor + producto escalable, no de talento. El camino:</p>
+    </div>
+    <div class="road">
+      <div class="road-step reveal"><div class="ph">Corto · 0-3 meses</div><div class="goal">El motor</div><p>Editor, sistema de contenido, primer lead magnet y funnel de captación en marcha.</p></div>
+      <div class="road-step reveal"><div class="ph">Medio · 3-6 meses</div><div class="goal">Escalar</div><p>Lanzar la comunidad/programa grupal y escalar la captación con tráfico de pago.</p></div>
+      <div class="road-step reveal"><div class="ph">Largo · 6-12 meses</div><div class="goal">Consolidar</div><p>Relanzamientos, diversificar ingresos y consolidar ~4.200&nbsp;€/mes recurrentes.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- MODELO -->
+<section class="model">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">El modelo</div>
+      <h2>Socios, de verdad.</h2>
+    </div>
+    <div class="model-grid">
+      <div class="model-card hl reveal">
+        <div class="k">Reparto de ingresos</div>
+        <div class="split">50<span class="sep">/</span>50</div>
+        <p>Repartimos el crecimiento al 50%. QV solo gana si tú creces — incentivos alineados al 100%.</p>
+      </div>
+      <div class="model-card reveal">
+        <div class="k">Compromiso</div>
+        <div class="term">4 años</div>
+        <p>Con revisión a los 2 años. Un horizonte para construir algo grande, no un experimento de un trimestre.</p>
+      </div>
+    </div>
+    <div class="align reveal">QV pone <b>+4.200€/mes</b> a riesgo.<br/>Tú pones tu marca. Ganamos juntos.</div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="eyebrow" style="justify-content:center">Siguiente paso</div>
+      <h2>Construyamos el negocio que tu marca ya merece.</h2>
+      <p>Arrancamos la Fase 0: editor, sistema de contenido y funnel. ¿Empezamos?</p>
+      <a class="btn" href="#">Vamos con ello →</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Quantum Ventures × Focusea · Propuesta de colaboración · Documento confidencial
+</footer>
+
+<!-- Branding Overlay -->
+<div id="stratoma-branding" style="position: fixed; bottom: 20px; left: 20px; z-index: 10000; display: flex; align-items: center; gap: 10px;">
+    <div style="background: rgba(20,20,23,0.9); backdrop-filter: blur(6px); padding: 8px 12px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.08); font-family: 'Inter', sans-serif; font-size: 10px; color: #9A9AA3; box-shadow: 0 4px 12px rgba(0,0,0,0.3); position:relative;">
+        <div style="font-weight: 600; color: #F2F2F0; margin-bottom: 2px;">Desarrollado por</div>
+        <div style="display: flex; align-items: center; gap: 4px;"><span style="font-weight: 700;">Stratoma AI</span></div>
+        <div style="margin-top: 4px; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 4px;">+34 611 03 19 47</div>
+        <button onclick="this.parentElement.parentElement.remove()" style="position: absolute; top: -8px; right: -8px; background: #1C1C21; border: 1px solid rgba(255,255,255,0.1); width: 20px; height: 20px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #9A9AA3;">×</button>
+    </div>
+</div>
+
+<script>
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+  document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%6*60)+'ms';io.observe(el)});
+</script>
+</body>
+</html>
