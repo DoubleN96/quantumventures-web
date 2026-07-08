@@ -33,6 +33,11 @@
   .btn-w:hover{transform:translateY(-2px);filter:brightness(1.05)}
   .btn-o{border:1px solid rgba(255,255,255,.22);color:#f2f3f5;transition:background .25s,border-color .25s}
   .btn-o:hover{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.4)}
+  /* consistent button sizing scale — always paired with .btn-w or .btn-o for color */
+  .btn-lg,.btn-md,.btn-sm{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;border-radius:999px;white-space:nowrap}
+  .btn-lg{padding:1rem 2rem;font-size:.95rem;font-weight:600}
+  .btn-md{padding:.8rem 1.6rem;font-size:.86rem;font-weight:600}
+  .btn-sm{padding:.6rem 1.2rem;font-size:.82rem;font-weight:600}
   .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s cubic-bezier(.16,1,.3,1)}
   .reveal.in{opacity:1;transform:none}
   @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}}
@@ -85,7 +90,7 @@
     <a href="#precios" class="hover:text-white transition">Precios</a>
     <a href="#proceso" class="hover:text-white transition">Cómo trabajamos</a>
   </div>
-  <a href="#contacto" class="btn-w ml-auto text-sm px-5 py-2.5 rounded-full whitespace-nowrap">Hablemos</a>
+  <a href="#contacto" class="btn-w btn-sm ml-auto">Hablemos</a>
 </div></nav>
 
 <!-- HERO -->
@@ -100,11 +105,11 @@
         Tu audiencia ya vale más<br>de lo que factura hoy.
       </h1>
       <p class="reveal text-lg sm:text-xl text-mute leading-relaxed mt-7 max-w-2xl">
-        Trabajamos con creadores de dos formas distintas. Con un puñado, <span class="text-white font-medium">construimos y operamos el imperio entero a su lado</span>, por invitación. Con cualquiera que quiera escalar, <span class="text-white font-medium">instalamos los agentes de IA</span> que le dan la infraestructura de una gran empresa.
+        Trabajamos con creadores de dos formas distintas, según lo que necesites. Con un puñado, por invitación, <span class="text-white font-medium">construimos y operamos el imperio entero a su lado</span> a cambio de una parte del negocio. Con cualquiera que quiera escalar ya, <span class="text-white font-medium">instalamos los agentes de IA</span> que se encargan de las dudas, el seguimiento y la captación — con un precio cerrado desde el primer día.
       </p>
       <div class="reveal flex flex-col sm:flex-row gap-3 mt-10">
-        <a href="#partnership" class="btn-o inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full font-semibold text-sm">Quiero un partner que construya conmigo</a>
-        <a href="#sistemas" class="btn-w inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full text-sm">Quiero los sistemas de IA para mi negocio →</a>
+        <a href="#partnership" class="btn-o btn-lg">Quiero un partner que construya conmigo</a>
+        <a href="#sistemas" class="btn-w btn-lg">Quiero los sistemas de IA para mi negocio →</a>
       </div>
     </div>
     <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 mt-20 reveal">
@@ -120,30 +125,30 @@
 <section class="py-24 sm:py-32"><div class="wrap">
   <span class="eyebrow reveal"><span class="dot"></span>01 · Dos caminos</span>
   <h2 class="display reveal text-3xl sm:text-5xl font-bold leading-tight mt-4 max-w-3xl">No es una agencia. Es el mismo motor, en dos formatos.</h2>
-  <p class="reveal text-mute text-lg mt-5 max-w-2xl">El sistema operativo que construimos a mano para nuestros socios de equity es el mismo que ahora instalamos, en forma de producto, en cualquier negocio de creador.</p>
+  <p class="reveal text-mute text-lg mt-5 max-w-2xl">Con nuestros socios de equity construimos ese motor operativo pieza a pieza, a medida. Con los Sistemas de IA lo empaquetamos: mismos procesos, mismo criterio, listos para instalar sobre tu negocio sin empezar de cero.</p>
 
   <div class="grid lg:grid-cols-2 gap-6 mt-14 reveal">
     <div class="pillar p1">
       <span class="tag text-violet-100">Exclusivo · Por invitación</span>
       <h3 class="display text-3xl font-bold mt-6">Venture Partnership</h3>
-      <p class="text-white/75 mt-4 leading-relaxed">Elegimos a un puñado de creadores de élite al año. Revenue-share 50/50. Construimos y operamos la empresa entera a tu alrededor — contenido, ads, ventas, producto, comunidad. Tú apareces y creas.</p>
+      <p class="text-white/75 mt-4 leading-relaxed">Elegimos un puñado de creadores de élite al año. Revenue-share 50/50: no cobramos fee fijo, ganamos cuando tú ganas. Construimos y operamos la empresa entera a tu alrededor — contenido, ads, ventas, producto, comunidad. Tú apareces y creas.</p>
       <ul class="mt-6 space-y-2 text-sm text-white/80">
         <li>◆ Equity / revenue-share, no honorarios fijos</li>
-        <li>◆ Equipo completo operando tu negocio</li>
-        <li>◆ Selección por invitación, plazas muy limitadas</li>
+        <li>◆ Equipo completo operando tu negocio a diario</li>
+        <li>◆ Selección por invitación, plazas muy limitadas al año</li>
       </ul>
-      <a href="#partnership" class="btn-o inline-flex items-center gap-2 mt-auto pt-8 text-sm font-semibold">Ver el partnership <span>→</span></a>
+      <a href="#partnership" class="btn-o btn-md mt-auto pt-8 w-fit">Ver el partnership →</a>
     </div>
     <div class="pillar p2">
       <span class="tag text-emerald-100">Para cualquier negocio que quiera empezar</span>
       <h3 class="display text-3xl font-bold mt-6">Sistemas de IA</h3>
-      <p class="text-white/75 mt-4 leading-relaxed">Instalamos agentes de IA que hacen el trabajo que te consume tiempo pero no aporta valor: dudas, seguimiento, revisiones, captación, ventas. Sistematizado y replicable, con las mínimas modificaciones por cliente.</p>
+      <p class="text-white/75 mt-4 leading-relaxed">Instalamos agentes de IA que hacen el trabajo que te consume tiempo pero no aporta valor: dudas, seguimiento, revisiones, captación, ventas. Sin honorarios de agencia ni meses de desarrollo — el proceso ya está construido, solo lo conectamos a tus canales.</p>
       <ul class="mt-6 space-y-2 text-sm text-white/80">
         <li>◆ Planes productizados, precio cerrado desde el día 1</li>
         <li>◆ Se instala sobre tus canales actuales (WhatsApp, IG, email)</li>
-        <li>◆ Abierto a cualquier creador, coach o negocio</li>
+        <li>◆ Abierto a cualquier creador, coach o negocio que empiece</li>
       </ul>
-      <a href="#sistemas" class="btn-w inline-flex items-center gap-2 mt-auto pt-8 text-sm font-semibold rounded-full px-5 py-2.5 w-fit">Ver los sistemas de IA <span>→</span></a>
+      <a href="#sistemas" class="btn-w btn-md mt-auto pt-8 w-fit">Ver los sistemas de IA →</a>
     </div>
   </div>
 </div></section>
@@ -152,32 +157,32 @@
 <section id="partnership" class="py-24 sm:py-32"><div class="wrap">
   <span class="eyebrow reveal"><span class="dot"></span>02 · Venture Partnership</span>
   <h2 class="display reveal text-3xl sm:text-5xl font-bold leading-tight mt-4 max-w-3xl">Tú creas. Nosotros construimos la empresa.</h2>
-  <p class="reveal text-mute text-lg mt-5 max-w-2xl">No somos una agencia que gestiona campañas. Somos el socio operativo que monta el negocio completo alrededor de tu nombre — a cambio de una parte de lo que construimos juntos.</p>
+  <p class="reveal text-mute text-lg mt-5 max-w-2xl">No somos una agencia que gestiona campañas y te pasa una factura mensual. Somos el socio operativo que monta el negocio completo alrededor de tu nombre — con nuestro equipo, nuestro capital de trabajo y nuestro riesgo, a cambio de una parte de lo que construimos juntos.</p>
 
   <div class="grid sm:grid-cols-3 gap-5 mt-14 reveal">
     <div class="card p-7">
       <div class="ghost-num text-4xl">01</div>
       <h3 class="display font-bold text-lg mt-4">Producto y comunidad</h3>
-      <p class="text-mute text-sm mt-2 leading-relaxed">Diseñamos y operamos la membresía, el infoproducto o el 1:1 escalado con procesos, no con tu tiempo.</p>
+      <p class="text-mute text-sm mt-2 leading-relaxed">Diseñamos y operamos la membresía, el infoproducto o el 1:1 escalado con procesos y equipo dedicado, no con tu tiempo libre.</p>
     </div>
     <div class="card p-7">
       <div class="ghost-num text-4xl">02</div>
       <h3 class="display font-bold text-lg mt-4">Adquisición y ventas</h3>
-      <p class="text-mute text-sm mt-2 leading-relaxed">Meta Ads, funnel, setters y closers. Cada lead entra en un sistema, no en tu bandeja de DMs.</p>
+      <p class="text-mute text-sm mt-2 leading-relaxed">Meta Ads, funnel, setters y closers propios. Cada lead entra en un pipeline con seguimiento diario, no en tu bandeja de DMs sin responder.</p>
     </div>
     <div class="card p-7">
       <div class="ghost-num text-4xl">03</div>
       <h3 class="display font-bold text-lg mt-4">Marca y expansión</h3>
-      <p class="text-mute text-sm mt-2 leading-relaxed">De un producto a un portfolio de ingresos: relanzamientos, nuevas líneas, nuevas marcas bajo tu nombre.</p>
+      <p class="text-mute text-sm mt-2 leading-relaxed">De un producto a un portfolio de ingresos: relanzamientos programados, nuevas líneas, nuevas marcas bajo tu nombre.</p>
     </div>
   </div>
 
   <div class="card p-8 sm:p-10 mt-8 reveal flex flex-col sm:flex-row sm:items-center gap-6 justify-between">
     <div>
       <div class="display text-xl font-bold">¿Encajas en el perfil?</div>
-      <p class="text-mute text-sm mt-2 max-w-md">Buscamos creadores con audiencia real y voluntad de construir algo grande, no un lanzamiento puntual.</p>
+      <p class="text-mute text-sm mt-2 max-w-md">Buscamos creadores con audiencia real, algo que ya vender (o casi) y voluntad de construir algo grande — no un lanzamiento puntual ni un experimento de fin de semana.</p>
     </div>
-    <a href="#contacto" class="btn-w inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full text-sm font-semibold whitespace-nowrap">Aplicar al partnership →</a>
+    <a href="#contacto" class="btn-w btn-lg">Aplicar al partnership →</a>
   </div>
 </div></section>
 
@@ -217,8 +222,8 @@
   </div>
 
   <div class="card p-8 mt-10 reveal flex flex-col sm:flex-row items-center gap-6 justify-between">
-    <p class="text-white/85 text-lg max-w-xl"><span class="text-2xl">🎁</span> No sabes por dónde empezar? Te decimos gratis qué 1-2 agentes te devolverían más horas esta misma semana.</p>
-    <a href="#contacto" class="btn-w inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full text-sm font-semibold whitespace-nowrap">Auditoría gratuita de 20 min →</a>
+    <p class="text-white/85 text-lg max-w-xl"><span class="text-2xl">🎁</span> ¿No sabes por dónde empezar? En 20 minutos te decimos gratis qué 1-2 agentes te devolverían más horas esta misma semana — sin compromiso.</p>
+    <a href="#contacto" class="btn-w btn-lg">Auditoría gratuita de 20 min →</a>
   </div>
 </div></section>
 
@@ -239,7 +244,7 @@
         <li>Hasta 500 conversaciones/mes</li>
         <li>Soporte por email</li>
       </ul>
-      <a href="#contacto" class="btn-o text-center rounded-full py-3 mt-8 text-sm font-semibold">Empezar con Starter</a>
+      <a href="#contacto" class="btn-o btn-md justify-center mt-8">Empezar con Starter</a>
     </div>
     <div class="tier feat relative">
       <span class="absolute -top-3 left-8 bg-[#39ff88] text-[#062015] text-[.65rem] font-bold px-3 py-1 rounded-full tracking-wide uppercase">Más elegido</span>
@@ -252,7 +257,7 @@
         <li>Hasta 2.000 conversaciones/mes</li>
         <li>Soporte prioritario + revisión mensual</li>
       </ul>
-      <a href="#contacto" class="btn-w text-center rounded-full py-3 mt-8 text-sm font-semibold">Empezar con Growth</a>
+      <a href="#contacto" class="btn-w btn-md justify-center mt-8">Empezar con Growth</a>
     </div>
     <div class="tier">
       <div class="text-xs font-bold tracking-widest uppercase text-mute">Scale</div>
@@ -264,7 +269,7 @@
         <li>Reporting semanal + account manager dedicado</li>
         <li>Prioridad en nuevos agentes</li>
       </ul>
-      <a href="#contacto" class="btn-o text-center rounded-full py-3 mt-8 text-sm font-semibold">Hablar de Scale</a>
+      <a href="#contacto" class="btn-o btn-md justify-center mt-8">Hablar de Scale</a>
     </div>
   </div>
   <p class="text-xs text-mute mt-6 reveal">Precios de referencia, orientativos — se confirman en la auditoría gratuita según canales y volumen real.</p>
@@ -283,17 +288,51 @@
   </div>
 </div></section>
 
-<!-- FINAL CTA -->
-<section id="contacto" class="py-28 sm:py-40 text-center relative overflow-hidden">
+<!-- FINAL CTA / LEAD FORM -->
+<section id="contacto" class="py-28 sm:py-36 relative overflow-hidden">
   <div class="beam-glow" style="top:-10%"></div>
   <div class="wrap relative">
-    <span class="eyebrow reveal justify-center"><span class="dot"></span>Hablemos</span>
-    <h2 class="display reveal text-4xl sm:text-6xl font-bold mt-5">¿Partner o sistema de IA?<br>Cuéntanos y vemos qué encaja.</h2>
-    <p class="reveal text-mute text-lg mt-6 max-w-xl mx-auto">Sin compromiso. Te decimos con franqueza si tu negocio encaja mejor en un partnership o en un plan de sistemas de IA.</p>
-    <div class="reveal flex flex-col sm:flex-row gap-3 justify-center mt-9">
-      <a href="mailto:hola@quantumventures.io" class="btn-w inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-sm font-semibold">Escribir a hola@quantumventures.io</a>
-      <a href="#sistemas" class="btn-o inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-sm font-semibold">Ver planes de IA otra vez</a>
+    <div class="text-center max-w-2xl mx-auto">
+      <span class="eyebrow reveal justify-center"><span class="dot"></span>Hablemos</span>
+      <h2 class="display reveal text-4xl sm:text-6xl font-bold mt-5">¿Partner o sistema de IA?<br>Cuéntanos y vemos qué encaja.</h2>
+      <p class="reveal text-mute text-lg mt-6">Sin compromiso. Te decimos con franqueza si tu negocio encaja mejor en un partnership o en un plan de sistemas de IA — respondemos en menos de 24h.</p>
     </div>
+
+    <form id="leadForm" class="card reveal max-w-xl mx-auto mt-12 p-7 sm:p-9 text-left">
+      <div class="grid sm:grid-cols-2 gap-4">
+        <div class="sm:col-span-2">
+          <label class="text-xs font-semibold text-mute uppercase tracking-wide">Nombre *</label>
+          <input required name="nombre" type="text" placeholder="Tu nombre" class="w-full mt-2 bg-white/5 border border-white/15 rounded-xl px-4 py-3 text-sm outline-none focus:border-white/40 transition">
+        </div>
+        <div>
+          <label class="text-xs font-semibold text-mute uppercase tracking-wide">Email *</label>
+          <input required name="email" type="email" placeholder="tu@email.com" class="w-full mt-2 bg-white/5 border border-white/15 rounded-xl px-4 py-3 text-sm outline-none focus:border-white/40 transition">
+        </div>
+        <div>
+          <label class="text-xs font-semibold text-mute uppercase tracking-wide">Teléfono</label>
+          <input name="telefono" type="tel" placeholder="+34 600 000 000" class="w-full mt-2 bg-white/5 border border-white/15 rounded-xl px-4 py-3 text-sm outline-none focus:border-white/40 transition">
+        </div>
+        <div>
+          <label class="text-xs font-semibold text-mute uppercase tracking-wide">Negocio / Instagram</label>
+          <input name="negocio" type="text" placeholder="@tu_negocio" class="w-full mt-2 bg-white/5 border border-white/15 rounded-xl px-4 py-3 text-sm outline-none focus:border-white/40 transition">
+        </div>
+        <div>
+          <label class="text-xs font-semibold text-mute uppercase tracking-wide">Te interesa</label>
+          <select name="interes" class="w-full mt-2 bg-white/5 border border-white/15 rounded-xl px-4 py-3 text-sm outline-none focus:border-white/40 transition">
+            <option value="sistemas" style="background:#0c0d10">Sistemas de IA</option>
+            <option value="partnership" style="background:#0c0d10">Venture Partnership</option>
+            <option value="no-se" style="background:#0c0d10">No lo tengo claro</option>
+          </select>
+        </div>
+        <div class="sm:col-span-2">
+          <label class="text-xs font-semibold text-mute uppercase tracking-wide">Cuéntanos en una línea qué te quita más tiempo</label>
+          <textarea name="mensaje" rows="3" placeholder="Ej: contesto las mismas dudas de nutrición 20 veces al día" class="w-full mt-2 bg-white/5 border border-white/15 rounded-xl px-4 py-3 text-sm outline-none focus:border-white/40 transition resize-none"></textarea>
+        </div>
+      </div>
+      <button type="submit" class="btn-w btn-lg w-full mt-6" id="leadSubmit">Enviar y que te contactemos →</button>
+      <p id="leadMsg" class="text-sm mt-4 text-center hidden"></p>
+      <p class="text-xs text-mute mt-4 text-center">Tus datos entran directo a nuestro CRM. Sin spam, sin newsletters — solo la respuesta a esto.</p>
+    </form>
   </div>
 </section>
 
@@ -332,6 +371,34 @@ document.getElementById('year').textContent = new Date().getFullYear();
 const rv=document.querySelectorAll('.reveal');
 if('IntersectionObserver'in window){const io=new IntersectionObserver((es)=>{es.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{threshold:.1,rootMargin:'0px 0px -8% 0px'});rv.forEach(el=>io.observe(el));setTimeout(()=>rv.forEach(el=>el.classList.add('in')),2500)}else{rv.forEach(el=>el.classList.add('in'))}
 setTimeout(()=>{const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),7000)},3500);
+
+const leadForm = document.getElementById('leadForm');
+const leadMsg = document.getElementById('leadMsg');
+const leadSubmit = document.getElementById('leadSubmit');
+leadForm.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const data = Object.fromEntries(new FormData(leadForm).entries());
+  leadSubmit.disabled = true;
+  leadSubmit.textContent = 'Enviando…';
+  leadMsg.classList.add('hidden');
+  try {
+    const r = await fetch('https://qv-audit.128.140.44.162.sslip.io/api/lead', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    });
+    if (!r.ok) throw new Error('bad status');
+    leadForm.reset();
+    leadMsg.textContent = '✓ Recibido — te contactamos en menos de 24h.';
+    leadMsg.className = 'text-sm mt-4 text-center text-[#39ff88]';
+  } catch (err) {
+    leadMsg.textContent = 'No se pudo enviar. Escríbenos directo a hola@quantumventures.io';
+    leadMsg.className = 'text-sm mt-4 text-center text-red-400';
+  } finally {
+    leadSubmit.disabled = false;
+    leadSubmit.textContent = 'Enviar y que te contactemos →';
+  }
+});
 </script>
 </body>
 </html>
