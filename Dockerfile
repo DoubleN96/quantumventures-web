@@ -23,6 +23,7 @@ COPY villa-brisa /usr/share/nginx/html/villa-brisa
 COPY brave-the-world /usr/share/nginx/html/brave-the-world
 COPY jaan-venues /usr/share/nginx/html/jaan-venues
 COPY crm-jaan /usr/share/nginx/html/crm-jaan
+COPY v2 /usr/share/nginx/html/v2
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 EXPOSE 80
 HEALTHCHECK --interval=30s --timeout=5s --start-period=5s --retries=3 \
