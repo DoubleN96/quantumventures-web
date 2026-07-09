@@ -34,6 +34,9 @@
   .ghost-num{font-family:'Inter';font-weight:800;-webkit-text-stroke:1.5px rgba(255,255,255,.18);color:transparent}
   .beam{position:absolute;left:50%;top:0;width:1px;height:100%;background:linear-gradient(180deg,transparent,rgba(255,255,255,.16) 30%,rgba(255,255,255,.16) 70%,transparent);transform:translateX(-50%)}
   .beam-glow{position:absolute;left:50%;top:8%;width:560px;height:560px;transform:translate(-50%,0);border-radius:50%;background:radial-gradient(circle,var(--accent-dim),transparent 68%);filter:blur(30px);pointer-events:none}
+  .hero-photo{position:absolute;inset:0;background-image:url('/v2/assets/hero-glow.jpg');background-size:cover;background-position:center 60%;opacity:.55}
+  .hero-photo:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,5,5,.2),var(--bg) 88%)}
+  .side-photo{border-radius:16px;overflow:hidden;border:1px solid var(--line);aspect-ratio:3/4;background-size:cover;background-position:center}
   .grid-tex{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:56px 56px;mask-image:radial-gradient(ellipse 70% 60% at 50% 20%,#000 40%,transparent 100%);pointer-events:none}
   .btn-w{background:#f5f5f5;color:#050505;font-weight:700;box-shadow:0 8px 24px -10px rgba(0,0,0,.6);transition:transform .25s cubic-bezier(.16,1,.3,1),box-shadow .25s,filter .25s}
   .btn-w:hover{transform:translateY(-2px);filter:brightness(1.06);box-shadow:0 14px 32px -12px rgba(0,0,0,.65)}
@@ -97,18 +100,6 @@
   .dash-lead .tg-pill.qual{background:rgba(255,255,255,.08);color:var(--fg)}
   .dash-lead .tg-pill.client{background:rgba(255,255,255,.06);color:var(--mute)}
   .slogan-line{font-family:'Inter',sans-serif;font-weight:800;letter-spacing:-.02em}
-  /* fusion storytelling */
-  .fusion-stage{display:flex;align-items:center;justify-content:center;gap:clamp(28px,7vw,90px);padding:30px 0}
-  .fusion-stage .atom{display:flex;flex-direction:column;align-items:center;gap:16px}
-  .atom-svg{filter:drop-shadow(0 0 18px rgba(109,109,251,.25))}
-  .fusion-stage .label{font-size:.76rem;color:var(--mute);font-weight:600;text-transform:uppercase;letter-spacing:.06em}
-  .fusion-core{width:10px;height:10px;border-radius:50%;background:var(--accent);position:relative;animation:qv-pulse 2.6s ease-in-out infinite}
-  .fusion-core:before,.fusion-core:after{content:"";position:absolute;inset:-16px;border-radius:50%;border:1px solid var(--accent-dim);animation:qv-ring 2.6s ease-out infinite}
-  .fusion-core:after{animation-delay:1.3s}
-  @keyframes qv-pulse{0%,100%{transform:scale(1);box-shadow:0 0 30px 8px var(--accent-dim)}50%{transform:scale(1.25);box-shadow:0 0 46px 14px var(--accent-dim)}}
-  @keyframes qv-ring{0%{transform:scale(.4);opacity:.9}100%{transform:scale(2.6);opacity:0}}
-  @media(prefers-reduced-motion:reduce){.fusion-core,.fusion-core:before,.fusion-core:after{animation:none}}
-  @media(max-width:640px){.fusion-stage{flex-direction:column;gap:20px}}
   /* process connected steps */
   .proc{display:grid;grid-template-columns:repeat(5,1fr);gap:0;position:relative;margin-top:34px}
   @media(max-width:900px){.proc{grid-template-columns:1fr;gap:14px}}
@@ -159,9 +150,8 @@
 
 <!-- HERO -->
 <header id="top" class="relative pt-24 pb-28 sm:pt-32 sm:pb-36 overflow-hidden">
+  <div class="hero-photo"></div>
   <div class="grid-tex"></div>
-  <div class="beam-glow"></div>
-  <div class="beam"></div>
   <div class="wrap relative">
     <div class="max-w-4xl">
       <span class="eyebrow reveal"><span class="dot"></span><span data-i18n="hero.eyebrow">VENTURE BUILDER · SISTEMAS DE IA PARA CREADORES</span></span>
@@ -196,36 +186,8 @@
   <h2 class="display reveal text-3xl sm:text-5xl font-bold leading-tight mt-5 max-w-2xl mx-auto" data-i18n="fusion.h2">Dos átomos. Una fusión.</h2>
   <p class="reveal text-mute text-lg mt-5 max-w-xl mx-auto" data-i18n="fusion.p">Una estrella no brilla sola — brilla cuando dos núcleos se fusionan y liberan una energía que ninguno tenía por separado.</p>
 
-  <div class="fusion-stage reveal mt-10">
-    <div class="atom">
-      <svg class="atom-svg" viewBox="0 0 120 120" width="76" height="76">
-        <circle cx="60" cy="60" r="6" fill="#f5f5f5"/>
-        <g stroke="rgba(255,255,255,.22)" stroke-width="1" fill="none">
-          <ellipse cx="60" cy="60" rx="50" ry="20"/>
-          <ellipse cx="60" cy="60" rx="50" ry="20" transform="rotate(60 60 60)"/>
-          <ellipse cx="60" cy="60" rx="50" ry="20" transform="rotate(120 60 60)"/>
-        </g>
-        <circle r="3" fill="#6d6dfb"><animateMotion dur="6s" repeatCount="indefinite" path="M10,60 A50,20 0 1,1 110,60 A50,20 0 1,1 10,60"/></circle>
-        <g transform="rotate(60 60 60)"><circle r="3" fill="#6d6dfb"><animateMotion dur="7.5s" repeatCount="indefinite" path="M10,60 A50,20 0 1,1 110,60 A50,20 0 1,1 10,60"/></circle></g>
-        <g transform="rotate(120 60 60)"><circle r="3" fill="#6d6dfb"><animateMotion dur="9s" repeatCount="indefinite" path="M10,60 A50,20 0 1,1 110,60 A50,20 0 1,1 10,60"/></circle></g>
-      </svg>
-      <div class="label" data-i18n="fusion.atom1.label">Tú</div>
-    </div>
-    <div class="fusion-core"></div>
-    <div class="atom">
-      <svg class="atom-svg" viewBox="0 0 120 120" width="76" height="76">
-        <circle cx="60" cy="60" r="6" fill="#f5f5f5"/>
-        <g stroke="rgba(255,255,255,.22)" stroke-width="1" fill="none">
-          <ellipse cx="60" cy="60" rx="50" ry="20"/>
-          <ellipse cx="60" cy="60" rx="50" ry="20" transform="rotate(60 60 60)"/>
-          <ellipse cx="60" cy="60" rx="50" ry="20" transform="rotate(120 60 60)"/>
-        </g>
-        <circle r="3" fill="#6d6dfb"><animateMotion dur="6.5s" repeatCount="indefinite" path="M10,60 A50,20 0 1,1 110,60 A50,20 0 1,1 10,60"/></circle>
-        <g transform="rotate(60 60 60)"><circle r="3" fill="#6d6dfb"><animateMotion dur="8s" repeatCount="indefinite" path="M10,60 A50,20 0 1,1 110,60 A50,20 0 1,1 10,60"/></circle></g>
-        <g transform="rotate(120 60 60)"><circle r="3" fill="#6d6dfb"><animateMotion dur="9.5s" repeatCount="indefinite" path="M10,60 A50,20 0 1,1 110,60 A50,20 0 1,1 10,60"/></circle></g>
-      </svg>
-      <div class="label" data-i18n="fusion.atom2.label">Quantum Ventures</div>
-    </div>
+  <div class="reveal mt-10 max-w-lg mx-auto rounded-2xl overflow-hidden border" style="border-color:var(--line)">
+    <img src="/v2/assets/fusion.jpg" alt="" class="w-full block">
   </div>
 
   <div class="grid sm:grid-cols-2 gap-8 mt-6 max-w-2xl mx-auto text-left reveal">
@@ -276,9 +238,14 @@
 
 <!-- PILLAR 1: PARTNERSHIP (condensed) -->
 <section id="partnership" class="py-24 sm:py-32"><div class="wrap">
-  <span class="eyebrow reveal"><span class="dot"></span><span data-i18n="partnership.eyebrow">02 · Venture Partnership</span></span>
-  <h2 class="display reveal text-3xl sm:text-5xl font-bold leading-tight mt-4 max-w-3xl" data-i18n="partnership.h2">Tú creas. Nosotros construimos la empresa.</h2>
-  <p class="reveal text-mute text-lg mt-5 max-w-2xl" data-i18n="partnership.p">No somos una agencia que gestiona campañas y te pasa una factura mensual. Somos el socio operativo que monta el negocio completo alrededor de tu nombre — con nuestro equipo, nuestro capital de trabajo y nuestro riesgo, a cambio de una parte de lo que construimos juntos.</p>
+  <div class="grid lg:grid-cols-[1fr_300px] gap-10 items-start">
+    <div>
+      <span class="eyebrow reveal"><span class="dot"></span><span data-i18n="partnership.eyebrow">02 · Venture Partnership</span></span>
+      <h2 class="display reveal text-3xl sm:text-5xl font-bold leading-tight mt-4 max-w-3xl" data-i18n="partnership.h2">Tú creas. Nosotros construimos la empresa.</h2>
+      <p class="reveal text-mute text-lg mt-5 max-w-2xl" data-i18n="partnership.p">No somos una agencia que gestiona campañas y te pasa una factura mensual. Somos el socio operativo que monta el negocio completo alrededor de tu nombre — con nuestro equipo, nuestro capital de trabajo y nuestro riesgo, a cambio de una parte de lo que construimos juntos.</p>
+    </div>
+    <div class="side-photo reveal hidden lg:block" style="background-image:url('/v2/assets/beam.jpg')"></div>
+  </div>
 
   <div class="grid sm:grid-cols-3 gap-5 mt-14 reveal">
     <div class="card p-7">
@@ -309,9 +276,14 @@
 
 <!-- PILLAR 2: SISTEMAS DE IA -->
 <section id="sistemas" class="py-24 sm:py-32"><div class="wrap">
-  <span class="eyebrow reveal"><span class="dot"></span><span data-i18n="sistemas.eyebrow">03 · Sistemas de IA</span></span>
-  <h2 class="display reveal text-3xl sm:text-5xl font-bold leading-tight mt-4 max-w-3xl" data-i18n="sistemas.h2">Más facturación, más margen, más tiempo. En ese orden.</h2>
-  <p class="reveal text-mute text-lg mt-5 max-w-2xl" data-i18n="sistemas.p">No es un chatbot, y no lo operamos nosotros — eso es el partnership. Te damos la infraestructura <span class="text-white font-medium">y la metodología para que tú la operes al 100%</span>. Cada euro rinde más, y tu tiempo se libera para lo único que nadie puede hacer por ti: crear.</p>
+  <div class="grid lg:grid-cols-[1fr_300px] gap-10 items-start">
+    <div>
+      <span class="eyebrow reveal"><span class="dot"></span><span data-i18n="sistemas.eyebrow">03 · Sistemas de IA</span></span>
+      <h2 class="display reveal text-3xl sm:text-5xl font-bold leading-tight mt-4 max-w-3xl" data-i18n="sistemas.h2">Más facturación, más margen, más tiempo. En ese orden.</h2>
+      <p class="reveal text-mute text-lg mt-5 max-w-2xl" data-i18n="sistemas.p">No es un chatbot, y no lo operamos nosotros — eso es el partnership. Te damos la infraestructura <span class="text-white font-medium">y la metodología para que tú la operes al 100%</span>. Cada euro rinde más, y tu tiempo se libera para lo único que nadie puede hacer por ti: crear.</p>
+    </div>
+    <div class="side-photo reveal hidden lg:block" style="background-image:url('/v2/assets/reach.jpg')"></div>
+  </div>
 
   <p class="kicker reveal text-xl sm:text-2xl text-white/85 mt-10" data-i18n="pillars.kicker">Qué incluye, de principio a fin.</p>
   <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-6 reveal">
