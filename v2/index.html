@@ -9,7 +9,7 @@
 <link rel="icon" type="image/png" href="/assets/brand/qv-favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@1,500;1,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
   tailwind.config = { theme: { extend: {
@@ -21,7 +21,7 @@
   html{scroll-behavior:smooth}
   body{background:#060607;color:#f2f3f5;font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
   .display{font-family:'Space Grotesk',sans-serif;letter-spacing:-.025em}
-  .kicker{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic}
+  .kicker{font-family:'Space Grotesk',sans-serif;font-weight:600;letter-spacing:-.01em}
   .wrap{max-width:1240px;margin:0 auto;padding:0 clamp(20px,5vw,48px)}
   .eyebrow{display:inline-flex;align-items:center;gap:.55rem;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;font-weight:700;color:#a1a6ad}
   .eyebrow .dot{width:7px;height:7px;border-radius:99px;background:#39ff88;box-shadow:0 0 12px #39ff8899}
@@ -69,6 +69,18 @@
   /* imagine examples */
   .imagine{background:#0c0d10;border:1px solid rgba(255,255,255,.09);border-radius:20px;padding:26px}
   .imagine .tag{display:inline-block;font-size:.68rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#39ff88}
+  /* product mockup — visual proof instead of more text */
+  .mockup-frame{background:#0c0d10;border:1px solid rgba(255,255,255,.1);border-radius:24px;overflow:hidden;box-shadow:0 40px 90px -30px rgba(34,211,238,.18)}
+  .mockup-bar{display:flex;align-items:center;gap:6px;padding:14px 18px;border-bottom:1px solid rgba(255,255,255,.08)}
+  .mockup-bar span.dot-sm{width:9px;height:9px;border-radius:99px;background:rgba(255,255,255,.15);flex:0 0 auto}
+  .mockup-bar .who{width:auto;height:auto;border-radius:0;background:none;margin-left:10px;font-size:.76rem;color:#8a8f98;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex:1 1 auto;min-width:0}
+  .mockup-body{padding:clamp(20px,3vw,32px);display:flex;flex-direction:column;gap:10px}
+  .chat-bubble{max-width:78%;padding:11px 16px;border-radius:16px;font-size:.88rem;line-height:1.55}
+  .chat-bubble.in{align-self:flex-start;background:rgba(255,255,255,.07);color:#e7ecf3;border-bottom-left-radius:4px}
+  .chat-bubble.out{align-self:flex-end;background:linear-gradient(135deg,#22d3ee,#6366f1);color:#06070d;font-weight:600;border-bottom-right-radius:4px}
+  .mockup-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px;padding-top:20px;border-top:1px solid rgba(255,255,255,.08)}
+  .mockup-stats .n{font-family:'Space Grotesk';font-weight:700;font-size:1.5rem;color:#39ff88}
+  .mockup-stats .l{font-size:.66rem;color:#8a8f98;text-transform:uppercase;letter-spacing:.05em;margin-top:2px}
   /* process connected steps */
   .proc{display:grid;grid-template-columns:repeat(5,1fr);gap:0;position:relative;margin-top:34px}
   @media(max-width:900px){.proc{grid-template-columns:1fr;gap:14px}}
@@ -129,7 +141,7 @@
         Tu audiencia ya vale más<br>de lo que factura hoy.
       </h1>
       <p class="reveal text-lg sm:text-xl text-mute leading-relaxed mt-7 max-w-2xl" data-i18n="hero.sub">
-        Trabajamos con creadores de dos formas distintas, según lo que necesites. Con un puñado, por invitación, <span class="text-white font-medium">construimos y operamos el imperio entero a su lado</span> a cambio de una parte del negocio — nosotros lo hacemos por ti. Con cualquiera que quiera escalar ya, <span class="text-white font-medium">te damos el sistema y la metodología</span> para que lo operes tú mismo con el 100% de eficiencia — con un precio cerrado desde el primer día.
+        Dos formas de trabajar contigo. Con un puñado, por invitación, <span class="text-white font-medium">construimos y operamos el imperio</span> a cambio de una parte del negocio. Con cualquiera que quiera escalar ya, <span class="text-white font-medium">te damos el sistema para que lo operes tú</span> — precio cerrado desde el día 1.
       </p>
       <div class="reveal flex flex-col sm:flex-row gap-3 mt-10">
         <a href="#partnership" class="btn-o btn-lg" data-i18n="hero.cta1">Quiero un partner que construya conmigo</a>
@@ -149,7 +161,7 @@
 <section class="py-24 sm:py-32"><div class="wrap">
   <span class="eyebrow reveal"><span class="dot"></span><span data-i18n="split.eyebrow">01 · Dos caminos</span></span>
   <h2 class="display reveal text-3xl sm:text-5xl font-bold leading-tight mt-4 max-w-3xl" data-i18n="split.h2">No es una agencia. Es el mismo motor, en dos formatos.</h2>
-  <p class="reveal text-mute text-lg mt-5 max-w-2xl" data-i18n="split.p">La diferencia es quién lo opera. Con nuestros socios de equity, <span class="text-white font-medium">lo operamos nosotros</span> — construimos ese motor pieza a pieza, a medida, con nuestro equipo. Con los Sistemas de IA, <span class="text-white font-medium">te enseñamos a operarlo tú</span>: instalamos la infraestructura y te damos la metodología para sacarle el máximo, sin depender de nosotros día a día.</p>
+  <p class="reveal text-mute text-lg mt-5 max-w-2xl" data-i18n="split.p">La diferencia es quién lo opera. En el partnership, <span class="text-white font-medium">lo operamos nosotros</span>. En los Sistemas de IA, <span class="text-white font-medium">te enseñamos a operarlo tú</span> — sin depender de nosotros día a día.</p>
 
   <div class="grid lg:grid-cols-2 gap-6 mt-14 reveal">
     <div class="pillar p1">
@@ -214,22 +226,36 @@
 <section id="sistemas" class="py-24 sm:py-32"><div class="wrap">
   <span class="eyebrow reveal"><span class="dot"></span><span data-i18n="sistemas.eyebrow">03 · Sistemas de IA</span></span>
   <h2 class="display reveal text-3xl sm:text-5xl font-bold leading-tight mt-4 max-w-3xl" data-i18n="sistemas.h2">Más facturación, más margen, más tiempo. En ese orden.</h2>
-  <p class="reveal text-mute text-lg mt-5 max-w-2xl" data-i18n="sistemas.p">No instalamos un chatbot, y no lo operamos nosotros por ti — eso es el Venture Partnership. Aquí te damos la infraestructura <span class="text-white font-medium">y la metodología para que tú la operes con el 100% de eficiencia</span>: planificar lanzamientos y estrategia de venta, optimizar cómo entregas y haces seguimiento a cada cliente, ordenar tu contabilidad y unificar todos tus canales de captación en un solo sistema. Resultado: cada euro que inviertes rinde más, y tu tiempo se libera para lo único que nadie puede hacer por ti — crear.</p>
+  <p class="reveal text-mute text-lg mt-5 max-w-2xl" data-i18n="sistemas.p">No es un chatbot, y no lo operamos nosotros — eso es el partnership. Te damos la infraestructura <span class="text-white font-medium">y la metodología para que tú la operes al 100%</span>. Cada euro rinde más, y tu tiempo se libera para lo único que nadie puede hacer por ti: crear.</p>
+
+  <div class="mockup-frame reveal mt-10 max-w-xl">
+    <div class="mockup-bar"><span class="dot-sm"></span><span class="dot-sm"></span><span class="dot-sm"></span><span class="who" data-i18n="mockup.who">Agente de Dudas · WhatsApp</span></div>
+    <div class="mockup-body">
+      <div class="chat-bubble in" data-i18n="mockup.msg1">¿Cuántas series me tocan hoy de pierna?</div>
+      <div class="chat-bubble out" data-i18n="mockup.msg2">¡Hoy 4×8 sentadilla + 3×12 zancada! Te dejo el vídeo de técnica 🎥</div>
+      <div class="chat-bubble in" data-i18n="mockup.msg3">Genial, gracias 🙌</div>
+      <div class="mockup-stats">
+        <div><div class="n">24/7</div><div class="l" data-i18n="mockup.stat1">Respuesta</div></div>
+        <div><div class="n">&lt;10s</div><div class="l" data-i18n="mockup.stat2">Tiempo medio</div></div>
+        <div><div class="n">0</div><div class="l" data-i18n="mockup.stat3">Sin responder</div></div>
+      </div>
+    </div>
+  </div>
 
   <div class="guarantee reveal mt-10 flex flex-col sm:flex-row items-start sm:items-center gap-6 justify-between">
     <div>
       <span class="badge" data-i18n="sistemas.g.badge">Oferta con garantía</span>
       <p class="display text-2xl sm:text-3xl font-bold mt-4" data-i18n="sistemas.g.h3">Si no aumentas tu facturación en 2 meses, te devolvemos el 100% de lo invertido.</p>
-      <p class="text-white/70 text-sm mt-3 max-w-xl" data-i18n="sistemas.g.p">Sin letra pequeña. Minimizamos tus costes, unificamos tu captación en un solo embudo, metemos sistemas de venta que ya funcionan en otros negocios y mejoramos tu producto y tu servicio — el riesgo lo asumimos nosotros, no tú.</p>
+      <p class="text-white/70 text-sm mt-3 max-w-xl" data-i18n="sistemas.g.p">Sin letra pequeña. Minimizamos costes, unificamos captación e instalamos sistemas de venta ya probados — el riesgo es nuestro, no tuyo.</p>
     </div>
     <a href="/v2/diagnostico/" class="btn-w btn-lg shrink-0" data-i18n="sistemas.g.cta">Quiero esta garantía →</a>
   </div>
 
   <p class="kicker reveal text-xl sm:text-2xl text-white/85 mt-14" data-i18n="sistemas.imagine.kicker">Así se siente por dentro, en la práctica.</p>
   <div class="grid sm:grid-cols-3 gap-5 mt-6 reveal">
-    <div class="imagine"><span class="tag" data-i18n="sistemas.imagine1.tag">Marketing</span><p class="text-white/85 text-base mt-3 leading-relaxed" data-i18n="sistemas.imagine1.p">Imagina crear una secuencia entera de email marketing — bienvenida, nutrición, oferta — en <span class="text-white font-semibold">2 minutos</span>, no en 2 tardes.</p></div>
-    <div class="imagine"><span class="tag" data-i18n="sistemas.imagine2.tag">Web</span><p class="text-white/85 text-base mt-3 leading-relaxed" data-i18n="sistemas.imagine2.p">Imagina cambiar el precio, la oferta o el texto de tu landing page en <span class="text-white font-semibold">segundos</span>, sin depender de nadie ni esperar a que "alguien tenga hueco".</p></div>
-    <div class="imagine"><span class="tag" data-i18n="sistemas.imagine3.tag">Gestión</span><p class="text-white/85 text-base mt-3 leading-relaxed" data-i18n="sistemas.imagine3.p">Imagina preguntarle a tu agente personal, <span class="text-white font-semibold">desde el móvil</span>, un reporte de tus clientes con las tareas prioritarias de hoy — y tenerlo al instante.</p></div>
+    <div class="imagine"><span class="tag" data-i18n="sistemas.imagine1.tag">Marketing</span><p class="text-white/85 text-base mt-3 leading-relaxed" data-i18n="sistemas.imagine1.p">Una secuencia de email completa en <span class="text-white font-semibold">2 minutos</span>, no en 2 tardes.</p></div>
+    <div class="imagine"><span class="tag" data-i18n="sistemas.imagine2.tag">Web</span><p class="text-white/85 text-base mt-3 leading-relaxed" data-i18n="sistemas.imagine2.p">Cambia el precio o el copy de tu landing en <span class="text-white font-semibold">segundos</span>, sin esperar a nadie.</p></div>
+    <div class="imagine"><span class="tag" data-i18n="sistemas.imagine3.tag">Gestión</span><p class="text-white/85 text-base mt-3 leading-relaxed" data-i18n="sistemas.imagine3.p">Pídele a tu agente, <span class="text-white font-semibold">desde el móvil</span>, qué clientes priorizar hoy — al instante.</p></div>
   </div>
 
   <p class="kicker reveal text-xl sm:text-2xl text-white/85 mt-14" data-i18n="sistemas.examples.kicker">Ejemplos reales para el sector fitness — el mismo principio aplica a cualquier nicho.</p>
@@ -237,40 +263,40 @@
   <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-8 reveal">
     <div class="svc svc-7">
       <div class="ic">🚀</div>
-      <div><h4 class="display font-bold text-lg mt-4" data-i18n="svc7.h4">Lanzamientos y estrategia de venta</h4><p class="text-white/80 text-sm mt-2" data-i18n="svc7.p">Planifica el calendario, la secuencia de oferta y el copy de cada lanzamiento — listo para ejecutar, no para improvisar.</p></div>
+      <div><h4 class="display font-bold text-lg mt-4" data-i18n="svc7.h4">Lanzamientos y estrategia de venta</h4><p class="text-white/80 text-sm mt-2" data-i18n="svc7.p">Calendario, oferta y copy listos para ejecutar, no para improvisar.</p></div>
     </div>
     <div class="svc svc-1">
       <div class="ic">💬</div>
-      <div><h4 class="display font-bold text-lg mt-4" data-i18n="svc1.h4">Resolución de dudas 24/7</h4><p class="text-white/80 text-sm mt-2" data-i18n="svc1.p">Responde al instante preguntas repetidas de nutrición, series y descanso por WhatsApp o IG — sin que tú tengas que escribir una palabra.</p></div>
+      <div><h4 class="display font-bold text-lg mt-4" data-i18n="svc1.h4">Resolución de dudas 24/7</h4><p class="text-white/80 text-sm mt-2" data-i18n="svc1.p">Responde dudas repetidas por WhatsApp o IG al instante.</p></div>
     </div>
     <div class="svc svc-2">
       <div class="ic">🎥</div>
-      <div><h4 class="display font-bold text-lg mt-4" data-i18n="svc2.h4">Revisión de técnica</h4><p class="text-white/80 text-sm mt-2" data-i18n="svc2.p">Analiza los vídeos o fotos de ejecución de tus clientes y da un primer feedback estructurado antes de que tú lo veas.</p></div>
+      <div><h4 class="display font-bold text-lg mt-4" data-i18n="svc2.h4">Revisión de técnica</h4><p class="text-white/80 text-sm mt-2" data-i18n="svc2.p">Analiza vídeos de ejecución y da el primer feedback.</p></div>
     </div>
     <div class="svc svc-3">
       <div class="ic">📋</div>
-      <div><h4 class="display font-bold text-lg mt-4" data-i18n="svc3.h4">Formularios y onboarding</h4><p class="text-white/80 text-sm mt-2" data-i18n="svc3.p">Recoge objetivos, lesiones y disponibilidad de cada cliente nuevo y arma su ficha completa, automáticamente.</p></div>
+      <div><h4 class="display font-bold text-lg mt-4" data-i18n="svc3.h4">Formularios y onboarding</h4><p class="text-white/80 text-sm mt-2" data-i18n="svc3.p">Ficha completa de cada cliente nuevo, automáticamente.</p></div>
     </div>
     <div class="svc svc-4">
       <div class="ic">📈</div>
-      <div><h4 class="display font-bold text-lg mt-4" data-i18n="svc4.h4">Seguimiento y check-ins</h4><p class="text-white/80 text-sm mt-2" data-i18n="svc4.p">Pide fotos de progreso, manda recordatorios y te avisa exactamente quién se está cayendo del programa esta semana.</p></div>
+      <div><h4 class="display font-bold text-lg mt-4" data-i18n="svc4.h4">Seguimiento y check-ins</h4><p class="text-white/80 text-sm mt-2" data-i18n="svc4.p">Fotos de progreso y aviso de quién se está cayendo.</p></div>
     </div>
     <div class="svc svc-5">
       <div class="ic">🎯</div>
-      <div><h4 class="display font-bold text-lg mt-4" data-i18n="svc5.h4">Captación de clientes</h4><p class="text-white/80 text-sm mt-2" data-i18n="svc5.p">Responde comentarios y DMs, cualifica al lead con las preguntas correctas y agenda la llamada sin que tú intervengas.</p></div>
+      <div><h4 class="display font-bold text-lg mt-4" data-i18n="svc5.h4">Captación de clientes</h4><p class="text-white/80 text-sm mt-2" data-i18n="svc5.p">Cualifica el lead y agenda la llamada por ti.</p></div>
     </div>
     <div class="svc svc-6">
       <div class="ic">💳</div>
-      <div><h4 class="display font-bold text-lg mt-4" data-i18n="svc6.h4">Ventas y cobros</h4><p class="text-white/80 text-sm mt-2" data-i18n="svc6.p">Hace seguimiento de propuestas enviadas, manda el enlace de pago y recupera carritos abandonados solo.</p></div>
+      <div><h4 class="display font-bold text-lg mt-4" data-i18n="svc6.h4">Ventas y cobros</h4><p class="text-white/80 text-sm mt-2" data-i18n="svc6.p">Envía el cobro y recupera carritos abandonados solo.</p></div>
     </div>
     <div class="svc svc-8">
       <div class="ic">🧾</div>
-      <div><h4 class="display font-bold text-lg mt-4" data-i18n="svc8.h4">Contabilidad y reporting</h4><p class="text-white/80 text-sm mt-2" data-i18n="svc8.p">Ordena ingresos, gastos y márgenes por servicio, y te manda un resumen claro de en qué estás ganando y en qué estás perdiendo dinero.</p></div>
+      <div><h4 class="display font-bold text-lg mt-4" data-i18n="svc8.h4">Contabilidad y reporting</h4><p class="text-white/80 text-sm mt-2" data-i18n="svc8.p">Resumen claro de dónde ganas y dónde pierdes dinero.</p></div>
     </div>
   </div>
 
   <div class="card p-8 mt-10 reveal flex flex-col sm:flex-row items-center gap-6 justify-between">
-    <p class="text-white/85 text-lg max-w-xl" data-i18n="sistemas.cta.p"><span class="text-2xl">🎁</span> ¿No sabes por dónde empezar? Rellena el diagnóstico (2 min) y te decimos gratis qué 1-2 agentes te devolverían más horas y más facturación esta misma semana — sin compromiso.</p>
+    <p class="text-white/85 text-lg max-w-xl" data-i18n="sistemas.cta.p"><span class="text-2xl">🎁</span> ¿No sabes por dónde empezar? Diagnóstico gratis en 2 min — qué agentes te devuelven más horas y facturación esta semana.</p>
     <a href="/v2/diagnostico/" class="btn-w btn-lg" data-i18n="sistemas.cta.btn">Empezar diagnóstico gratuito →</a>
   </div>
 </div></section>
@@ -430,11 +456,11 @@ const I18N = {
     "nav.partnership":"Venture Partnership","nav.sistemas":"Sistemas de IA","nav.precios":"Precios","nav.proceso":"Cómo trabajamos","nav.cta":"Hablemos",
     "hero.eyebrow":"VENTURE BUILDER · SISTEMAS DE IA PARA CREADORES",
     "hero.h1":"Tu audiencia ya vale más<br>de lo que factura hoy.",
-    "hero.sub":"Trabajamos con creadores de dos formas distintas, según lo que necesites. Con un puñado, por invitación, <span class=\"text-white font-medium\">construimos y operamos el imperio entero a su lado</span> a cambio de una parte del negocio — nosotros lo hacemos por ti. Con cualquiera que quiera escalar ya, <span class=\"text-white font-medium\">te damos el sistema y la metodología</span> para que lo operes tú mismo con el 100% de eficiencia — con un precio cerrado desde el primer día.",
+    "hero.sub":"Dos formas de trabajar contigo. Con un puñado, por invitación, <span class=\"text-white font-medium\">construimos y operamos el imperio</span> a cambio de una parte del negocio. Con cualquiera que quiera escalar ya, <span class=\"text-white font-medium\">te damos el sistema para que lo operes tú</span> — precio cerrado desde el día 1.",
     "hero.cta1":"Quiero un partner que construya conmigo","hero.cta2":"Quiero los sistemas de IA para mi negocio →",
     "hero.stat1":"70M+","hero.stat1l":"Seguidores en la red de socios","hero.stat2":"Equity","hero.stat2l":"Sin fee fijo en partnerships","hero.stat3":"24/7","hero.stat3l":"Agentes de IA operando","hero.stat4":"&lt;2h","hero.stat4l":"Setup del primer agente",
     "split.eyebrow":"01 · Dos caminos","split.h2":"No es una agencia. Es el mismo motor, en dos formatos.",
-    "split.p":"La diferencia es quién lo opera. Con nuestros socios de equity, <span class=\"text-white font-medium\">lo operamos nosotros</span> — construimos ese motor pieza a pieza, a medida, con nuestro equipo. Con los Sistemas de IA, <span class=\"text-white font-medium\">te enseñamos a operarlo tú</span>: instalamos la infraestructura y te damos la metodología para sacarle el máximo, sin depender de nosotros día a día.",
+    "split.p":"La diferencia es quién lo opera. En el partnership, <span class=\"text-white font-medium\">lo operamos nosotros</span>. En los Sistemas de IA, <span class=\"text-white font-medium\">te enseñamos a operarlo tú</span> — sin depender de nosotros día a día.",
     "split.p1.tag":"Exclusivo · Por invitación","split.p1.h3":"Venture Partnership",
     "split.p1.p":"Elegimos un puñado de creadores de élite al año. No cobramos honorarios fijos — ganamos cuando tú ganas, así que jugamos en el mismo bando desde el primer día. Construimos y operamos la empresa entera a tu alrededor — contenido, ads, ventas, producto, comunidad. Tú apareces y creas.",
     "split.p1.li1":"◆ Sin honorarios fijos — nuestro incentivo eres tú, facturando más","split.p1.li2":"◆ Equipo completo operando tu negocio a diario","split.p1.li3":"◆ Selección por invitación, plazas muy limitadas al año","split.p1.cta":"Ver el partnership →",
@@ -448,23 +474,24 @@ const I18N = {
     "partnership.c3.h3":"Marca y expansión","partnership.c3.p":"De un producto a un portfolio de ingresos: relanzamientos programados, nuevas líneas, nuevas marcas bajo tu nombre.",
     "partnership.fit.h3":"¿Encajas en el perfil?","partnership.fit.p":"Buscamos creadores con audiencia real, algo que ya vender (o casi) y voluntad de construir algo grande — no un lanzamiento puntual ni un experimento de fin de semana.","partnership.fit.cta":"Aplicar al partnership →",
     "sistemas.eyebrow":"03 · Sistemas de IA","sistemas.h2":"Más facturación, más margen, más tiempo. En ese orden.",
-    "sistemas.p":"No instalamos un chatbot, y no lo operamos nosotros por ti — eso es el Venture Partnership. Aquí te damos la infraestructura <span class=\"text-white font-medium\">y la metodología para que tú la operes con el 100% de eficiencia</span>: planificar lanzamientos y estrategia de venta, optimizar cómo entregas y haces seguimiento a cada cliente, ordenar tu contabilidad y unificar todos tus canales de captación en un solo sistema. Resultado: cada euro que inviertes rinde más, y tu tiempo se libera para lo único que nadie puede hacer por ti — crear.",
+    "sistemas.p":"No es un chatbot, y no lo operamos nosotros — eso es el partnership. Te damos la infraestructura <span class=\"text-white font-medium\">y la metodología para que tú la operes al 100%</span>. Cada euro rinde más, y tu tiempo se libera para lo único que nadie puede hacer por ti: crear.",
+    "mockup.who":"Agente de Dudas · WhatsApp","mockup.msg1":"¿Cuántas series me tocan hoy de pierna?","mockup.msg2":"¡Hoy 4×8 sentadilla + 3×12 zancada! Te dejo el vídeo de técnica 🎥","mockup.msg3":"Genial, gracias 🙌","mockup.stat1":"Respuesta","mockup.stat2":"Tiempo medio","mockup.stat3":"Sin responder",
     "sistemas.g.badge":"Oferta con garantía","sistemas.g.h3":"Si no aumentas tu facturación en 2 meses, te devolvemos el 100% de lo invertido.",
-    "sistemas.g.p":"Sin letra pequeña. Minimizamos tus costes, unificamos tu captación en un solo embudo, metemos sistemas de venta que ya funcionan en otros negocios y mejoramos tu producto y tu servicio — el riesgo lo asumimos nosotros, no tú.","sistemas.g.cta":"Quiero esta garantía →",
+    "sistemas.g.p":"Sin letra pequeña. Minimizamos costes, unificamos captación e instalamos sistemas de venta ya probados — el riesgo es nuestro, no tuyo.","sistemas.g.cta":"Quiero esta garantía →",
     "sistemas.imagine.kicker":"Así se siente por dentro, en la práctica.",
-    "sistemas.imagine1.tag":"Marketing","sistemas.imagine1.p":"Imagina crear una secuencia entera de email marketing — bienvenida, nutrición, oferta — en <span class=\"text-white font-semibold\">2 minutos</span>, no en 2 tardes.",
-    "sistemas.imagine2.tag":"Web","sistemas.imagine2.p":"Imagina cambiar el precio, la oferta o el texto de tu landing page en <span class=\"text-white font-semibold\">segundos</span>, sin depender de nadie ni esperar a que \"alguien tenga hueco\".",
-    "sistemas.imagine3.tag":"Gestión","sistemas.imagine3.p":"Imagina preguntarle a tu agente personal, <span class=\"text-white font-semibold\">desde el móvil</span>, un reporte de tus clientes con las tareas prioritarias de hoy — y tenerlo al instante.",
+    "sistemas.imagine1.tag":"Marketing","sistemas.imagine1.p":"Una secuencia de email completa en <span class=\"text-white font-semibold\">2 minutos</span>, no en 2 tardes.",
+    "sistemas.imagine2.tag":"Web","sistemas.imagine2.p":"Cambia el precio o el copy de tu landing en <span class=\"text-white font-semibold\">segundos</span>, sin esperar a nadie.",
+    "sistemas.imagine3.tag":"Gestión","sistemas.imagine3.p":"Pídele a tu agente, <span class=\"text-white font-semibold\">desde el móvil</span>, qué clientes priorizar hoy — al instante.",
     "sistemas.examples.kicker":"Ejemplos reales para el sector fitness — el mismo principio aplica a cualquier nicho.",
-    "svc7.h4":"Lanzamientos y estrategia de venta","svc7.p":"Planifica el calendario, la secuencia de oferta y el copy de cada lanzamiento — listo para ejecutar, no para improvisar.",
-    "svc1.h4":"Resolución de dudas 24/7","svc1.p":"Responde al instante preguntas repetidas de nutrición, series y descanso por WhatsApp o IG — sin que tú tengas que escribir una palabra.",
-    "svc2.h4":"Revisión de técnica","svc2.p":"Analiza los vídeos o fotos de ejecución de tus clientes y da un primer feedback estructurado antes de que tú lo veas.",
-    "svc3.h4":"Formularios y onboarding","svc3.p":"Recoge objetivos, lesiones y disponibilidad de cada cliente nuevo y arma su ficha completa, automáticamente.",
-    "svc4.h4":"Seguimiento y check-ins","svc4.p":"Pide fotos de progreso, manda recordatorios y te avisa exactamente quién se está cayendo del programa esta semana.",
-    "svc5.h4":"Captación de clientes","svc5.p":"Responde comentarios y DMs, cualifica al lead con las preguntas correctas y agenda la llamada sin que tú intervengas.",
-    "svc6.h4":"Ventas y cobros","svc6.p":"Hace seguimiento de propuestas enviadas, manda el enlace de pago y recupera carritos abandonados solo.",
-    "svc8.h4":"Contabilidad y reporting","svc8.p":"Ordena ingresos, gastos y márgenes por servicio, y te manda un resumen claro de en qué estás ganando y en qué estás perdiendo dinero.",
-    "sistemas.cta.p":"<span class=\"text-2xl\">🎁</span> ¿No sabes por dónde empezar? Rellena el diagnóstico (2 min) y te decimos gratis qué 1-2 agentes te devolverían más horas y más facturación esta misma semana — sin compromiso.","sistemas.cta.btn":"Empezar diagnóstico gratuito →",
+    "svc7.h4":"Lanzamientos y estrategia de venta","svc7.p":"Calendario, oferta y copy listos para ejecutar, no para improvisar.",
+    "svc1.h4":"Resolución de dudas 24/7","svc1.p":"Responde dudas repetidas por WhatsApp o IG al instante.",
+    "svc2.h4":"Revisión de técnica","svc2.p":"Analiza vídeos de ejecución y da el primer feedback.",
+    "svc3.h4":"Formularios y onboarding","svc3.p":"Ficha completa de cada cliente nuevo, automáticamente.",
+    "svc4.h4":"Seguimiento y check-ins","svc4.p":"Fotos de progreso y aviso de quién se está cayendo.",
+    "svc5.h4":"Captación de clientes","svc5.p":"Cualifica el lead y agenda la llamada por ti.",
+    "svc6.h4":"Ventas y cobros","svc6.p":"Envía el cobro y recupera carritos abandonados solo.",
+    "svc8.h4":"Contabilidad y reporting","svc8.p":"Resumen claro de dónde ganas y dónde pierdes dinero.",
+    "sistemas.cta.p":"<span class=\"text-2xl\">🎁</span> ¿No sabes por dónde empezar? Diagnóstico gratis en 2 min — qué agentes te devuelven más horas y facturación esta semana.","sistemas.cta.btn":"Empezar diagnóstico gratuito →",
     "precios.eyebrow":"04 · Precios","precios.h2":"Planes cerrados. Sin sorpresas, sin auditorías eternas.","precios.p":"Sistematizamos y replicamos con las mínimas modificaciones por cliente — por eso podemos darte un precio fijo desde el primer día.",
     "precios.starter.name":"Starter","precios.starter.setup":"+ 497€ setup único","precios.starter.li1":"1 agente de IA a elegir","precios.starter.li2":"Conectado a WhatsApp o Instagram","precios.starter.li3":"Hasta 500 conversaciones/mes","precios.starter.li4":"Soporte por email","precios.starter.cta":"Empezar con Starter",
     "precios.growth.badge":"Más elegido","precios.growth.name":"Growth","precios.growth.setup":"+ 997€ setup único","precios.growth.li1":"3 agentes (dudas + seguimiento + captación)","precios.growth.li2":"CRM básico incluido","precios.growth.li3":"Hasta 2.000 conversaciones/mes","precios.growth.li4":"Soporte prioritario + revisión mensual","precios.growth.cta":"Empezar con Growth",
@@ -492,11 +519,11 @@ const I18N = {
     "nav.partnership":"Venture Partnership","nav.sistemas":"AI Systems","nav.precios":"Pricing","nav.proceso":"How we work","nav.cta":"Let's talk",
     "hero.eyebrow":"VENTURE BUILDER · AI SYSTEMS FOR CREATORS",
     "hero.h1":"Your audience is already worth<br>more than it's earning today.",
-    "hero.sub":"We work with creators in two different ways, depending on what you need. With a handful, by invitation, <span class=\"text-white font-medium\">we build and run the entire empire alongside you</span> in exchange for a share of the business — we do it for you. With anyone ready to scale now, <span class=\"text-white font-medium\">we give you the system and the methodology</span> so you can run it yourself at 100% efficiency — with a fixed price from day one.",
+    "hero.sub":"Two ways to work with you. With a handful, by invitation, <span class=\"text-white font-medium\">we build and run the empire</span> in exchange for a share of the business. With anyone ready to scale now, <span class=\"text-white font-medium\">we give you the system to run yourself</span> — fixed price from day one.",
     "hero.cta1":"I want a partner to build with me","hero.cta2":"I want AI systems for my business →",
     "hero.stat1":"70M+","hero.stat1l":"Followers across our partner network","hero.stat2":"Equity","hero.stat2l":"No fixed fee on partnerships","hero.stat3":"24/7","hero.stat3l":"AI agents running","hero.stat4":"&lt;2h","hero.stat4l":"First agent setup time",
     "split.eyebrow":"01 · Two paths","split.h2":"Not an agency. Same engine, two formats.",
-    "split.p":"The difference is who runs it. With our equity partners, <span class=\"text-white font-medium\">we run it</span> — we build that engine piece by piece, bespoke, with our own team. With AI Systems, <span class=\"text-white font-medium\">we teach you to run it</span>: we install the infrastructure and give you the methodology to get the most out of it, without depending on us day to day.",
+    "split.p":"The difference is who runs it. In the partnership, <span class=\"text-white font-medium\">we run it</span>. In AI Systems, <span class=\"text-white font-medium\">we teach you to run it</span> — without depending on us day to day.",
     "split.p1.tag":"Exclusive · By invitation","split.p1.h3":"Venture Partnership",
     "split.p1.p":"We select a handful of elite creators each year. No fixed fees — we win when you win, so we're on the same side from day one. We build and run the entire company around you — content, ads, sales, product, community. You show up and create.",
     "split.p1.li1":"◆ No fixed fees — our incentive is you, earning more","split.p1.li2":"◆ Full team running your business every day","split.p1.li3":"◆ By-invitation selection, very limited spots per year","split.p1.cta":"See the partnership →",
@@ -510,23 +537,24 @@ const I18N = {
     "partnership.c3.h3":"Brand and expansion","partnership.c3.p":"From one product to a revenue portfolio: scheduled relaunches, new lines, new brands under your name.",
     "partnership.fit.h3":"Do you fit the profile?","partnership.fit.p":"We look for creators with a real audience, something to sell already (or close to it) and the will to build something big — not a one-off launch or a weekend experiment.","partnership.fit.cta":"Apply to the partnership →",
     "sistemas.eyebrow":"03 · AI Systems","sistemas.h2":"More revenue, more margin, more time. In that order.",
-    "sistemas.p":"We don't install a chatbot, and we don't run it for you — that's the Venture Partnership. Here we give you the infrastructure <span class=\"text-white font-medium\">and the methodology so you can run it at 100% efficiency</span>: planning launches and sales strategy, optimizing how you deliver and follow up with every client, organizing your bookkeeping and unifying all your acquisition channels into one system. Result: every euro you invest returns more, and your time frees up for the one thing nobody can do for you — creating.",
+    "sistemas.p":"Not a chatbot, and we don't run it for you — that's the Venture Partnership. We give you the infrastructure <span class=\"text-white font-medium\">and the methodology to run it at 100% efficiency</span>. Every euro returns more, and your time frees up for the one thing nobody can do for you: creating.",
+    "mockup.who":"FAQ Agent · WhatsApp","mockup.msg1":"How many leg sets do I have today?","mockup.msg2":"Today: 4×8 squats + 3×12 lunges! Here's the technique video 🎥","mockup.msg3":"Great, thanks 🙌","mockup.stat1":"Response","mockup.stat2":"Avg. time","mockup.stat3":"Unanswered",
     "sistemas.g.badge":"Guaranteed offer","sistemas.g.h3":"If your revenue doesn't grow in 2 months, we refund 100% of what you invested.",
-    "sistemas.g.p":"No fine print. We minimize your costs, unify your acquisition into a single funnel, install sales systems that already work in other businesses, and improve your product and service — we take on the risk, not you.","sistemas.g.cta":"I want this guarantee →",
+    "sistemas.g.p":"No fine print. We minimize your costs, unify your acquisition and install proven sales systems — we take on the risk, not you.","sistemas.g.cta":"I want this guarantee →",
     "sistemas.imagine.kicker":"Here's what it feels like in practice.",
-    "sistemas.imagine1.tag":"Marketing","sistemas.imagine1.p":"Imagine building an entire email sequence — welcome, nurture, offer — in <span class=\"text-white font-semibold\">2 minutes</span>, not 2 afternoons.",
-    "sistemas.imagine2.tag":"Web","sistemas.imagine2.p":"Imagine changing the price, offer or copy on your landing page in <span class=\"text-white font-semibold\">seconds</span>, without depending on anyone or waiting for \"someone to have time\".",
-    "sistemas.imagine3.tag":"Management","sistemas.imagine3.p":"Imagine asking your personal agent, <span class=\"text-white font-semibold\">from your phone</span>, for a report on your clients with today's priority tasks — and having it instantly.",
+    "sistemas.imagine1.tag":"Marketing","sistemas.imagine1.p":"A full email sequence in <span class=\"text-white font-semibold\">2 minutes</span>, not 2 afternoons.",
+    "sistemas.imagine2.tag":"Web","sistemas.imagine2.p":"Change the price or copy on your landing in <span class=\"text-white font-semibold\">seconds</span>, without waiting on anyone.",
+    "sistemas.imagine3.tag":"Management","sistemas.imagine3.p":"Ask your agent, <span class=\"text-white font-semibold\">from your phone</span>, which clients to prioritize today — instantly.",
     "sistemas.examples.kicker":"Real examples for the fitness sector — the same principle applies to any niche.",
-    "svc7.h4":"Launches and sales strategy","svc7.p":"Plans the calendar, the offer sequence and the copy for every launch — ready to execute, not to improvise.",
-    "svc1.h4":"24/7 FAQ resolution","svc1.p":"Instantly answers repeated nutrition, sets and rest questions over WhatsApp or IG — without you writing a word.",
-    "svc2.h4":"Technique review","svc2.p":"Analyzes your clients' execution videos or photos and gives structured first feedback before you even see it.",
-    "svc3.h4":"Forms and onboarding","svc3.p":"Collects goals, injuries and availability for every new client and builds their full profile, automatically.",
-    "svc4.h4":"Follow-up and check-ins","svc4.p":"Requests progress photos, sends reminders and tells you exactly who's falling off the program this week.",
-    "svc5.h4":"Client acquisition","svc5.p":"Replies to comments and DMs, qualifies the lead with the right questions and books the call without you stepping in.",
-    "svc6.h4":"Sales and payments","svc6.p":"Follows up on proposals sent, sends the payment link and recovers abandoned carts on its own.",
-    "svc8.h4":"Bookkeeping and reporting","svc8.p":"Organizes income, expenses and margins per service, and sends you a clear summary of where you're making — and losing — money.",
-    "sistemas.cta.p":"<span class=\"text-2xl\">🎁</span> Not sure where to start? Fill out the diagnostic (2 min) and we'll tell you for free which 1-2 agents would give you back the most hours and revenue this week — no strings attached.","sistemas.cta.btn":"Start the free diagnostic →",
+    "svc7.h4":"Launches and sales strategy","svc7.p":"Calendar, offer and copy ready to execute, not improvise.",
+    "svc1.h4":"24/7 FAQ resolution","svc1.p":"Answers repeated questions over WhatsApp or IG instantly.",
+    "svc2.h4":"Technique review","svc2.p":"Analyzes execution videos and gives the first feedback.",
+    "svc3.h4":"Forms and onboarding","svc3.p":"Full profile for every new client, automatically.",
+    "svc4.h4":"Follow-up and check-ins","svc4.p":"Progress photos and a heads-up on who's falling off.",
+    "svc5.h4":"Client acquisition","svc5.p":"Qualifies the lead and books the call for you.",
+    "svc6.h4":"Sales and payments","svc6.p":"Sends the payment link and recovers abandoned carts on its own.",
+    "svc8.h4":"Bookkeeping and reporting","svc8.p":"A clear summary of where you're making — and losing — money.",
+    "sistemas.cta.p":"<span class=\"text-2xl\">🎁</span> Not sure where to start? Free 2-min diagnostic — which agents give you back the most hours and revenue this week.","sistemas.cta.btn":"Start the free diagnostic →",
     "precios.eyebrow":"04 · Pricing","precios.h2":"Fixed plans. No surprises, no endless audits.","precios.p":"We systematize and replicate with minimal changes per client — that's how we can give you a fixed price from day one.",
     "precios.starter.name":"Starter","precios.starter.setup":"+ €497 one-time setup","precios.starter.li1":"1 AI agent of your choice","precios.starter.li2":"Connected to WhatsApp or Instagram","precios.starter.li3":"Up to 500 conversations/month","precios.starter.li4":"Email support","precios.starter.cta":"Start with Starter",
     "precios.growth.badge":"Most popular","precios.growth.name":"Growth","precios.growth.setup":"+ €997 one-time setup","precios.growth.li1":"3 agents (FAQs + follow-up + lead gen)","precios.growth.li2":"Basic CRM included","precios.growth.li3":"Up to 2,000 conversations/month","precios.growth.li4":"Priority support + monthly review","precios.growth.cta":"Start with Growth",
@@ -554,11 +582,11 @@ const I18N = {
     "nav.partnership":"Венчурное партнёрство","nav.sistemas":"ИИ-системы","nav.precios":"Цены","nav.proceso":"Как мы работаем","nav.cta":"Обсудим",
     "hero.eyebrow":"ВЕНЧУРНЫЙ СТРОИТЕЛЬ · ИИ-СИСТЕМЫ ДЛЯ АВТОРОВ",
     "hero.h1":"Ваша аудитория уже стоит<br>больше, чем зарабатывает сегодня.",
-    "hero.sub":"Мы работаем с авторами двумя разными способами — в зависимости от того, что вам нужно. С единицами, по приглашению, <span class=\"text-white font-medium\">мы строим и управляем всей империей рядом с вами</span> в обмен на долю в бизнесе — мы делаем это за вас. С любым, кто готов расти уже сейчас, <span class=\"text-white font-medium\">мы даём систему и методологию</span>, чтобы вы управляли ею сами со 100% эффективностью — с фиксированной ценой с первого дня.",
+    "hero.sub":"Два способа работать с вами. С единицами, по приглашению, <span class=\"text-white font-medium\">мы строим и управляем империей</span> в обмен на долю в бизнесе. С любым, кто готов расти уже сейчас, <span class=\"text-white font-medium\">мы даём систему, чтобы вы управляли ею сами</span> — фиксированная цена с первого дня.",
     "hero.cta1":"Хочу партнёра, который построит бизнес со мной","hero.cta2":"Хочу ИИ-системы для своего бизнеса →",
     "hero.stat1":"70M+","hero.stat1l":"Подписчиков в сети партнёров","hero.stat2":"Доля","hero.stat2l":"Без фиксированной комиссии в партнёрстве","hero.stat3":"24/7","hero.stat3l":"ИИ-агенты в работе","hero.stat4":"&lt;2ч","hero.stat4l":"Настройка первого агента",
     "split.eyebrow":"01 · Два пути","split.h2":"Это не агентство. Один и тот же механизм в двух форматах.",
-    "split.p":"Разница в том, кто им управляет. С партнёрами по доле <span class=\"text-white font-medium\">управляем мы</span> — строим этот механизм по частям, под задачу, своей командой. С ИИ-системами <span class=\"text-white font-medium\">мы учим управлять вас самих</span>: устанавливаем инфраструктуру и даём методологию, чтобы вы получали максимум, не завися от нас каждый день.",
+    "split.p":"Разница в том, кто управляет. В партнёрстве <span class=\"text-white font-medium\">управляем мы</span>. В ИИ-системах <span class=\"text-white font-medium\">мы учим управлять вас самих</span> — не завися от нас каждый день.",
     "split.p1.tag":"Эксклюзивно · По приглашению","split.p1.h3":"Венчурное партнёрство",
     "split.p1.p":"Мы выбираем горстку авторов высшего уровня в год. Без фиксированных гонораров — мы зарабатываем, когда зарабатываете вы, поэтому мы с первого дня на одной стороне. Мы строим и управляем всей компанией вокруг вас — контент, реклама, продажи, продукт, сообщество. Вы появляетесь и создаёте.",
     "split.p1.li1":"◆ Без фиксированных гонораров — наш стимул это вы, зарабатывающий больше","split.p1.li2":"◆ Полноценная команда управляет вашим бизнесом ежедневно","split.p1.li3":"◆ Отбор по приглашению, крайне ограниченное число мест в год","split.p1.cta":"Смотреть партнёрство →",
@@ -572,23 +600,24 @@ const I18N = {
     "partnership.c3.h3":"Бренд и экспансия","partnership.c3.p":"От одного продукта к портфелю источников дохода: запланированные релончи, новые линейки, новые бренды под вашим именем.",
     "partnership.fit.h3":"Подходите ли вы под профиль?","partnership.fit.p":"Мы ищем авторов с реальной аудиторией, тем, что уже продаётся (или почти) и желанием построить что-то большое — а не разовый запуск или эксперимент на выходные.","partnership.fit.cta":"Подать заявку на партнёрство →",
     "sistemas.eyebrow":"03 · ИИ-системы","sistemas.h2":"Больше выручки, больше маржи, больше времени. Именно в этом порядке.",
-    "sistemas.p":"Мы не устанавливаем чат-бота, и мы не управляем этим за вас — это венчурное партнёрство. Здесь мы даём вам инфраструктуру <span class=\"text-white font-medium\">и методологию, чтобы вы управляли ею со 100% эффективностью</span>: планирование запусков и стратегии продаж, оптимизация доставки услуги и сопровождения каждого клиента, наведение порядка в бухгалтерии и объединение всех каналов привлечения в одну систему. Результат: каждый вложенный евро приносит больше, а ваше время освобождается для единственного, что за вас никто не сделает — создавать.",
+    "sistemas.p":"Это не чат-бот, и мы не управляем им за вас — это венчурное партнёрство. Мы даём вам инфраструктуру <span class=\"text-white font-medium\">и методологию, чтобы вы управляли ею со 100% эффективностью</span>. Каждый евро приносит больше, а ваше время освобождается для единственного, что за вас никто не сделает — создавать.",
+    "mockup.who":"Агент по вопросам · WhatsApp","mockup.msg1":"Сколько подходов на ноги сегодня?","mockup.msg2":"Сегодня: 4×8 приседания + 3×12 выпады! Прикрепляю видео техники 🎥","mockup.msg3":"Отлично, спасибо 🙌","mockup.stat1":"Ответ","mockup.stat2":"Среднее время","mockup.stat3":"Без ответа",
     "sistemas.g.badge":"Предложение с гарантией","sistemas.g.h3":"Если ваша выручка не вырастет за 2 месяца, мы вернём 100% вложенных средств.",
-    "sistemas.g.p":"Без мелкого шрифта. Мы минимизируем ваши расходы, объединяем привлечение клиентов в одну воронку, внедряем системы продаж, которые уже работают в других бизнесах, и улучшаем ваш продукт и сервис — риск берём на себя мы, а не вы.","sistemas.g.cta":"Хочу эту гарантию →",
+    "sistemas.g.p":"Без мелкого шрифта. Минимизируем расходы, объединяем привлечение клиентов и внедряем проверенные системы продаж — риск берём на себя мы, а не вы.","sistemas.g.cta":"Хочу эту гарантию →",
     "sistemas.imagine.kicker":"Вот как это ощущается на практике.",
-    "sistemas.imagine1.tag":"Маркетинг","sistemas.imagine1.p":"Представьте, что создаёте целую email-серию — приветствие, прогрев, предложение — за <span class=\"text-white font-semibold\">2 минуты</span>, а не за 2 вечера.",
-    "sistemas.imagine2.tag":"Сайт","sistemas.imagine2.p":"Представьте, что меняете цену, предложение или текст на лендинге за <span class=\"text-white font-semibold\">секунды</span>, не завися ни от кого и не дожидаясь, пока «у кого-то появится время».",
-    "sistemas.imagine3.tag":"Управление","sistemas.imagine3.p":"Представьте, что спрашиваете своего личного агента <span class=\"text-white font-semibold\">с телефона</span> отчёт о клиентах с приоритетными задачами на сегодня — и получаете его мгновенно.",
+    "sistemas.imagine1.tag":"Маркетинг","sistemas.imagine1.p":"Целая email-серия за <span class=\"text-white font-semibold\">2 минуты</span>, а не за 2 вечера.",
+    "sistemas.imagine2.tag":"Сайт","sistemas.imagine2.p":"Меняете цену или текст на лендинге за <span class=\"text-white font-semibold\">секунды</span>, не дожидаясь никого.",
+    "sistemas.imagine3.tag":"Управление","sistemas.imagine3.p":"Спрашиваете агента <span class=\"text-white font-semibold\">с телефона</span>, каких клиентов приоритизировать сегодня — мгновенно.",
     "sistemas.examples.kicker":"Реальные примеры для фитнес-ниши — тот же принцип применим к любой нише.",
-    "svc7.h4":"Запуски и стратегия продаж","svc7.p":"Планирует календарь, последовательность предложения и текст каждого запуска — готово к исполнению, а не к импровизации.",
-    "svc1.h4":"Ответы на вопросы 24/7","svc1.p":"Мгновенно отвечает на повторяющиеся вопросы о питании, подходах и отдыхе в WhatsApp или IG — вам не нужно писать ни слова.",
-    "svc2.h4":"Проверка техники","svc2.p":"Анализирует видео или фото выполнения упражнений клиентов и даёт первую структурированную обратную связь до того, как вы это увидите.",
-    "svc3.h4":"Анкеты и онбординг","svc3.p":"Собирает цели, травмы и доступность каждого нового клиента и автоматически формирует его полную карточку.",
-    "svc4.h4":"Сопровождение и чек-ины","svc4.p":"Запрашивает фото прогресса, отправляет напоминания и точно сообщает, кто отваливается от программы на этой неделе.",
-    "svc5.h4":"Привлечение клиентов","svc5.p":"Отвечает на комментарии и личные сообщения, квалифицирует лид нужными вопросами и назначает звонок без вашего участия.",
-    "svc6.h4":"Продажи и оплаты","svc6.p":"Сопровождает отправленные предложения, присылает ссылку на оплату и самостоятельно возвращает брошенные корзины.",
-    "svc8.h4":"Бухгалтерия и отчётность","svc8.p":"Упорядочивает доходы, расходы и маржу по услугам и присылает понятную сводку о том, где вы зарабатываете, а где теряете деньги.",
-    "sistemas.cta.p":"<span class=\"text-2xl\">🎁</span> Не знаете, с чего начать? Заполните диагностику (2 минуты), и мы бесплатно скажем, какие 1-2 агента вернут вам больше часов и выручки уже на этой неделе — без обязательств.","sistemas.cta.btn":"Начать бесплатную диагностику →",
+    "svc7.h4":"Запуски и стратегия продаж","svc7.p":"Календарь, предложение и текст готовы к исполнению, не к импровизации.",
+    "svc1.h4":"Ответы на вопросы 24/7","svc1.p":"Мгновенно отвечает на повторяющиеся вопросы в WhatsApp или IG.",
+    "svc2.h4":"Проверка техники","svc2.p":"Анализирует видео выполнения и даёт первую обратную связь.",
+    "svc3.h4":"Анкеты и онбординг","svc3.p":"Полная карточка каждого нового клиента, автоматически.",
+    "svc4.h4":"Сопровождение и чек-ины","svc4.p":"Фото прогресса и сигнал о том, кто отваливается.",
+    "svc5.h4":"Привлечение клиентов","svc5.p":"Квалифицирует лид и назначает звонок за вас.",
+    "svc6.h4":"Продажи и оплаты","svc6.p":"Присылает ссылку на оплату и возвращает брошенные корзины сам.",
+    "svc8.h4":"Бухгалтерия и отчётность","svc8.p":"Понятная сводка о том, где вы зарабатываете, а где теряете.",
+    "sistemas.cta.p":"<span class=\"text-2xl\">🎁</span> Не знаете, с чего начать? Бесплатная диагностика за 2 минуты — какие агенты вернут больше часов и выручки уже на этой неделе.","sistemas.cta.btn":"Начать бесплатную диагностику →",
     "precios.eyebrow":"04 · Цены","precios.h2":"Фиксированные тарифы. Без сюрпризов, без бесконечных аудитов.","precios.p":"Мы систематизируем и тиражируем с минимальными изменениями под клиента — поэтому можем дать фиксированную цену с первого дня.",
     "precios.starter.name":"Starter","precios.starter.setup":"+ 497€ разовая настройка","precios.starter.li1":"1 ИИ-агент на выбор","precios.starter.li2":"Подключение к WhatsApp или Instagram","precios.starter.li3":"До 500 диалогов/месяц","precios.starter.li4":"Поддержка по email","precios.starter.cta":"Начать со Starter",
     "precios.growth.badge":"Самый популярный","precios.growth.name":"Growth","precios.growth.setup":"+ 997€ разовая настройка","precios.growth.li1":"3 агента (вопросы + сопровождение + привлечение)","precios.growth.li2":"Базовая CRM включена","precios.growth.li3":"До 2 000 диалогов/месяц","precios.growth.li4":"Приоритетная поддержка + ежемесячный обзор","precios.growth.cta":"Начать с Growth",
