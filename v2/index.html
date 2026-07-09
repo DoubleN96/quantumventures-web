@@ -86,8 +86,19 @@
   .dash-card .dl{font-size:.64rem;color:#8a8f98;text-transform:uppercase;letter-spacing:.04em}
   .dash-card .dv{font-family:'Space Grotesk';font-weight:700;font-size:1.35rem;margin-top:6px;color:#f2f3f5}
   .dash-card .dd{font-size:.72rem;margin-top:4px;font-weight:600;color:#39ff88}
-  .dash-chart{display:flex;align-items:flex-end;gap:8px;height:80px;margin-top:20px;padding-top:18px;border-top:1px solid rgba(255,255,255,.08)}
+  .dash-chart{display:flex;align-items:flex-end;gap:8px;height:80px;padding-top:18px;border-top:1px solid rgba(255,255,255,.08)}
   .dash-chart .bar{flex:1;background:linear-gradient(180deg,#22d3ee,#6366f1);border-radius:6px 6px 2px 2px;opacity:.85}
+  .dash-leads{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:14px}
+  .dash-leads .t{font-size:.64rem;color:#8a8f98;text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px}
+  .dash-lead{display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-top:1px solid rgba(255,255,255,.06)}
+  .dash-lead:first-of-type{border-top:none;padding-top:0}
+  .dash-lead .nm{font-size:.8rem;color:#e7ecf3;font-weight:600}
+  .dash-lead .tg-pill{font-size:.6rem;font-weight:700;padding:3px 8px;border-radius:99px;text-transform:uppercase;flex:0 0 auto}
+  .dash-lead .tg-pill.new{background:rgba(34,211,238,.15);color:#22d3ee}
+  .dash-lead .tg-pill.qual{background:rgba(168,140,255,.18);color:#a78bfa}
+  .dash-lead .tg-pill.client{background:rgba(57,255,136,.15);color:#39ff88}
+  .chat-bubble.out.tg{background:linear-gradient(135deg,#0ea5e9,#2563eb)}
+  .slogan-line{font-family:'Space Grotesk',sans-serif;letter-spacing:-.01em}
   /* process connected steps */
   .proc{display:grid;grid-template-columns:repeat(5,1fr);gap:0;position:relative;margin-top:34px}
   @media(max-width:900px){.proc{grid-template-columns:1fr;gap:14px}}
@@ -164,6 +175,11 @@
   </div>
 </header>
 
+<!-- SLOGAN -->
+<section class="py-12 sm:py-16"><div class="wrap text-center">
+  <p class="slogan-line reveal text-2xl sm:text-4xl font-bold text-white" data-i18n="slogan">Auditamos. Automatizamos. Medimos. Evolucionamos.</p>
+</div></section>
+
 <!-- THE SPLIT -->
 <section class="py-24 sm:py-32"><div class="wrap">
   <span class="eyebrow reveal"><span class="dot"></span><span data-i18n="split.eyebrow">01 · Dos caminos</span></span>
@@ -235,6 +251,14 @@
   <h2 class="display reveal text-3xl sm:text-5xl font-bold leading-tight mt-4 max-w-3xl" data-i18n="sistemas.h2">Más facturación, más margen, más tiempo. En ese orden.</h2>
   <p class="reveal text-mute text-lg mt-5 max-w-2xl" data-i18n="sistemas.p">No es un chatbot, y no lo operamos nosotros — eso es el partnership. Te damos la infraestructura <span class="text-white font-medium">y la metodología para que tú la operes al 100%</span>. Cada euro rinde más, y tu tiempo se libera para lo único que nadie puede hacer por ti: crear.</p>
 
+  <p class="kicker reveal text-xl sm:text-2xl text-white/85 mt-10" data-i18n="pillars.kicker">Qué incluye, de principio a fin.</p>
+  <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-6 reveal">
+    <div class="svc svc-1"><div class="ic">🔍</div><div><h4 class="display font-bold text-lg mt-4" data-i18n="pillars.p1.h4">Auditoría completa</h4><p class="text-white/80 text-sm mt-2" data-i18n="pillars.p1.p">Vemos tu negocio entero antes de tocar nada — procesos, herramientas, cuellos de botella.</p></div></div>
+    <div class="svc svc-4"><div class="ic">⚙️</div><div><h4 class="display font-bold text-lg mt-4" data-i18n="pillars.p2.h4">Implementación de IA</h4><p class="text-white/80 text-sm mt-2" data-i18n="pillars.p2.p">Onboarding, formularios, feedback, entrega y ventas — automatizados de punta a punta.</p></div></div>
+    <div class="svc svc-2"><div class="ic">📊</div><div><h4 class="display font-bold text-lg mt-4" data-i18n="pillars.p3.h4">Dashboards personalizados</h4><p class="text-white/80 text-sm mt-2" data-i18n="pillars.p3.p">Panel a medida con tus métricas reales. Ves el impacto, no lo intuyes.</p></div></div>
+    <div class="svc svc-6"><div class="ic">🔄</div><div><h4 class="display font-bold text-lg mt-4" data-i18n="pillars.p4.h4">Actualización constante</h4><p class="text-white/80 text-sm mt-2" data-i18n="pillars.p4.p">Integramos las herramientas de IA nuevas por ti, cada mes.</p></div></div>
+  </div>
+
   <div class="mockup-frame reveal mt-10 max-w-xl">
     <div class="mockup-bar"><span class="dot-sm"></span><span class="dot-sm"></span><span class="dot-sm"></span><span class="who" data-i18n="mockup.who">Agente de Dudas · WhatsApp</span></div>
     <div class="mockup-body">
@@ -266,7 +290,7 @@
   </div>
 
   <p class="kicker reveal text-xl sm:text-2xl text-white/85 mt-14" data-i18n="dash.kicker">Todo tu negocio, en un panel — con datos que antes no medías.</p>
-  <div class="mockup-frame reveal mt-6 max-w-2xl">
+  <div class="mockup-frame reveal mt-6 max-w-4xl">
     <div class="mockup-bar"><span class="dot-sm"></span><span class="dot-sm"></span><span class="dot-sm"></span><span class="who" data-i18n="dash.who">Panel de control · Tu negocio</span></div>
     <div class="mockup-body">
       <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
@@ -275,10 +299,29 @@
         <div class="dash-card"><div class="dl" data-i18n="dash.leads">Leads nuevos</div><div class="dv">37</div><div class="dd">+12</div></div>
         <div class="dash-card"><div class="dl" data-i18n="dash.resp">Tiempo de respuesta</div><div class="dv">8s</div><div class="dd">-91%</div></div>
       </div>
-      <div class="dash-chart">
-        <div class="bar" style="height:38%"></div><div class="bar" style="height:52%"></div><div class="bar" style="height:46%"></div><div class="bar" style="height:68%"></div><div class="bar" style="height:64%"></div><div class="bar" style="height:84%"></div><div class="bar" style="height:100%"></div>
+      <div class="grid lg:grid-cols-[1fr_240px] gap-5 mt-5">
+        <div class="dash-chart">
+          <div class="bar" style="height:38%"></div><div class="bar" style="height:52%"></div><div class="bar" style="height:46%"></div><div class="bar" style="height:68%"></div><div class="bar" style="height:64%"></div><div class="bar" style="height:84%"></div><div class="bar" style="height:100%"></div>
+        </div>
+        <div class="dash-leads">
+          <div class="t" data-i18n="dash.leadsTitle">Leads recientes</div>
+          <div class="dash-lead"><span class="nm">María G.</span><span class="tg-pill new" data-i18n="dash.tagNew">Nuevo</span></div>
+          <div class="dash-lead"><span class="nm">Jordan R.</span><span class="tg-pill qual" data-i18n="dash.tagQual">Cualif.</span></div>
+          <div class="dash-lead"><span class="nm">Sofía B.</span><span class="tg-pill client" data-i18n="dash.tagClient">Cliente</span></div>
+        </div>
       </div>
       <p class="text-xs text-mute mt-4" data-i18n="dash.caption">Variables que ahora ves — antes no las medías.</p>
+    </div>
+  </div>
+
+  <p class="kicker reveal text-xl sm:text-2xl text-white/85 mt-14" data-i18n="tg.kicker">Tu panel, también desde tu propio bot de Telegram.</p>
+  <div class="mockup-frame reveal mt-6 max-w-xl">
+    <div class="mockup-bar"><span class="dot-sm"></span><span class="dot-sm"></span><span class="dot-sm"></span><span class="who" data-i18n="tg.who">Tu bot · Telegram</span></div>
+    <div class="mockup-body">
+      <div class="chat-bubble in" data-i18n="tg.msg1">Dame un reporte de mis clientes esta semana</div>
+      <div class="chat-bubble out tg" data-i18n="tg.msg2">📊 12 nuevos · 3 en riesgo de baja · MRR +18%. Panel completo aquí 👉 tupanel.io</div>
+      <div class="chat-bubble in" data-i18n="tg.msg3">¿Quién está en riesgo?</div>
+      <div class="chat-bubble out tg" data-i18n="tg.msg4">Ana, Marco y Julia — 9 días sin abrir la app. ¿Les mando un mensaje de reenganche?</div>
     </div>
   </div>
 
@@ -478,6 +521,7 @@ const I18N = {
     "meta.title":"Quantum Ventures — Venture Partnership & Sistemas de IA para creadores",
     "meta.description":"Dos formas de trabajar con nosotros: un partnership de venture builder exclusivo por invitación, o un sistema de agentes de IA que instala en tu negocio la infraestructura de una gran empresa, con la metodología para que lo operes tú.",
     "nav.partnership":"Venture Partnership","nav.sistemas":"Sistemas de IA","nav.precios":"Precios","nav.proceso":"Cómo trabajamos","nav.cta":"Hablemos",
+    "slogan":"Auditamos. Automatizamos. Medimos. Evolucionamos.",
     "hero.eyebrow":"VENTURE BUILDER · SISTEMAS DE IA PARA CREADORES",
     "hero.h1":"Tu audiencia ya vale más<br>de lo que factura hoy.",
     "hero.sub":"Dos formas de trabajar contigo. Con un puñado, por invitación, <span class=\"text-white font-medium\">construimos y operamos el imperio</span> a cambio de una parte del negocio. Con cualquiera que quiera escalar ya, <span class=\"text-white font-medium\">te damos el sistema para que lo operes tú</span> — precio cerrado desde el día 1.",
@@ -499,6 +543,11 @@ const I18N = {
     "partnership.fit.h3":"¿Encajas en el perfil?","partnership.fit.p":"Buscamos creadores con audiencia real, algo que ya vender (o casi) y voluntad de construir algo grande — no un lanzamiento puntual ni un experimento de fin de semana.","partnership.fit.cta":"Aplicar al partnership →",
     "sistemas.eyebrow":"03 · Sistemas de IA","sistemas.h2":"Más facturación, más margen, más tiempo. En ese orden.",
     "sistemas.p":"No es un chatbot, y no lo operamos nosotros — eso es el partnership. Te damos la infraestructura <span class=\"text-white font-medium\">y la metodología para que tú la operes al 100%</span>. Cada euro rinde más, y tu tiempo se libera para lo único que nadie puede hacer por ti: crear.",
+    "pillars.kicker":"Qué incluye, de principio a fin.",
+    "pillars.p1.h4":"Auditoría completa","pillars.p1.p":"Vemos tu negocio entero antes de tocar nada — procesos, herramientas, cuellos de botella.",
+    "pillars.p2.h4":"Implementación de IA","pillars.p2.p":"Onboarding, formularios, feedback, entrega y ventas — automatizados de punta a punta.",
+    "pillars.p3.h4":"Dashboards personalizados","pillars.p3.p":"Panel a medida con tus métricas reales. Ves el impacto, no lo intuyes.",
+    "pillars.p4.h4":"Actualización constante","pillars.p4.p":"Integramos las herramientas de IA nuevas por ti, cada mes.",
     "mockup.who":"Agente de Dudas · WhatsApp","mockup.msg1":"¿Cuántas series me tocan hoy de pierna?","mockup.msg2":"¡Hoy 4×8 sentadilla + 3×12 zancada! Te dejo el vídeo de técnica 🎥","mockup.msg3":"Genial, gracias 🙌","mockup.stat1":"Respuesta","mockup.stat2":"Tiempo medio","mockup.stat3":"Sin responder",
     "sistemas.g.badge":"Oferta con garantía","sistemas.g.h3":"Si no aumentas tu facturación en 2 meses, te devolvemos el 100% de lo invertido.",
     "sistemas.g.p":"Sin letra pequeña. Minimizamos costes, unificamos captación e instalamos sistemas de venta ya probados — el riesgo es nuestro, no tuyo.","sistemas.g.cta":"Quiero esta garantía →",
@@ -507,6 +556,8 @@ const I18N = {
     "sistemas.imagine2.tag":"Web","sistemas.imagine2.p":"Cambia el precio o el copy de tu landing en <span class=\"text-white font-semibold\">segundos</span>, sin esperar a nadie.",
     "sistemas.imagine3.tag":"Gestión","sistemas.imagine3.p":"Pídele a tu agente, <span class=\"text-white font-semibold\">desde el móvil</span>, qué clientes priorizar hoy — al instante.",
     "dash.kicker":"Todo tu negocio, en un panel — con datos que antes no medías.","dash.who":"Panel de control · Tu negocio","dash.mrr":"Ingresos recurrentes","dash.churn":"Bajas este mes","dash.leads":"Leads nuevos","dash.resp":"Tiempo de respuesta","dash.caption":"Variables que ahora ves — antes no las medías.",
+    "dash.leadsTitle":"Leads recientes","dash.tagNew":"Nuevo","dash.tagQual":"Cualif.","dash.tagClient":"Cliente",
+    "tg.kicker":"Tu panel, también desde tu propio bot de Telegram.","tg.who":"Tu bot · Telegram","tg.msg1":"Dame un reporte de mis clientes esta semana","tg.msg2":"📊 12 nuevos · 3 en riesgo de baja · MRR +18%. Panel completo aquí 👉 tupanel.io","tg.msg3":"¿Quién está en riesgo?","tg.msg4":"Ana, Marco y Julia — 9 días sin abrir la app. ¿Les mando un mensaje de reenganche?",
     "sistemas.examples.kicker":"Ejemplos reales para el sector fitness — el mismo principio aplica a cualquier nicho.",
     "svc7.h4":"Lanzamientos y estrategia de venta","svc7.p":"Calendario, oferta y copy listos para ejecutar, no para improvisar.",
     "svc1.h4":"Resolución de dudas 24/7","svc1.p":"Responde dudas repetidas por WhatsApp o IG al instante.",
@@ -542,6 +593,7 @@ const I18N = {
     "meta.title":"Quantum Ventures — Venture Partnership & AI Systems for creators",
     "meta.description":"Two ways to work with us: an exclusive by-invitation venture builder partnership, or an AI agent system that installs the infrastructure of a large company in your business, with the methodology to run it yourself.",
     "nav.partnership":"Venture Partnership","nav.sistemas":"AI Systems","nav.precios":"Pricing","nav.proceso":"How we work","nav.cta":"Let's talk",
+    "slogan":"We audit. We automate. We measure. We evolve.",
     "hero.eyebrow":"VENTURE BUILDER · AI SYSTEMS FOR CREATORS",
     "hero.h1":"Your audience is already worth<br>more than it's earning today.",
     "hero.sub":"Two ways to work with you. With a handful, by invitation, <span class=\"text-white font-medium\">we build and run the empire</span> in exchange for a share of the business. With anyone ready to scale now, <span class=\"text-white font-medium\">we give you the system to run yourself</span> — fixed price from day one.",
@@ -563,6 +615,11 @@ const I18N = {
     "partnership.fit.h3":"Do you fit the profile?","partnership.fit.p":"We look for creators with a real audience, something to sell already (or close to it) and the will to build something big — not a one-off launch or a weekend experiment.","partnership.fit.cta":"Apply to the partnership →",
     "sistemas.eyebrow":"03 · AI Systems","sistemas.h2":"More revenue, more margin, more time. In that order.",
     "sistemas.p":"Not a chatbot, and we don't run it for you — that's the Venture Partnership. We give you the infrastructure <span class=\"text-white font-medium\">and the methodology to run it at 100% efficiency</span>. Every euro returns more, and your time frees up for the one thing nobody can do for you: creating.",
+    "pillars.kicker":"What's included, start to finish.",
+    "pillars.p1.h4":"Full audit","pillars.p1.p":"We look at your whole business before touching anything — processes, tools, bottlenecks.",
+    "pillars.p2.h4":"AI implementation","pillars.p2.p":"Onboarding, forms, feedback, delivery and sales — automated end to end.",
+    "pillars.p3.h4":"Custom dashboards","pillars.p3.p":"A tailored panel with your real metrics. You see the impact, not guess at it.",
+    "pillars.p4.h4":"Constant updates","pillars.p4.p":"We integrate new AI tools for you, every month.",
     "mockup.who":"FAQ Agent · WhatsApp","mockup.msg1":"How many leg sets do I have today?","mockup.msg2":"Today: 4×8 squats + 3×12 lunges! Here's the technique video 🎥","mockup.msg3":"Great, thanks 🙌","mockup.stat1":"Response","mockup.stat2":"Avg. time","mockup.stat3":"Unanswered",
     "sistemas.g.badge":"Guaranteed offer","sistemas.g.h3":"If your revenue doesn't grow in 2 months, we refund 100% of what you invested.",
     "sistemas.g.p":"No fine print. We minimize your costs, unify your acquisition and install proven sales systems — we take on the risk, not you.","sistemas.g.cta":"I want this guarantee →",
@@ -571,6 +628,8 @@ const I18N = {
     "sistemas.imagine2.tag":"Web","sistemas.imagine2.p":"Change the price or copy on your landing in <span class=\"text-white font-semibold\">seconds</span>, without waiting on anyone.",
     "sistemas.imagine3.tag":"Management","sistemas.imagine3.p":"Ask your agent, <span class=\"text-white font-semibold\">from your phone</span>, which clients to prioritize today — instantly.",
     "dash.kicker":"Your whole business, in one dashboard — with data you never tracked before.","dash.who":"Dashboard · Your business","dash.mrr":"Recurring revenue","dash.churn":"Churn this month","dash.leads":"New leads","dash.resp":"Response time","dash.caption":"Variables you can see now — you never measured before.",
+    "dash.leadsTitle":"Recent leads","dash.tagNew":"New","dash.tagQual":"Qualified","dash.tagClient":"Client",
+    "tg.kicker":"Your dashboard, also from your own Telegram bot.","tg.who":"Your bot · Telegram","tg.msg1":"Give me a report on my clients this week","tg.msg2":"📊 12 new · 3 at churn risk · MRR +18%. Full dashboard here 👉 tupanel.io","tg.msg3":"Who's at risk?","tg.msg4":"Ana, Marco and Julia — 9 days without opening the app. Want me to send a re-engagement message?",
     "sistemas.examples.kicker":"Real examples for the fitness sector — the same principle applies to any niche.",
     "svc7.h4":"Launches and sales strategy","svc7.p":"Calendar, offer and copy ready to execute, not improvise.",
     "svc1.h4":"24/7 FAQ resolution","svc1.p":"Answers repeated questions over WhatsApp or IG instantly.",
@@ -606,6 +665,7 @@ const I18N = {
     "meta.title":"Quantum Ventures — Венчурное партнёрство и ИИ-системы для авторов",
     "meta.description":"Два способа работать с нами: эксклюзивное венчурное партнёрство по приглашению или система ИИ-агентов, которая устанавливает в вашем бизнесе инфраструктуру крупной компании — с методологией, чтобы управлять ею самостоятельно.",
     "nav.partnership":"Венчурное партнёрство","nav.sistemas":"ИИ-системы","nav.precios":"Цены","nav.proceso":"Как мы работаем","nav.cta":"Обсудим",
+    "slogan":"Аудит. Автоматизация. Измерение. Эволюция.",
     "hero.eyebrow":"ВЕНЧУРНЫЙ СТРОИТЕЛЬ · ИИ-СИСТЕМЫ ДЛЯ АВТОРОВ",
     "hero.h1":"Ваша аудитория уже стоит<br>больше, чем зарабатывает сегодня.",
     "hero.sub":"Два способа работать с вами. С единицами, по приглашению, <span class=\"text-white font-medium\">мы строим и управляем империей</span> в обмен на долю в бизнесе. С любым, кто готов расти уже сейчас, <span class=\"text-white font-medium\">мы даём систему, чтобы вы управляли ею сами</span> — фиксированная цена с первого дня.",
@@ -627,6 +687,11 @@ const I18N = {
     "partnership.fit.h3":"Подходите ли вы под профиль?","partnership.fit.p":"Мы ищем авторов с реальной аудиторией, тем, что уже продаётся (или почти) и желанием построить что-то большое — а не разовый запуск или эксперимент на выходные.","partnership.fit.cta":"Подать заявку на партнёрство →",
     "sistemas.eyebrow":"03 · ИИ-системы","sistemas.h2":"Больше выручки, больше маржи, больше времени. Именно в этом порядке.",
     "sistemas.p":"Это не чат-бот, и мы не управляем им за вас — это венчурное партнёрство. Мы даём вам инфраструктуру <span class=\"text-white font-medium\">и методологию, чтобы вы управляли ею со 100% эффективностью</span>. Каждый евро приносит больше, а ваше время освобождается для единственного, что за вас никто не сделает — создавать.",
+    "pillars.kicker":"Что входит, от начала до конца.",
+    "pillars.p1.h4":"Полный аудит","pillars.p1.p":"Смотрим на весь ваш бизнес, прежде чем что-то менять — процессы, инструменты, узкие места.",
+    "pillars.p2.h4":"Внедрение ИИ","pillars.p2.p":"Онбординг, анкеты, обратная связь, доставка и продажи — автоматизировано от начала до конца.",
+    "pillars.p3.h4":"Персональные дашборды","pillars.p3.p":"Панель под вас с реальными метриками. Вы видите эффект, а не гадаете о нём.",
+    "pillars.p4.h4":"Постоянные обновления","pillars.p4.p":"Мы внедряем новые ИИ-инструменты за вас, каждый месяц.",
     "mockup.who":"Агент по вопросам · WhatsApp","mockup.msg1":"Сколько подходов на ноги сегодня?","mockup.msg2":"Сегодня: 4×8 приседания + 3×12 выпады! Прикрепляю видео техники 🎥","mockup.msg3":"Отлично, спасибо 🙌","mockup.stat1":"Ответ","mockup.stat2":"Среднее время","mockup.stat3":"Без ответа",
     "sistemas.g.badge":"Предложение с гарантией","sistemas.g.h3":"Если ваша выручка не вырастет за 2 месяца, мы вернём 100% вложенных средств.",
     "sistemas.g.p":"Без мелкого шрифта. Минимизируем расходы, объединяем привлечение клиентов и внедряем проверенные системы продаж — риск берём на себя мы, а не вы.","sistemas.g.cta":"Хочу эту гарантию →",
@@ -635,6 +700,8 @@ const I18N = {
     "sistemas.imagine2.tag":"Сайт","sistemas.imagine2.p":"Меняете цену или текст на лендинге за <span class=\"text-white font-semibold\">секунды</span>, не дожидаясь никого.",
     "sistemas.imagine3.tag":"Управление","sistemas.imagine3.p":"Спрашиваете агента <span class=\"text-white font-semibold\">с телефона</span>, каких клиентов приоритизировать сегодня — мгновенно.",
     "dash.kicker":"Весь ваш бизнес на одной панели — с данными, которые вы раньше не отслеживали.","dash.who":"Панель управления · Ваш бизнес","dash.mrr":"Регулярная выручка","dash.churn":"Отток за месяц","dash.leads":"Новые лиды","dash.resp":"Время ответа","dash.caption":"Показатели, которые вы теперь видите — раньше вы их не измеряли.",
+    "dash.leadsTitle":"Недавние лиды","dash.tagNew":"Новый","dash.tagQual":"Квалиф.","dash.tagClient":"Клиент",
+    "tg.kicker":"Ваша панель — и в собственном Telegram-боте.","tg.who":"Ваш бот · Telegram","tg.msg1":"Дай отчёт по клиентам за эту неделю","tg.msg2":"📊 12 новых · 3 в зоне риска оттока · MRR +18%. Полная панель здесь 👉 tupanel.io","tg.msg3":"Кто в зоне риска?","tg.msg4":"Ана, Марко и Юлия — 9 дней не открывали приложение. Отправить им сообщение для возврата?",
     "sistemas.examples.kicker":"Реальные примеры для фитнес-ниши — тот же принцип применим к любой нише.",
     "svc7.h4":"Запуски и стратегия продаж","svc7.p":"Календарь, предложение и текст готовы к исполнению, не к импровизации.",
     "svc1.h4":"Ответы на вопросы 24/7","svc1.p":"Мгновенно отвечает на повторяющиеся вопросы в WhatsApp или IG.",
