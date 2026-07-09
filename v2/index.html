@@ -99,15 +99,15 @@
   .slogan-line{font-family:'Inter',sans-serif;font-weight:800;letter-spacing:-.02em}
   /* fusion storytelling */
   .fusion-stage{display:flex;align-items:center;justify-content:center;gap:clamp(28px,7vw,90px);padding:30px 0}
-  .fusion-stage .atom{display:flex;flex-direction:column;align-items:center;gap:14px}
-  .fusion-stage .core{width:60px;height:60px;border-radius:50%;position:relative}
-  .fusion-stage .core:before{content:"";position:absolute;inset:-14px;border:1px solid var(--line-strong);border-radius:50%;animation:qv-spin 16s linear infinite}
-  .fusion-stage .core:after{content:"";position:absolute;inset:6px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.95),rgba(255,255,255,.15));box-shadow:0 0 30px rgba(255,255,255,.15)}
+  .fusion-stage .atom{display:flex;flex-direction:column;align-items:center;gap:16px}
+  .atom-svg{filter:drop-shadow(0 0 18px rgba(109,109,251,.25))}
   .fusion-stage .label{font-size:.76rem;color:var(--mute);font-weight:600;text-transform:uppercase;letter-spacing:.06em}
-  .fusion-core{width:12px;height:12px;border-radius:50%;background:var(--accent);box-shadow:0 0 40px 10px var(--accent-dim),0 0 90px 24px rgba(109,109,251,.12);animation:qv-pulse 2.6s ease-in-out infinite}
-  @keyframes qv-spin{to{transform:rotate(360deg)}}
-  @keyframes qv-pulse{0%,100%{transform:scale(1);opacity:.85}50%{transform:scale(1.35);opacity:1}}
-  @media(prefers-reduced-motion:reduce){.fusion-stage .core:before,.fusion-core{animation:none}}
+  .fusion-core{width:10px;height:10px;border-radius:50%;background:var(--accent);position:relative;animation:qv-pulse 2.6s ease-in-out infinite}
+  .fusion-core:before,.fusion-core:after{content:"";position:absolute;inset:-16px;border-radius:50%;border:1px solid var(--accent-dim);animation:qv-ring 2.6s ease-out infinite}
+  .fusion-core:after{animation-delay:1.3s}
+  @keyframes qv-pulse{0%,100%{transform:scale(1);box-shadow:0 0 30px 8px var(--accent-dim)}50%{transform:scale(1.25);box-shadow:0 0 46px 14px var(--accent-dim)}}
+  @keyframes qv-ring{0%{transform:scale(.4);opacity:.9}100%{transform:scale(2.6);opacity:0}}
+  @media(prefers-reduced-motion:reduce){.fusion-core,.fusion-core:before,.fusion-core:after{animation:none}}
   @media(max-width:640px){.fusion-stage{flex-direction:column;gap:20px}}
   /* process connected steps */
   .proc{display:grid;grid-template-columns:repeat(5,1fr);gap:0;position:relative;margin-top:34px}
@@ -197,9 +197,35 @@
   <p class="reveal text-mute text-lg mt-5 max-w-xl mx-auto" data-i18n="fusion.p">Una estrella no brilla sola — brilla cuando dos núcleos se fusionan y liberan una energía que ninguno tenía por separado.</p>
 
   <div class="fusion-stage reveal mt-10">
-    <div class="atom"><div class="core"></div><div class="label" data-i18n="fusion.atom1.label">Tú</div></div>
+    <div class="atom">
+      <svg class="atom-svg" viewBox="0 0 120 120" width="76" height="76">
+        <circle cx="60" cy="60" r="6" fill="#f5f5f5"/>
+        <g stroke="rgba(255,255,255,.22)" stroke-width="1" fill="none">
+          <ellipse cx="60" cy="60" rx="50" ry="20"/>
+          <ellipse cx="60" cy="60" rx="50" ry="20" transform="rotate(60 60 60)"/>
+          <ellipse cx="60" cy="60" rx="50" ry="20" transform="rotate(120 60 60)"/>
+        </g>
+        <circle r="3" fill="#6d6dfb"><animateMotion dur="6s" repeatCount="indefinite" path="M10,60 A50,20 0 1,1 110,60 A50,20 0 1,1 10,60"/></circle>
+        <g transform="rotate(60 60 60)"><circle r="3" fill="#6d6dfb"><animateMotion dur="7.5s" repeatCount="indefinite" path="M10,60 A50,20 0 1,1 110,60 A50,20 0 1,1 10,60"/></circle></g>
+        <g transform="rotate(120 60 60)"><circle r="3" fill="#6d6dfb"><animateMotion dur="9s" repeatCount="indefinite" path="M10,60 A50,20 0 1,1 110,60 A50,20 0 1,1 10,60"/></circle></g>
+      </svg>
+      <div class="label" data-i18n="fusion.atom1.label">Tú</div>
+    </div>
     <div class="fusion-core"></div>
-    <div class="atom"><div class="core"></div><div class="label" data-i18n="fusion.atom2.label">Quantum Ventures</div></div>
+    <div class="atom">
+      <svg class="atom-svg" viewBox="0 0 120 120" width="76" height="76">
+        <circle cx="60" cy="60" r="6" fill="#f5f5f5"/>
+        <g stroke="rgba(255,255,255,.22)" stroke-width="1" fill="none">
+          <ellipse cx="60" cy="60" rx="50" ry="20"/>
+          <ellipse cx="60" cy="60" rx="50" ry="20" transform="rotate(60 60 60)"/>
+          <ellipse cx="60" cy="60" rx="50" ry="20" transform="rotate(120 60 60)"/>
+        </g>
+        <circle r="3" fill="#6d6dfb"><animateMotion dur="6.5s" repeatCount="indefinite" path="M10,60 A50,20 0 1,1 110,60 A50,20 0 1,1 10,60"/></circle>
+        <g transform="rotate(60 60 60)"><circle r="3" fill="#6d6dfb"><animateMotion dur="8s" repeatCount="indefinite" path="M10,60 A50,20 0 1,1 110,60 A50,20 0 1,1 10,60"/></circle></g>
+        <g transform="rotate(120 60 60)"><circle r="3" fill="#6d6dfb"><animateMotion dur="9.5s" repeatCount="indefinite" path="M10,60 A50,20 0 1,1 110,60 A50,20 0 1,1 10,60"/></circle></g>
+      </svg>
+      <div class="label" data-i18n="fusion.atom2.label">Quantum Ventures</div>
+    </div>
   </div>
 
   <div class="grid sm:grid-cols-2 gap-8 mt-6 max-w-2xl mx-auto text-left reveal">
@@ -289,22 +315,23 @@
 
   <p class="kicker reveal text-xl sm:text-2xl text-white/85 mt-10" data-i18n="pillars.kicker">Qué incluye, de principio a fin.</p>
   <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-6 reveal">
-    <div class="svc svc-1"><div class="ic">🔍</div><div><h4 class="display font-bold text-lg mt-4" data-i18n="pillars.p1.h4">Auditoría completa</h4><p class="text-white/80 text-sm mt-2" data-i18n="pillars.p1.p">Vemos tu negocio entero antes de tocar nada — procesos, herramientas, cuellos de botella.</p></div></div>
-    <div class="svc svc-4"><div class="ic">⚙️</div><div><h4 class="display font-bold text-lg mt-4" data-i18n="pillars.p2.h4">Implementación de IA</h4><p class="text-white/80 text-sm mt-2" data-i18n="pillars.p2.p">Onboarding, formularios, feedback, entrega y ventas — automatizados de punta a punta.</p></div></div>
-    <div class="svc svc-2"><div class="ic">📊</div><div><h4 class="display font-bold text-lg mt-4" data-i18n="pillars.p3.h4">Dashboards personalizados</h4><p class="text-white/80 text-sm mt-2" data-i18n="pillars.p3.p">Panel a medida con tus métricas reales. Ves el impacto, no lo intuyes.</p></div></div>
-    <div class="svc svc-6"><div class="ic">🔄</div><div><h4 class="display font-bold text-lg mt-4" data-i18n="pillars.p4.h4">Actualización constante</h4><p class="text-white/80 text-sm mt-2" data-i18n="pillars.p4.p">Integramos las herramientas de IA nuevas por ti, cada mes.</p></div></div>
+    <div class="svc svc-1"><div class="ic">🔍</div><div><h4 class="display font-bold text-lg mt-4" data-i18n="pillars.p1.h4">Auditoría completa</h4><p class="text-white/80 text-sm mt-2" data-i18n="pillars.p1.p">Vemos tu negocio entero antes de tocar nada — procesos, herramientas, cuellos de botella.</p><p class="text-xs mt-3 font-semibold text-[#6d6dfb]" data-i18n="pillars.p1.out">→ Entrega: informe de prioridades</p></div></div>
+    <div class="svc svc-4"><div class="ic">⚙️</div><div><h4 class="display font-bold text-lg mt-4" data-i18n="pillars.p2.h4">Implementación de IA</h4><p class="text-white/80 text-sm mt-2" data-i18n="pillars.p2.p">Onboarding, formularios, feedback, entrega y ventas — automatizados de punta a punta.</p><p class="text-xs mt-3 font-semibold text-[#6d6dfb]" data-i18n="pillars.p2.out">→ Entrega: agentes activos en días</p></div></div>
+    <div class="svc svc-2"><div class="ic">📊</div><div><h4 class="display font-bold text-lg mt-4" data-i18n="pillars.p3.h4">Dashboards personalizados</h4><p class="text-white/80 text-sm mt-2" data-i18n="pillars.p3.p">Panel a medida con tus métricas reales. Ves el impacto, no lo intuyes.</p><p class="text-xs mt-3 font-semibold text-[#6d6dfb]" data-i18n="pillars.p3.out">→ Entrega: panel + acceso por Telegram</p></div></div>
+    <div class="svc svc-6"><div class="ic">🔄</div><div><h4 class="display font-bold text-lg mt-4" data-i18n="pillars.p4.h4">Actualización constante</h4><p class="text-white/80 text-sm mt-2" data-i18n="pillars.p4.p">Integramos las herramientas de IA nuevas por ti, cada mes.</p><p class="text-xs mt-3 font-semibold text-[#6d6dfb]" data-i18n="pillars.p4.out">→ Entrega: revisión mensual incluida</p></div></div>
   </div>
 
   <div class="mockup-frame reveal mt-10 max-w-xl">
-    <div class="mockup-bar"><span class="dot-sm"></span><span class="dot-sm"></span><span class="dot-sm"></span><span class="who" data-i18n="mockup.who">Agente de Dudas · WhatsApp</span></div>
+    <div class="mockup-bar"><span class="dot-sm"></span><span class="dot-sm"></span><span class="dot-sm"></span><span class="who" data-i18n="mockup.who">Agente de Retención · WhatsApp</span></div>
     <div class="mockup-body">
-      <div class="chat-bubble in" data-i18n="mockup.msg1">¿Cuántas series me tocan hoy de pierna?</div>
-      <div class="chat-bubble out" data-i18n="mockup.msg2">¡Hoy 4×8 sentadilla + 3×12 zancada! Te dejo el vídeo de técnica 🎥</div>
-      <div class="chat-bubble in" data-i18n="mockup.msg3">Genial, gracias 🙌</div>
+      <div class="chat-bubble in" data-i18n="mockup.msg1">Quiero cancelar mi plan este mes 😕</div>
+      <div class="chat-bubble out" data-i18n="mockup.msg2">Antes de nada — ¿precio o resultados? Te dejo 2 meses al precio de 1 si sigues 🔥</div>
+      <div class="chat-bubble in" data-i18n="mockup.msg3">Va, dame esa oferta</div>
+      <div class="chat-bubble out" data-i18n="mockup.msg4">Hecho ✅ Oferta aplicada, tu plan sigue activo. Cliente salvado sin que muevas un dedo.</div>
       <div class="mockup-stats">
         <div><div class="n">24/7</div><div class="l" data-i18n="mockup.stat1">Respuesta</div></div>
         <div><div class="n">&lt;10s</div><div class="l" data-i18n="mockup.stat2">Tiempo medio</div></div>
-        <div><div class="n">0</div><div class="l" data-i18n="mockup.stat3">Sin responder</div></div>
+        <div><div class="n">9</div><div class="l" data-i18n="mockup.stat3">Retenidos este mes</div></div>
       </div>
     </div>
   </div>
@@ -357,7 +384,7 @@
       <div class="chat-bubble in" data-i18n="tg.msg1">Dame un reporte de mis clientes esta semana</div>
       <div class="chat-bubble out tg" data-i18n="tg.msg2">📊 12 nuevos · 3 en riesgo de baja · MRR +18%. Panel completo aquí 👉 tupanel.io</div>
       <div class="chat-bubble in" data-i18n="tg.msg3">¿Quién está en riesgo?</div>
-      <div class="chat-bubble out tg" data-i18n="tg.msg4">Ana, Marco y Julia — 9 días sin abrir la app. ¿Les mando un mensaje de reenganche?</div>
+      <div class="chat-bubble out tg" data-i18n="tg.msg4">Ana, Marco y Julia — ya les mandé una oferta de retención. Marco ya confirmó que se queda 🎉</div>
     </div>
   </div>
 
@@ -410,7 +437,17 @@
   <h2 class="display reveal text-3xl sm:text-5xl font-bold leading-tight mt-4 max-w-3xl" data-i18n="precios.h2">Planes cerrados. Sin sorpresas, sin auditorías eternas.</h2>
   <p class="reveal text-mute text-lg mt-5 max-w-2xl" data-i18n="precios.p">Sistematizamos y replicamos con las mínimas modificaciones por cliente — por eso podemos darte un precio fijo desde el primer día.</p>
 
-  <div class="grid lg:grid-cols-3 gap-6 mt-14 reveal">
+  <div class="card reveal mt-8 p-5 sm:p-6">
+    <div class="text-xs font-semibold uppercase tracking-widest text-mute mb-3" data-i18n="precios.included.label">Incluido en todos los planes</div>
+    <div class="grid sm:grid-cols-4 gap-3 text-sm text-white/85">
+      <div>✓ <span data-i18n="precios.included.i1">Auditoría inicial</span></div>
+      <div>✓ <span data-i18n="precios.included.i2">Dashboard personalizado</span></div>
+      <div>✓ <span data-i18n="precios.included.i3">Actualizaciones mensuales</span></div>
+      <div>✓ <span data-i18n="precios.included.i4">Acceso por Telegram</span></div>
+    </div>
+  </div>
+
+  <div class="grid lg:grid-cols-3 gap-6 mt-8 reveal">
     <div class="tier">
       <div class="text-xs font-bold tracking-widest uppercase text-mute" data-i18n="precios.starter.name">Starter</div>
       <div class="price mt-3">297€<span class="text-base font-normal text-mute" data-i18n="precios.per">/mes</span></div>
@@ -585,11 +622,11 @@ const I18N = {
     "sistemas.eyebrow":"03 · Sistemas de IA","sistemas.h2":"Más facturación, más margen, más tiempo. En ese orden.",
     "sistemas.p":"No es un chatbot, y no lo operamos nosotros — eso es el partnership. Te damos la infraestructura <span class=\"text-white font-medium\">y la metodología para que tú la operes al 100%</span>. Cada euro rinde más, y tu tiempo se libera para lo único que nadie puede hacer por ti: crear.",
     "pillars.kicker":"Qué incluye, de principio a fin.",
-    "pillars.p1.h4":"Auditoría completa","pillars.p1.p":"Vemos tu negocio entero antes de tocar nada — procesos, herramientas, cuellos de botella.",
-    "pillars.p2.h4":"Implementación de IA","pillars.p2.p":"Onboarding, formularios, feedback, entrega y ventas — automatizados de punta a punta.",
-    "pillars.p3.h4":"Dashboards personalizados","pillars.p3.p":"Panel a medida con tus métricas reales. Ves el impacto, no lo intuyes.",
-    "pillars.p4.h4":"Actualización constante","pillars.p4.p":"Integramos las herramientas de IA nuevas por ti, cada mes.",
-    "mockup.who":"Agente de Dudas · WhatsApp","mockup.msg1":"¿Cuántas series me tocan hoy de pierna?","mockup.msg2":"¡Hoy 4×8 sentadilla + 3×12 zancada! Te dejo el vídeo de técnica 🎥","mockup.msg3":"Genial, gracias 🙌","mockup.stat1":"Respuesta","mockup.stat2":"Tiempo medio","mockup.stat3":"Sin responder",
+    "pillars.p1.h4":"Auditoría completa","pillars.p1.p":"Vemos tu negocio entero antes de tocar nada — procesos, herramientas, cuellos de botella.","pillars.p1.out":"→ Entrega: informe de prioridades",
+    "pillars.p2.h4":"Implementación de IA","pillars.p2.p":"Onboarding, formularios, feedback, entrega y ventas — automatizados de punta a punta.","pillars.p2.out":"→ Entrega: agentes activos en días",
+    "pillars.p3.h4":"Dashboards personalizados","pillars.p3.p":"Panel a medida con tus métricas reales. Ves el impacto, no lo intuyes.","pillars.p3.out":"→ Entrega: panel + acceso por Telegram",
+    "pillars.p4.h4":"Actualización constante","pillars.p4.p":"Integramos las herramientas de IA nuevas por ti, cada mes.","pillars.p4.out":"→ Entrega: revisión mensual incluida",
+    "mockup.who":"Agente de Retención · WhatsApp","mockup.msg1":"Quiero cancelar mi plan este mes 😕","mockup.msg2":"Antes de nada — ¿precio o resultados? Te dejo 2 meses al precio de 1 si sigues 🔥","mockup.msg3":"Va, dame esa oferta","mockup.msg4":"Hecho ✅ Oferta aplicada, tu plan sigue activo. Cliente salvado sin que muevas un dedo.","mockup.stat1":"Respuesta","mockup.stat2":"Tiempo medio","mockup.stat3":"Retenidos este mes",
     "sistemas.g.badge":"Oferta con garantía","sistemas.g.h3":"Si no aumentas tu facturación en 2 meses, te devolvemos el 100% de lo invertido.",
     "sistemas.g.p":"Sin letra pequeña. Minimizamos costes, unificamos captación e instalamos sistemas de venta ya probados — el riesgo es nuestro, no tuyo.","sistemas.g.cta":"Quiero esta garantía →",
     "sistemas.imagine.kicker":"Así se siente por dentro, en la práctica.",
@@ -598,7 +635,7 @@ const I18N = {
     "sistemas.imagine3.tag":"Gestión","sistemas.imagine3.p":"Pídele a tu agente, <span class=\"text-white font-semibold\">desde el móvil</span>, qué clientes priorizar hoy — al instante.",
     "dash.kicker":"Todo tu negocio, en un panel — con datos que antes no medías.","dash.who":"Panel de control · Tu negocio","dash.mrr":"Ingresos recurrentes","dash.churn":"Bajas este mes","dash.leads":"Leads nuevos","dash.resp":"Tiempo de respuesta","dash.caption":"Variables que ahora ves — antes no las medías.",
     "dash.leadsTitle":"Leads recientes","dash.tagNew":"Nuevo","dash.tagQual":"Cualif.","dash.tagClient":"Cliente",
-    "tg.kicker":"Tu panel, también desde tu propio bot de Telegram.","tg.who":"Tu bot · Telegram","tg.msg1":"Dame un reporte de mis clientes esta semana","tg.msg2":"📊 12 nuevos · 3 en riesgo de baja · MRR +18%. Panel completo aquí 👉 tupanel.io","tg.msg3":"¿Quién está en riesgo?","tg.msg4":"Ana, Marco y Julia — 9 días sin abrir la app. ¿Les mando un mensaje de reenganche?",
+    "tg.kicker":"Tu panel, también desde tu propio bot de Telegram.","tg.who":"Tu bot · Telegram","tg.msg1":"Dame un reporte de mis clientes esta semana","tg.msg2":"📊 12 nuevos · 3 en riesgo de baja · MRR +18%. Panel completo aquí 👉 tupanel.io","tg.msg3":"¿Quién está en riesgo?","tg.msg4":"Ana, Marco y Julia — ya les mandé una oferta de retención. Marco ya confirmó que se queda 🎉",
     "sistemas.examples.kicker":"Ejemplos reales para el sector fitness — el mismo principio aplica a cualquier nicho.",
     "svc7.h4":"Lanzamientos y estrategia de venta","svc7.p":"Calendario, oferta y copy listos para ejecutar, no para improvisar.",
     "svc1.h4":"Resolución de dudas 24/7","svc1.p":"Responde dudas repetidas por WhatsApp o IG al instante.",
@@ -610,6 +647,7 @@ const I18N = {
     "svc8.h4":"Contabilidad y reporting","svc8.p":"Resumen claro de dónde ganas y dónde pierdes dinero.",
     "sistemas.cta.p":"<span class=\"text-2xl\">🎁</span> ¿No sabes por dónde empezar? Diagnóstico gratis en 2 min — qué agentes te devuelven más horas y facturación esta semana.","sistemas.cta.btn":"Empezar diagnóstico gratuito →",
     "precios.eyebrow":"04 · Precios","precios.h2":"Planes cerrados. Sin sorpresas, sin auditorías eternas.","precios.p":"Sistematizamos y replicamos con las mínimas modificaciones por cliente — por eso podemos darte un precio fijo desde el primer día.",
+    "precios.included.label":"Incluido en todos los planes","precios.included.i1":"Auditoría inicial","precios.included.i2":"Dashboard personalizado","precios.included.i3":"Actualizaciones mensuales","precios.included.i4":"Acceso por Telegram",
     "precios.starter.name":"Starter","precios.starter.setup":"+ 497€ setup único","precios.starter.li1":"1 agente de IA a elegir","precios.starter.li2":"Conectado a WhatsApp o Instagram","precios.starter.li3":"Hasta 500 conversaciones/mes","precios.starter.li4":"Soporte por email","precios.starter.cta":"Empezar con Starter",
     "precios.growth.badge":"Más elegido","precios.growth.name":"Growth","precios.growth.setup":"+ 997€ setup único","precios.growth.li1":"3 agentes (dudas + seguimiento + captación)","precios.growth.li2":"CRM básico incluido","precios.growth.li3":"Hasta 2.000 conversaciones/mes","precios.growth.li4":"Soporte prioritario + revisión mensual","precios.growth.cta":"Empezar con Growth",
     "precios.scale.name":"Scale","precios.scale.price":"Desde 1.497€","precios.scale.setup":"Setup a medida","precios.scale.li1":"Agentes ilimitados, incluida revisión de técnica","precios.scale.li2":"Integraciones a medida con tus herramientas","precios.scale.li3":"Reporting semanal + account manager dedicado","precios.scale.li4":"Prioridad en nuevos agentes","precios.scale.cta":"Hablar de Scale",
@@ -662,11 +700,11 @@ const I18N = {
     "sistemas.eyebrow":"03 · AI Systems","sistemas.h2":"More revenue, more margin, more time. In that order.",
     "sistemas.p":"Not a chatbot, and we don't run it for you — that's the Venture Partnership. We give you the infrastructure <span class=\"text-white font-medium\">and the methodology to run it at 100% efficiency</span>. Every euro returns more, and your time frees up for the one thing nobody can do for you: creating.",
     "pillars.kicker":"What's included, start to finish.",
-    "pillars.p1.h4":"Full audit","pillars.p1.p":"We look at your whole business before touching anything — processes, tools, bottlenecks.",
-    "pillars.p2.h4":"AI implementation","pillars.p2.p":"Onboarding, forms, feedback, delivery and sales — automated end to end.",
-    "pillars.p3.h4":"Custom dashboards","pillars.p3.p":"A tailored panel with your real metrics. You see the impact, not guess at it.",
-    "pillars.p4.h4":"Constant updates","pillars.p4.p":"We integrate new AI tools for you, every month.",
-    "mockup.who":"FAQ Agent · WhatsApp","mockup.msg1":"How many leg sets do I have today?","mockup.msg2":"Today: 4×8 squats + 3×12 lunges! Here's the technique video 🎥","mockup.msg3":"Great, thanks 🙌","mockup.stat1":"Response","mockup.stat2":"Avg. time","mockup.stat3":"Unanswered",
+    "pillars.p1.h4":"Full audit","pillars.p1.p":"We look at your whole business before touching anything — processes, tools, bottlenecks.","pillars.p1.out":"→ Delivered: a prioritized report",
+    "pillars.p2.h4":"AI implementation","pillars.p2.p":"Onboarding, forms, feedback, delivery and sales — automated end to end.","pillars.p2.out":"→ Delivered: agents live in days",
+    "pillars.p3.h4":"Custom dashboards","pillars.p3.p":"A tailored panel with your real metrics. You see the impact, not guess at it.","pillars.p3.out":"→ Delivered: dashboard + Telegram access",
+    "pillars.p4.h4":"Constant updates","pillars.p4.p":"We integrate new AI tools for you, every month.","pillars.p4.out":"→ Delivered: monthly review included",
+    "mockup.who":"Retention Agent · WhatsApp","mockup.msg1":"I want to cancel my plan this month 😕","mockup.msg2":"Before anything — price or results? I can offer 2 months for the price of 1 if you stay 🔥","mockup.msg3":"Okay, give me that offer","mockup.msg4":"Done ✅ Offer applied, your plan stays active. Customer saved without you lifting a finger.","mockup.stat1":"Response","mockup.stat2":"Avg. time","mockup.stat3":"Saved this month",
     "sistemas.g.badge":"Guaranteed offer","sistemas.g.h3":"If your revenue doesn't grow in 2 months, we refund 100% of what you invested.",
     "sistemas.g.p":"No fine print. We minimize your costs, unify your acquisition and install proven sales systems — we take on the risk, not you.","sistemas.g.cta":"I want this guarantee →",
     "sistemas.imagine.kicker":"Here's what it feels like in practice.",
@@ -675,7 +713,7 @@ const I18N = {
     "sistemas.imagine3.tag":"Management","sistemas.imagine3.p":"Ask your agent, <span class=\"text-white font-semibold\">from your phone</span>, which clients to prioritize today — instantly.",
     "dash.kicker":"Your whole business, in one dashboard — with data you never tracked before.","dash.who":"Dashboard · Your business","dash.mrr":"Recurring revenue","dash.churn":"Churn this month","dash.leads":"New leads","dash.resp":"Response time","dash.caption":"Variables you can see now — you never measured before.",
     "dash.leadsTitle":"Recent leads","dash.tagNew":"New","dash.tagQual":"Qualified","dash.tagClient":"Client",
-    "tg.kicker":"Your dashboard, also from your own Telegram bot.","tg.who":"Your bot · Telegram","tg.msg1":"Give me a report on my clients this week","tg.msg2":"📊 12 new · 3 at churn risk · MRR +18%. Full dashboard here 👉 tupanel.io","tg.msg3":"Who's at risk?","tg.msg4":"Ana, Marco and Julia — 9 days without opening the app. Want me to send a re-engagement message?",
+    "tg.kicker":"Your dashboard, also from your own Telegram bot.","tg.who":"Your bot · Telegram","tg.msg1":"Give me a report on my clients this week","tg.msg2":"📊 12 new · 3 at churn risk · MRR +18%. Full dashboard here 👉 tupanel.io","tg.msg3":"Who's at risk?","tg.msg4":"Ana, Marco and Julia — I already sent them a retention offer. Marco already confirmed he's staying 🎉",
     "sistemas.examples.kicker":"Real examples for the fitness sector — the same principle applies to any niche.",
     "svc7.h4":"Launches and sales strategy","svc7.p":"Calendar, offer and copy ready to execute, not improvise.",
     "svc1.h4":"24/7 FAQ resolution","svc1.p":"Answers repeated questions over WhatsApp or IG instantly.",
@@ -687,6 +725,7 @@ const I18N = {
     "svc8.h4":"Bookkeeping and reporting","svc8.p":"A clear summary of where you're making — and losing — money.",
     "sistemas.cta.p":"<span class=\"text-2xl\">🎁</span> Not sure where to start? Free 2-min diagnostic — which agents give you back the most hours and revenue this week.","sistemas.cta.btn":"Start the free diagnostic →",
     "precios.eyebrow":"04 · Pricing","precios.h2":"Fixed plans. No surprises, no endless audits.","precios.p":"We systematize and replicate with minimal changes per client — that's how we can give you a fixed price from day one.",
+    "precios.included.label":"Included in every plan","precios.included.i1":"Initial audit","precios.included.i2":"Custom dashboard","precios.included.i3":"Monthly updates","precios.included.i4":"Telegram access",
     "precios.starter.name":"Starter","precios.starter.setup":"+ €497 one-time setup","precios.starter.li1":"1 AI agent of your choice","precios.starter.li2":"Connected to WhatsApp or Instagram","precios.starter.li3":"Up to 500 conversations/month","precios.starter.li4":"Email support","precios.starter.cta":"Start with Starter",
     "precios.growth.badge":"Most popular","precios.growth.name":"Growth","precios.growth.setup":"+ €997 one-time setup","precios.growth.li1":"3 agents (FAQs + follow-up + lead gen)","precios.growth.li2":"Basic CRM included","precios.growth.li3":"Up to 2,000 conversations/month","precios.growth.li4":"Priority support + monthly review","precios.growth.cta":"Start with Growth",
     "precios.scale.name":"Scale","precios.scale.price":"From €1,497","precios.scale.setup":"Custom setup","precios.scale.li1":"Unlimited agents, including technique review","precios.scale.li2":"Custom integrations with your tools","precios.scale.li3":"Weekly reporting + dedicated account manager","precios.scale.li4":"Priority on new agents","precios.scale.cta":"Talk about Scale",
@@ -739,11 +778,11 @@ const I18N = {
     "sistemas.eyebrow":"03 · ИИ-системы","sistemas.h2":"Больше выручки, больше маржи, больше времени. Именно в этом порядке.",
     "sistemas.p":"Это не чат-бот, и мы не управляем им за вас — это венчурное партнёрство. Мы даём вам инфраструктуру <span class=\"text-white font-medium\">и методологию, чтобы вы управляли ею со 100% эффективностью</span>. Каждый евро приносит больше, а ваше время освобождается для единственного, что за вас никто не сделает — создавать.",
     "pillars.kicker":"Что входит, от начала до конца.",
-    "pillars.p1.h4":"Полный аудит","pillars.p1.p":"Смотрим на весь ваш бизнес, прежде чем что-то менять — процессы, инструменты, узкие места.",
-    "pillars.p2.h4":"Внедрение ИИ","pillars.p2.p":"Онбординг, анкеты, обратная связь, доставка и продажи — автоматизировано от начала до конца.",
-    "pillars.p3.h4":"Персональные дашборды","pillars.p3.p":"Панель под вас с реальными метриками. Вы видите эффект, а не гадаете о нём.",
-    "pillars.p4.h4":"Постоянные обновления","pillars.p4.p":"Мы внедряем новые ИИ-инструменты за вас, каждый месяц.",
-    "mockup.who":"Агент по вопросам · WhatsApp","mockup.msg1":"Сколько подходов на ноги сегодня?","mockup.msg2":"Сегодня: 4×8 приседания + 3×12 выпады! Прикрепляю видео техники 🎥","mockup.msg3":"Отлично, спасибо 🙌","mockup.stat1":"Ответ","mockup.stat2":"Среднее время","mockup.stat3":"Без ответа",
+    "pillars.p1.h4":"Полный аудит","pillars.p1.p":"Смотрим на весь ваш бизнес, прежде чем что-то менять — процессы, инструменты, узкие места.","pillars.p1.out":"→ Результат: отчёт с приоритетами",
+    "pillars.p2.h4":"Внедрение ИИ","pillars.p2.p":"Онбординг, анкеты, обратная связь, доставка и продажи — автоматизировано от начала до конца.","pillars.p2.out":"→ Результат: агенты работают за дни",
+    "pillars.p3.h4":"Персональные дашборды","pillars.p3.p":"Панель под вас с реальными метриками. Вы видите эффект, а не гадаете о нём.","pillars.p3.out":"→ Результат: панель + доступ в Telegram",
+    "pillars.p4.h4":"Постоянные обновления","pillars.p4.p":"Мы внедряем новые ИИ-инструменты за вас, каждый месяц.","pillars.p4.out":"→ Результат: ежемесячный обзор включён",
+    "mockup.who":"Агент удержания · WhatsApp","mockup.msg1":"Хочу отменить подписку в этом месяце 😕","mockup.msg2":"Сначала скажите — дело в цене или в результате? Могу дать 2 месяца по цене одного, если останетесь 🔥","mockup.msg3":"Хорошо, давайте это предложение","mockup.msg4":"Готово ✅ Предложение применено, подписка активна. Клиент удержан без вашего участия.","mockup.stat1":"Ответ","mockup.stat2":"Среднее время","mockup.stat3":"Удержано за месяц",
     "sistemas.g.badge":"Предложение с гарантией","sistemas.g.h3":"Если ваша выручка не вырастет за 2 месяца, мы вернём 100% вложенных средств.",
     "sistemas.g.p":"Без мелкого шрифта. Минимизируем расходы, объединяем привлечение клиентов и внедряем проверенные системы продаж — риск берём на себя мы, а не вы.","sistemas.g.cta":"Хочу эту гарантию →",
     "sistemas.imagine.kicker":"Вот как это ощущается на практике.",
@@ -752,7 +791,7 @@ const I18N = {
     "sistemas.imagine3.tag":"Управление","sistemas.imagine3.p":"Спрашиваете агента <span class=\"text-white font-semibold\">с телефона</span>, каких клиентов приоритизировать сегодня — мгновенно.",
     "dash.kicker":"Весь ваш бизнес на одной панели — с данными, которые вы раньше не отслеживали.","dash.who":"Панель управления · Ваш бизнес","dash.mrr":"Регулярная выручка","dash.churn":"Отток за месяц","dash.leads":"Новые лиды","dash.resp":"Время ответа","dash.caption":"Показатели, которые вы теперь видите — раньше вы их не измеряли.",
     "dash.leadsTitle":"Недавние лиды","dash.tagNew":"Новый","dash.tagQual":"Квалиф.","dash.tagClient":"Клиент",
-    "tg.kicker":"Ваша панель — и в собственном Telegram-боте.","tg.who":"Ваш бот · Telegram","tg.msg1":"Дай отчёт по клиентам за эту неделю","tg.msg2":"📊 12 новых · 3 в зоне риска оттока · MRR +18%. Полная панель здесь 👉 tupanel.io","tg.msg3":"Кто в зоне риска?","tg.msg4":"Ана, Марко и Юлия — 9 дней не открывали приложение. Отправить им сообщение для возврата?",
+    "tg.kicker":"Ваша панель — и в собственном Telegram-боте.","tg.who":"Ваш бот · Telegram","tg.msg1":"Дай отчёт по клиентам за эту неделю","tg.msg2":"📊 12 новых · 3 в зоне риска оттока · MRR +18%. Полная панель здесь 👉 tupanel.io","tg.msg3":"Кто в зоне риска?","tg.msg4":"Ана, Марко и Юлия — я уже отправил им предложение об удержании. Марко уже подтвердил, что остаётся 🎉",
     "sistemas.examples.kicker":"Реальные примеры для фитнес-ниши — тот же принцип применим к любой нише.",
     "svc7.h4":"Запуски и стратегия продаж","svc7.p":"Календарь, предложение и текст готовы к исполнению, не к импровизации.",
     "svc1.h4":"Ответы на вопросы 24/7","svc1.p":"Мгновенно отвечает на повторяющиеся вопросы в WhatsApp или IG.",
@@ -764,6 +803,7 @@ const I18N = {
     "svc8.h4":"Бухгалтерия и отчётность","svc8.p":"Понятная сводка о том, где вы зарабатываете, а где теряете.",
     "sistemas.cta.p":"<span class=\"text-2xl\">🎁</span> Не знаете, с чего начать? Бесплатная диагностика за 2 минуты — какие агенты вернут больше часов и выручки уже на этой неделе.","sistemas.cta.btn":"Начать бесплатную диагностику →",
     "precios.eyebrow":"04 · Цены","precios.h2":"Фиксированные тарифы. Без сюрпризов, без бесконечных аудитов.","precios.p":"Мы систематизируем и тиражируем с минимальными изменениями под клиента — поэтому можем дать фиксированную цену с первого дня.",
+    "precios.included.label":"Включено в каждый тариф","precios.included.i1":"Первичный аудит","precios.included.i2":"Персональный дашборд","precios.included.i3":"Ежемесячные обновления","precios.included.i4":"Доступ через Telegram",
     "precios.starter.name":"Starter","precios.starter.setup":"+ 497€ разовая настройка","precios.starter.li1":"1 ИИ-агент на выбор","precios.starter.li2":"Подключение к WhatsApp или Instagram","precios.starter.li3":"До 500 диалогов/месяц","precios.starter.li4":"Поддержка по email","precios.starter.cta":"Начать со Starter",
     "precios.growth.badge":"Самый популярный","precios.growth.name":"Growth","precios.growth.setup":"+ 997€ разовая настройка","precios.growth.li1":"3 агента (вопросы + сопровождение + привлечение)","precios.growth.li2":"Базовая CRM включена","precios.growth.li3":"До 2 000 диалогов/месяц","precios.growth.li4":"Приоритетная поддержка + ежемесячный обзор","precios.growth.cta":"Начать с Growth",
     "precios.scale.name":"Scale","precios.scale.price":"От 1 497€","precios.scale.setup":"Индивидуальная настройка","precios.scale.li1":"Неограниченное число агентов, включая проверку техники","precios.scale.li2":"Индивидуальные интеграции с вашими инструментами","precios.scale.li3":"Еженедельная отчётность + выделенный менеджер","precios.scale.li4":"Приоритет на новых агентов","precios.scale.cta":"Обсудить Scale",
