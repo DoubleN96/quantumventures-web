@@ -31,6 +31,7 @@
   .wrap{max-width:1180px;margin:0 auto;padding:0 clamp(20px,5vw,48px)}
   .eyebrow{display:inline-flex;align-items:center;gap:.55rem;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;font-weight:600;color:var(--mute)}
   .eyebrow .dot{width:6px;height:6px;border-radius:99px;background:var(--accent);box-shadow:0 0 10px var(--accent-dim)}
+  #partnership .eyebrow .dot{background:var(--mute);box-shadow:none}
   .ghost-num{font-family:'Inter';font-weight:800;-webkit-text-stroke:1.5px rgba(255,255,255,.18);color:transparent}
   .beam{position:absolute;left:50%;top:0;width:1px;height:100%;background:linear-gradient(180deg,transparent,rgba(255,255,255,.16) 30%,rgba(255,255,255,.16) 70%,transparent);transform:translateX(-50%)}
   .beam-glow{position:absolute;left:50%;top:8%;width:560px;height:560px;transform:translate(-50%,0);border-radius:50%;background:radial-gradient(circle,var(--accent-dim),transparent 68%);filter:blur(30px);pointer-events:none}
@@ -38,23 +39,22 @@
   .hero-photo:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,5,5,.2),var(--bg) 88%)}
   .side-photo{border-radius:16px;overflow:hidden;border:1px solid var(--line);aspect-ratio:3/4;background-size:cover;background-position:center}
   .grid-tex{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:56px 56px;mask-image:radial-gradient(ellipse 70% 60% at 50% 20%,#000 40%,transparent 100%);pointer-events:none}
-  .btn-w{background:#f5f5f5;color:#050505;font-weight:700;box-shadow:0 8px 24px -10px rgba(0,0,0,.6);transition:transform .2s cubic-bezier(.16,1,.3,1),box-shadow .2s,filter .2s;position:relative;overflow:hidden;isolation:isolate}
-  .btn-w:hover{transform:translateY(-2px);filter:brightness(1.06);box-shadow:0 14px 32px -12px rgba(0,0,0,.65)}
-  .btn-w:active{transform:translateY(0) scale(.97);filter:brightness(.96)}
-  .btn-o{border:1px solid var(--line-strong);color:var(--fg);background:rgba(255,255,255,.02);transition:transform .2s cubic-bezier(.16,1,.3,1),background .2s,border-color .2s;position:relative;overflow:hidden;isolation:isolate}
-  .btn-o:hover{transform:translateY(-2px);background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.35)}
-  .btn-o:active{transform:translateY(0) scale(.97);background:rgba(255,255,255,.04)}
+  .btn-w{background:#f5f5f5;color:#050505;font-weight:700;box-shadow:0 6px 18px -8px rgba(0,0,0,.55);transition:transform .2s cubic-bezier(.16,1,.3,1),box-shadow .2s,filter .2s;position:relative;overflow:hidden;isolation:isolate}
+  .btn-w:hover{transform:translateY(-2px) scale(1.02);filter:brightness(1.06);box-shadow:0 10px 26px -10px rgba(0,0,0,.6),0 0 0 4px var(--accent-dim)}
+  .btn-w:active{transform:translateY(0) scale(.96);filter:brightness(.96)}
+  .btn-o{border:1px solid var(--line-strong);color:var(--fg);background:rgba(255,255,255,.02);transition:transform .2s cubic-bezier(.16,1,.3,1),background .2s,border-color .2s,box-shadow .2s;position:relative;overflow:hidden;isolation:isolate}
+  .btn-o:hover{transform:translateY(-2px) scale(1.02);background:rgba(255,255,255,.06);border-color:var(--accent);box-shadow:0 0 0 4px var(--accent-dim)}
+  .btn-o:active{transform:translateY(0) scale(.96);background:rgba(255,255,255,.04)}
   .btn-w:focus-visible,.btn-o:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-  .btn-w:before,.btn-o:before{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(120deg,transparent,rgba(255,255,255,.5),transparent);transform:skewX(-20deg);z-index:1;transition:left .6s cubic-bezier(.16,1,.3,1)}
-  .btn-o:before{background:linear-gradient(120deg,transparent,rgba(255,255,255,.14),transparent)}
+  .btn-w:before,.btn-o:before{content:"";position:absolute;top:0;left:-60%;width:35%;height:100%;background:linear-gradient(120deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-20deg);z-index:1;transition:left .55s cubic-bezier(.16,1,.3,1)}
+  .btn-o:before{background:linear-gradient(120deg,transparent,rgba(255,255,255,.16),transparent)}
   .btn-w:hover:before,.btn-o:hover:before{left:130%}
   .btn-w>*,.btn-o>*{position:relative;z-index:2}
   /* consistent button sizing scale — always paired with .btn-w or .btn-o for color */
-  .btn-lg,.btn-md,.btn-sm{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;border-radius:8px;white-space:nowrap;letter-spacing:-.01em}
-  .btn-lg{padding:.95rem 1.9rem;font-size:.92rem;font-weight:700}
-  .btn-md{padding:.7rem 1.4rem;font-size:.84rem;font-weight:700}
-  .btn-sm{padding:.55rem 1.1rem;font-size:.78rem;font-weight:700}
-  @media(max-width:640px){.btn-lg{padding:.85rem 1.5rem;font-size:.88rem}}
+  .btn-lg,.btn-md,.btn-sm{display:inline-flex;align-items:center;justify-content:center;text-align:center;gap:.4rem;border-radius:8px;white-space:nowrap;letter-spacing:-.01em}
+  .btn-lg{padding:.7rem 1.5rem;font-size:.85rem;font-weight:700}
+  .btn-md{padding:.55rem 1.1rem;font-size:.78rem;font-weight:700}
+  .btn-sm{padding:.42rem .85rem;font-size:.72rem;font-weight:700}
   .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s cubic-bezier(.16,1,.3,1)}
   .reveal.in{opacity:1;transform:none}
   @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}}
@@ -182,12 +182,8 @@
       <p class="reveal text-lg sm:text-xl text-mute leading-relaxed mt-7 max-w-2xl" data-i18n="hero.sub">
         Trabajamos con pocos, muy en serio. Si tu audiencia ya es real, hablemos de lo que podemos construir juntos.
       </p>
-      <div class="reveal flex flex-col sm:flex-row gap-3 mt-10">
-        <a href="#contacto" class="btn-w btn-lg" data-i18n="hero.cta1">Agenda una llamada →</a>
-        <a href="#contacto" class="btn-o btn-lg" data-i18n="hero.cta2">Cuéntanos tu caso</a>
-      </div>
     </div>
-    <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 mt-20 reveal">
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 mt-16 reveal">
       <div><div class="display text-3xl font-bold" data-i18n="hero.stat1">70M+</div><div class="text-xs text-mute mt-1 uppercase tracking-wide" data-i18n="hero.stat1l">Seguidores en la red de socios</div></div>
       <div><div class="display text-3xl font-bold" data-i18n="hero.stat2">Equity</div><div class="text-xs text-mute mt-1 uppercase tracking-wide" data-i18n="hero.stat2l">Sin fee fijo en partnerships</div></div>
       <div><div class="display text-3xl font-bold" data-i18n="hero.stat3">24/7</div><div class="text-xs text-mute mt-1 uppercase tracking-wide" data-i18n="hero.stat3l">Agentes de IA operando</div></div>
