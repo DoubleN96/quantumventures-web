@@ -441,8 +441,8 @@
   <div class="grid lg:grid-cols-3 gap-6 mt-8 reveal">
     <div class="tier">
       <div class="text-xs font-bold tracking-widest uppercase text-mute" data-i18n="precios.starter.name">Starter</div>
-      <div class="price mt-3">297€<span class="text-base font-normal text-mute" data-i18n="precios.per">/mes</span></div>
-      <div class="text-xs text-mute mt-1" data-i18n="precios.starter.setup">+ 497€ setup único</div>
+      <div class="price mt-3" data-i18n="precios.custom">A medida</div>
+      <div class="text-xs text-mute mt-1" data-i18n="precios.closedNote">Precio cerrado en tu auditoría</div>
       <ul class="mt-6 space-y-1">
         <li data-i18n="precios.starter.li1">1 agente de IA a elegir</li>
         <li data-i18n="precios.starter.li2">Conectado a WhatsApp o Instagram</li>
@@ -454,8 +454,8 @@
     <div class="tier feat relative">
       <span class="absolute -top-3 left-8 bg-[#6d6dfb] text-white text-[.65rem] font-bold px-3 py-1 rounded-md tracking-wide uppercase" data-i18n="precios.growth.badge">Más elegido</span>
       <div class="text-xs font-bold tracking-widest uppercase text-mute" data-i18n="precios.growth.name">Growth</div>
-      <div class="price mt-3">697€<span class="text-base font-normal text-mute" data-i18n="precios.per">/mes</span></div>
-      <div class="text-xs text-mute mt-1" data-i18n="precios.growth.setup">+ 997€ setup único</div>
+      <div class="price mt-3" data-i18n="precios.custom">A medida</div>
+      <div class="text-xs text-mute mt-1" data-i18n="precios.closedNote">Precio cerrado en tu auditoría</div>
       <ul class="mt-6 space-y-1">
         <li data-i18n="precios.growth.li1">3 agentes (dudas + seguimiento + captación)</li>
         <li data-i18n="precios.growth.li2">CRM básico incluido</li>
@@ -466,8 +466,8 @@
     </div>
     <div class="tier">
       <div class="text-xs font-bold tracking-widest uppercase text-mute" data-i18n="precios.scale.name">Scale</div>
-      <div class="price mt-3"><span data-i18n="precios.scale.price">Desde 1.497€</span><span class="text-base font-normal text-mute" data-i18n="precios.per">/mes</span></div>
-      <div class="text-xs text-mute mt-1" data-i18n="precios.scale.setup">Setup a medida</div>
+      <div class="price mt-3" data-i18n="precios.custom">A medida</div>
+      <div class="text-xs text-mute mt-1" data-i18n="precios.closedNote">Precio cerrado en tu auditoría</div>
       <ul class="mt-6 space-y-1">
         <li data-i18n="precios.scale.li1">Agentes ilimitados, incluida revisión de técnica</li>
         <li data-i18n="precios.scale.li2">Integraciones a medida con tus herramientas</li>
@@ -477,7 +477,7 @@
       <a href="/v2/diagnostico/" class="btn-o btn-md justify-center mt-8" data-i18n="precios.scale.cta">Hablar de Scale</a>
     </div>
   </div>
-  <p class="text-xs text-mute mt-6 reveal" data-i18n="precios.footnote">Precios de referencia, orientativos — se confirman en la auditoría gratuita según canales y volumen real.</p>
+  <p class="text-xs text-mute mt-6 reveal" data-i18n="precios.footnote">Sin cifras genéricas: tu precio se cierra en la auditoría gratuita, según tus canales y volumen real.</p>
 </div></section>
 
 <!-- PROCESS -->
@@ -639,8 +639,8 @@ const I18N = {
     "precios.starter.name":"Starter","precios.starter.setup":"+ 497€ setup único","precios.starter.li1":"1 agente de IA a elegir","precios.starter.li2":"Conectado a WhatsApp o Instagram","precios.starter.li3":"Hasta 500 conversaciones/mes","precios.starter.li4":"Soporte por email","precios.starter.cta":"Empezar con Starter",
     "precios.growth.badge":"Más elegido","precios.growth.name":"Growth","precios.growth.setup":"+ 997€ setup único","precios.growth.li1":"3 agentes (dudas + seguimiento + captación)","precios.growth.li2":"CRM básico incluido","precios.growth.li3":"Hasta 2.000 conversaciones/mes","precios.growth.li4":"Soporte prioritario + revisión mensual","precios.growth.cta":"Empezar con Growth",
     "precios.scale.name":"Scale","precios.scale.price":"Desde 1.497€","precios.scale.setup":"Setup a medida","precios.scale.li1":"Agentes ilimitados, incluida revisión de técnica","precios.scale.li2":"Integraciones a medida con tus herramientas","precios.scale.li3":"Reporting semanal + account manager dedicado","precios.scale.li4":"Prioridad en nuevos agentes","precios.scale.cta":"Hablar de Scale",
-    "precios.per":"/mes",
-    "precios.footnote":"Precios de referencia, orientativos — se confirman en la auditoría gratuita según canales y volumen real.",
+    "precios.per":"/mes","precios.custom":"A medida","precios.closedNote":"Precio cerrado en tu auditoría",
+    "precios.footnote":"Sin cifras genéricas: tu precio se cierra en la auditoría gratuita, según tus canales y volumen real.",
     "proceso.eyebrow":"05 · Cómo trabajamos","proceso.h2":"Del diagnóstico al sistema funcionando en tus manos.","proceso.p":"Este es el camino para los Sistemas de IA — al final, el sistema es tuyo y lo operas tú. Nosotros te acompañamos en cada fase.",
     "proceso.s1.h4":"Onboarding","proceso.s1.p":"Rellenas la secuencia de <a href=\"/v2/diagnostico/\" class=\"text-white underline decoration-white/30 hover:decoration-white\">formularios de diagnóstico</a>: puntos de dolor, dónde pierdes más tiempo y qué infraestructura necesitas.",
     "proceso.s2.h4":"Diseñamos","proceso.s2.p":"Con tu contexto, diseñamos qué agentes instalar primero y en qué orden.",
@@ -714,8 +714,8 @@ const I18N = {
     "precios.starter.name":"Starter","precios.starter.setup":"+ €497 one-time setup","precios.starter.li1":"1 AI agent of your choice","precios.starter.li2":"Connected to WhatsApp or Instagram","precios.starter.li3":"Up to 500 conversations/month","precios.starter.li4":"Email support","precios.starter.cta":"Start with Starter",
     "precios.growth.badge":"Most popular","precios.growth.name":"Growth","precios.growth.setup":"+ €997 one-time setup","precios.growth.li1":"3 agents (FAQs + follow-up + lead gen)","precios.growth.li2":"Basic CRM included","precios.growth.li3":"Up to 2,000 conversations/month","precios.growth.li4":"Priority support + monthly review","precios.growth.cta":"Start with Growth",
     "precios.scale.name":"Scale","precios.scale.price":"From €1,497","precios.scale.setup":"Custom setup","precios.scale.li1":"Unlimited agents, including technique review","precios.scale.li2":"Custom integrations with your tools","precios.scale.li3":"Weekly reporting + dedicated account manager","precios.scale.li4":"Priority on new agents","precios.scale.cta":"Talk about Scale",
-    "precios.per":"/mo",
-    "precios.footnote":"Reference pricing — confirmed during the free audit based on your actual channels and volume.",
+    "precios.per":"/mo","precios.custom":"Custom","precios.closedNote":"Fixed price set during your audit",
+    "precios.footnote":"No generic numbers: your price is set during the free audit, based on your actual channels and volume.",
     "proceso.eyebrow":"05 · How we work","proceso.h2":"From diagnostic to a system running in your hands.","proceso.p":"This is the path for AI Systems — at the end, the system is yours and you run it. We're with you at every stage.",
     "proceso.s1.h4":"Onboarding","proceso.s1.p":"You fill out the <a href=\"/v2/diagnostico/\" class=\"text-white underline decoration-white/30 hover:decoration-white\">diagnostic form sequence</a>: pain points, where you lose the most time and what infrastructure you need.",
     "proceso.s2.h4":"We design","proceso.s2.p":"Using your context, we design which agents to install first and in what order.",
@@ -789,8 +789,8 @@ const I18N = {
     "precios.starter.name":"Starter","precios.starter.setup":"+ 497€ разовая настройка","precios.starter.li1":"1 ИИ-агент на выбор","precios.starter.li2":"Подключение к WhatsApp или Instagram","precios.starter.li3":"До 500 диалогов/месяц","precios.starter.li4":"Поддержка по email","precios.starter.cta":"Начать со Starter",
     "precios.growth.badge":"Самый популярный","precios.growth.name":"Growth","precios.growth.setup":"+ 997€ разовая настройка","precios.growth.li1":"3 агента (вопросы + сопровождение + привлечение)","precios.growth.li2":"Базовая CRM включена","precios.growth.li3":"До 2 000 диалогов/месяц","precios.growth.li4":"Приоритетная поддержка + ежемесячный обзор","precios.growth.cta":"Начать с Growth",
     "precios.scale.name":"Scale","precios.scale.price":"От 1 497€","precios.scale.setup":"Индивидуальная настройка","precios.scale.li1":"Неограниченное число агентов, включая проверку техники","precios.scale.li2":"Индивидуальные интеграции с вашими инструментами","precios.scale.li3":"Еженедельная отчётность + выделенный менеджер","precios.scale.li4":"Приоритет на новых агентов","precios.scale.cta":"Обсудить Scale",
-    "precios.per":"/мес",
-    "precios.footnote":"Ориентировочные цены — подтверждаются на бесплатном аудите с учётом реальных каналов и объёма.",
+    "precios.per":"/мес","precios.custom":"Индивидуально","precios.closedNote":"Фиксированная цена по итогам аудита",
+    "precios.footnote":"Без общих цифр: ваша цена определяется на бесплатном аудите, с учётом ваших каналов и объёма.",
     "proceso.eyebrow":"05 · Как мы работаем","proceso.h2":"От диагностики до системы, работающей в ваших руках.","proceso.p":"Это путь для ИИ-систем — в итоге система принадлежит вам, и управляете ею вы. Мы сопровождаем вас на каждом этапе.",
     "proceso.s1.h4":"Онбординг","proceso.s1.p":"Вы заполняете серию <a href=\"/v2/diagnostico/\" class=\"text-white underline decoration-white/30 hover:decoration-white\">диагностических форм</a>: болевые точки, где вы теряете больше всего времени и какая инфраструктура вам нужна.",
     "proceso.s2.h4":"Проектируем","proceso.s2.p":"На основе вашего контекста определяем, каких агентов устанавливать первыми и в каком порядке.",
