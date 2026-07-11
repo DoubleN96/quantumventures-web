@@ -35,12 +35,15 @@
   .ghost-num{font-family:'Inter';font-weight:800;-webkit-text-stroke:1.5px rgba(255,255,255,.18);color:transparent}
   .beam{position:absolute;left:50%;top:0;width:1px;height:100%;background:linear-gradient(180deg,transparent,rgba(255,255,255,.16) 30%,rgba(255,255,255,.16) 70%,transparent);transform:translateX(-50%)}
   .beam-glow{position:absolute;left:50%;top:8%;width:560px;height:560px;transform:translate(-50%,0);border-radius:50%;background:radial-gradient(circle,var(--accent-dim),transparent 68%);filter:blur(30px);pointer-events:none}
-  /* scroll-scrubbed fusion video — plays forward to the fusion moment as the section scrolls through view */
+  /* scroll-driven fusion animation — two atoms converge as the section scrolls through view */
   .fusion-section{min-height:100vh;display:flex;align-items:center;padding:64px 0}
   .fusion-visual{position:absolute;inset:0;overflow:hidden;pointer-events:none}
-  .fusion-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
+  .fusion-atom{position:absolute;top:50%;left:50%;width:min(46vw,620px);aspect-ratio:1/1;background-size:contain;background-repeat:no-repeat;background-position:center;will-change:transform,opacity}
+  .fusion-flash{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;will-change:opacity}
+  .fusion-flash .core{width:min(30vw,420px);aspect-ratio:1/1;border-radius:50%;background:radial-gradient(circle,#fff 0%,var(--accent) 38%,transparent 72%);filter:blur(4px)}
   .fusion-veil{position:absolute;inset:0;background:radial-gradient(ellipse 60% 55% at 50% 50%,rgba(5,5,5,.72) 0%,rgba(5,5,5,.55) 45%,var(--bg) 100%)}
-  @media(max-width:640px){.fusion-section{min-height:auto;padding:96px 0 80px}}
+  @media(prefers-reduced-motion:reduce){.fusion-atom{transform:translate(-50%,-50%) !important}}
+  @media(max-width:640px){.fusion-section{min-height:auto;padding:96px 0 80px}.fusion-atom{width:min(60vw,320px)}}
   .hero-photo{position:absolute;inset:0;background-image:url('/v2/assets/hero-glow.jpg');background-size:cover;background-position:center 60%;opacity:.55}
   .hero-photo:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,5,5,.2),var(--bg) 88%)}
   .side-photo{border-radius:16px;overflow:hidden;border:1px solid var(--line);aspect-ratio:3/4;background-size:cover;background-position:center}
@@ -100,26 +103,26 @@
   .imagine .tag{display:inline-block;font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
   .tag-pill{display:inline-flex;align-items:center;padding:7px 14px;border-radius:999px;background:rgba(255,255,255,.05);border:1px solid var(--line);font-size:.82rem;color:var(--fg);font-weight:500}
   /* product mockup — visual proof instead of more text */
-  .mockup-frame{background:var(--panel);border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 40px 90px -40px rgba(0,0,0,.7)}
-  .mockup-bar{display:flex;align-items:center;gap:6px;padding:14px 18px;border-bottom:1px solid var(--line)}
+  .mockup-frame{background:linear-gradient(180deg,var(--panel-2),var(--panel));border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 40px 90px -40px rgba(0,0,0,.7),0 0 70px -24px rgba(109,109,251,.4)}
+  .mockup-bar{display:flex;align-items:center;gap:6px;padding:14px 18px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,rgba(109,109,251,.10),transparent)}
   .mockup-bar span.dot-sm{width:9px;height:9px;border-radius:99px;background:rgba(255,255,255,.15);flex:0 0 auto}
   .mockup-bar .who{width:auto;height:auto;border-radius:0;background:none;margin-left:10px;font-size:.76rem;color:var(--mute);font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex:1 1 auto;min-width:0}
   .mockup-body{padding:clamp(20px,3vw,32px);display:flex;flex-direction:column;gap:10px}
   .chat-bubble{max-width:78%;padding:11px 16px;border-radius:14px;font-size:.88rem;line-height:1.55}
-  .chat-bubble.in{align-self:flex-start;background:rgba(255,255,255,.06);color:var(--fg);border-bottom-left-radius:4px}
+  .chat-bubble.in{align-self:flex-start;background:rgba(255,255,255,.08);color:var(--fg);border-bottom-left-radius:4px}
   .chat-bubble.out{align-self:flex-end;background:var(--accent);color:#fff;font-weight:500;border-bottom-right-radius:4px}
   .chat-bubble.out.tg{background:var(--accent)}
   .mockup-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px;padding-top:20px;border-top:1px solid var(--line)}
   .mockup-stats .n{font-family:'Inter';font-weight:800;font-size:1.5rem;color:var(--fg)}
   .mockup-stats .l{font-size:.66rem;color:var(--mute);text-transform:uppercase;letter-spacing:.05em;margin-top:2px}
   /* dashboard mockup */
-  .dash-card{background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:12px;padding:14px}
+  .dash-card{background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:12px;padding:14px;box-shadow:inset 0 1px 0 rgba(255,255,255,.05)}
   .dash-card .dl{font-size:.64rem;color:var(--mute);text-transform:uppercase;letter-spacing:.04em}
   .dash-card .dv{font-family:'Inter';font-weight:800;font-size:1.35rem;margin-top:6px;color:var(--fg)}
   .dash-card .dd{font-size:.72rem;margin-top:4px;font-weight:600;color:var(--accent)}
   .dash-chart{display:flex;align-items:flex-end;gap:8px;height:80px;padding-top:18px;border-top:1px solid var(--line)}
-  .dash-chart .bar{flex:1;background:var(--accent);border-radius:4px 4px 2px 2px;opacity:.9}
-  .dash-leads{background:rgba(255,255,255,.02);border:1px solid var(--line);border-radius:12px;padding:14px}
+  .dash-chart .bar{flex:1;background:linear-gradient(180deg,#a5a5ff,var(--accent));border-radius:4px 4px 2px 2px;box-shadow:0 0 16px -4px rgba(109,109,251,.6)}
+  .dash-leads{background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:12px;padding:14px}
   .dash-leads .t{font-size:.64rem;color:var(--mute);text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px}
   .dash-lead{display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-top:1px solid var(--line)}
   .dash-lead:first-of-type{border-top:none;padding-top:0}
@@ -233,9 +236,9 @@
 <!-- FUSION STORYTELLING -->
 <section class="fusion-section relative overflow-hidden">
   <div class="fusion-visual">
-    <video class="fusion-video" muted playsinline preload="auto">
-      <source src="/v2/assets/atoms-bg.mp4" type="video/mp4">
-    </video>
+    <div class="fusion-atom left" style="background-image:url('/v2/assets/atom-left.png')"></div>
+    <div class="fusion-atom right" style="background-image:url('/v2/assets/atom-right.png')"></div>
+    <div class="fusion-flash"><div class="core"></div></div>
     <div class="fusion-veil"></div>
   </div>
   <div class="wrap text-center relative" style="z-index:1">
@@ -295,7 +298,7 @@
   <div class="wrap relative">
     <div class="text-center max-w-2xl mx-auto">
       <span class="eyebrow reveal justify-center"><span class="dot"></span><span data-i18n="contacto.eyebrow">Hablemos</span></span>
-      <h2 class="display reveal text-4xl sm:text-6xl font-bold mt-5" data-i18n="contacto.h2">El primer paso es una conversación.</h2>
+      <h2 class="display reveal text-4xl sm:text-6xl font-bold mt-5" data-i18n="contacto.h2">Activa tu potencial con Quantum.</h2>
       <p class="reveal text-mute text-lg mt-6" data-i18n="contacto.p">Sin compromiso. Te decimos con franqueza si tu negocio encaja mejor en un partnership o en un plan de sistemas de IA — respondemos en menos de 24h.</p>
     </div>
 
@@ -375,27 +378,32 @@ setTimeout(()=>{const t=document.getElementById('toast');t.classList.add('show')
 (function initFusionScroll(){
   const vis = document.querySelector('.fusion-visual');
   if(!vis) return;
-  const video = vis.querySelector('.fusion-video');
-  if(!video) return;
-  const FUSION_TIME = 4.9; // seconds into the clip where the atoms are fully merged — never scrub past this
-  const SPEED = 1.8; // >1 = reaches the fusion moment before the section finishes scrolling through
+  const atomL = vis.querySelector('.fusion-atom.left');
+  const atomR = vis.querySelector('.fusion-atom.right');
+  const flash = vis.querySelector('.fusion-flash');
   const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if(reduced){
-    video.addEventListener('loadedmetadata', () => { video.currentTime = FUSION_TIME; }, { once: true });
+    atomL.style.transform = 'translate(calc(-50% - 70px),-50%)';
+    atomR.style.transform = 'translate(calc(-50% + 70px),-50%)';
     return;
   }
-  let ready = false;
-  video.addEventListener('loadedmetadata', () => { ready = true; update(); }, { once: true });
+  const SPEED = 1.8; // >1 = convergence completes before the section finishes scrolling through
   let ticking = false;
   function update(){
     ticking = false;
-    if(!ready) return;
     const r = vis.getBoundingClientRect();
     const vh = window.innerHeight || document.documentElement.clientHeight;
     let p = 1 - (r.bottom / (vh + r.height));
     p = Math.max(0, Math.min(1, p * SPEED));
     const e = p * p * (3 - 2 * p);
-    try { video.currentTime = e * FUSION_TIME; } catch(err) {}
+    const maxSpread = Math.min(r.width, vh) * 0.34;
+    const spread = (1 - e) * maxSpread;
+    atomL.style.transform = `translate(calc(-50% - ${spread}px),-50%) scale(${1 - e * 0.12})`;
+    atomR.style.transform = `translate(calc(-50% + ${spread}px),-50%) scale(${1 - e * 0.12})`;
+    const flashP = Math.max(0, (e - 0.7) / 0.3);
+    flash.style.opacity = flashP;
+    atomL.style.opacity = 1 - flashP * 0.55;
+    atomR.style.opacity = 1 - flashP * 0.55;
   }
   function onScroll(){ if(!ticking){ ticking = true; requestAnimationFrame(update); } }
   window.addEventListener('scroll', onScroll, { passive: true });
@@ -471,7 +479,7 @@ const I18N = {
     "proceso.s3.h4":"Implementamos","proceso.s3.p":"Reunión de implementación física del sistema: datos sensibles, conexiones y accesos (MCPs, CRM, canales).",
     "proceso.s4.h4":"Manual","proceso.s4.p":"Te entregamos el manual de utilización — tú operas el sistema desde el día 1.",
     "proceso.s5.h4":"Soporte","proceso.s5.p":"Seguimiento, mantenimiento y soporte continuo mientras lo operas tú.",
-    "contacto.eyebrow":"Hablemos","contacto.h2":"El primer paso es una conversación.","contacto.p":"Sin compromiso. Te decimos con franqueza si tu negocio encaja mejor en un partnership o en un plan de sistemas de IA — respondemos en menos de 24h.",
+    "contacto.eyebrow":"Hablemos","contacto.h2":"Activa tu potencial con Quantum.","contacto.p":"Sin compromiso. Te decimos con franqueza si tu negocio encaja mejor en un partnership o en un plan de sistemas de IA — respondemos en menos de 24h.",
     "contacto.f.nombre":"Nombre *","contacto.f.nombrePh":"Tu nombre","contacto.f.email":"Email *","contacto.f.emailPh":"tu@email.com","contacto.f.telefono":"Teléfono","contacto.f.telefonoPh":"+34 600 000 000","contacto.f.negocio":"Negocio / Instagram","contacto.f.negocioPh":"@tu_negocio",
     "contacto.f.interes":"Te interesa","contacto.f.optSistemas":"Quantum Stack","contacto.f.optPartnership":"Quantum Venture","contacto.f.optNoSe":"No lo tengo claro",
     "contacto.f.mensaje":"Cuéntanos en una línea qué te quita más tiempo","contacto.f.mensajePh":"Ej: contesto las mismas dudas de nutrición 20 veces al día",
@@ -566,7 +574,7 @@ const I18N = {
     "proceso.s3.h4":"We implement","proceso.s3.p":"Implementation meeting to physically set up the system: sensitive data, connections and access (MCPs, CRM, channels).",
     "proceso.s4.h4":"Manual","proceso.s4.p":"We hand you the usage manual — you run the system from day 1.",
     "proceso.s5.h4":"Support","proceso.s5.p":"Ongoing follow-up, maintenance and support while you run it.",
-    "contacto.eyebrow":"Let's talk","contacto.h2":"The first step is a conversation.","contacto.p":"No strings attached. We'll tell you honestly whether your business fits better with a partnership or an AI systems plan — we reply in under 24h.",
+    "contacto.eyebrow":"Let's talk","contacto.h2":"Activate your potential with Quantum.","contacto.p":"No strings attached. We'll tell you honestly whether your business fits better with a partnership or an AI systems plan — we reply in under 24h.",
     "contacto.f.nombre":"Name *","contacto.f.nombrePh":"Your name","contacto.f.email":"Email *","contacto.f.emailPh":"you@email.com","contacto.f.telefono":"Phone","contacto.f.telefonoPh":"+1 000 000 0000","contacto.f.negocio":"Business / Instagram","contacto.f.negocioPh":"@your_business",
     "contacto.f.interes":"You're interested in","contacto.f.optSistemas":"Quantum Stack","contacto.f.optPartnership":"Quantum Venture","contacto.f.optNoSe":"Not sure yet",
     "contacto.f.mensaje":"Tell us in one line what takes up most of your time","contacto.f.mensajePh":"E.g.: I answer the same nutrition questions 20 times a day",
@@ -661,7 +669,7 @@ const I18N = {
     "proceso.s3.h4":"Внедряем","proceso.s3.p":"Встреча по физическому внедрению системы: чувствительные данные, подключения и доступы (MCP, CRM, каналы).",
     "proceso.s4.h4":"Инструкция","proceso.s4.p":"Передаём вам инструкцию по использованию — вы управляете системой с первого дня.",
     "proceso.s5.h4":"Поддержка","proceso.s5.p":"Постоянное сопровождение, обслуживание и поддержка, пока вы управляете системой.",
-    "contacto.eyebrow":"Обсудим","contacto.h2":"Первый шаг — это разговор.","contacto.p":"Без обязательств. Мы честно скажем, подходит ли ваш бизнес больше для партнёрства или для плана ИИ-систем — ответим в течение 24 часов.",
+    "contacto.eyebrow":"Обсудим","contacto.h2":"Раскрой свой потенциал с Quantum.","contacto.p":"Без обязательств. Мы честно скажем, подходит ли ваш бизнес больше для партнёрства или для плана ИИ-систем — ответим в течение 24 часов.",
     "contacto.f.nombre":"Имя *","contacto.f.nombrePh":"Ваше имя","contacto.f.email":"Email *","contacto.f.emailPh":"you@email.com","contacto.f.telefono":"Телефон","contacto.f.telefonoPh":"+7 900 000 00 00","contacto.f.negocio":"Бизнес / Instagram","contacto.f.negocioPh":"@ваш_бизнес",
     "contacto.f.interes":"Вас интересует","contacto.f.optSistemas":"Quantum Stack","contacto.f.optPartnership":"Quantum Venture","contacto.f.optNoSe":"Пока не уверен(а)",
     "contacto.f.mensaje":"Одной строкой — что отнимает больше всего времени","contacto.f.mensajePh":"Например: отвечаю на одни и те же вопросы о питании 20 раз в день",
