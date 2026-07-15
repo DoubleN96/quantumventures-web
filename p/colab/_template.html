@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Propuesta de colaboración · {{PROGRAM_NAME}} × {{COLLAB_NAME}}</title>
+<meta property="og:title" content="Propuesta para {{COLLAB_NAME}} · {{PROGRAM_NAME}}" />
+<meta property="og:description" content="{{WHY_LINE}}" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#0A0A0B; --surface:#141417; --surface-2:#1C1C21; --line:#2A2A31;
+    --text:#F2F2F0; --muted:#9A9AA3; --accent:{{ACCENT}}; --accent-dim:{{ACCENT_DIM}};
+    --warm:#FFB86B;
+    --font-d:'Space Grotesk',sans-serif; --font-b:'Inter',sans-serif;
+    --maxw:1080px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--text);font-family:var(--font-b);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  section{padding:110px 0;position:relative}
+  h1,h2,h3{font-family:var(--font-d);font-weight:700;line-height:1.05;letter-spacing:-0.02em}
+  .eyebrow{font-family:var(--font-d);font-weight:600;font-size:13px;letter-spacing:0.18em;text-transform:uppercase;color:var(--accent);margin-bottom:22px}
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
+  .reveal.in{opacity:1;transform:none}
+
+  /* HERO */
+  .hero{min-height:100vh;display:flex;align-items:center;padding:0;overflow:hidden}
+  .hero::before{content:"";position:absolute;inset:0;background:radial-gradient(900px 500px at 78% 12%,color-mix(in srgb,var(--accent) 14%,transparent),transparent 60%),radial-gradient(700px 500px at 10% 90%,rgba(255,184,107,.08),transparent 55%);pointer-events:none}
+  .hero-grid{position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:64px 64px;opacity:.15;mask-image:radial-gradient(circle at 70% 20%,black,transparent 75%)}
+  .hero h1{font-size:clamp(2.9rem,7vw,6rem);letter-spacing:-0.03em}
+  .hero h1 .x{color:var(--accent);font-weight:400}
+  .hero .lead{font-size:clamp(1.05rem,2vw,1.4rem);color:var(--muted);max-width:620px;margin-top:28px}
+  .hero .tag{display:inline-flex;gap:10px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:50px;padding:9px 18px;font-size:13px;font-weight:600;color:var(--muted);margin-bottom:34px}
+  .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 12px var(--accent)}
+  .scroll-hint{position:absolute;bottom:34px;left:24px;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+
+  .sec-head{max-width:720px;margin-bottom:56px}
+  .sec-head h2{font-size:clamp(2rem,4.5vw,3.3rem)}
+  .sec-head p{color:var(--muted);font-size:1.12rem;margin-top:20px}
+
+  /* WHY YOU */
+  .why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
+  .why-card{background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:14px;padding:26px}
+  .why-card .n{font-family:var(--font-d);font-size:13px;color:var(--accent);font-weight:600;letter-spacing:.1em}
+  .why-card h3{font-size:1.18rem;margin:12px 0 8px}
+  .why-card p{color:var(--muted);font-size:.96rem}
+
+  /* EARNINGS */
+  .value{background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .stack{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+  .stack-list{display:flex;flex-direction:column;gap:14px}
+  .stack-row{display:flex;justify-content:space-between;align-items:center;gap:18px;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:20px 22px;transition:border-color .3s,transform .3s}
+  .stack-row:hover{border-color:var(--accent-dim);transform:translateX(4px)}
+  .stack-row .l h4{font-family:var(--font-d);font-size:1.06rem;font-weight:600}
+  .stack-row .l span{color:var(--muted);font-size:.9rem}
+  .stack-row .v{font-family:var(--font-d);font-weight:700;font-size:1.15rem;color:var(--accent);white-space:nowrap}
+  .total-card{background:linear-gradient(160deg,#181a12,#101109);border:1px solid var(--accent-dim);border-radius:20px;padding:40px 34px;position:relative;overflow:hidden}
+  .total-card::before{content:"";position:absolute;top:-40%;right:-20%;width:60%;height:120%;background:radial-gradient(circle,color-mix(in srgb,var(--accent) 18%,transparent),transparent 65%)}
+  .total-card .k{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:600}
+  .total-card .big{font-family:var(--font-d);font-size:clamp(3rem,7vw,4.6rem);font-weight:700;line-height:1;margin:14px 0 6px;letter-spacing:-.03em}
+  .total-card .big small{font-size:1.3rem;color:var(--muted);font-weight:500}
+  .total-card p{color:var(--muted);font-size:.98rem;margin-top:16px;position:relative}
+
+  /* STEPS / GIVES */
+  .pillars-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px}
+  .pillar{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:30px;transition:transform .35s,border-color .35s}
+  .pillar:hover{transform:translateY(-6px);border-color:var(--accent-dim)}
+  .pillar .num{font-family:var(--font-d);font-size:2.4rem;font-weight:700;color:var(--accent);opacity:.9}
+  .pillar h3{font-size:1.24rem;margin:8px 0 12px}
+  .pillar p{color:var(--muted);font-size:.95rem}
+
+  /* MODEL */
+  .model{background:linear-gradient(180deg,transparent,color-mix(in srgb,var(--accent) 4%,transparent))}
+  .model-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .model-card{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:40px 34px}
+  .model-card.hl{border-color:var(--accent-dim);background:linear-gradient(160deg,#16180f,var(--surface))}
+  .model-card .k{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600}
+  .split{font-family:var(--font-d);font-size:clamp(3rem,8vw,5rem);font-weight:700;letter-spacing:-.03em;margin:10px 0}
+  .model-card p{color:var(--muted)}
+  .align{margin-top:26px;text-align:center;font-family:var(--font-d);font-size:clamp(1.3rem,3vw,2rem);font-weight:600}
+  .align b{color:var(--accent)}
+
+  /* CTA */
+  .cta{text-align:center}
+  .cta h2{font-size:clamp(2.2rem,6vw,4rem);max-width:800px;margin:0 auto}
+  .cta p{color:var(--muted);font-size:1.15rem;margin:24px auto 40px;max-width:540px}
+  .btn{display:inline-block;background:var(--accent);color:#0A0A0B;font-family:var(--font-d);font-weight:700;font-size:1.05rem;padding:18px 42px;border-radius:50px;text-decoration:none;transition:transform .25s,box-shadow .25s}
+  .btn:hover{transform:translateY(-3px);box-shadow:0 14px 40px color-mix(in srgb,var(--accent) 28%,transparent)}
+
+  footer{border-top:1px solid var(--line);padding:40px 0;text-align:center;color:var(--muted);font-size:.9rem}
+
+  @media(max-width:820px){
+    .stack{grid-template-columns:1fr;gap:28px}
+    .model-grid{grid-template-columns:1fr}
+    section{padding:80px 0}
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="wrap">
+    <div class="tag reveal"><span class="dot"></span> Propuesta preparada para {{COLLAB_HANDLE}} · confidencial</div>
+    <h1 class="reveal">{{PROGRAM_NAME}} <span class="x">×</span><br/>{{COLLAB_NAME}}</h1>
+    <p class="lead reveal">{{WHY_LINE}}</p>
+  </div>
+  <div class="scroll-hint reveal">Scroll ↓</div>
+</section>
+
+<!-- POR QUÉ TÚ -->
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">Por qué tú</div>
+      <h2>Esto no es un mensaje masivo.</h2>
+      <p>Hemos mirado tu perfil antes de escribirte. Con {{COLLAB_AUDIENCE}} en {{COLLAB_NICHE}}, tu comunidad es exactamente el perfil que más resultados saca de {{PROGRAM_NAME}} — por eso te proponemos ser colaborador oficial, no un afiliado más.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal"><div class="n">01</div><h3>Tu audiencia encaja</h3><p>{{FIT_1}}</p></div>
+      <div class="why-card reveal"><div class="n">02</div><h3>Ya tienes la confianza</h3><p>{{FIT_2}}</p></div>
+      <div class="why-card reveal"><div class="n">03</div><h3>Sin trabajo extra</h3><p>Nosotros ponemos los materiales, el soporte y la operativa. Tú solo recomiendas con tu código.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CUÁNTO GANAS -->
+<section class="value">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">La parte importante</div>
+      <h2>Cuánto ganas, con números.</h2>
+      <p>{{PROGRAM_NAME}} cuesta {{PRICE}} y tú te llevas el {{COMMISSION_PCT}} de cada alta que llegue con tu código. Sin techo, sin exclusividad, sin coste de entrada.</p>
+    </div>
+    <div class="stack">
+      <div class="stack-list">
+        <div class="stack-row reveal"><div class="l"><h4>1 alta con tu código</h4><span>Una recomendación en stories</span></div><div class="v">{{EARN_1}}</div></div>
+        <div class="stack-row reveal"><div class="l"><h4>5 altas / mes</h4><span>Un post + stories a tu ritmo</span></div><div class="v">{{EARN_5}}</div></div>
+        <div class="stack-row reveal"><div class="l"><h4>15 altas / mes</h4><span>Contenido recurrente + tu comunidad activa</span></div><div class="v">{{EARN_15}}</div></div>
+        <div class="stack-row reveal"><div class="l"><h4>Bonus por hitos</h4><span>Premios y % mejorado al superar objetivos</span></div><div class="v">extra</div></div>
+      </div>
+      <div class="total-card reveal">
+        <div class="k">Potencial realista para tu perfil</div>
+        <div class="big"><span class="count" data-to="{{EARN_MONTH_NUM}}">0</span>&nbsp;{{CURRENCY}}<small>&nbsp;/mes</small></div>
+        <p>Estimación conservadora con tu audiencia actual ({{COLLAB_AUDIENCE}}). Cada mes, recurrente, con liquidación puntual y reporting transparente.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CÓMO FUNCIONA -->
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">Cómo funciona</div>
+      <h2>3 pasos. Cero fricción.</h2>
+    </div>
+    <div class="pillars-grid">
+      <div class="pillar reveal"><div class="num">01</div><h3>Tu código único</h3><p>Te damos tu código ({{CODE}}) y tu enlace. Todo lo que entre por ahí es tuyo — atribución limpia y automática.</p></div>
+      <div class="pillar reveal"><div class="num">02</div><h3>Compartes a tu ritmo</h3><p>Kit listo: plantillas de stories y reels, argumentos y FAQ. Tu código además da un beneficio exclusivo a tu audiencia.</p></div>
+      <div class="pillar reveal"><div class="num">03</div><h3>Cobras cada mes</h3><p>Liquidación mensual con el detalle de cada alta. Contrato claro, pagos puntuales, sin sorpresas.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- LO QUE TE DAMOS -->
+<section class="value">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">Lo que te damos</div>
+      <h2>Trato de partner, no de afiliado.</h2>
+    </div>
+    <div class="pillars-grid">
+      <div class="pillar reveal"><h3>Kit de contenido</h3><p>Plantillas de stories/reels, creatividades y guiones probados — publicar te lleva minutos.</p></div>
+      <div class="pillar reveal"><h3>Beneficio para tu audiencia</h3><p>Tu código da {{AUDIENCE_PERK}} a quien entre contigo. Tú quedas bien, ellos ganan, tú cobras.</p></div>
+      <div class="pillar reveal"><h3>Reporting transparente</h3><p>Sabes en todo momento cuántas altas llevas y cuánto has generado. Nada opaco.</p></div>
+      <div class="pillar reveal"><h3>Acceso directo</h3><p>Línea directa con el equipo (no un formulario). Ideas de contenido y soporte cuando lo necesites.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- MODELO -->
+<section class="model">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">Las condiciones</div>
+      <h2>Claras y por escrito.</h2>
+    </div>
+    <div class="model-grid">
+      <div class="model-card hl reveal">
+        <div class="k">Tu comisión</div>
+        <div class="split">{{COMMISSION_PCT}}</div>
+        <p>De cada alta atribuida a tu código. Con niveles: al superar hitos de volumen, el porcentaje sube.</p>
+      </div>
+      <div class="model-card reveal">
+        <div class="k">El acuerdo</div>
+        <div style="font-family:var(--font-d);font-size:2rem;font-weight:700;margin:8px 0">Sin ataduras</div>
+        <p>No exclusivo, sin permanencia forzada, sin coste de alta. Contrato simple de colaboración con liquidación mensual. Lo puedes dejar cuando quieras (las comisiones ya generadas se respetan).</p>
+      </div>
+    </div>
+    <div class="align reveal">Tú pones la recomendación. Nosotros, todo lo demás. <b>Ganamos los dos.</b></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="eyebrow" style="justify-content:center">Siguiente paso</div>
+      <h2>¿Lo vemos en 15 minutos?</h2>
+      <p>Sin compromiso: te contamos el programa por dentro, resolvemos dudas y, si encaja, sales con tu código activado esa misma semana.</p>
+      <a class="btn" href="{{CAL_URL}}">Agendar 15 min →</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  {{BRAND_FOOTER}} · Propuesta de colaboración para {{COLLAB_NAME}} · Documento confidencial
+</footer>
+
+<script>
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+  document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%6*60)+'ms';io.observe(el)});
+  // count-up del potencial mensual al entrar en viewport
+  const cio=new IntersectionObserver((es)=>{es.forEach(e=>{if(!e.isIntersecting)return;cio.unobserve(e.target);
+    const el=e.target,to=parseInt(el.dataset.to,10)||0,t0=performance.now(),dur=1400;
+    (function tick(t){const p=Math.min((t-t0)/dur,1),v=Math.round(to*(1-Math.pow(1-p,3)));
+      el.textContent=v.toLocaleString('es-ES');if(p<1)requestAnimationFrame(tick)})(t0);
+  })},{threshold:.4});
+  document.querySelectorAll('.count').forEach(el=>cio.observe(el));
+</script>
+</body>
+</html>
